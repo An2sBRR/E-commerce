@@ -11,6 +11,7 @@ Coté Client :
 - [ ] Mars
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
 - [ ] Filtrer sa recherche
+- [ ] Faire les abonnements
 
 Coté Vendeur
 - [ ] S'identifier
