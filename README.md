@@ -9,11 +9,14 @@ Coté Client :
 - [ ] Venus
 - [ ] Earth (Orbit/Moon)
 - [ ] Mars
+- [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
+- [ ] Filtrer sa recherche
 
 Coté Vendeur
 - [ ] S'identifier
-- [ ] Ajouter/Modifier/Supprimer un produit
+- [ ] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
 - [ ] Suivre les ventes
+- [ ] Signer/Renouveller/Résilier son contrat
 
 Coté MarketPlace
 - [ ] S'identifier
