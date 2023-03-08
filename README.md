@@ -14,13 +14,13 @@ Coté Client :
 - [ ] Faire les abonnements
 
 Coté Vendeur
-- [ ] S'identifier
+- [X] S'identifier
 - [ ] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
 - [ ] Suivre les ventes
 - [ ] Signer/Renouveller/Résilier son contrat
 
 Coté MarketPlace
-- [ ] S'identifier
+- [X] S'identifier
 - [ ] Ajouter un produit
 - [ ] Ajouter un vendeur
 - [ ] Afficher son chiffre d'affaires
