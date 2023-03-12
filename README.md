@@ -6,20 +6,20 @@
 - [X] Avoir une équipe de BG :grin:
 
 Coté Client :
-- [ ] Venus
-- [ ] Earth (Orbit/Moon)
-- [ ] Mars
+
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
 - [ ] Filtrer sa recherche
 - [ ] Faire les abonnements
 
-Coté Vendeur
+Coté Vendeur :
+
 - [X] S'identifier
 - [ ] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
 - [ ] Suivre les ventes
 - [ ] Signer/Renouveller/Résilier son contrat
 
-Coté MarketPlace
+Coté MarketPlace :
+
 - [X] S'identifier
 - [ ] Ajouter un produit
 - [ ] Ajouter un vendeur
