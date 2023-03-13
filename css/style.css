@@ -38,20 +38,31 @@ a, a:hover{
     float: left; /*On le garde a gauche*/
     
 }
+
+.logo:hover{
+    font-size: 150%;  /*leger zoom quand on passe dessus*/
+}
+
 header .reseauxlog{
     font-size: 200%;
-    color: rgb(95, 60, 6);
+    color: rgb(0, 0, 0);
     
 }
 
 header .reseauxlog:hover{
     color:bisque;
+    font-size: 300%;  /*Zoom des logos quand on passe dessus*/
 }
 
 
-.menu {
-    float: right /*On le met à droite*/
+/* .menu {
+   float: right; On le met à droite
     text-align: center;  
+}*/
+
+.menu{
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .menu a {
@@ -239,6 +250,16 @@ textarea{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+
+  }
+  
+  .searchButton i{
+    display: flex;  /*Pour centrer la loupe*/  
+  }
+
+  .searchButton i:hover{
+    color: #000000;
+    font-size: 115%;  /*léger zoom sur la loupe*/
   }
   
   /*Resize the wrap to see the search bar change!*/
