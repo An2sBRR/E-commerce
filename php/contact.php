@@ -3,16 +3,16 @@
     $today = date('Y-m-d');
     $date_min = date('1905-01-01');
 
-    $prenom = htmlentities($_POST['prenom']);
-    $nom = htmlentities($_POST['nom']);
-    $type_util = htmlentities($_POST['type_util']);
-    $sujet = htmlentities($_POST['sujet']);
-    $email = htmlentities($_POST['email']);
-    $genre = htmlentities($_POST['genre']);
-    $date_contact = htmlentities($_POST['date_contact']);
-    $date_naissance = htmlentities($_POST['date_naissance']);
-    $contenu = htmlentities($_POST['Contenu']);
-    $envoyer = $_POST["envoyer"];
+    $nom = isset($_POST['nom']) ? htmlentities($_POST['nom']) : "";
+    $email = isset($_POST['email']) ? htmlentities($_POST['email']) : "";
+    $date_naissance = isset($_POST['date_naissance']) ? htmlentities($_POST['date_naissance']) : "";
+    $type_util = isset($_POST['type_util']) ? htmlentities($_POST['type_util']) : "";
+    $prenom = isset($_POST['prenom']) ? htmlentities($_POST['prenom']) : "";
+    $genre = isset($_POST['genre']) ? htmlentities($_POST['genre']) : "";
+    $date_contact = isset($_POST['date_contact']) ? htmlentities($_POST['date_contact']) : "";
+    $sujet = isset($_POST['sujet']) ? htmlentities($_POST['sujet']) : "";
+    $contenu = isset($_POST['Contenu']) ? htmlentities($_POST['Contenu']) : "";
+    $succes="";
 
     $erreurNom = "";
     $erreurPrenom = "";
@@ -26,9 +26,9 @@
     $erreurGenre = "";
     $nbr_erreur = 0;
 
-    if (isset($envoyer)) {
+    if (isset($_POST['envoyer'])) {
         if (empty($genre) || !isset($genre)) {
-            $erreurGenre = '<pre class="erreurGenre" style="color:red;">Séléctionnez un genre</pre>';
+            $erreurGenre = '<pre class="erreurGenre" style="color:red;">Sélectionnez un genre</pre>';
             $nbr_erreur++;
         }
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -85,7 +85,7 @@
     <div class="formulaire">
         <div class="formulaire_titre">Demande de contact</div>
 
-        <form action="#" method="post" id="form_contact">
+        <form action="#" method="post" id="form_contact" autocomplete="off">
             <div class=boite>
                 <div class="gauche">
                     <div class="div_nom">
