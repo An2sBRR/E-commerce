@@ -77,13 +77,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/contact.css">
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="/css/contact.css">
     <title>Contactez nous</title>
 </head>
 
 <body>
-  
     <div class="formulaire">
         <div class="formulaire_titre">Demande de contact</div>
 
@@ -103,7 +101,7 @@
                         <input type="date" name="date_naissance" id="Naissance" class="Naissance" min="1905-01-01" max="2030-01-01" value="<?php if (isset($date_naissance)) echo $date_naissance; ?>"><?php echo $erreurNaissance; ?>
                     </div>
                     <div class="div_util">
-                        <label for="type_util" class="labeltype_util">Type utilisateur :</label><br>
+                        <label for="type_util" class="labeltype_util">Type utilisateur :</label><br><br>
                         <input type="radio" name="type_util" value="Client" <?php if ($type_util == 'Client') echo 'checked = "checked"'; ?>><label for="client">Client</label>
                         <input type="radio" name="type_util" value="Vendeur" <?php if ($type_util == 'Vendeur') echo 'checked = "checked"'; ?>><label for="vendeur">Vendeur</label>
                         <input type="radio" name="type_util" value="Livreur" <?php if ($type_util == 'Livreur') echo 'checked = "checked"'; ?>><label for="livreur">Livreur</label><?php echo $erreurUtil; ?>
@@ -126,7 +124,7 @@
                         <input type="date" name="date_contact" id="Contact" class="Contact" value="<?php if (isset($date_contact)) echo $date_contact; ?>"><?php echo $erreurContact; ?>
                     </div>
                     <div class="div_sujet">
-                        <input type="text" name="sujet" placeholder="Entrer le sujet de votre mail" size="16" id="sujet" class="sujet" value="<?php if (isset($sujet)) echo $sujet; ?>"><?php echo $erreurSujet; ?>
+                        <input type="text" name="sujet" placeholder="Entrer le sujet de votre message" size="16" id="sujet" class="sujet" value="<?php if (isset($sujet)) echo $sujet; ?>"><?php echo $erreurSujet; ?>
                     </div>
                 </div>
             </div>
@@ -136,11 +134,11 @@
             </div>
 
             <input type="submit" value="Envoyer" name="envoyer" id="button-sbt">
-            <div><?php echo $succes; ?></div>
+            <div class="succes" id="succes"><?php echo $succes; ?></div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/contact.js"></script> 
+    <script type="text/javascript" src="/js/contact.js"></script> 
 </body>
 
 </html>
