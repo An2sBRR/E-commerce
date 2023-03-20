@@ -58,7 +58,7 @@ header .reseauxlog:hover{
 /* .menu {
    float: right; On le met à droite
     text-align: center;  
-}*/
+}
 
 .menu{
     padding-top: 1%;
@@ -67,14 +67,106 @@ header .reseauxlog:hover{
 
 .menu a {
     color: #000000;
-    margin-right: 20px; /*Pour les écarter*/
+    margin-right: 20px; #Pour les écarter
     font-size: 30px;
 }
 
 .menu a:hover{
     color: antiquewhite;
 }
+*/
 
+/*.menu{
+    padding: 0 25% 0 25%;
+}
+
+.menu ul{
+    list-style-type: none;
+    display: flex;
+    position: relative;
+
+}
+
+.menu li{
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.menu a{
+    text-align: center;
+}*/
+
+.menu{
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    /*background: #C04CFD;*/
+}
+
+.menu .main_pages 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.menu .main_pages a 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+}
+
+.menu a:hover 
+{
+    background: #5A5766
+}
+
+
+label, #toggle
+{
+    display: none;
+}
+ 
+@media all and (max-width: 991px)
+{
+    .menu
+    {
+        height: 60px;
+    }
+ 
+    .menu .main_pages 
+    {
+        display: none;
+        flex-direction: column;
+        background: #48435C;
+        height: 220px;
+    }
+ 
+    menu .main_pages a {
+        width: 50%;
+    }
+    label
+    {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+    }
+}
 
 
 .icons{
@@ -107,7 +199,7 @@ header .reseauxlog:hover{
     position: relative;
     top: 40%;  /*comme on a mis position absolute c'est plu margin et padding c'est top bottom etc*/
     width: 100%;
-    padding: 0 0 0 25%;   /*Pour centrer le menu*/
+    /*padding: 0 0 0 25%;   Pour centrer le menu*/
     /*text-align: center;*/
     background-color: #7CC6FE;
 }
