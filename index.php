@@ -72,13 +72,19 @@
         </div> -->
         <div class="inner-banniere">
             <nav class="menu">
-                <a href="#">Accueil</a>
-                <a href="#about">Meilleures ventes</a>
-                <a href="#portfolio">Jeux de société</a>
-                <a href="#contact">Jeux en bois</a>
-                <a href="#contact">Jeux vidéo</a>
-                <a href="#contact">Stratégie</a>
+                <label for="toggle">☰</label>
+                <input type="checkbox" id="toggle">
+                <div class="main_pages">
 
+                
+                    <a href="#">Accueil</a>
+                    <a href="#about">Meilleures&nbspventes</a>
+                    <a href="#portfolio">Jeux&nbspde&nbspsociété</a>
+                    <a href="#contact">Jeux&nbspen&nbspbois</a>
+                    <a href="#contact">Jeux&nbspvidéo</a>
+                    <a href="#contact">Stratégie</a>
+                    
+                </div>
             </nav>
 
 
