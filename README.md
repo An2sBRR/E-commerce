@@ -10,6 +10,7 @@ Coté Client :
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
 - [ ] Filtrer sa recherche
 - [ ] Faire les abonnements
+- [X] Créer un compte
 - [ ] Un client ayant passé une commande peut suivre l’acheminement de son colis et recevra une notification de l’arrivée de son colis.
 - [ ] Choisir le mode de livraison
 
