@@ -4,7 +4,7 @@
     session_start();
 //Variable de session : 0 = Déconnecté ; 1 = Connecté ; 2 = Connecté en tant qu'administrateur
     $_SESSION['user'];
-    $_SESSION['type_de_compte'] ="client";
+    $_SESSION['type_de_compte'] ="admin";
 ?>
 <head>
     <meta charset="UTF-8">
@@ -33,14 +33,44 @@
             
 
             <div class="icons">
-                <a class="reseauxlog">
-                    <ion-icon name="cart"></ion-icon>
+                <a   <?php
+                //Si connecté en tant qu'admin
+                if($_SESSION['type_de_compte']=="admin"){
+                echo"href='lienverspage de gestion'";
+                }
+                ?>class="reseauxlog">
+                <ion-icon name= <?php
+                if($_SESSION['type_de_compte']=="admin"){
+                echo "mail-unread-outline";
+                }
+                else echo "cart"
+                ?>></ion-icon>
                 </a>
-                <a href="php/co.php"class="reseauxlog">
-                    <ion-icon name="person"></ion-icon>
+                <a  <?php
+                if($_SESSION['type_de_compte']=="admin"){
+                echo "href='http://localhost:8000/admin/test.php'";
+                }
+                else echo "href='php/co.php'"
+                ?>class="reseauxlog">
+                <ion-icon name=<?php
+                if($_SESSION['type_de_compte']=="admin"){
+                echo "flask-outline";
+                }
+                else echo "person"
+                ?>></ion-icon>
                 </a>
-                <a href="php/contact.php" class="reseauxlog">
-                    <ion-icon name="chatbubbles"></ion-icon>
+                <a <?php
+                //Si connecté en tant qu'admin
+                if($_SESSION['type_de_compte']=="admin"){
+                echo"href='http://localhost:8000/E-commerce-main/?cat=disconnect'";
+                }
+                ?> class="reseauxlog">
+                    <ion-icon name=<?php
+                if($_SESSION['type_de_compte']=="admin"){
+                echo "power-outline";
+                }
+                else echo "chatbubbles"
+                ?>></ion-icon>
                 </a>
               </div>
 
@@ -98,7 +128,6 @@
                     pour la réalisation de vos pièces. 
                     Soie, cotton, polyester, fils, aiguilles, machines, vous trouverez assurément votre bonheur !
                     </p>    
-                    <img src="img/tissus.jpg" alt="illustration" id="illustration">
     </main>
 
     <!-- A propos -->
@@ -159,7 +188,7 @@
     <!-- Fin du footer-->
     <script>
         function disconnect(){
-            document.location.href = "http://localhost:8000/index.php?cat=disconnect";
+            document.location.href = "http://localhost:8000/E-commerce-main/?cat=disconnect";
         }
     </script>
 
@@ -172,12 +201,11 @@
         function affichage() {
             $num = explode('=',getquery());
             if($num[1]=="unknown"){
-                echo "<script>document.location.href = 'http://localhost:8000/index.php';</script>";
+                echo "<script>document.location.href = 'http://localhost:8000/E-commerce-main/';</script>";
             }
 
             if($num[1]=="disconnect"){
-                $_SESSION['user'] = NULL;
-                echo "<script>document.location.href = 'http://localhost:8000/php/deconnexion.php';</script>";
+                echo "<script>document.location.href = 'http://localhost:8000/E-commerce-main/php/deconnexion.php';</script>";
             }
 
             if($num[1]!=NULL && $_SESSION['type_de_compte']=="client")   
@@ -205,11 +233,6 @@
         //Si connecté, changer le bouton 'connexion' en 'déconnexion'
         if($_SESSION['Connected'] == 1){
             echo"<script language='Javascript'>document.getElementById('connexion').innerHTML='<button class=\'button1\' onclick=\'disconnect()\'>Déconnexion'</script>";
-        }
-        //Si connecté en tant qu'admin, changer, en plus, le formulaire de contact par la page de gestion des demandes
-        if($_SESSION['Connected'] == 2){
-            echo"<script language='Javascript'>document.getElementById('connexion').innerHTML='<button class=\'button1\' onclick=\'disconnect()\'>Déconnexion'</script>";
-            echo"<script language='Javascript'>document.getElementById('contact').innerHTML='<a href=\'http://localhost:8000/php/contacter.php\'>Demandes</a>'</script>";
         }
     ?>
 </body>
