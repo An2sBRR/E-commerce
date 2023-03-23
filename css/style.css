@@ -19,7 +19,9 @@ a, a:hover{
     padding: 0;
 }
 
-
+h2{
+    text-align: center;
+}
 
 /* Header */
 
@@ -255,7 +257,7 @@ label, #toggle
 
 .footer{
     background-color: #5DFDCB;
-    height: 600px;
+    height: 1000px;
 }
 
 .footer p{
@@ -363,3 +365,12 @@ textarea{
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+#carte{
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+
+#infos{
+    padding-top: 1%;
+}
