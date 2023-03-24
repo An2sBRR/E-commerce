@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
 <?php 
     session_start();
-//Variable de session : 0 = Déconnecté ; 1 = Connecté ; 2 = Connecté en tant qu'administrateur
-    $_SESSION['user'];
-    $_SESSION['type_de_compte'] ="client";
 ?>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Site Sympa askip</title>
-
 <!-- Police -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,48 +27,22 @@
         <div class="container">
             <a href="#" class="logo">JeuxVentes.fr</a>
             
-
             <div class="icons">
-                <a   <?php
-                //Si connecté en tant qu'admin
-                if($_SESSION['type_de_compte']=="admin"){
-                echo"href='lienverspage de gestion'";
+                <?php 
+                if (getStatut() =="admin"){
+                    echo "<a href='lienverspage de gestion contact' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='http://localhost:8000/admin/test.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='http://localhost:8000/E-commerce-main/?cat=disconnect' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if(getStatut() == "pasco" || getStatut() == "client" ){
+                    echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    if(getStatut()=="client"){
+                        echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    }
+                    else echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }
-                ?>class="reseauxlog">
-                <ion-icon name= <?php
-                if($_SESSION['type_de_compte']=="admin"){
-                echo "mail-unread-outline";
-                }
-                else echo "cart"
-                ?>></ion-icon>
-                </a>
-                <a  <?php
-                if($_SESSION['type_de_compte']=="admin"){
-                echo "href='http://localhost:8000/admin/test.php'";
-                }
-                else echo "href='php/co.php'"
-                ?>class="reseauxlog">
-                <ion-icon name=<?php
-                if($_SESSION['type_de_compte']=="admin"){
-                echo "flask-outline";
-                }
-                else echo "person"
-                ?>></ion-icon>
-                </a>
-                <a <?php
-                //Si connecté en tant qu'admin
-                if($_SESSION['type_de_compte']=="admin"){
-                echo"href='http://localhost:8000/E-commerce-main/?cat=disconnect'";
-                }
-                ?> class="reseauxlog">
-                    <ion-icon name=<?php
-                if($_SESSION['type_de_compte']=="admin"){
-                echo "power-outline";
-                }
-                else echo "chatbubbles"
-                ?>></ion-icon>
-                </a>
-              </div>
+                ?>
+            </div>
 
               <div class="wrap">
                 <div class="search">
@@ -82,10 +52,6 @@
                   </button>
                 </div>
              </div>
-
-            
-
-            
         </div>
 
     </header>
@@ -93,7 +59,6 @@
 
     <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> <!--icons-->
     <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
-
 
     <!-- Bannière du site -->
     <section class="container-fluid banniere">
@@ -106,18 +71,15 @@
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
 
-                
                     <a href="#">Accueil</a>
                     <a href="#about">Meilleures&nbspventes</a>
                     <a href="#portfolio">Jeux&nbspde&nbspsociété</a>
-                    <a href="#contact">Jeux&nbspen&nbspbois</a>
+                    <a href="../php/abonnement.php">Jeux&nbspen&nbspbois</a>
                     <a href="#contact">Jeux&nbspvidéo</a>
                     <a href="#contact">Stratégie</a>
                     
                 </div>
             </nav>
-
-
         </div> 
 
     </section> 
@@ -226,6 +188,17 @@
     </script>
 
     <?php
+        function getStatut(){
+            require './include/config.php';
+            if(isset($_SESSION['user'])){
+                $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+                $stmt = $bdd->prepare($req);
+                $stmt->execute();
+                $data = $stmt->fetch();
+                return $data[statut];
+            }else
+                return "pasco";
+        }
         //Fonction pour récupérer l'url de la page
         function getquery(){ $url = $_SERVER['REQUEST_URI'];
             return (parse_url($url, PHP_URL_QUERY)); }
@@ -238,7 +211,7 @@
             }
 
             if($num[1]=="disconnect"){
-                echo "<script>document.location.href = 'http://localhost:8000/E-commerce-main/php/deconnexion.php';</script>";
+                echo "<script>document.location.href = '/php/deconnexion.php';</script>";
             }
 
             if($num[1]!=NULL && $_SESSION['type_de_compte']=="client")   
