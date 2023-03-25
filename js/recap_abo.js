@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     };
                     xhr2.open("GET", '/php/envoyermail.php', true); 
                     xhr2.send(null);
+                }else{
+                    document.getElementById('erreur').innerHTML = "Vous êtes "+this.responseText+", vous ne pouvez pas vous abonner."
                 }
             }
         };
