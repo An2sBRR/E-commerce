@@ -1,8 +1,8 @@
 <?php 
     session_start(); // Démarrage de la session
-    require_once 'config.php'; // On inclut la connexion à la base de données
+    require_once '../include/config.php'; // On inclut la connexion à la base de données
 
-    if(!empty($_POST['email']) && !empty($_POST['password'])) // Si il existe les champs email, password et qu'il sont pas vident
+    if(!empty($_POST['email']) && !empty($_POST['password'])) // Si il existe les champs email, password et qu'il sont pas vide
     {
         // Patch XSS
         $email = htmlspecialchars($_POST['email']); 
@@ -29,9 +29,30 @@
                 {
                     // On créer la session et on redirige sur landing.php
                     $_SESSION['user'] = $data['token'];
-                    header('Location: landing.php');
-                    die();
+
+                    if(getStatut() == "client"){
+                        header('Location: landing.php');
+                        die();
+                    }else{
+                        header('Location: ../admin/main.php');
+                        die();
+                    }
                 }else{ header('Location: co.php?login_err=password'); die(); }
             }else{ header('Location: co.php?login_err=email'); die(); }
         }else{ header('Location: co.php?login_err=already'); die(); }
     }else{ header('Location: co.php'); die();} // si le formulaire est envoyé sans aucune données
+
+
+
+    function getStatut(){
+        require '../include/config.php';
+        if(isset($_SESSION['user'])){
+            $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+            $stmt = $bdd->prepare($req);
+            $stmt->execute();
+            $data = $stmt->fetch();
+            return $data[statut];
+        }else
+            return "pasco";
+    }
+?>
