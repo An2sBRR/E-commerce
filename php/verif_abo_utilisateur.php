@@ -3,7 +3,10 @@
 
     if(isset($_SESSION['user'])){
         if(getStatut() == "client"){
-            echo "valide";
+            if(getAbonnement() == 1){
+                echo "abonné(e)";
+            }else
+                echo "valide";
         }else{
             echo getStatut();
         }
@@ -20,5 +23,16 @@
             $data = $stmt->fetch();
             return $data[statut];
         }
+    }
+
+    function getAbonnement(){
+        require '../include/config.php';
+            if(isset($_SESSION['user'])){
+                $req = "SELECT abonnement FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+                $stmt = $bdd->prepare($req);
+                $stmt->execute();
+                $data = $stmt->fetchColumn();
+                return $data;
+            }
     }
 ?>
