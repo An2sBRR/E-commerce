@@ -1,6 +1,8 @@
 <?php
     session_start();
-    $_SESSION['connecte'] = 1; // a modifier quand on aura le truc pour vérifier si la personne est bien connecte
+    if( !isset($_SESSION['page_abo']) || $_SESSION['page_abo'] != true){
+        header('Location: abonnement.php');
+    }
 ?>
 
 <!DOCTYPE html>
