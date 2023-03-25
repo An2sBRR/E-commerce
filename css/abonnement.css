@@ -72,6 +72,11 @@
     font-size: 18px;
   }
 
+  .desabonnement{
+    position: absolute;
+    left: 45%;
+  }
+
   @media screen and (min-width: 1000px) {
     ul {
       width: 800px;
