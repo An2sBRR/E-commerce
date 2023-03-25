@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
                         <li class="my-1">
                             <a href="analyse.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-layout-text-sidebar-reverse"></i></i>
-                                <span class="d-none d-sm-inline">analyse</span>
+                                <span class="d-none d-sm-inline">Analyse</span>
                             </a>
                         </li>
                         <li class="my-1">
@@ -66,7 +66,7 @@
                             <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
                                 <span class="d-none d-sm-inline">Déconnexion</span>
                             </a>
@@ -78,4 +78,11 @@
                 <div class="bg-light border rounded-3 p-3">
                     <h2>Bienvenue sur votre espace vendeur</h2>
                     <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profit, le nombre de visiteurs sur votre espace analyse.</p> 
-                    <hr />
+                    <hr/>
+                </div>
+            </main>
+        </div>
+    </div>
+    </header>
+</body>
+</html>
