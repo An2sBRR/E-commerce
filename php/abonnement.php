@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['page_abo']=true;
 ?>
 
 <!DOCTYPE html>
@@ -30,3 +31,4 @@
         </ul>
     </div>
 </body>
+</html>
