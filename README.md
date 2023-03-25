@@ -9,7 +9,7 @@ Coté Client :
 
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
 - [ ] Filtrer sa recherche
-- [ ] Faire les abonnements
+- [X] Faire les abonnements
 - [X] Créer un compte
 - [ ] Un client ayant passé une commande peut suivre l’acheminement de son colis et recevra une notification de l’arrivée de son colis.
 - [ ] Choisir le mode de livraison
@@ -19,7 +19,7 @@ Coté Vendeur :
 - [X] S'identifier
 - [X] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
 - [ ] Suivre les ventes
-- [ ] Signer/Renouveller/Résilier son contrat
+- [X] Signer/Renouveller/Résilier son contrat
 
 Coté MarketPlace :
 
