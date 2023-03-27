@@ -17,6 +17,7 @@ a, a:hover{
 
 .container-fluid{
     padding: 0;
+    
 }
 
 h2{
@@ -126,7 +127,7 @@ header .reseauxlog:hover{
 
 .menu a:hover 
 {
-    background: #5A5766
+    color: #5A5766
 }
 
 
@@ -260,12 +261,27 @@ label, #toggle
     height: 1000px;
 }
 
-.footer p{
-   color: #000000; 
-   text-align: center;
-   padding-top: 5%;
+.footer h2{
+    text-align: left;
+    padding-top: 5%;
+    font-size: 40px;
 }
 
+.footer p{
+   color: #000000; 
+   text-align: left;
+   padding-top: 5%;
+   font-size: 25px;
+}
+
+#copyright{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5%;
+}
+ .footer .container{
+    background-color: #5DFDCB;
+ }
 
 #contact{
     color: #000000;
@@ -373,4 +389,34 @@ textarea{
 
 #infos{
     padding-top: 1%;
+    text-align: center;
 }
+
+
+.reseauxFooter{
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+}
+    
+.reseauxFooter:hover{
+    color:bisque;
+    font-size: 300%;  /*Zoom des logos quand on passe dessus*/
+}
+
+
+ul.menuBas{
+    
+    padding-top: 5%;
+    padding-left: 0%;
+    margin-bottom: 0;
+  
+}
+
+ul.menuBas li{
+    list-style: none;
+    font-size: 25px;
+
+}
+
+
+
