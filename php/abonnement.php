@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <?php if(getAbonnement() == 0){
+    <?php if(getAbonnement() == 0 || getAbonnement() == 2){
         echo '<div class="description">
         <p class="head">Notre abonnement</h1>
         <p class="texte">Venez découvrir notre nouvel abonnement qui vous récompensera de votre fidélité avec de nombreux avantages ! </p>
@@ -31,7 +31,7 @@
             <li class="couleur"><button class="button" type="button" onclick="location.href=\'recap_abo.php\'">M\'abonner</button></li>
         </ul>
     </div>';
-        }else{
+        }else {
             echo '<div class="description"> <p class="head">Vous êtes abonné à notre service d\'abonnement !</p>
             <p class="abonnement">Si vous souhaitez vous désabonner, appuyez sur le bouton suivant. <br>(Tout désabonnement est définitif, ainsi si vous souhaitez vous réabonner il faudra repayer le prix annuel)</p></div>
             <input type="button" class="desabonnement" onclick="location.href=\'fin_abo.php\'" value="Je me désabonne !"></input>' ;
