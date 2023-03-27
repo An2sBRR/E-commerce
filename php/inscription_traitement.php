@@ -29,9 +29,7 @@
                             // On hash le mot de passe avec Bcrypt, via un coût de 12
                             $cost = ['cost' => 12];
                             $password = password_hash($password, PASSWORD_BCRYPT, $cost);
-                            
-                            // On stock l'adresse IP
-                            $ip = $_SERVER['REMOTE_ADDR']; 
+                      
                              /*
                               ATTENTION
                               Verifiez bien que le champs token est présent dans votre table utilisateurs, il a été rajouté APRÈS la vidéo
