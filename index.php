@@ -189,7 +189,7 @@
 
     <?php
         function getStatut(){
-            require '../include/config.php';
+            require './include/config.php';
             if(isset($_SESSION['user'])){
                 $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
                 $stmt = $bdd->prepare($req);
