@@ -46,11 +46,29 @@
 
               <div class="wrap">
                 <div class="search">
-                   <input type="text" class="searchTerm" placeholder="Que recherchez-vous ?">
-                   <button type="submit" class="searchButton">
+                   <input type="text" id="recherche" class="searchTerm" onkeydown="handleKeyPress(event)" placeholder="Que recherchez-vous ?">
+                   <button onclick="recherche()" class="searchButton">
                     <i><ion-icon name="search"></ion-icon></i>
                   </button>
                 </div>
+                <script>
+                    function handleKeyPress(event) {
+                        if (event.keyCode === 13) {
+                        // appel de la fonction souhaitée
+                        recherche();
+                         }
+                        }
+                    function recherche() {
+                    // Récupération de la valeur de l'input
+                    var searchTerm = document.getElementById("recherche").value;
+
+                    // Création du lien de recherche
+                    var searchLink = "?recherche="+searchTerm.toLowerCase().replace(/\s+/g, '-');
+
+                    // Redirection vers la page de recherche
+                    window.location.href = searchLink;
+                    }
+                </script>
              </div>
         </div>
 
@@ -119,7 +137,7 @@
         </div>
 
     </section>
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="container-fluid footer">
         <div class="container">
             <div class="row">
@@ -198,11 +216,28 @@
         //Fonction modifiant le contenu de la page selon l'url
         function affichage() {
             $num = explode('=',getquery());
-            if($num[1]=="disconnect"){
-                echo "<script>document.location.href = '/php/deconnexion.php';</script>";
+            if($num[0]=="recherche")   
+            {
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th></thead> <tbody>";
+                require './include/config.php';
+                $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
+                foreach ($recherche as $produit){
+                    $prix = $produit->prix;
+                    $discount = $produit->discount;
+                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $description=$produit->description;
+                    $image=$produit->image;
+                    $libelle=$produit->libelle;
+                        echo "<tr>";    
+                        echo "<td><div class='container'><img style='width:20%;height:20%;'src='img/".$image."'></label></div></td>";
+                        echo "<td>".$libelle."</td>";
+                        echo "<td>".$description."</td>";
+                        echo "<td>".$prixFinale."</td>";
+                        echo "</tr>";
+                }
+                echo "</tbody></table>\";</script>";
             }
-
-            if($num[1]!=NULL)   
+            if($num[0]=="cat")   
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th></thead> <tbody>";
                 require './include/config.php';
