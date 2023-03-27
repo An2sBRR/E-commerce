@@ -119,63 +119,55 @@
         </div>
 
     </section>
-    <!-- Footer/contact -->
+   <!-- Footer -->
     <footer class="container-fluid footer">
         <div class="container">
             <div class="row">
-            <h2 id="infos">Informations</h2>
+            <h1 id="infos">Informations</h1>
             <iframe id="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2615.8442200637187!2d2.064316615915703!3d49.03256977930504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f578a5671b03%3A0x225d4d910fb39b53!2sCY%20Tech%20-%20Site%20Fermat!5e0!3m2!1sfr!2sfr!4v1679603546288!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
-                <h2>Nous retrouver sur les réseaux</h2>
-                <p>
-                    <a class="reseauxlog" href="https://twitter.com" target="_blank">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                    <a class="reseauxlog" href="https://instagram.com" target="_blank">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                        <a class="reseauxlog" href="https://github.com/Le-7/PREING2MI3-AITCHADI-BELHADJ-CERF-COSTA" target="_blank">
-                    <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                </p>  
-                </article>
-                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
+               
+                <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                     <h2>Plan du site</h2>
-                    <p>
-                    Accueil
-                    Meilleures ventes
-                    Jeux de société
-                    Jeux en bois
-                    Jeux vidéo
-                    Stratégie
-                    Nous contacter
-                    </p>
+                        <ul class="menuBas">
+                        <li>Accueil</li> 
+                        <li>Meilleures ventes</li> 
+                        <li>Jeux de société</li> 
+                        <li>Jeux en bois</li> 
+                        <li>Jeux vidéo</li> 
+                        <li>Stratégie</li> 
+                        <li>Nous contacter</li> 
+                        </ul>
             </article>
-            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
+            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Mentions légales</h2>
                 <p>
                     JeuxVentes<br>01.02.03.04.05<br>JeuxVentes@contact.fr<br>Chemin des Paradis, 95000 CERGY.
                 </p>
             </article> 
-                <!-- <div class="span6">
-                    <form class="formulaireContact">
-                        <div class="controls controls-row">
-                            <input id="name" name="name" type="text" class="span3" placeholder="Name"> 
-                            <input id="email" name="email" type="email" class="span3" placeholder="Email address">
-                        </div>
-                        <div class="controls">
-                            <textarea id="message" name="message" class="span6" placeholder="Your Message" rows="5"></textarea>
-                        </div>
-                          
-                        <div class="controls">
-                            <button id="contact-submit" type="submit" class="btn btn-custom input-medium pull-right">Send</button>
-                        </div>
-                    </form>
-                </div> -->
+            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
+                <h2>Moyens de paiement</h2>
+                <p>
+                    okokoko
+                </p>
+            </article> 
+            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
+                <h2>Suivre nos actualités </h2>
+                <p>
+                    <a class="reseauxFooter" href="https://twitter.com" target="_blank">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                    <a class="reseauxFooter" href="https://instagram.com" target="_blank">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                        <a class="reseauxFooter" href="https://github.com/Le-7/PREING2MI3-AITCHADI-BELHADJ-CERF-COSTA" target="_blank">
+                    <ion-icon name="logo-github"></ion-icon>
+                    </a>
+                </p>  
+                </article>
             </div>
-            <p>
+            <h3 id="copyright">
                 Copyright © 2023 
-            </p>
+            </h3>
 
         </div>
 
