@@ -11,7 +11,7 @@
     $genre = isset($_POST['genre']) ? htmlentities($_POST['genre']) : "";
     $date_contact = isset($_POST['date_contact']) ? htmlentities($_POST['date_contact']) : "";
     $sujet = isset($_POST['sujet']) ? htmlentities($_POST['sujet']) : "";
-    $contenu = isset($_POST['Contenu']) ? htmlentities($_POST['Contenu']) : "";
+    $contenu = isset($_POST['contenu']) ? htmlentities($_POST['contenu']) : "";
     $succes="";
 
     $erreurNom = "";
@@ -85,7 +85,7 @@
     <div class="formulaire">
         <div class="formulaire_titre">Demande de contact</div>
 
-        <form action="#" method="post" id="form_contact" autocomplete="off">
+        <form action="traitement_contact.php" method="post" id="form_contact" autocomplete="off">
             <div class=boite>
                 <div class="gauche">
                     <div class="div_nom">
@@ -130,7 +130,7 @@
             </div>
 
             <div class="contenu_sujet">
-                <textarea name="Contenu" cols="70" rows="8" placeholder="Contenu de votre message ici" id="contenu" class="contenu"><?php if (isset($contenu)) echo $contenu; ?></textarea><?php echo $erreurContenu; ?>
+                <textarea name="contenu" cols="70" rows="8" placeholder="Contenu de votre message ici" id="contenu" class="contenu"><?php if (isset($contenu)) echo $contenu; ?></textarea><?php echo $erreurContenu; ?>
             </div>
 
             <input type="submit" value="Envoyer" name="envoyer" id="button-sbt">
