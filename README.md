@@ -8,7 +8,7 @@
 Coté Client :
 
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
-- [ ] Filtrer sa recherche
+- [X] Filtrer sa recherche
 - [X] Faire les abonnements
 - [X] Créer un compte
 - [ ] Un client ayant passé une commande peut suivre l’acheminement de son colis et recevra une notification de l’arrivée de son colis.
@@ -25,7 +25,7 @@ Coté MarketPlace :
 
 - [X] S'identifier
 - [X] Ajouter un produit
-- [ ] Ajouter un vendeur
+- [X] Ajouter un vendeur
 - [ ] Afficher son chiffre d'affaires
 - [ ] Expédier une commande
 
