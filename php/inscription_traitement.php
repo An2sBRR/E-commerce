@@ -1,5 +1,6 @@
 <?php 
-    require_once 'config.php'; // On inclu la connexion à la bdd
+    session_start();
+    require_once '../include/config.php'; // On inclu la connexion à la bdd
 
     // Si les variables existent et qu'elles ne sont pas vides
     if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_retype']))
@@ -38,15 +39,15 @@
                               ATTENTION
                             */
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
+                            $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password, token) VALUES(:pseudo, :email, :password, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
                                 'password' => $password,
-                                'ip' => $ip,
                                 'token' => bin2hex(openssl_random_pseudo_bytes(64))
                             ));
                             // On redirige avec le message de succès
+                            $_SESSION['user'] = $data['token'];
                             header('Location:co.php?reg_err=success');
                             die();
                         }else{ header('Location: inscription.php?reg_err=password'); die();}
