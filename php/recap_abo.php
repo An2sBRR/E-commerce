@@ -3,6 +3,9 @@
     if( !isset($_SESSION['page_abo']) || $_SESSION['page_abo'] != true){
         header('Location: abonnement.php');
     }
+    if(getAbonnement() == 1){
+        header('Location: abonnement.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,5 +34,17 @@
             </ul>
         </div>
         <script type="text/javascript" src="../js/recap_abo.js"></script>
+        <?php 
+        function getAbonnement(){
+            require '../include/config.php';
+            if(isset($_SESSION['user'])){
+                $req = "SELECT abonnement FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+                $stmt = $bdd->prepare($req);
+                $stmt->execute();
+                $data = $stmt->fetchColumn();
+                return $data;
+            }
+        }
+        ?>
     </body>
 </html>
