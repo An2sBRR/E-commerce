@@ -31,7 +31,7 @@
                 <?php 
                 if (getStatut() =="admin"){
                     echo "<a href='lienverspage de gestion contact' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='http://localhost:8000/admin/test.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='http://localhost:8000/admin/main.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
                     echo "<a href='http://localhost:8000/E-commerce-main/?cat=disconnect' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if(getStatut() == "pasco" || getStatut() == "client" ){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
@@ -89,7 +89,7 @@
                     Que vous soyiez débutants, amateurs ou professionnels, vous trouverez tout le matériel nécessaire
                     pour la réalisation de vos pièces. 
                     Soie, cotton, polyester, fils, aiguilles, machines, vous trouverez assurément votre bonheur !
-                    </p>    
+                    </p>
     </main>
 
     <!-- A propos -->
@@ -206,18 +206,15 @@
         //Fonction modifiant le contenu de la page selon l'url
         function affichage() {
             $num = explode('=',getquery());
-            if($num[1]=="unknown"){
-                echo "<script>document.location.href = 'http://localhost:8000/E-commerce-main/';</script>";
-            }
-
             if($num[1]=="disconnect"){
                 echo "<script>document.location.href = '/php/deconnexion.php';</script>";
             }
 
-            if($num[1]!=NULL && $_SESSION['type_de_compte']=="client")   
+            if($num[1]!=NULL)   
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th></thead> <tbody>";
-                $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE '+$num[1])+' )'->fetchAll(PDO::FETCH_OBJ);
+                require './include/config.php';
+                $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
                     $prix = $produit->prix;
                     $discount = $produit->discount;
@@ -235,11 +232,8 @@
                 echo "</tbody></table>\";</script>";
             }
         }
+        
         affichage();
-        //Si connecté, changer le bouton 'connexion' en 'déconnexion'
-        if($_SESSION['Connected'] == 1){
-            echo"<script language='Javascript'>document.getElementById('connexion').innerHTML='<button class=\'button1\' onclick=\'disconnect()\'>Déconnexion'</script>";
-        }
     ?>
 </body>
 </html>
