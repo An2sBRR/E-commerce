@@ -118,7 +118,6 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`, `abonnement`, `statut`, `token`, `date_inscription`) VALUES
-(12, 'caca', 'pipi@gmail.com', '$2y$12$GT67v8eSB6cb.nn3Jlyj..2hiVi.szpA/zQytPJIX5bk7V2EtNnnK', 0, '', '0f923bb41f83ca50f80b56bf4cf745217d735d961938c89f74202888150d74d4200def17f266e2d91d6292a527e838789c2694fa9d6e04df65598a9238b0bfe9', '2023-03-16 18:04:35');
 
 --
 -- Index pour les tables déchargées
