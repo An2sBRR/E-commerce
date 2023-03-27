@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 20 mars 2023 à 11:20
+-- Généré le : lun. 27 mars 2023 à 15:41
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
@@ -94,7 +94,7 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `date_creation`, `description`, `image`) VALUES
-(22, 'UNO', '12', 11, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '641833ce33817Mattel-Jeu-de-cartes-UNO.jpg');
+(22, 'UNO', '12', 10, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '641833ce33817Mattel-Jeu-de-cartes-UNO.jpg');
 
 -- --------------------------------------------------------
 
@@ -118,6 +118,31 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`, `abonnement`, `statut`, `token`, `date_inscription`) VALUES
+(23, 'sarah', 'sarah@gmail.com', '$2y$12$3j/03UvQHLKgpAgJE557qu2EUyldlYALCeFe3.HYS8ui9./aNWaei', 1, 'client', 'b742d564daf840edb51be1a60818fecea4046d354e5ce951e091740f3128015d2c372761e2320a29679ed97fbce51f24475f6ddbb7d1ecebb4142c8fa5ce28d6', '2023-03-27 17:00:09'),
+(24, 'sar', 'sar@gmail.com', '$2y$12$aIFiRHL1ZdesM8vHduL8B.HC7pGhpStm0Y8YDYGgJi7FwPqPZajoC', 0, 'vendeur', 'cd696f9fa293cf2f7b6b1e73965203a98ed3dfa0b6bf40db89f9e1765a9f26ab3a1c233896b0bd6efc30bb1b20cc5a86e082bf31335ccdf0ab78197a4492126d', '2023-03-27 17:00:25'),
+(22, 'le7', 'matheo@gmail.com', '$2y$12$khRsjTWFpYaFbzJ8vOFplesUec6.WdayhQMwIMG5B7O8EUCvqygzO', 0, 'admin', '2cfff788d2895a4a1e67ff2cfd5743608c5d238cff727ac868a1975052d37e2d479814e5e106080ff982d696bc8c54ced62fc6c00c8ffad3a1ffb8dc008efb64', '2023-03-27 16:59:52'),
+(21, 'anissa', 'anissa@gmail.com', '$2y$12$FUyEl019velfXCidKIZywuVUb4O1/Fn79YVNinATuZ/3w3Uo8ldtK', 0, 'livreur', 'ffd834eabfe60da3ed33e1d7d51dd93791682f987790ec1884ca39247a93a701887d17585a44bf1242920045693465fdcbacb6cf7fb2cc450fa5fba206e09df8', '2023-03-27 16:59:37');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vendeur`
+--
+
+CREATE TABLE `vendeur` (
+  `id` int(20) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `prénom` varchar(100) NOT NULL,
+  `ville` varchar(100) NOT NULL,
+  `debut_contrat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `vendeur`
+--
+
+INSERT INTO `vendeur` (`id`, `nom`, `prénom`, `ville`, `debut_contrat`) VALUES
+(2, 'tes', 'aa', 'aaa', '2023-03-27 00:00:00');
 
 --
 -- Index pour les tables déchargées
@@ -154,6 +179,12 @@ ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `vendeur`
+--
+ALTER TABLE `vendeur`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -161,7 +192,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
@@ -185,7 +216,13 @@ ALTER TABLE `produit`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT pour la table `vendeur`
+--
+ALTER TABLE `vendeur`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
