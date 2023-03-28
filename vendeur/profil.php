@@ -1,10 +1,16 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Votre Profil</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/sidenav.css" rel="stylesheet">
@@ -66,10 +72,10 @@
                             <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                            </a>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
@@ -77,15 +83,11 @@
                 <div class="bg-light border rounded-3 p-3">
                     <h2>Votre Profil :</h2>
                     <div class="d-flex justify-content-center">
-                    <i id="log-logo1" class="bi bi-person-circle"></i>
+                        <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
                     <div class="d-flex justify-content-center"><h3>Nom Prénom</h3></div>
-                    <h4>Information personnel :</h4>
-
-                    
-                      </div>
-                    
-                    
+                        <h4>Information personnel :</h4>
+                </div>   
             </main>
         </div>
     </div>

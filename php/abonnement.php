@@ -42,12 +42,12 @@
 <?php 
 function getAbonnement(){
     require '../include/config.php';
-        if(isset($_SESSION['user'])){
-            $req = "SELECT abonnement FROM utilisateurs WHERE token='".$_SESSION['user']."'";
-            $stmt = $bdd->prepare($req);
-            $stmt->execute();
-            $data = $stmt->fetchColumn();
-            return $data;
-        }else return 2; //il n'est pas connecte
+    if(isset($_SESSION['user'])){
+        $req = "SELECT abonnement FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+        $stmt = $bdd->prepare($req);
+        $stmt->execute();
+        $data = $stmt->fetchColumn();
+        return $data;
+    }else return 2; //il n'est pas connecte
 }
 ?>

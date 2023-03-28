@@ -1,7 +1,11 @@
-<doctype html>
-<html lang = "en">
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,13 +43,13 @@
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate">
+                            <a href="main.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
                         </li>
                         <li class="my-1">
-                            <a href="categorie.php" class="nav-link px-2 text-truncate">
+                            <a href="analyse.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-graph-up"></i></i>
                                 <span class="d-none d-sm-inline">Analyse</span>
                             </a>
@@ -68,52 +72,52 @@
                             <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                            </a>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-    <h4> Modifier catégories <h4>
-    <?php
-    require_once '../include/config.php';
-    $check = $bdd->prepare('SELECT * FROM categorie WHERE id=?');
-    $id = $_GET['id'];
-    $check->execute([$id]);
+                <h4> Modifier catégories <h4>
+                <?php
+                require_once '../include/config.php';
+                $check = $bdd->prepare('SELECT * FROM categorie WHERE id=?');
+                $id = $_GET['id'];
+                $check->execute([$id]);
 
-    $category = $check->fetch(PDO::FETCH_ASSOC);
-    if (isset($_POST['modifier'])) {
-        $libelle = $_POST['libelle'];
-        $description = $_POST['description'];
+                $category = $check->fetch(PDO::FETCH_ASSOC);
+                if (isset($_POST['modifier'])) {
+                    $libelle = $_POST['libelle'];
+                    $description = $_POST['description'];
 
-        if (!empty($libelle) && !empty($description)) {
-            $check = $bdd->prepare('UPDATE categorie SET libelle = ? , description = ?, WHERE id = ?');
-            $check->execute([$libelle, $description, $id]);
-            //  header('location: categories.php');
-        } else {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                Libelle , description sont obligatoires
-            </div>
-            <?php
-        }
-    }
+                    if (!empty($libelle) && !empty($description)) {
+                        $check = $bdd->prepare('UPDATE categorie SET libelle = ? , description = ?, WHERE id = ?');
+                        $check->execute([$libelle, $description, $id]);
+                        //  header('location: categories.php');
+                    } else {
+                        ?>
+                        <div class="alert alert-danger" role="alert">
+                            Libelle , description sont obligatoires
+                        </div>
+                        <?php
+                    }
+                }
 
-    ?>
-    <form method="post">
-        <input type="hidden" class="form-control" name="id" value="<?php echo $category['id'] ?>">
-        <label class="form-label">Libelle</label>
-        <input type="text" class="form-control" name="libelle" value="<?php echo $category['libelle'] ?>">
+                ?>
+                <form method="post">
+                    <input type="hidden" class="form-control" name="id" value="<?php echo $category['id'] ?>">
+                    <label class="form-label">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $category['libelle'] ?>">
 
-        <label class="form-label">Description</label>
-        <textarea class="form-control" name="description"><?php echo $category['description'] ?></textarea>
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" name="description"><?php echo $category['description'] ?></textarea>
 
-        <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2" name="modifier">
-    </form>
-</div>
-
+                    <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2" name="modifier">
+                </form>
+            </main>
+        </div>
+    </div>
 </body>
-  
 </html>

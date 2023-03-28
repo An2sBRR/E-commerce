@@ -7,10 +7,10 @@
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
             <link rel="stylesheet" type="text/css" href="../css/co.css">
             <title>Connexion</title>
-        </head>
-        <body>
-        <section>
-        <div class="form-box">   
+</head>
+<body>
+    <section>
+    <div class="form-box">   
 <!--Pour afficher un message d'erreur--->
             <?php 
 //On verifie si le get existe
@@ -66,10 +66,10 @@ sinon affiche compte non existant
                 </div>   
                     <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                 </div>   
-                </form>
-        </div>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            </form>
+    </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        </body>
+</body>
 </html>
-

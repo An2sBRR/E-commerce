@@ -1,10 +1,16 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Accueil Vendeur</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/sidenav.css" rel="stylesheet">
@@ -30,8 +36,8 @@
             </div>
           </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
@@ -66,10 +72,10 @@
                             <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                            </a>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
@@ -79,3 +85,9 @@
                     <h2>Bienvenue sur votre espace Vendeur</h2>
                     <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profit, le nombre de visiteurs sur votre espace analyse.</p> 
                     <hr />
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

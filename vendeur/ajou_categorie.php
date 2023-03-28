@@ -1,7 +1,11 @@
-<doctype html>
-<html lang = "en">
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,20 +36,20 @@
             </div>
           </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate">
+                            <a href="main.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate">
+                            <a href="analyse.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-graph-up"></i></i>
                                 <span class="d-none d-sm-inline">Analyse</span>
                             </a>
@@ -68,47 +72,42 @@
                             <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                            </a>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
- <main class="col overflow-auto h-100 w-100">
+            <main class="col overflow-auto h-100 w-100">
+                <h4> Ajouter catégorie </h4>  
+                    <?php
+                    if(isset($_POST['ajouter'])){
+                        $libelle = $_POST['libelle'];
+                        $description = $_POST['description'];
 
- <h4> Ajouter catégorie </h4>  
-    <?php
-     if(isset($_POST['ajouter'])){
-        $libelle = $_POST['libelle'];
-        $description = $_POST['description'];
-
-        if(!empty($libelle) && !empty($description)){
-            require_once '../include/config.php';
-            $check = $bdd->prepare('INSERT INTO categorie(libelle,description) VALUES(?,?)');
-            $check->execute([$libelle,$description]);
-        }else{
-            ?>
-            <div class="alert alert-danger" role="alert">
-                Libelle , description sont obligatoires
-            </div>
-            <?php
-        }
-    }
-?>
-<form method="post">
-    <label class="from-label">Libelle</label>
-    <input type="text" class="from-control" name="libelle">
-    <label class="from-label">Description</label>
-    <input type="text" class="from-control" name="description">
-    <input type="submit" value="Ajouter catégorie" class="btn btn-primary my-2" name="ajouter">
-</form>
-
-</main>
+                        if(!empty($libelle) && !empty($description)){
+                            require_once '../include/config.php';
+                            $check = $bdd->prepare('INSERT INTO categorie(libelle,description) VALUES(?,?)');
+                            $check->execute([$libelle,$description]);
+                        }else{
+                            ?>
+                            <div class="alert alert-danger" role="alert">
+                                Libelle , description sont obligatoires
+                            </div>
+                            <?php
+                        }
+                    }
+                ?>
+                <form method="post">
+                    <label class="from-label">Libelle</label>
+                    <input type="text" class="from-control" name="libelle">
+                    <label class="from-label">Description</label>
+                    <input type="text" class="from-control" name="description">
+                    <input type="submit" value="Ajouter catégorie" class="btn btn-primary my-2" name="ajouter">
+                </form>
+            </main>
+        </div>
+    </div>
 </body>
-
 </html>
-
-
-      
-

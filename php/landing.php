@@ -2,7 +2,7 @@
     session_start();
     require '../include/config.php'; // ajout connexion bdd 
    // si la session existe pas soit si l'on est pas connecté on redirige
-    if(!isset($_SESSION['user']) || getStatut() != "client"){
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location:../index.php');
         die();
     }
@@ -12,16 +12,6 @@
     $req->execute(array($_SESSION['user']));
     $data = $req->fetch();
 
-    function getStatut(){
-        if(isset($_SESSION['user'])){
-            require '../include/config.php';
-            $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
-            $stmt = $bdd->prepare($req);
-            $stmt->execute();
-            $data = $stmt->fetchColumn();
-            return $data;
-        }
-    }
 ?>
 <!doctype html>
 <html lang="fr">

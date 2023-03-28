@@ -15,8 +15,6 @@
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
-        
-        
 
         // Si > à 0 alors l'utilisateur existe
         if($row > 0)
@@ -29,6 +27,7 @@
                 {
                     // On créer la session et on redirige sur landing.php
                     $_SESSION['user'] = $data['token'];
+                    $_SESSION['statut'] = getStatut();
                     header('Location: ../index.php');
                 }else{ header('Location: co.php?login_err=password'); die(); }
             }else{ header('Location: co.php?login_err=email'); die(); }
@@ -36,16 +35,12 @@
     }else{ header('Location: co.php'); die();} // si le formulaire est envoyé sans aucune données
 
 
-
     function getStatut(){
         require '../include/config.php';
-        if(isset($_SESSION['user'])){
-            $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
-            $stmt = $bdd->prepare($req);
-            $stmt->execute();
-            $data = $stmt->fetch();
-            return $data[statut];
-        }else
-            return "pasco";
+        $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+        $stmt = $bdd->prepare($req);
+        $stmt->execute();
+        $data = $stmt->fetchColumn();
+        return $data;
     }
 ?>

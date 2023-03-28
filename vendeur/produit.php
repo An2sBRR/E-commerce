@@ -1,12 +1,16 @@
-<doctype html>
-<html lang = "en">
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorie</title>
+    <title>Produits</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/sidenav.css" rel="stylesheet">
@@ -32,8 +36,8 @@
             </div>
           </div>
         </div>
-</header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
@@ -68,58 +72,58 @@
                             <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../../index.php" class="nav-link px-2 text-truncate">
+                        <a href="../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                            </a>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
- <main class="col overflow-auto h-100 w-100">
-<div class="container py-2">
-    <h2>Liste des produits</h2>
-    <a href="ajout_prod.php" class="btn btn-primary">Ajouter produit</a>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>#ID</th>
-                <th>Libelle</th>
-                <th>Prix</th>
-                <th>Discount</th>
-                <th>Catégorie</th>
-                <th>Date de création</th>
-                <th>Image</th>
-                <th>Opérations</th>
-            </tr>
-        </thead>
-        <?php
-        require_once '../include/config.php';
-        $categories = $bdd->query("SELECT produit.*,categorie.libelle as 'categorie_libelle' FROM produit INNER JOIN categorie ON produit.id_categorie = categorie.id")->fetchAll(PDO::FETCH_OBJ);
-        foreach ($categories as $produit){
-            $prix = $produit->prix;
-            $discount = $produit->discount;
-            $prixFinale = $prix - (($prix*$discount)/100);
-            ?>
-            <tr>
-                <td><?= $produit->id ?></td>
-                <td><?= $produit->libelle ?></td>
-                <td><?= $prix ?> <i class="fa fa-solid fa-dollar"></i></td>
-                <td><?= $discount ?> %</td>
-                <td><?= $produit->categorie_libelle ?></td>
-                <td><?= $produit->date_creation ?></td>
-                <td><img class="img-fluid" width="90" src="upload/produit/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>
-                <td>
-                    <a class="btn btn-primary" href="modif_prod.php?id=<?php echo $produit->id ?>">Modifier</a>
-                    <a class="btn btn-danger" href="supp_prod.php?id=<?php echo $produit->id ?>" onclick="return confirm('Voulez vous vraiment supprimer le produit <?php echo $produit->libelle?> ?')">Supprimer</a>
-                </td>
-            </tr>
-            <?php
-        }
-        ?>
-        
-    </table>
-</div>
-
+            <main class="col overflow-auto h-100 w-100">
+                <div class="container py-2">
+                    <h2>Liste des produits</h2>
+                    <a href="ajout_prod.php" class="btn btn-primary">Ajouter produit</a>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Libelle</th>
+                                <th>Prix</th>
+                                <th>Discount</th>
+                                <th>Catégorie</th>
+                                <th>Date de création</th>
+                                <th>Image</th>
+                                <th>Opérations</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        require_once '../include/config.php';
+                        $categories = $bdd->query("SELECT produit.*,categorie.libelle as 'categorie_libelle' FROM produit INNER JOIN categorie ON produit.id_categorie = categorie.id")->fetchAll(PDO::FETCH_OBJ);
+                        foreach ($categories as $produit){
+                            $prix = $produit->prix;
+                            $discount = $produit->discount;
+                            $prixFinale = $prix - (($prix*$discount)/100);
+                            ?>
+                            <tr>
+                                <td><?= $produit->id ?></td>
+                                <td><?= $produit->libelle ?></td>
+                                <td><?= $prix ?> <i class="fa fa-solid fa-dollar"></i></td>
+                                <td><?= $discount ?> %</td>
+                                <td><?= $produit->categorie_libelle ?></td>
+                                <td><?= $produit->date_creation ?></td>
+                                <td><img class="img-fluid" width="90" src="upload/produit/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>
+                                <td>
+                                    <a class="btn btn-primary" href="modif_prod.php?id=<?php echo $produit->id ?>">Modifier</a>
+                                    <a class="btn btn-danger" href="supp_prod.php?id=<?php echo $produit->id ?>" onclick="return confirm('Voulez vous vraiment supprimer le produit <?php echo $produit->libelle?> ?')">Supprimer</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
-
 </html>

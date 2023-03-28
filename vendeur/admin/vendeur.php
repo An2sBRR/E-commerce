@@ -1,10 +1,16 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des vendeurs</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -50,7 +56,7 @@
                             </a>
                         </li>
                         <li class="my-1 nav-item">
-                            <a href="vendeur_ad.php" class="nav-link px-2 text-truncate">
+                            <a href="vendeur.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Liste des vendeurs</span>
                             </a>
@@ -67,52 +73,53 @@
                             <a href="profil_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
+                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
+                        <i class="bi bi-toggle-off"></i></i>
+                                <span class="d-none d-sm-inline">Déconnexion</span>
+                        </a>
                     </ul>
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-<div class="container py-2">
-    <h2>Liste des produits</h2>
-    <a href="ajout_vendeur" class="btn btn-primary">Ajouter produit</a>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>#ID</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Ville</th>
-                <th>Début du contrat</th>
-                <th>Durée</th>
-                <th>Opérations</th>
-            </tr>
-        </thead>
-        <?php
-        require_once '../../include/config.php';
-        foreach ($produit as $vendeur){
-            ?>
-            <tr>
-                <td><?= $vendeur->id ?></td>
-                <td><?= $vendeur->nom ?></td>
-                <td><?= $vendeur->prenom?></td>
-                <td><?= $vendeur ?> <i class="fa fa-solid fa-dollar"></i></td>
-                <td><?= $vendeur->ville ?></td>
-                <td><?= $vendeur->date_creation ?></td>
-                <td><?= $vendeur->durée_contrat ?></td>
-                <td>
-                    <a class="btn btn-primary" href="../modif_prod.php?id=<?php echo $vendeur->id ?>">Modifier</a>
-                    <a class="btn btn-danger" href="../supp_prod.php?id=<?php echo $vendeur->id ?>" onclick="return confirm('Voulez vous vraiment supprimer le vendeur <?php echo $vendeur->nom?> ?')">Supprimer</a>
-                </td>
-            </tr>
-            <?php
-        }
-        ?>
-        
-    </table>
-</div>
-
-</body>
-
-</html>
+                <div class="container py-2">
+                    <h2>Liste des vendeurs</h2>
+                    <a href="ajout_vendeur" class="btn btn-primary">Ajouter un vendeur</a>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Ville</th>
+                                <th>Début du contrat</th>
+                                <th>Durée</th>
+                                <th>Opérations</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        require_once '../../include/config.php';
+                        foreach ($produit as $vendeur){
+                            ?>
+                            <tr>
+                                <td><?= $vendeur->id ?></td>
+                                <td><?= $vendeur->nom ?></td>
+                                <td><?= $vendeur->prenom?></td>
+                                <td><?= $vendeur ?> <i class="fa fa-solid fa-dollar"></i></td>
+                                <td><?= $vendeur->ville ?></td>
+                                <td><?= $vendeur->date_creation ?></td>
+                                <td><?= $vendeur->durée_contrat ?></td>
+                                <td>
+                                    <a class="btn btn-primary" href="../modif_prod.php?id=<?php echo $vendeur->id ?>">Modifier</a>
+                                    <a class="btn btn-danger" href="../supp_prod.php?id=<?php echo $vendeur->id ?>" onclick="return confirm('Voulez vous vraiment supprimer le vendeur <?php echo $vendeur->nom?> ?')">Supprimer</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        
+                    </table>
+                </div>
+            </main>
         </div>
     </div>
 </body>

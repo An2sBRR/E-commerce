@@ -1,10 +1,16 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Accueil Admin</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -19,26 +25,26 @@
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuVente.fr</div>
+                </div>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a> 
+                </div>
             </div>
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
 
                         <li class="my-1 nav-item">
-                            <a href="main_add.php" class="nav-link px-2 text-truncate">
+                            <a href="main_ad.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
@@ -80,3 +86,9 @@
                     <h2>Bienvenue sur votre espace Admin</h2>
                     <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profit, le nombre de visiteurs sur votre espace analyse.</p> 
                     <hr />
+                </div>
+            </main>
+        </div>
+    </div>    
+</body>
+</html>    
