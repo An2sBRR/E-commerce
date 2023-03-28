@@ -29,10 +29,10 @@
             
             <div class="icons">
                 <?php 
-                if (getStatut() =="admin"){
-                    echo "<a href='lienverspage de gestion contact' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='http://localhost:8000/admin/main.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
-                    echo "<a href='http://localhost:8000/E-commerce-main/?cat=disconnect' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                if (getStatut() == "admin"){
+                    echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if(getStatut() == "pasco" || getStatut() == "client" ){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     if(getStatut()=="client"){
@@ -40,6 +40,14 @@
                     }
                     else echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                }else if(getStatut() == "vendeur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if(getStatut() == "livreur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }
                 ?>
             </div>
