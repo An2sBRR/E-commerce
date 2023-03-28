@@ -20,8 +20,8 @@
             $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
             $stmt = $bdd->prepare($req);
             $stmt->execute();
-            $data = $stmt->fetch();
-            return $data[statut];
+            $data = $stmt->fetchColumn();
+            return $data;
         }
     }
 
