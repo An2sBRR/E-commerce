@@ -1,9 +1,9 @@
 <?php 
     session_start();
-    require_once 'config.php'; // ajout connexion bdd 
+    require '../include/config.php'; // ajout connexion bdd 
    // si la session existe pas soit si l'on est pas connecté on redirige
-    if(!isset($_SESSION['user'])){
-        header('Location:index.php');
+    if(!isset($_SESSION['user']) || getStatut() != "client"){
+        header('Location:../index.php');
         die();
     }
 
@@ -11,10 +11,20 @@
     $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
     $req->execute(array($_SESSION['user']));
     $data = $req->fetch();
-   
+
+    function getStatut(){
+        if(isset($_SESSION['user'])){
+            require '../include/config.php';
+            $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+            $stmt = $bdd->prepare($req);
+            $stmt->execute();
+            $data = $stmt->fetchColumn();
+            return $data;
+        }
+    }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <title>Espace membre</title>
     <!-- Required meta tags -->
@@ -45,6 +55,8 @@
 
                 <div class="text-center">
                         <h1 class="p-5">Bonjour <?php echo $data['pseudo']; ?> !</h1>
-                
-        
-        
+                </div>
+            </div>
+        </div>
+</body>
+</html>  
