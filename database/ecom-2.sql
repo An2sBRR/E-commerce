@@ -95,7 +95,22 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `date_creation`, `description`, `image`) VALUES
 (22, 'UNO', '12', 10, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '641833ce33817Mattel-Jeu-de-cartes-UNO.jpg');
+-- Ne pas oublier de changer les liens d'images pour les produits suivant!!!!!!!!!!!!!!!
 
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(23, 'Monopoly', '35', 15, 37, '2023-03-20 00:00:00', 'Jeu de société classique pour toute la famille', 'e23d441ccf174Hasbro-Monopoly.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(24, 'Jenga', '15', 0, 37, '2023-03-21 00:00:00', 'Jeu d adresse pour toute la famille', 'b6dc8a7f10536Hasbro-Jenga.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(25, 'Dobble', '10', 5, 37, '2023-03-22 00:00:00', 'Jeu d observation et de rapidité pour tous', '4c24e0e1a4b08Asmodee-Dobble.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(26, 'Scrabble', '25', 10, 37, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '12ef1f215c090Mattel-Scrabble.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(27, 'Puissance 4', '20', 0, 37, '2023-03-24 00:00:00', 'Jeu de stratégie pour deux joueurs', 'a1a6a3d5c040bHasbro-Puissance-4.jpg');
 -- --------------------------------------------------------
 
 --
