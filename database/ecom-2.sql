@@ -111,6 +111,36 @@ INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, d
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
 (27, 'Puissance 4', '20', 0, 37, '2023-03-24 00:00:00', 'Jeu de stratégie pour deux joueurs', 'a1a6a3d5c040bHasbro-Puissance-4.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(26, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l Empire avec ce modèle X-wing Starfighter de LEGO Star Wars', 'b594f0b01e0b8LEGO-Star-Wars-X-Wing-Starfighter.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(27, 'LEGO City: Le Poste de Police', '60', 0, 39, '2023-03-24 00:00:00', 'Assurez la sécurité de LEGO City avec le poste de police et ses figurines', '3d2401291d541LEGO-City-Poste-de-Police.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(26, 'LEGO City - La caserne de pompiers', '89.99', 20, 39, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '83b0e55b7c5d5LEGO-City-Caserne-de-pompiers.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(28, 'LEGO Creator - Le marché d'hiver', '79.99', 10, 39, '2023-03-25 00:00:00', 'Ensemble de construction du marché d'hiver LEGO Creator', '63f33e48f2a48LEGO-Creator-Marche-d-hiver.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(29, 'Jeu d échecs en bois', '49.99', 0, 38, '2023-03-26 00:00:00', 'Jeu d échecs classique en bois pour tous les niveaux', 'c1e6e7d6b4e4bJeu-echecs-en-bois.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(30, 'Mikado en bois', '14.99', 5, 38, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '8a24b743d13e7Mikado-en-bois.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(31, 'Jeu de dames en bois', '24.99', 0, 38, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', 'b8cf480042d5cJeu-de-dames-en-bois.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(32, 'Jeu de croquet en bois', '99.99', 20, 38, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en extérieur', 'croquet-en-bois.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(33, 'Jeu de quilles en bois', '79.99', 10, 38, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en extérieur', 'quilles-en-bois.jpg');
+
+INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
+(34, 'Jeu de palets en bois', '59.99', 5, 38, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en extérieur', 'palets-en-bois.jpg');
 -- --------------------------------------------------------
 
 --
