@@ -89,11 +89,11 @@
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
 
-                    <a href="#">Accueil</a>
-                    <a href="#about">Meilleures&nbspventes</a>
-                    <a href="#portfolio">Jeux&nbspde&nbspsociété</a>
-                    <a href="../php/abonnement.php">Jeux&nbspen&nbspbois</a>
-                    <a href="#contact">Jeux&nbspvidéo</a>
+                    <a href="/index.php">Accueil</a>
+                    <a href="/index.php?cat=meilleur-vente">Meilleures&nbspventes</a>
+                    <a href="/index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
+                    <a href="/index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
+                    <a href="/index.php?cat=lego">Lego</a>
                     <a href="#contact">Stratégie</a>
                     
                 </div>
@@ -216,11 +216,35 @@
         //Fonction modifiant le contenu de la page selon l'url
         function affichage() {
             $num = explode('=',getquery());
-            if($num[0]=="recherche")   
+            if($num[2]!= NULL)   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
                 require './include/config.php';
-                $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
+                switch ($num[2]) {
+                    case "decroissant":
+                        if ($num[0]=cat) {
+                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);
+                      break;
+                    case "croissant":
+                        if ($num[0]=cat) {
+                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);
+                      break;
+                    case "recente":
+                        if ($num[0]=cat) {
+                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
+                      break;
+                    case "ancienne":
+                        if ($num[0]=cat) {
+                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);
+                      break;
+                    default:
+                    $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
+                      break;
+                  }
                 foreach ($recherche as $produit){
                     $prix = $produit->prix;
                     $discount = $produit->discount;
@@ -229,18 +253,44 @@
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                         echo "<tr>";    
-                        echo "<td><img class='img-fluid' width='100' src='vendeur/upload/produit/".$image."'></td>";
+                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
                         echo "<td>".$libelle."</td>";
                         echo "<td>".$description."</td>";
-                        echo "<td>".$prix."</td>";
-                        echo "<td>".$prixFinale."</td>";
+                        echo "<td>".$prix."€</td>";
+                        echo "<td>".$prixFinale."€</td>";
+                        echo "</tr>";
+                }
+                echo "</tbody></table>\";</script>";
+                for ($i = 0; $i < count($num); $i++) {
+                    echo "num[" . $i . "] = " . $num[$i] . "<br>";
+                }
+                return;
+            }
+            if($num[0]=="recherche")   
+            {
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
+                require './include/config.php';
+                $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
+                foreach ($recherche as $produit){
+                    $prix = $produit->prix;
+                    $discount = $produit->discount;
+                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $description=$produit->description;
+                    $image=$produit->image;
+                    $libelle=$produit->libelle;
+                        echo "<tr>";    
+                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
+                        echo "<td>".$libelle."</td>";
+                        echo "<td>".$description."</td>";
+                        echo "<td>".$prix."€</td>";
+                        echo "<td>".$prixFinale."€</td>";
                         echo "</tr>";
                 }
                 echo "</tbody></table>\";</script>";
             }
             if($num[0]=="cat")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
@@ -251,14 +301,15 @@
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                         echo "<tr>";    
-                        echo "<td><img class='img-fluid' width='100' src='vendeur/upload/produit/".$image."'></td>";
+                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
                         echo "<td>".$libelle."</td>";
                         echo "<td>".$description."</td>";
-                        echo "<td>".$prix."</td>";
-                        echo "<td>".$prixFinale."</td>";
+                        echo "<td>".$prix."€</td>";
+                        echo "<td>".$prixFinale."€</td>";
                         echo "</tr>";
                 }
                 echo "</tbody></table>\";</script>";
+                
             }
         }
         
