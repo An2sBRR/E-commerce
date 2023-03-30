@@ -94,53 +94,53 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `date_creation`, `description`, `image`) VALUES
-(22, 'UNO', '12', 10, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '641833ce33817Mattel-Jeu-de-cartes-UNO.jpg');
+(22, 'UNO', '12', 10, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '../data/UNO.jpg');
 -- Ne pas oublier de changer les liens d'images pour les produits suivant!!!!!!!!!!!!!!!
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(23, 'Monopoly', '35', 15, 37, '2023-03-20 00:00:00', 'Jeu de société classique pour toute la famille', 'e23d441ccf174Hasbro-Monopoly.jpg');
+(23, 'Monopoly', '35', 15, 37, '2023-03-20 00:00:00', 'Jeu de société classique pour toute la famille', '../data/monopoly.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(24, 'Jenga', '15', 0, 37, '2023-03-21 00:00:00', 'Jeu d adresse pour toute la famille', 'b6dc8a7f10536Hasbro-Jenga.jpg');
+(24, 'Jenga', '15', 0, 37, '2023-03-21 00:00:00', 'Jeu d adresse pour toute la famille', '../data/jenga.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(25, 'Dobble', '10', 5, 37, '2023-03-22 00:00:00', 'Jeu d observation et de rapidité pour tous', '4c24e0e1a4b08Asmodee-Dobble.jpg');
+(25, 'Dobble', '10', 5, 37, '2023-03-22 00:00:00', 'Jeu d observation et de rapidité pour tous', '../data/dobble.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(26, 'Scrabble', '25', 10, 37, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '12ef1f215c090Mattel-Scrabble.jpg');
+(26, 'Scrabble', '25', 10, 37, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(27, 'Puissance 4', '20', 0, 37, '2023-03-24 00:00:00', 'Jeu de stratégie pour deux joueurs', 'a1a6a3d5c040bHasbro-Puissance-4.jpg');
+(27, 'Puissance 4', '20', 0, 37, '2023-03-24 00:00:00', 'Jeu de stratégie pour deux joueurs', '../data/puissance-4.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(26, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l Empire avec ce modèle X-wing Starfighter de LEGO Star Wars', 'b594f0b01e0b8LEGO-Star-Wars-X-Wing-Starfighter.jpg');
+(26, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l Empire avec ce modèle X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(27, 'LEGO City: Le Poste de Police', '60', 0, 39, '2023-03-24 00:00:00', 'Assurez la sécurité de LEGO City avec le poste de police et ses figurines', '3d2401291d541LEGO-City-Poste-de-Police.jpg');
+(27, 'LEGO City: Le Poste de Police', '60', 0, 39, '2023-03-24 00:00:00', 'Assurez la sécurité de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(26, 'LEGO City - La caserne de pompiers', '89.99', 20, 39, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '83b0e55b7c5d5LEGO-City-Caserne-de-pompiers.jpg');
+(26, 'LEGO City - La caserne de pompiers', '89.99', 20, 39, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(28, 'LEGO Creator - Le marché d'hiver', '79.99', 10, 39, '2023-03-25 00:00:00', 'Ensemble de construction du marché d'hiver LEGO Creator', '63f33e48f2a48LEGO-Creator-Marche-d-hiver.jpg');
+(28, 'LEGO Creator - Le marché d hiver', '79.99', 10, 39, '2023-03-25 00:00:00', 'Ensemble de construction du marché d hiver LEGO Creator', '../data/hiver.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(29, 'Jeu d échecs en bois', '49.99', 0, 38, '2023-03-26 00:00:00', 'Jeu d échecs classique en bois pour tous les niveaux', 'c1e6e7d6b4e4bJeu-echecs-en-bois.jpg');
+(29, 'Jeu d échecs en bois', '49.99', 0, 38, '2023-03-26 00:00:00', 'Jeu d échecs classique en bois pour tous les niveaux', '../data/echec.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(30, 'Mikado en bois', '14.99', 5, 38, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '8a24b743d13e7Mikado-en-bois.jpg');
+(30, 'Mikado en bois', '14.99', 5, 38, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(31, 'Jeu de dames en bois', '24.99', 0, 38, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', 'b8cf480042d5cJeu-de-dames-en-bois.jpg');
+(31, 'Jeu de dames en bois', '24.99', 0, 38, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(32, 'Jeu de croquet en bois', '99.99', 20, 38, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en extérieur', 'croquet-en-bois.jpg');
+(32, 'Jeu de croquet en bois', '99.99', 20, 38, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en extérieur', '../data/croquet.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(33, 'Jeu de quilles en bois', '79.99', 10, 38, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en extérieur', 'quilles-en-bois.jpg');
+(33, 'Jeu de quilles en bois', '79.99', 10, 38, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en extérieur', '../data/quilles.jpg');
 
 INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image) VALUES
-(34, 'Jeu de palets en bois', '59.99', 5, 38, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en extérieur', 'palets-en-bois.jpg');
+(34, 'Jeu de palets en bois', '59.99', 5, 38, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en extérieur', '../data/palais.jpeg');
 -- --------------------------------------------------------
 
 --
