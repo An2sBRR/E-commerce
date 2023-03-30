@@ -29,17 +29,27 @@
             
             <div class="icons">
                 <?php 
-                if (getStatut() =="admin"){
-                    echo "<a href='php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
-                    echo "<a href='php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
-                }else if(getStatut() == "pasco" || getStatut() == "client" ){
+                if(!isset($_SESSION['statut'])){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
-                    if(getStatut()=="client"){
-                        echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
-                    }
-                    else echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "client"){
+                    echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                }
+                else if ($_SESSION['statut'] == "admin"){
+                    echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "vendeur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "livreur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }
                 ?>
             </div>
@@ -88,14 +98,12 @@
                 <label for="toggle">☰</label>
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
-
                     <a href="/index.php">Accueil</a>
                     <a href="/index.php?cat=meilleur-vente">Meilleures&nbspventes</a>
                     <a href="/index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="/index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="/index.php?cat=lego">Lego</a>
                     <a href="#contact">Stratégie</a>
-                    
                 </div>
             </nav>
         </div> 
@@ -198,17 +206,6 @@
     </script>
 
     <?php
-        function getStatut(){
-            require './include/config.php';
-            if(isset($_SESSION['user'])){
-                $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
-                $stmt = $bdd->prepare($req);
-                $stmt->execute();
-                $data = $stmt->fetchColumn();
-                return $data;
-            }else
-                return "pasco";
-        }
         //Fonction pour récupérer l'url de la page
         function getquery(){ $url = $_SERVER['REQUEST_URI'];
             return (parse_url($url, PHP_URL_QUERY)); }
@@ -290,7 +287,7 @@
             }
             if($num[0]=="cat")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";                
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
@@ -309,7 +306,6 @@
                         echo "</tr>";
                 }
                 echo "</tbody></table>\";</script>";
-                
             }
         }
         
