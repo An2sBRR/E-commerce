@@ -113,7 +113,8 @@
                                 <td><?= $discount ?> %</td>
                                 <td><?= $produit->categorie_libelle ?></td>
                                 <td><?= $produit->date_creation ?></td>
-                                <td><img class="img-fluid" width="90" src="../upload/produit/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>
+                                <td><img class="img-fluid" width="90" src="../../data/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>
+
                                 <td>
                                     <a class="btn btn-primary" href="../modif_prod.php?id=<?php echo $produit->id ?>">Modifier</a>
                                     <a class="btn btn-danger" href="../supp_prod.php?id=<?php echo $produit->id ?>" onclick="return confirm('Voulez vous vraiment supprimer le produit <?php echo $produit->libelle?> ?')">Supprimer</a>
