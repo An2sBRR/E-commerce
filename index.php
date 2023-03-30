@@ -29,27 +29,17 @@
             
             <div class="icons">
                 <?php 
-                if(!isset($_SESSION['statut'])){
+                if (getStatut() =="admin"){
+                    echo "<a href='php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if(getStatut() == "pasco" || getStatut() == "client" ){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
-                    echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    if(getStatut()=="client"){
+                        echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    }
+                    else echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
-                }else if($_SESSION['statut'] == "client"){
-                    echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
-                    echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
-                    echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
-                }
-                else if ($_SESSION['statut'] == "admin"){
-                    echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
-                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
-                }else if($_SESSION['statut'] == "vendeur"){
-                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
-                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
-                }else if($_SESSION['statut'] == "livreur"){
-                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./vendeur/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
-                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }
                 ?>
             </div>
@@ -208,6 +198,17 @@
     </script>
 
     <?php
+        function getStatut(){
+            require './include/config.php';
+            if(isset($_SESSION['user'])){
+                $req = "SELECT statut FROM utilisateurs WHERE token='".$_SESSION['user']."'";
+                $stmt = $bdd->prepare($req);
+                $stmt->execute();
+                $data = $stmt->fetchColumn();
+                return $data;
+            }else
+                return "pasco";
+        }
         //Fonction pour récupérer l'url de la page
         function getquery(){ $url = $_SERVER['REQUEST_URI'];
             return (parse_url($url, PHP_URL_QUERY)); }
@@ -228,9 +229,10 @@
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                         echo "<tr>";    
-                        echo "<td><div class='container'><img style='width:20%;height:20%;'src='img/".$image."'></label></div></td>";
+                        echo "<td><img class='img-fluid' width='100' src='vendeur/upload/produit/".$image."'></td>";
                         echo "<td>".$libelle."</td>";
                         echo "<td>".$description."</td>";
+                        echo "<td>".$prix."</td>";
                         echo "<td>".$prixFinale."</td>";
                         echo "</tr>";
                 }
@@ -249,9 +251,10 @@
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                         echo "<tr>";    
-                        echo "<td><div class='container'><img style='width:20%;height:20%;'src='img/".$image."'></label></div></td>";
+                        echo "<td><img class='img-fluid' width='100' src='vendeur/upload/produit/".$image."'></td>";
                         echo "<td>".$libelle."</td>";
                         echo "<td>".$description."</td>";
+                        echo "<td>".$prix."</td>";
                         echo "<td>".$prixFinale."</td>";
                         echo "</tr>";
                 }
