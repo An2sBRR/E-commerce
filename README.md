@@ -5,6 +5,15 @@
 
 - [X] Avoir une équipe de BG :grin:
 
+Hors Cahier des Charges : 
+
+- [ ] Faire le css des pages catégories
+- [ ] Faire le css des pages produits
+- [ ] Modifier la page du compte du client 
+- [ ] Créer une table dans le sql pour y mettre les commandes
+- [ ] Faire la page panier
+- [ ] Ajouter des petites annimations qui rendent le site 🤌
+
 Coté Client :
 
 - [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
@@ -20,6 +29,7 @@ Coté Vendeur :
 - [X] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
 - [ ] Suivre les ventes
 - [X] Signer/Renouveller/Résilier son contrat
+- [ ] Rendre l'accès sécurisé au page vendeur
 
 Coté MarketPlace :
 
@@ -28,6 +38,8 @@ Coté MarketPlace :
 - [X] Ajouter un vendeur
 - [ ] Afficher son chiffre d'affaires
 - [ ] Expédier une commande
+- [ ] Rendre l'accès sécurisé au page admin
+- [ ] Modifier la page ajout produit pour y mettre les quantités
 
 Coté livreur ou préparateur : 
 
@@ -37,5 +49,6 @@ Coté livreur ou préparateur :
 - [ ] Les colis sont affectés aux livreurs selon leur disponibilité
 - [ ] Chaque livreur a son planning de livraison
 - [ ] Trouver le trajet le plus court pour déposer les colis à des adresses différentes.
+- [ ] Rendre l'accès sécurisé au page livreur
  
 
