@@ -98,12 +98,14 @@
                 <label for="toggle">☰</label>
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
+
                     <a href="/index.php">Accueil</a>
                     <a href="/index.php?cat=meilleur-vente">Meilleures&nbspventes</a>
                     <a href="/index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="/index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="/index.php?cat=lego">Lego</a>
                     <a href="#contact">Stratégie</a>
+                    
                 </div>
             </nav>
         </div> 
@@ -287,7 +289,7 @@
             }
             if($num[0]=="cat")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";                
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
@@ -306,6 +308,7 @@
                         echo "</tr>";
                 }
                 echo "</tbody></table>\";</script>";
+                
             }
         }
         
