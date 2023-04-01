@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de donn&eacutees : `ecom`
+-- Base de données : `ecom`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `categorie`
+-- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `libelle`, `description`, `date_creation`) VALUES
@@ -91,7 +91,7 @@ CREATE TABLE `produit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `date_creation`, `description`, `image`, `quantite`) VALUES
@@ -160,7 +160,7 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `utilisateurs`
+-- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`, `abonnement`, `statut`, `token`, `date_inscription`) VALUES
@@ -184,14 +184,14 @@ CREATE TABLE `vendeur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `vendeur`
+-- D&eacutechargement des données de la table `vendeur`
 --
 
 INSERT INTO `vendeur` (`id`, `nom`, `pr&eacutenom`, `ville`, `debut_contrat`) VALUES
 (2, 'tes', 'aa', 'aaa', '2023-03-27 00:00:00');
 
 --
--- Index pour les tables d&eacutecharg&eacutees
+-- Index pour les tables déchargées
 --
 
 --
@@ -231,7 +231,7 @@ ALTER TABLE `vendeur`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables d&eacutecharg&eacutees
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
