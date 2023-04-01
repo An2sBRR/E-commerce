@@ -51,7 +51,7 @@
                         </li>
                         <li class="my-1">
                             <a href="categorie.php" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-layout-text-sidebar-reverse"></i></i>
+                                <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Liste des categories</span>
                             </a>
                         </li>
@@ -87,22 +87,22 @@
                     $discount = $_POST['discount'];
                     $categorie = $_POST['categorie'];
                     $description = $_POST['description'];
+                    $quantite = $_POST['quantite'];
                     $date = date('Y-m-d');
 
                     $filename = 'produit.png';
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
                         $filename = uniqid() . $image;
-                        move_uploaded_file($_FILES['image']['tmp_name'], 'upload/produit/' . $filename);
+                        move_uploaded_file($_FILES['image']['tmp_name'], '../data/' . $filename);
                     }
                     
                     if (!empty($libelle) && !empty($prix) && !empty($categorie)) {
-                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?)');
-                        $inserted = $sqlState->execute([$libelle, $prix, $discount, $categorie, $date, $description, $filename]);
+                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?)');
+                        $inserted = $sqlState->execute([$libelle, $prix, $discount, $categorie, $date, $description, $filename, $quantite]);
                         if ($inserted) {
                         // header('location: produit.php');
                         } else {
-
                             ?>
                             <div class="alert alert-danger" role="alert">
                                 Database error (40023).
@@ -131,6 +131,9 @@
 
                     <label class="form-label">Description</label>
                     <textarea class="form-control" name="description"></textarea>
+
+                    <label class="form-label">Quantité</label>
+                    <input type="number" class="form-control" name="quantite" min="0" required="required"></input>
 
                     <label class="form-label">Image</label>
                     <input type="file" class="form-control" name="image">
