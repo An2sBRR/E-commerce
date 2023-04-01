@@ -13,7 +13,8 @@ Hors Cahier des Charges :
 - [ ] Créer une table dans le sql pour y mettre les commandes
 - [ ] Faire la page panier
 - [ ] Ajouter des petites annimations qui rendent le site 🤌
-- [ ] faire en sorte qu'à l'inscription on sache s'il est vendeur, client ou livreur
+- [ ] Faire en sorte qu'à l'inscription on sache s'il est vendeur, client ou livreur
+- [ ] (ça serait cool) Avoir des coupons de reduction
 
 Coté Client :
 
