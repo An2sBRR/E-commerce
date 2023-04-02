@@ -9,8 +9,8 @@ Hors Cahier des Charges :
 
 - [ ] Faire le css des pages catégories
 - [ ] Faire le css des pages produits
-- [ ] Modifier la page du compte du client 
-- [ ] Créer une table dans le sql pour y mettre les commandes
+- [X] Modifier la page du compte du client 
+- [X] Créer une table dans le sql pour y mettre les commandes
 - [ ] Faire la page panier
 - [ ] Ajouter des petites annimations qui rendent le site 🤌
 
