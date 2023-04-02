@@ -60,7 +60,7 @@
                                 <span class="d-none d-sm-inline">Liste des produits</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
+                            <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
@@ -96,7 +96,6 @@
                     line: {color: "#702CF6"},
                     name: 'votre chiffre'
                     };
-
                     var trace2 = {
                     x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                     y: [80, 80, 80, 80, 80, 80,80, 80, 80, 80],
@@ -104,15 +103,53 @@
                     line: {dash: 'dot', width: 4, color: "#F29700"},
                     name: 'votre objectif'
                     };
+                    var trace3={
+                        x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    y: [73, 76, 52, 50, 73, 89,67, 50, 63, 80],
+                    type: 'scatter',
+                    mode: 'lines + dot',
+                    name: 'N-1'
+                    }
 
-                var data = [trace1, trace2];
+                var data = [trace1, trace2, trace3];
 
                 TESTER = document.getElementById('ProgressionGraph');
 
                 Plotly.newPlot(TESTER, data, layout, config);
                 </script>
+                <br><br>
+<!--2 eme graphique --->
+                <h4>Diagramme sur les vendeurs de cette année </h4>
+                <div id="chart" class="col overflow-auto h-100 w-100"></div>
+                <script>
+                // Données pour le graphique
+                var data = [{
+                x: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai'],
+                y: [15, 30, 20, 10, 15, 25],
+                type: 'bar'
+            }];
+
+  // Mise en forme du graphique
+  var layout = {
+    title: 'nombre de vendeurs',
+    xaxis: {
+      title: 'Mois'
+    },
+    yaxis: {
+      title: 'Ventes'
+    }
+  };
+
+  // Création du graphique
+  Plotly.newPlot('chart', data, layout);
+</script>
             </main>
         </div>
     </div>
+   
+
 </body>
 </html>
+
+
+  
