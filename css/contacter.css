@@ -1,0 +1,37 @@
+* {                              /*Pour retirer les margin par défaut du body*/
+    margin: 0;
+    padding: 0; }
+
+                                /*Pour faire en sorte que l'affichage prenne la taille de l'écran*/
+html {
+    height: 100%;}
+
+body {
+    height: 100%;
+    background:rgb(250, 238, 238); }
+
+ 
+.test{
+    padding-top: 2%;
+    width: 100%;
+}
+.zones {
+   margin-left: auto;
+   margin-right: auto;
+    min-height: 100%;
+    width: 30%;
+    position: relative;
+    border: solid black 3px;
+    background: rgb(243, 185, 179);
+}
+
+.zones>p{
+    text-align: center;
+}
+
+#fermé {           /*Bouton pour fermer le formulaire de connexion*/
+    text-align: right;
+    width: fit-content;
+    border : solid black 2px;
+    background-color:grey;
+    color:white; }

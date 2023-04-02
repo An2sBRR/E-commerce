@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.formulaire_titre {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 50px;
+}
+
+.boite {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.Nom, .mail, .Naissance, .Prenom, .Contact, .sujet {
+    border: none;
+    border-bottom: 2px solid grey;
+}
+
+.div_sujet, .contenu_sujet{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.div_nom, .div_mail, .div_naissance, .div_prenom, .div_contact{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 13%;
+}
+
+input:focus{
+    outline: none;
+}
+
+form label {
+    padding-bottom: 4%;
+}
+
+.gauche {
+    width: 48%;
+    margin-right: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.GenreRadio{
+    margin-bottom: 13%;
+}
+
+.div_util{
+    margin-bottom: 8%;
+    width: 70%;
+}
+
+.droite {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+#button-sbt {
+    background-color: rgb(124, 110, 158);
+    color: white;
+    width: 70px;
+    height: 40px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+.encadreRouge
+{
+    border: none;
+    border-bottom: 2px solid red;
+}
+.encadreVert
+{
+    border: none;
+    border-bottom: 2px solid green;
+}
+
+.succes{
+    margin-top: 10%;
+    text-align: center;
+    
+}
+
+  @media screen and (max-width: 650px){
+    .boite{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .gauche{
+        width: 300px;
+        margin-right: 0;
+    }
+    .div_util{
+        width: auto;    
+    }
+    .droite{
+        width: 300px;
+    }
+    .contenu_sujet{
+        margin-top: 20px;
+        width: 300px;
+    }
+    .div_prenom{
+        margin-top: 5%;
+    }
+    textarea{
+        width: 100%;
+    }
+  }

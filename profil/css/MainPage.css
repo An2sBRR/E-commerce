@@ -1,0 +1,23 @@
+.My-Color-Theme-1-hex { color: #3700A8; }
+.My-Color-Theme-2-hex { color: #F29700; }
+.My-Color-Theme-3-hex { color: #702CF6; }
+.My-Color-Theme-4-hex { color: #13F26C; }
+.My-Color-Theme-5-hex { color: #FFFFFF; }
+
+#img1{
+    background: linear-gradient( #F29700, #702CF6);
+    display: inline-block;
+}
+
+#Demarrer-btn{
+    background-color: #702CF6;
+
+}
+
+#third-box{
+    border-bottom: solid black 2px;
+}
+
+.logo_social{
+    max-width: 100%;
+}
