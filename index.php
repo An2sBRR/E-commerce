@@ -63,6 +63,9 @@
                   </button>
                 </div>
                 <script>
+                    function ZOOM(x){
+                        window.location="http://localhost:8000/index.php?zoom="+x;
+                    }
                     function handleKeyPress(event) {
                         if (event.keyCode === 13) {
                         // appel de la fonction souhaitée
@@ -121,33 +124,7 @@
                     </p>
     </main>
 
-    <!-- A propos -->
-    <section class="container-fluid about">
-        <div class="container">
-            <div class="row">
-                <h2 id="about">A propos de nous</h2>  <!-- Lien d'ancrage -->
-                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
-                        <h2>Petit test uno</h2>
-                        <p>
-                            La cigale et la fourmi. La cigale ayant chanté tout l'été se trouva fort dépourvue quand la bise fut venue. Pas un seul petit morceau de mouche ou de vermiceau, elle alla crier famine chez la fourmi sa voisine lui priant de lui donner quelques vivres jusqu'a la saison nouvelles. La fourmi, n'étant pas de joie lui demande ce qu'elle a fait cet été. LA cigale répond je chantais. La fourmi lui repondit "Vous chantiez ? j'en suis fort aise ! Eh bien pleurez maintenant !!"
-                        </p>
-                </article>
-                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
-                    <h2>Petit test dos</h2>
-                    <p>
-                        Maitre corbeau sur un arbre perché tenait en son bec un fromage. Maitre renard par l'odeur alléchée lui tint a peu pres ce langage : eh bonjour monsieur du corbeau, que vous etes jolis, que vous me smeblez beau. Sans mentir, si votre ramage se rapporte a votre plumage, vous etes le phenix des hotes de ces bois. A ces mots le corbeau ne ce sent plus de joie et pour montrer sa joie il ouvre un large bec et laisse tomber sa proie. Le renard s'en saisit et le maaaaange !!!
-                    </p>
-            </article>
-            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">  
-                <h2>Petit test tres</h2>
-                <p>
-                    Vive le vent vive le vent vive le vent d'hiverrrrr qui s'envole sifflant souffant dans les grands sapins verts, hey ! Vive le vent vive le vent vive le vent d'hiveeereuuu, boule de neige et jour de l'an et bonne anné grand mere yeaahhhhh. OK pmaintenant on continue avec un petit peu de blabal pour continuer le paragraohe afin qu'il soit pls long et que ca fassse vraiment paragraohe quoi.
-                </p>
-            </article>
-            </div>
-        </div>
-
-    </section>
+    
     <!-- Footer -->
     <footer class="container-fluid footer">
         <div class="container">
@@ -240,13 +217,18 @@
                       break;
                   }
                 foreach ($recherche as $produit){
+                    $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
                     $prixFinale = $prix - (($prix*$discount)/100);
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<div class='col-md-4'";
+                    echo "onclick=ZOOM('";
+                    echo $id;
+                    echo"')";
+                    echo "><div class='product text-center'>";   ;    
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     echo "<span class='text-muted'>".$description."</span>";
@@ -256,9 +238,6 @@
                     echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
-                for ($i = 0; $i < count($num); $i++) {
-                    echo "num[" . $i . "] = " . $num[$i] . "<br>";
-                }
                 return;
             }
             if($num[0]=="recherche")   
@@ -267,13 +246,18 @@
                 require './include/config.php';
                 $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($recherche as $produit){
+                    $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
                     $prixFinale = $prix - (($prix*$discount)/100);
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<div class='col-md-4'";
+                    echo "onclick=ZOOM('";
+                    echo $id;
+                    echo"')";
+                    echo "><div class='product text-center'>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
@@ -289,19 +273,65 @@
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
+                    $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
                     $prixFinale = $prix - (($prix*$discount)/100);
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<div class='col-md-4'";
+                    echo "onclick=ZOOM('";
+                    echo $id;
+                    echo"')";
+                    echo "><div class='product text-center'>";    
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
+                }
+                echo "</div> </div>\";</script>";
+            }
+            if($num[0]=="zoom")   
+            {
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
+                require './include/config.php';
+                $categories = $bdd->query('SELECT * FROM produit WHERE id LIKE \''.$num[1].'\'')->fetchAll(PDO::FETCH_OBJ);
+                foreach ($categories as $produit){
+                    $id=$produit->id;
+                    $prix = $produit->prix;
+                    $discount = $produit->discount;
+                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $description=$produit->description;
+                    $image=$produit->image;
+                    $libelle=$produit->libelle;
+                   
+                    echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
+                    echo "<img style='max-width:100%;' src='data/".$image."'></div>";
+                    echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
+                    echo "<h5 style='color:#337ab7'>Vendu par ".$nomvendeur."<small style='color:#337ab7'>(".rand(50,10000)." ventes)</small></h5>";
+                    echo "<h6 class='title-price'><small>PRIX</small></h6><h3 style='margin-top:0px;'>".$prixFinale."€</h3>";
+                    echo "<div class='section'><h6 class='title-attr' style='margin-top:15px;' ><small>Prix initial : ".$prix."€</small></h6>";                    
+                    echo "<div> </div></div>";
+                    echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6> ";                  
+                    echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' min='0' max='Stock' />"; //ATTENTION METTRE VARIABLE LA VRAIE
+                    echo "<div class='btn-plus'><span class='glyphicon glyphicon-plus'></span></div></div></div>";
+                    echo "<div class='section' style='padding-bottom:20px;'>";
+                    echo "<button class='btn btn-success'><span style='margin-right:20px' class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span>Ajouter au panier</button>";
+                    echo "</div></div>";   
+                    echo "<div class='col-xs-9' style='width: 100%;'>";
+                    echo "<ul class='menu-items'><li class='active'>Détails du produit</li><li>Avis</li><li>Vendeurs</li><li>Livraison</li></ul>";   
+                    echo "<div style='width:100%; border-top:1px solid silver'>";
+                    echo "<p style='padding:15px;'><small>Ceci est une petite description de ".$libelle." :<br>".$description."</small></p>";                                   
+                    echo "</div></div></div></div>";
+
+
+
+                    //if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
+                    //echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    
                 }
                 echo "</div> </div>\";</script>";
             }
