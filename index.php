@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 <!-- CSS -->
@@ -35,20 +36,20 @@
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "client"){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
-                    echo "<a href='./profil/client/profil_cl.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }
                 else if ($_SESSION['statut'] == "admin"){
                     echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./profil/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "vendeur"){
                     echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./profil/vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
+                    echo "<a href='vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "livreur"){
                     echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./profil/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
+                    echo "<a href='./vendeur/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }
                 ?>
@@ -187,7 +188,7 @@
                     <a class="reseauxFooter" href="https://instagram.com" target="_blank">
                         <ion-icon name="logo-instagram"></ion-icon>
                     </a>
-                        <a class="reseauxFooter" href="https://github.com/Le-7/PREING2MI3-AITCHADI-BELHADJ-CERF-COSTA" target="_blank">
+                        <a class="reseauxFooter" href="https://github.com/An2sBRR/E-commerce" target="_blank">
                     <ion-icon name="logo-github"></ion-icon>
                     </a>
                 </p>  
@@ -201,12 +202,6 @@
 
     </footer>
     <!-- Fin du footer-->
-    <script>
-        function disconnect(){
-            document.location.href = "http://localhost:8000/E-commerce-main/?cat=disconnect";
-        }
-    </script>
-
     <?php
         //Fonction pour récupérer l'url de la page
         function getquery(){ $url = $_SERVER['REQUEST_URI'];
@@ -217,7 +212,7 @@
             $num = explode('=',getquery());
             if($num[2]!= NULL)   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 switch ($num[2]) {
                     case "decroissant":
@@ -251,15 +246,16 @@
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                        echo "<tr>";    
-                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
-                        echo "<td>".$libelle."</td>";
-                        echo "<td>".$description."</td>";
-                        echo "<td>".$prix."€</td>";
-                        echo "<td>".$prixFinale."€</td>";
-                        echo "</tr>";
+                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
+                    echo "<span class='text-muted'>".$description."</span>";
+                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
+                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
+                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
-                echo "</tbody></table>\";</script>";
+                echo "</div> </div>\";</script>";
                 for ($i = 0; $i < count($num); $i++) {
                     echo "num[" . $i . "] = " . $num[$i] . "<br>";
                 }
@@ -267,7 +263,7 @@
             }
             if($num[0]=="recherche")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($recherche as $produit){
@@ -277,19 +273,19 @@
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                        echo "<tr>";    
-                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
-                        echo "<td>".$libelle."</td>";
-                        echo "<td>".$description."</td>";
-                        echo "<td>".$prix."€</td>";
-                        echo "<td>".$prixFinale."€</td>";
-                        echo "</tr>";
+                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
+                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
+                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
+                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
-                echo "</tbody></table>\";</script>";
+                echo "</div> </div>\";</script>";
             }
             if($num[0]=="cat")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<table><thead><tr><th>Photo</th><th>Nom</th><th>Description</th><th>Prix</th><th>Prix finale</th></thead> <tbody>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
@@ -299,20 +295,63 @@
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                        echo "<tr>";    
-                        echo "<td><img class='img-fluid' width='100' src='data/".$image."'></td>";
-                        echo "<td>".$libelle."</td>";
-                        echo "<td>".$description."</td>";
-                        echo "<td>".$prix."€</td>";
-                        echo "<td>".$prixFinale."€</td>";
-                        echo "</tr>";
+                    echo "<div class='col-md-4'> <div class='product text-center'>";    
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
+                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
+                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
+                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
-                echo "</tbody></table>\";</script>";
-                
+                echo "</div> </div>\";</script>";
             }
         }
-        
         affichage();
     ?>
+    
 </body>
 </html>
+<!--<div class="container mt-5"> 
+    <div class="row d-flex justify-content-center g-1"> 
+        <div class="col-md-4"> 
+            <div class="product text-center">
+                <img src="./data/UNO.jpg" width="250"> 
+                <div class="about text-left px-3" id="about"> 
+                    <h4>Standron Chair</h4> 
+                    <span class="text-muted">Home decor</span> 
+                    <h3>$230</h3> 
+                </div> 
+                <span class="dot">
+                    <span class="inner-dot">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                </span> 
+            </div> 
+        </div> 
+        <div class="col-md-4"> 
+            <div class="product text-center"> 
+                <img src="https://i.imgur.com/7BwBYPB.jpg" width="250"> 
+                <div class="about text-left px-3" id="about"> 
+                    <h4>Trodon Chair</h4> 
+                    <span class="text-muted">Home decor</span> 
+                    <h3 >$220</h3> 
+                </div> 
+                <span class="dot"><span class="inner-dot"><i class="fa fa-plus"></i></span></span> 
+            </div> 
+        </div> 
+        <div class="col-md-4"> 
+            <div class="product text-center"> 
+                <img src="https://i.imgur.com/HjkIPFZ.jpg" width="250"> 
+                <div class="about text-left px-3" id="about"> 
+                    <h4>Dura Chair</h4> 
+                    <span class="text-muted">Home decor</span> 
+                    <h3>$299</h3> 
+                </div> 
+                <span class="dot">
+                    <span class="inner-dot"><i class="fa fa-plus"></i>
+                    </span>
+                </span> 
+            </div> 
+        </div> 
+    </div> 
+</div> -->
