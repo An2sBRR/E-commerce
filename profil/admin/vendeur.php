@@ -61,7 +61,7 @@
                                 <span class="d-none d-sm-inline">Liste des produits</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
+                            <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
@@ -85,6 +85,7 @@
                                 <th>#ID</th>
                                 <th>Nom</th>
                                 <th>Prenom</th>
+                                <th>Pseudo</th>
                                 <th>Ville</th>
                                 <th>Contrat signé</th>
                                 <th>Début du contrat</th>
@@ -106,6 +107,7 @@
                                         <td>".$employe["id"]."</td>
                                         <td>".$employe["nom"]."</td>
                                         <td>".$employe["prenom"]."</td>
+                                        <td>".$employe["pseudo"]."</td>
                                         <td>".$employe["ville"]."</td>
                                         <td>".$employe["contrat"]."</td>
                                         <td>".$employe["date_embauche"]."</td>

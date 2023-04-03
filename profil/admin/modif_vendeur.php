@@ -82,31 +82,52 @@
                              <h4> Modifier vendeur<h4>
                 <?php
                 $check = $bdd->prepare('SELECT * FROM employes WHERE id=?');
-                $id = $_GET['id'];
                 $check->execute([$id]);
 
                 $employes = $check->fetch(PDO::FETCH_ASSOC);
                 if (isset($_POST['modifier'])) {
                     $nom = $_POST['nom'];
                     $prenom = $_POST['prenom'];
+                    $pseudo = $_POST['pseudo'];
                     $ville = $_POST['ville'];
-                    $contrat = $_POST['contrat'];
 
-                    if (!empty($nom) && !empty($prenom) && !empty($ville)) {
-                        $check = $bdd->prepare('UPDATE employes SET nom = ? , prenom = ?,  ville = ?,  contrat = ?, WHERE id = ?');
-                        $check->execute([$nom, $prenom, $ville, $contrat, $id]);
+                    if (!empty($nom) && !empty($prenom) && !empty($ville) && !empty($pseudo)) {
+                        $check = $bdd->prepare('UPDATE employes SET nom =?, prenom =?, pseudo =?, ville =?, contrat =?, WHERE id = ?');
+                        $sqlState = $bdd->prepare($query);
+                        $updated->$sqlState->execute([$nom, $prenom, $pseudo, $ville, $contrat, $id]);
                         //  header('location: categories.php');
                     } else {
                         ?>
                         <div class="alert alert-danger" role="alert">
-                            nom , prenom et ville sont obligatoires
+                            nom , prenom, pseudo et ville sont obligatoires
                         </div>
                         <?php
                     }
                 }
 ?>
-       
-</div>
-</div>
+ <form method="post">
+                    <input type="hidden" class="form-control" name="id" value="<?php echo $employes['id'] ?>">
+                    <label class="form-label">nom</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $employes['nom'] ?>">
+
+                    <label class="form-label">prenom</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $employes['prenom'] ?>">
+
+                    <label class="form-label">pseudo</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $employes['pseudo'] ?>">
+
+                    <label class="form-label">ville</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $employes['ville'] ?>">
+
+                    <label class="form-label">contrat signé</label>
+                    <input type="text" class="form-control" name="libelle" value="<?php echo $employes['contrat'] ?>">
+
+                    <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2" name="modifier">
+                </form>
+ 
+            </main>
+        </div>
+    </div>
 </body>
 </html>
+       

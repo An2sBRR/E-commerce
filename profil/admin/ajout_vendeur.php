@@ -84,13 +84,14 @@
                     if (isset($_POST['ajouter'])) {
                         $nom = $_POST['nom'];
                         $prenom = $_POST['prenom'];
+                        $pseudo = $_POST['pseudo'];
                         $ville = $_POST['ville'];
                         $contrat = $_POST['contrat'];
                         $date = date('Y-m-d');
                     
-                        if (!empty($nom) && !empty($prenom) && !empty($ville) && !empty($contrat)) {
-                            $sqlState = $bdd->prepare('INSERT INTO employes VALUES (null,?,?,?,?,?)');
-                            $inserted = $sqlState->execute([$nom, $prenom, $ville, $contrat, $date]);
+                        if (!empty($nom) && !empty($prenom) && !empty($ville) && !empty($pseudo)) {
+                            $sqlState = $bdd->prepare('INSERT INTO employes VALUES (null,?,?,?,?,?,?)');
+                            $inserted = $sqlState->execute([$nom, $prenom, $pseudo, $ville, $contrat, $date]);
                             if ($inserted) {
                             // header('location: vendeur.php');
                             } else {
@@ -104,7 +105,7 @@
                         } else {
                             ?>
                             <div class="alert alert-danger" role="alert">
-                                Nom, prenom, ville et contrat sont obligatoires.
+                                Nom, prenom, ville et pseudo sont obligatoires.
                             </div>
                             <?php
                         }
@@ -117,6 +118,9 @@
 
                         <label class="form-label">prenom</label>
                         <input type="text" class="form-control" name="prenom">
+
+                        <label class="form-label">pseudo</label>
+                        <input type="text" class="form-control" name="pseudo">
 
                         <label class="form-label">ville</label>
                         <input type="text" class="form-control" name="ville">
