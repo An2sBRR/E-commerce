@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- G&eacuten&eacuter&eacute le : lun. 27 mars 2023 à 15:41
+-- Généré le : lun. 03 avr. 2023 à 09:38
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de donn&eacutees : `ecom`
+-- Base de données : `ecom`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `categorie`
+-- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `libelle`, `description`, `date_creation`) VALUES
@@ -56,6 +56,30 @@ CREATE TABLE `commande` (
   `valide` int(11) DEFAULT '0',
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `employes`
+--
+
+CREATE TABLE `employes` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `prenom` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `ville` varchar(255) NOT NULL,
+  `contrat` varchar(10) NOT NULL DEFAULT 'non',
+  `date_embauche` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `employes`
+--
+
+INSERT INTO `employes` (`id`, `nom`, `prenom`, `pseudo`, `ville`, `contrat`, `date_embauche`) VALUES
+(11, 'dumont ', 'isabelle', 'dmt.is', 'cergy', 'ok', '2023-04-03 00:00:00'),
+(12, 'jamard', 'louis', 'loulou890', 'Le havre', 'non', '2023-04-03 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,64 +108,37 @@ CREATE TABLE `produit` (
   `prix` decimal(10,0) NOT NULL,
   `discount` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
+  `id_employes` int(11) NOT NULL,
   `date_creation` datetime NOT NULL,
   `description` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `image` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
-  `quantite` int(11) NOT NULL DEFAULT 0
+  `quantite` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `produit`
+-- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `date_creation`, `description`, `image`, `quantite`) VALUES
-(22, 'UNO', '12', 10, 37, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '../data/UNO.jpg', '15');
--- Ne pas oublier de changer les liens d'images pour les produits suivant!!!!!!!!!!!!!!!
+INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `id_employes`, `date_creation`, `description`, `image`, `quantite`) VALUES
+(22, 'UNO', '12', 10, 37, 0, '2023-03-20 00:00:00', 'super jeu en amis ou en famille', '../data/UNO.jpg', 15),
+(23, 'Monopoly', '35', 15, 37, 0, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 10),
+(24, 'Jenga', '15', 0, 37, 0, '2023-03-21 00:00:00', 'Jeu d adresse pour toute la famille', '../data/jenga.jpg', 8),
+(25, 'Dobble', '10', 5, 37, 0, '2023-03-22 00:00:00', 'Jeu d observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
+(26, 'Scrabble', '25', 10, 37, 0, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 4),
+(27, 'Puissance 4', '20', 0, 37, 0, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
+(28, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, 0, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
+(29, 'LEGO City: Le Poste de Police', '60', 0, 39, 0, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
+(30, 'LEGO City - La caserne de pompiers', '90', 20, 39, 0, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
+(31, 'LEGO Creator - Le march&eacute d hiver', '80', 10, 39, 0, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d hiver LEGO Creator', '../data/hiver.jpeg', 14),
+(32, 'Jeu d &eacutechecs en bois', '50', 0, 38, 0, '2023-03-26 00:00:00', 'Jeu d &eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 3),
+(33, 'Mikado en bois', '15', 5, 38, 0, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
+(34, 'Jeu de dames en bois', '25', 0, 38, 0, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
+(35, 'Jeu de croquet en bois', '100', 20, 38, 0, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', 5),
+(36, 'Jeu de quilles en bois', '80', 10, 38, 0, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', 4),
+(37, 'Jeu de palets en bois', '60', 5, 38, 0, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', 3),
+(39, 'UNO', '17', 21, 37, 0, '2023-04-01 00:00:00', 'nouvelle version du Uno', '64288b6d1a0b2hqdefault.jpg', 1),
+(40, 'Uno', '15', 18, 37, 0, '2023-04-01 00:00:00', 'uno jamais ouvert ', '64288b8f3dc2735984_14300.jpg', 1);
 
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(23, 'Monopoly', '35', 15, 37, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', '10');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(24, 'Jenga', '15', 0, 37, '2023-03-21 00:00:00', 'Jeu d adresse pour toute la famille', '../data/jenga.jpg', '8');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(25, 'Dobble', '10', 5, 37, '2023-03-22 00:00:00', 'Jeu d observation et de rapidit&eacute pour tous', '../data/dobble.jpg', '0');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(26, 'Scrabble', '25', 10, 37, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', '4');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(27, 'Puissance 4', '20', 0, 37, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', '18');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(28, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l Empire avec ce modèle X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', '7');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(29, 'LEGO City: Le Poste de Police', '60', 0, 39, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', '8');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(30, 'LEGO City - La caserne de pompiers', '89.99', 20, 39, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', '9');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(31, 'LEGO Creator - Le march&eacute d hiver', '79.99', 10, 39, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d hiver LEGO Creator', '../data/hiver.jpeg','14');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(32, 'Jeu d &eacutechecs en bois', '49.99', 0, 38, '2023-03-26 00:00:00', 'Jeu d &eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', '3');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(33, 'Mikado en bois', '14.99', 5, 38, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', '7');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(34, 'Jeu de dames en bois', '24.99', 0, 38, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', '7');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(35, 'Jeu de croquet en bois', '99.99', 20, 38, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', '5');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(36, 'Jeu de quilles en bois', '79.99', 10, 38, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', '4');
-
-INSERT INTO produit (id, libelle, prix, discount, id_categorie, date_creation, description, image, quantite) VALUES
-(37, 'Jeu de palets en bois', '59.99', 5, 38, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', '3');
 -- --------------------------------------------------------
 
 --
@@ -160,38 +157,17 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- D&eacutechargement des donn&eacutees de la table `utilisateurs`
+-- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`, `abonnement`, `statut`, `token`, `date_inscription`) VALUES
 (23, 'sarah', 'sarah@gmail.com', '$2y$12$3j/03UvQHLKgpAgJE557qu2EUyldlYALCeFe3.HYS8ui9./aNWaei', 1, 'client', 'b742d564daf840edb51be1a60818fecea4046d354e5ce951e091740f3128015d2c372761e2320a29679ed97fbce51f24475f6ddbb7d1ecebb4142c8fa5ce28d6', '2023-03-27 17:00:09'),
-(24, 'sar', 'sar@gmail.com', '$2y$12$aIFiRHL1ZdesM8vHduL8B.HC7pGhpStm0Y8YDYGgJi7FwPqPZajoC', 0, 'vendeur', 'cd696f9fa293cf2f7b6b1e73965203a98ed3dfa0b6bf40db89f9e1765a9f26ab3a1c233896b0bd6efc30bb1b20cc5a86e082bf31335ccdf0ab78197a4492126d', '2023-03-27 17:00:25'),
+(26, 'sara', 'sar@gmail.com', '$2y$12$NyNXsG93VafAKj9SXE8nIOHliQC.pJDls3UazHR/OlqHXMQT0YTam', 0, 'vendeur', 'df2e9b0c9a18ddfd210e2aae1c82df4cedc963db18f761e6b2dd20ad382a9f2794a0b663f4241c288142b04e7e35ab5dedcb2add157c8c825e978d8765efd277', '2023-04-01 17:54:38'),
 (22, 'le7', 'matheo@gmail.com', '$2y$12$khRsjTWFpYaFbzJ8vOFplesUec6.WdayhQMwIMG5B7O8EUCvqygzO', 0, 'admin', '2cfff788d2895a4a1e67ff2cfd5743608c5d238cff727ac868a1975052d37e2d479814e5e106080ff982d696bc8c54ced62fc6c00c8ffad3a1ffb8dc008efb64', '2023-03-27 16:59:52'),
 (21, 'anissa', 'anissa@gmail.com', '$2y$12$FUyEl019velfXCidKIZywuVUb4O1/Fn79YVNinATuZ/3w3Uo8ldtK', 0, 'livreur', 'ffd834eabfe60da3ed33e1d7d51dd93791682f987790ec1884ca39247a93a701887d17585a44bf1242920045693465fdcbacb6cf7fb2cc450fa5fba206e09df8', '2023-03-27 16:59:37');
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `vendeur`
---
-
-CREATE TABLE `vendeur` (
-  `id` int(20) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `pr&eacutenom` varchar(100) NOT NULL,
-  `ville` varchar(100) NOT NULL,
-  `debut_contrat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- D&eacutechargement des donn&eacutees de la table `vendeur`
---
-
-INSERT INTO `vendeur` (`id`, `nom`, `pr&eacutenom`, `ville`, `debut_contrat`) VALUES
-(2, 'tes', 'aa', 'aaa', '2023-03-27 00:00:00');
-
---
--- Index pour les tables d&eacutecharg&eacutees
+-- Index pour les tables déchargées
 --
 
 --
@@ -204,6 +180,12 @@ ALTER TABLE `categorie`
 -- Index pour la table `commande`
 --
 ALTER TABLE `commande`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `employes`
+--
+ALTER TABLE `employes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -225,13 +207,7 @@ ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `vendeur`
---
-ALTER TABLE `vendeur`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables d&eacutecharg&eacutees
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -247,6 +223,12 @@ ALTER TABLE `commande`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `employes`
+--
+ALTER TABLE `employes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT pour la table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
@@ -256,19 +238,13 @@ ALTER TABLE `ligne_commande`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT pour la table `vendeur`
---
-ALTER TABLE `vendeur`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
