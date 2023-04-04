@@ -26,7 +26,7 @@
     <!-- Header -->
     <header class="container-fluid header">
         <div class="container">
-            <a href="#" class="logo">JeuxVentes.fr</a>
+            <a href="index.php" class="logo">JeuxVentes.fr</a>
             
             <div class="icons">
                 <?php 
@@ -36,20 +36,20 @@
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "client"){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
-                    echo "<a href='php/landing.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
-                    echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                    echo "<a href='./profil/client/profil_cl.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }
                 else if ($_SESSION['statut'] == "admin"){
                     echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./vendeur/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='./profil/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "vendeur"){
                     echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
+                    echo "<a href='./profil/vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "livreur"){
                     echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
-                    echo "<a href='./vendeur/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
+                    echo "<a href='./profil/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
                     echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
                 }
                 ?>
@@ -69,9 +69,9 @@
                     function handleKeyPress(event) {
                         if (event.keyCode === 13) {
                         // appel de la fonction souhaitée
-                        recherche();
-                         }
+                            recherche();
                         }
+                    }
                     function recherche() {
                     // Récupération de la valeur de l'input
                     var searchTerm = document.getElementById("recherche").value;
@@ -94,37 +94,26 @@
 
     <!-- Bannière du site -->
     <section class="container-fluid banniere">
-       <!--<div class="ban">
-            <img src="img/banTest.png" alt="bannière du site">
-        </div> -->
         <div class="inner-banniere">
             <nav class="menu">
                 <label for="toggle">☰</label>
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
-
                     <a href="index.php">Accueil</a>
                     <a href="index.php?cat=meilleur-vente">Meilleures&nbspventes</a>
                     <a href="index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="index.php?cat=lego">Lego</a>
                     <a href="#contact">Stratégie</a>
-                    
                 </div>
             </nav>
-        </div> 
-
+        </div>
     </section> 
     <!-- Fin de la bannière -->
     <main>
-    <p>Chez JEUX.FR, qualité et professionnalisme à votre service.
-                    Que vous soyiez débutants, amateurs ou professionnels, vous trouverez tout le matériel nécessaire
-                    pour la réalisation de vos pièces. 
-                    Soie, cotton, polyester, fils, aiguilles, machines, vous trouverez assurément votre bonheur !
-                    </p>
+        <p> COUCOU LES COPAINS !!!!!</p>
     </main>
 
-    
     <!-- Footer -->
     <footer class="container-fluid footer">
         <div class="container">
@@ -176,12 +165,12 @@
             </h3>
 
         </div>
-
     </footer>
     <!-- Fin du footer-->
+
     <?php
         //Fonction pour récupérer l'url de la page
-        function getquery(){ $url = $_SERVER['REQUEST_URI'];
+        function getquery(){ $url=$_SERVER['REQUEST_URI'];
             return (parse_url($url, PHP_URL_QUERY)); }
         
         //Fonction modifiant le contenu de la page selon l'url
@@ -189,33 +178,34 @@
             $num = explode('=',getquery());
             if($num[2]!= NULL)   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+                echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 switch ($num[2]) {
                     case "decroissant":
-                        if ($num[0]=cat) {
+                        if ($num[0]=="cat") {
                             $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
-                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);
+                        else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "croissant":
-                        if ($num[0]=cat) {
+                        if ($num[0]=="cat") {
                             $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
-                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);
+                        else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "recente":
-                        if ($num[0]=cat) {
+                        if ($num[0]=="cat") {
                             $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
-                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
+                        else{$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "ancienne":
-                        if ($num[0]=cat) {
+                        if ($num[0]=="cat") {
                             $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
-                        $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);
+                        else{ $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     default:
                     $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
                       break;
-                  }
+                }
                 foreach ($recherche as $produit){
                     $id=$produit->id;
                     $prix = $produit->prix;
@@ -228,7 +218,7 @@
                     echo "onclick=ZOOM('";
                     echo $id;
                     echo"')";
-                    echo "><div class='product text-center'>";   ;    
+                    echo "><div class='product text-center'>";  
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     echo "<span class='text-muted'>".$description."</span>";
@@ -242,7 +232,8 @@
             }
             if($num[0]=="recherche")   
             {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+                echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($recherche as $produit){
@@ -257,7 +248,7 @@
                     echo "onclick=ZOOM('";
                     echo $id;
                     echo"')";
-                    echo "><div class='product text-center'>";       
+                    echo "><div class='product text-center'>";   
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
@@ -268,8 +259,9 @@
                 echo "</div> </div>\";</script>";
             }
             if($num[0]=="cat")   
-            {
-                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
+            {     
+                echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?cat=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?cat=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+                echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
                 $categories = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\')')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
@@ -284,7 +276,7 @@
                     echo "onclick=ZOOM('";
                     echo $id;
                     echo"')";
-                    echo "><div class='product text-center'>";    
+                    echo "><div class='product text-center'>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
@@ -307,7 +299,7 @@
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
-                   
+
                     echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
                     echo "<img style='max-width:100%;' src='data/".$image."'></div>";
                     echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
@@ -326,18 +318,14 @@
                     echo "<div style='width:100%; border-top:1px solid silver'>";
                     echo "<p style='padding:15px;'><small>Ceci est une petite description de ".$libelle." :<br>".$description."</small></p>";                                   
                     echo "</div></div></div></div>";
-
-
-
                     //if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     //echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
-                    
+
                 }
                 echo "</div> </div>\";</script>";
             }
         }
         affichage();
     ?>
-    
 </body>
 </html>
