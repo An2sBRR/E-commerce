@@ -477,6 +477,19 @@ ul.menuBas li{
     cursor: pointer;
 }
 
+img{
+    transition : transforme ease-in 0.2s;
+}
+
+img:hover{
+    transform: scale(1.3);
+}
+
+.dot:hover{
+    transform: scale(1.1);
+}
+
+
 /*CSS PRODUITS*/
 
 ul > li{
@@ -565,8 +578,145 @@ div.section > div > input {
     }
     #produits > .row > .col-xs-12.col-sm-9 > div > ul{
         padding-left:10px !important;
-        
+
     }            
     .section{width:104%;}
     .menu-items{padding-left:0;}
+}
+
+/* NAV Bar filter */
+
+#sidebar{
+    width: 20%;
+    padding: 10px;
+    margin-top: 5%;
+    float: left;
+}
+
+#filtre{
+    list-style: none;
+    padding: 5px;
+}
+
+#filtre li:hover{
+    text-decoration: none;
+    background-color: rgb(223, 220, 220);
+}
+
+.fa-circle{
+    font-size: 20px;
+}
+
+@media(min-width:991px){
+    .navbar-nav{
+        margin-left: 35%;
+    }
+    .nav-item{
+        padding-left: 20px;
+    }
+    .card{
+        width: 190px;
+        display: inline-block;
+        height: 300px;
+    }
+    .card-img-top{
+        width: 188px;
+        height: 210px;
+    }
+    #mobile-filter{
+        display: none;
+    }
+}
+@media(min-width:768px) and (max-width:991px){
+    .navbar-nav{
+        margin-left: 20%;
+    }
+    .nav-item{
+        padding-left: 10px;
+    }
+    .card{
+        width: 230px;
+        display: inline-block;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+    .card-img-top{
+        width: 230px;
+        height: 210px;
+    }
+    #mobile-filter{
+        display: none;
+    }
+}
+@media(min-width:568px) and (max-width:767px){
+    .navbar-nav{
+        margin-left: 20%;
+    }
+    .nav-item{
+        padding-left: 10px;
+    }
+    .card{
+        width: 205px;
+        display: inline-block;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+    .card-img-top{
+        width: 203px;
+        height: 210px;
+    }
+    .fa-circle{
+        font-size: 15px;
+    }
+    #mobile-filter{
+        display: none;
+    }
+}
+@media(max-width:567px){
+    .navbar-nav{
+        margin-left: 0%;
+    }
+    .nav-item{
+        padding-left: 10px;
+    }
+    #sidebar{
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+        float: left;
+    }
+    #products{
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+        float: right;
+    }
+    .card{
+        width: 230px;
+        display: inline-block;
+        height: 300px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .card-img-top{
+        width: 230px;
+        height: 210px;
+    }
+    .list-group-item{
+        padding: 3px;
+    }
+    .offset-1{
+        margin-left: 8%;
+    }
+    .filter{
+        display: block;
+        margin-left: 70%;
+        margin-top: 2%;
+    }
+    #sidebar{
+        display: none;
+    }
+    #mobile-filter{
+        padding: 10px;
+    }
 }
