@@ -96,7 +96,7 @@
     <section class="container-fluid banniere">
         <div class="inner-banniere">
             <nav class="menu">
-                <label for="toggle">☰</label>
+                <label for="toggle" id="label-toggle">☰</label>
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
                     <a href="index.php">Accueil</a>
@@ -111,7 +111,55 @@
     </section> 
     <!-- Fin de la bannière -->
     <main>
-        <p> COUCOU LES COPAINS !!!!!</p>
+        <div class="justify-content-center d-flex">
+            <div class="slider"> 
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1" checked>
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+
+                    <div class="slide premier">
+                        <p>Les meilleurs ventes</p>
+                        <img src="./data/UNO.jpg" alt="image d'un UNO">
+                    </div>
+                    <div class="slide">
+                        <p>Les meilleurs ventes</p>
+                        <img src="./data/puissance-4.jpg" alt="image d'un puissance4">
+                    </div>
+                    <div class="slide">
+                        <p>Les meilleurs ventes</p>
+                        <img src="./data/pompier.jpeg" alt="image d'un UNO">
+                    </div> 
+                    <div class="slide">
+                        <p>Les meilleurs ventes</p>
+                        <img src="./data/dames.jpeg" alt="image d'un UNO">
+                    </div>
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                    </div>
+                </div>
+                <div class="navigation-manuel">
+                    <label for="radio1" class="manuel-btn"></label>
+                    <label for="radio2" class="manuel-btn"></label>
+                    <label for="radio3" class="manuel-btn"></label>
+                    <label for="radio4" class="manuel-btn"></label>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var counter = 2;
+            setInterval(function(){
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if(counter > 4){
+                    counter = 1;
+                }
+            }, 5000);
+        </script>
     </main>
 
     <!-- Footer -->
@@ -219,7 +267,7 @@
                     echo $id;
                     echo"')";
                     echo "><div class='product text-center'>";  
-                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     echo "<span class='text-muted'>".$description."</span>";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
@@ -249,7 +297,7 @@
                     echo $id;
                     echo"')";
                     echo "><div class='product text-center'>";   
-                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
@@ -277,7 +325,7 @@
                     echo $id;
                     echo"')";
                     echo "><div class='product text-center'>";       
-                    echo "<img class='img-fluid' width='100' src='data/".$image."'></td>";
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
@@ -327,5 +375,6 @@
         }
         affichage();
     ?>
+    
 </body>
 </html>
