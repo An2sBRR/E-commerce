@@ -91,13 +91,12 @@
  <?php
                         //connexion à la base de données
                         require_once '../../include/config.php'; 
-             
-                        $commandes = $bdd->query('SELECT commande.*,utilisateur.login as "login" FROM commande INNER JOIN utilisateur ON commande.id_client = utilisateur.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
+                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($commandes as $commande) {
             ?>
             <tr>
                 <td><?php echo $commande['id'] ?></td>
-                <td><?php echo $commande['login'] ?></td>
+                <td><?php echo $commande['pseudo'] ?></td>
                 <td><?php echo $commande['total'] ?> <i class="fa fa-solid fa-dollar"></i></td>
                 <td><?php echo $commande['date_creation'] ?></td>
                 <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
