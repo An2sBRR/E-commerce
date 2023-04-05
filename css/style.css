@@ -131,7 +131,7 @@ header .reseauxlog:hover{
 }
 
 
-label, #toggle
+#label-toggle, #toggle
 {
     display: none;
 }
@@ -154,7 +154,7 @@ label, #toggle
     menu .main_pages a {
         width: 50%;
     }
-    label
+    #label-toggle
     {
         width: 30px;
         display: flex;
@@ -477,11 +477,11 @@ ul.menuBas li{
     cursor: pointer;
 }
 
-img{
+.img-fluid{
     transition : transforme ease-in 0.2s;
 }
 
-img:hover{
+.img-fluid:hover{
     transform: scale(1.3);
 }
 
@@ -627,4 +627,114 @@ div.section > div > input {
         padding: 3px;
     }
 
+}
+
+/*Slider*/
+.slider{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2% 2%;
+}
+
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.slides input{
+    display : none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+    height: 500px;
+}
+
+.navigation-manuel{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manuel-btn{
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition : 1s;
+}
+
+.manuel-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manuel-btn:hover{
+    background : rgb(0, 0, 0);
+}
+
+#radio1:checked ~ .premier{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .premier{
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .premier{
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .premier{
+    margin-left: -60%;
+}
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div{
+    border: 2px solid rgb(0, 0, 0);
+    padding : 5px;
+    border-radius : 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background:rgb(0, 0, 0);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background:rgb(0, 0, 0);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background:rgb(0, 0, 0);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background:rgb(0, 0, 0);
+}
+
+.slide p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
 }
