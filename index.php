@@ -1,3 +1,8 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
+
 <?php 
     session_start();
 ?>
@@ -5,31 +10,40 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Site Sympa askip</title>
-<!-- Police -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <!-- POLICE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- CSS -->
-<link rel="stylesheet" href ="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href ="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- INCLUSION ICONS -->
+    <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
+    <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
 
 </head>
 
-<!-- Contenu  -->
+<!-- CONTENU  -->
 <body>
-    <!-- Header -->
+
+    <!-- HEADER -->
     <header class="container-fluid header">
         <div class="container">
+
+            <!-- LOGO SITE -->
             <a href="index.php" class="logo">JeuxVentes.fr</a>
             
+            <!-- ICONS -->
             <div class="icons">
                 <?php 
+
+                // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
                 if(!isset($_SESSION['statut'])){
                     echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
@@ -54,21 +68,23 @@
                 }
                 ?>
             </div>
-
-              <div class="wrap">
+            
+            <!-- BARRE DE RECHERCHE -->
+            <div class="wrap">
                 <div class="search">
-                   <input type="text" id="recherche" class="searchTerm" onkeydown="handleKeyPress(event)" placeholder="Que recherchez-vous ?">
-                   <button onclick="recherche()" class="searchButton">
+                    <input type="text" id="recherche" class="searchTerm" onkeydown="handleKeyPress(event)" placeholder="Que recherchez-vous ?">
+                    <button onclick="recherche()" class="searchButton">
                     <i><ion-icon name="search"></ion-icon></i>
-                  </button>
+                    </button>
                 </div>
+
                 <script>
                     function ZOOM(x){
                         window.location="http://localhost:8000/index.php?zoom="+x;
                     }
                     function handleKeyPress(event) {
                         if (event.keyCode === 13) {
-                        // appel de la fonction souhaitée
+                        // Appel de la fonction souhaitée
                             recherche();
                         }
                     }
@@ -85,14 +101,10 @@
                 </script>
              </div>
         </div>
-
     </header>
-    <!-- Fin du Header -->
+    <!-- FIN DU HEADER -->
 
-    <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> <!--icons-->
-    <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
-
-    <!-- Bannière du site -->
+    <!-- BANNIERE DU SITE -->
     <section class="container-fluid banniere">
         <div class="inner-banniere">
             <nav class="menu">
@@ -109,9 +121,12 @@
             </nav>
         </div>
     </section> 
-    <!-- Fin de la bannière -->
+    <!-- FIN DE LA BANNIERE -->
+
+    <!-- PAGE PRINCIPALE -->
     <main>
         <div class="justify-content-center d-flex">
+            <!-- SLIDER MEILLEURES VENTES -->
             <div class="slider"> 
                 <div class="slides">
                     <input type="radio" name="radio-btn" id="radio1" checked>
@@ -150,25 +165,28 @@
                 </div>
             </div>
         </div>
+
         <script type="text/javascript">
             var counter = 2;
-            setInterval(function(){
+            setInterval(function()
+            {
                 document.getElementById('radio' + counter).checked = true;
                 counter++;
-                if(counter > 4){
+                if(counter > 4)
+                {
                     counter = 1;
                 }
             }, 5000);
         </script>
     </main>
+    <!-- FIN PAGE PRINCIPALE -->
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="container-fluid footer">
         <div class="container">
             <div class="row">
             <h1 id="infos">Informations</h1>
             <iframe id="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2615.8442200637187!2d2.064316615915703!3d49.03256977930504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f578a5671b03%3A0x225d4d910fb39b53!2sCY%20Tech%20-%20Site%20Fermat!5e0!3m2!1sfr!2sfr!4v1679603546288!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-               
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                     <h2>Plan du site</h2>
                         <ul class="menuBas">
@@ -180,20 +198,20 @@
                         <li>Stratégie</li> 
                         <li>Nous contacter</li> 
                         </ul>
-            </article>
-            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
+                </article>
+                <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Mentions légales</h2>
                 <p>
                     JeuxVentes<br>01.02.03.04.05<br>JeuxVentes@contact.fr<br>Chemin des Paradis, 95000 CERGY.
                 </p>
-            </article> 
-            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
+                </article> 
+                <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Moyens de paiement</h2>
                 <p>
                     okokoko
                 </p>
-            </article> 
-            <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
+                </article> 
+                <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Suivre nos actualités </h2>
                 <p>
                     <a class="reseauxFooter" href="https://twitter.com" target="_blank">
@@ -211,17 +229,16 @@
             <h3 id="copyright">
                 Copyright © 2023 
             </h3>
-
         </div>
     </footer>
-    <!-- Fin du footer-->
+    <!-- FIN DU FOOTER -->
 
     <?php
-        //Fonction pour récupérer l'url de la page
+        // Fonction pour récupérer l'url de la page
         function getquery(){ $url=$_SERVER['REQUEST_URI'];
             return (parse_url($url, PHP_URL_QUERY)); }
         
-        //Fonction modifiant le contenu de la page selon l'url
+        // Fonction modifiant le contenu de la page selon l'url
         function affichage() {
             $num = explode('=',getquery());
             if($num[2]!= NULL)   
@@ -334,6 +351,8 @@
                 }
                 echo "</div> </div>\";</script>";
             }
+
+            //  AFFICHAGE PRODUITS AVEC DÉTAILS PRODUIT
             if($num[0]=="zoom")   
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
@@ -366,8 +385,6 @@
                     echo "<div style='width:100%; border-top:1px solid silver'>";
                     echo "<p style='padding:15px;'><small>Ceci est une petite description de ".$libelle." :<br>".$description."</small></p>";                                   
                     echo "</div></div></div></div>";
-                    //if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
-                    //echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
 
                 }
                 echo "</div> </div>\";</script>";
