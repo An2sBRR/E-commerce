@@ -1,109 +1,79 @@
+/*SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4*/ 
+
+
 @charset "UTF-8";
 
 /* font-family: 'Boogaloo', cursive; */
 
-body, html{
+body, html
+{
     padding: 0;
     margin: 0;
 }
 
-body{
+body
+{
     font-family: 'Boogaloo', cursive;
 }
 
-a, a:hover{
+a, a:hover
+{
     text-decoration: none;
 }
 
-.container-fluid{
-    padding: 0;
-    
+.container-fluid
+{
+    padding: 0;  
 }
 
-h2{
+h2
+{
     text-align: center;
 }
 
-/* Header */
+/* HEADER */
 
-.header {
+.header 
+{
     background-color: #5e2bff;
     height: 70px;
     line-height: 70px; /*Pour centrer ce qu'il y a à l'interieur de manière verticale*/
 }
 
-.logo {
+.logo
+{
     color: #ffff;
     text-transform: uppercase; /*Ecrit en majuscule (en attendant de trouver un vrai logo*/
     font-weight: bold;
     font-size: large;
     letter-spacing: 1px;  /*Pour espacer les lettres*/
-    float: left; /*On le garde a gauche*/
-    
+    float: left; /*On le garde a gauche*/  
 }
 
-.logo:hover{
-    font-size: 150%;  /*leger zoom quand on passe dessus*/
+.logo:hover
+{
+    font-size: 150%;  /*Léger zoom quand on passe dessus*/
 }
 
-header .reseauxlog{
+header .reseauxlog
+{
     font-size: 200%;
     color: rgb(0, 0, 0);
-    
 }
 
-header .reseauxlog:hover{
+header .reseauxlog:hover
+{
     color:bisque;
     font-size: 300%;  /*Zoom des logos quand on passe dessus*/
 }
 
-
-/* .menu {
-   float: right; On le met à droite
-    text-align: center;  
-}
-
-.menu{
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-
-.menu a {
-    color: #000000;
-    margin-right: 20px; #Pour les écarter
-    font-size: 30px;
-}
-
-.menu a:hover{
-    color: antiquewhite;
-}
-*/
-
-/*.menu{
-    padding: 0 25% 0 25%;
-}
-
-.menu ul{
-    list-style-type: none;
-    display: flex;
-    position: relative;
-
-}
-
-.menu li{
-    margin-right: 20px;
-    font-size: 30px;
-}
-
-.menu a{
-    text-align: center;
-}*/
-
-.menu{
+.menu
+{
     margin: auto;
     width: 50%;
     height: 100%;
-    /*background: #C04CFD;*/
 }
 
 .menu .main_pages 
@@ -130,7 +100,7 @@ header .reseauxlog:hover{
     color: #5A5766
 }
 
-
+/* Changement de l'affichage du menu quand on diminue la taille de la fenêtre */
 #label-toggle, #toggle
 {
     display: none;
@@ -151,7 +121,8 @@ header .reseauxlog:hover{
         height: 220px;
     }
  
-    menu .main_pages a {
+    menu .main_pages a 
+    {
         width: 50%;
     }
     #label-toggle
@@ -166,176 +137,57 @@ header .reseauxlog:hover{
         cursor: pointer;
     }
 
-    #toggle:checked + .main_pages {
+    #toggle:checked + .main_pages 
+    {
         display: flex;
     }
 }
 
+/* FIN Changement de l'affichage du menu quand on diminue la taille de la fenêtre */
 
-.icons{
+.icons
+{
     float:right;
 }
 
-.reseauxlog{
+.reseauxlog
+{
     color: #000000;
 }
 
-/* Banniere */
+/*FIN DU HEADER*/
 
-.banniere{
-    width: 100%;
-    max-width: 100%;
-}
+/* BANNIERE AVEC MENU */
 
-.ban{
-    width: 100%;
-    max-width: 100%;
+.inner-banniere
+{
     position: relative;
-}
-
-.ban img{
+    top: 40%;  
     width: 100%;
-    max-width: 100%;
-}
-
-.inner-banniere{
-    position: relative;
-    top: 40%;  /*comme on a mis position absolute c'est plu margin et padding c'est top bottom etc*/
-    width: 100%;
-    /*padding: 0 0 0 25%;   Pour centrer le menu*/
-    /*text-align: center;*/
     background-color: #7CC6FE;
 }
 
-.inner-banniere h1{
-    color: #5e2bff;  /*Couleur du bienvenue sur notre site*/
-    text-shadow: 1px 1px 20px #000000;  /*Petit ombrage pour mieux voir*/
-}
-
-.inner-banniere .btn-custom{
-    background-color: #5e2bff;
-    color: #ffffff;
-}
-
-.inner-banniere .btn-custom:hover{
-    background-color: #C04CFD;
-}
-
-/* A propos */
-
-.about{
-    text-align: center;
-    padding-top: 5%;  /*Espace entre image de fond et "A propos de nous"*/
-}
-
-.about article{
-    margin-top: 10%;    /*Espace entre "A propos de nous" et les 3 paragraphes en dessous*/
-    margin-bottom: 10%;
-}
-
-.about article h2{
-    text-align: center;
-}
-
-
-/* Portfolio */
-
-/* .portfolio{
-    background-color: #FC6DAB;
-    height: 700px;
-} */
-
-/* #portfolio{
-    text-align: center;
-} */
-
-/* .portfolio .item-folio{
-    height: 40px;
-    background-color: #C04CFD;
-} */
-
-/* Footer/contact*/
-
-.footer{
-    background-color: #5DFDCB;
-    height: 1000px;
-}
-
-.footer h2{
-    text-align: left;
-    padding-top: 5%;
-    font-size: 40px;
-}
-
-.footer p{
-   color: #000000; 
-   text-align: left;
-   padding-top: 5%;
-   font-size: 25px;
-}
-
-#copyright{
-    font-size: 15px;
-    text-align: center;
-    margin-top: 5%;
-}
- .footer .container{
-    background-color: #5DFDCB;
- }
-
-#contact{
-    color: #000000;
-    text-align: center;
-    margin-bottom: 5%;
-}
-
-.formulaireContact{
-    width: 50%;
-    display: block;  /*Pour centrer le form*/
-    margin: auto;
-
-}
-
-
-input{
+input
+{
     margin-bottom: 20px;
 }
 
-input[type=text]{
+input[type=text]
+{
     height: 50px;
     width: 100%;
     border: none;
 }
 
-input[type=email]{
-    height: 50px;
+.search 
+{
     width: 100%;
-    border: none;
-}
-
-textarea{
-    width: 100%;
-    height: 200px;
-    resize: vertical;
-}
-
-.btn-custom{
-    background-color: #5e2bff;
-    color: #ffffff;
-}
-
-.btn-custom:hover{
-    background-color: #C04CFD;
-}
-
-.search {
-    width: 100%;
-    /*position: relative;*/
     display: flex;
     padding-top: 5%;
-  }
+}
   
-  .searchTerm {
+.searchTerm 
+{
     width: 100%;
     border: 3px solid #00B4CC;
     border-right: none;
@@ -344,13 +196,15 @@ textarea{
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
-  }
+}
   
-  .searchTerm:focus{
+.searchTerm:focus
+{
     color: #00B4CC;
-  }
+}
   
-  .searchButton {
+.searchButton 
+{
     width: 40px;
     height: 50px;
     border: 1px solid #00B4CC;
@@ -360,65 +214,22 @@ textarea{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+}
 
-  }
-  
-  .searchButton i{
-    display: flex;  /*Pour centrer la loupe*/  
-  }
+.searchButton i
+{
+  display: flex;  /*Pour centrer la loupe*/  
+}
 
-  .searchButton i:hover{
+.searchButton i:hover
+{
     color: #000000;
     font-size: 115%;  /*léger zoom sur la loupe*/
-  }
+}
   
-  /*Resize the wrap to see the search bar change!*/
-  .wrap{
-    position: relative;
-    display: block;
-    width: 30%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+/* FIN BANNIERE AVEC MENU */
 
-#carte{
-    padding-top: 2%;
-    padding-bottom: 2%;
-  }
-
-#infos{
-    padding-top: 1%;
-    text-align: center;
-}
-
-
-.reseauxFooter{
-    font-size: 200%;
-    color: rgb(0, 0, 0);
-}
-    
-.reseauxFooter:hover{
-    color:bisque;
-    font-size: 300%;  /*Zoom des logos quand on passe dessus*/
-}
-
-
-ul.menuBas{
-    
-    padding-top: 5%;
-    padding-left: 0%;
-    margin-bottom: 0;
-  
-}
-
-ul.menuBas li{
-    list-style: none;
-    font-size: 25px;
-
-}
-
-/*pour l'affichage des produits */
+/*AFFICHAGE DES PRODUITS */
 .product{
     padding: 10px;
     position: relative;
@@ -488,25 +299,30 @@ ul.menuBas li{
 .dot:hover{
     transform: scale(1.1);
 }
+/*FIN AFFICHAGE DES PRODUITS */
 
 
-/*CSS PRODUITS*/
+/*CSS PRODUITS QUAND ON CLIQUE (+ DE DÉTAILS)*/
 
-ul > li{
+ul > li
+{
     margin-right:25px;font-weight:lighter;cursor:pointer
 }
 
-li:hover{
+li:hover
+{
     border-bottom:3px solid silver;
 }
 
-.item-photo{
+.item-photo
+{
     display:flex;justify-content:center;
     align-items:center;
     border-right:1px solid #f6f6f6;
 }
 
-.menu-items{
+.menu-items
+{
     list-style-type:none;
     font-size:11px;
     display:inline-flex;
@@ -514,12 +330,14 @@ li:hover{
     margin-top:20px
 }
 
-.btn-success{
+.btn-success
+{
     width:100%;
     border-radius:0;
 }
 
-.section{
+.section
+{
     width:100%;
     margin-left:-15px;
     padding:2px;
@@ -528,25 +346,28 @@ li:hover{
     background:#f8f9f9
 }
 
-.title-price{
+.title-price
+{
     margin-top:30px;
     margin-bottom:0;
     color:black
 }
 
-.title-attr{
+.title-attr
+{
     margin-top:0;
     margin-bottom:0;
     color:black;
 }
 
-
-div.section > div {
+div.section > div 
+{
     width:100%;
     display:inline-flex;
 }
 
-div.section > div > input {
+div.section > div > input 
+{
     margin:0;
     padding-left:5px;
     font-size:10px;
@@ -555,8 +376,8 @@ div.section > div > input {
     text-align:center;
 }
 
-
-#affiche>* {
+#affiche>* 
+{
     flex-shrink: 0;
     width: 50%;
     padding-top: 2%;
@@ -566,7 +387,8 @@ div.section > div > input {
     margin-top: var(--bs-gutter-y);
 }
 
-@media (max-width: 426px) {
+@media (max-width: 426px) 
+{
     #produits {margin-top:0px !important;}
     #produits > .row{padding:0 !important;}
     #produits > .row > .col-xs-12.col-sm-5{
@@ -584,53 +406,69 @@ div.section > div > input {
     .menu-items{padding-left:0;}
 }
 
-/* NAV Bar filter */
+/*FIN CSS PRODUITS QUAND ON CLIQUE (+ DE DÉTAILS)*/
 
-#sidebar{
+
+/* FILTRE DES PRODUITS */
+
+#sidebar
+{
     width: 20%;
     padding: 10px;
     margin-top: 5%;
     float: left;
 }
 
-#filtre{
+#filtre
+{
     list-style: none;
     padding: 5px;
 }
 
-#filtre li:hover{
+#filtre li:hover
+{
     text-decoration: none;
     background-color: rgb(223, 220, 220);
 }
 
-.fa-circle{
+.fa-circle
+{
     font-size: 20px;
 }
 
-@media screen and (min-width:567px)  and (max-width:767px){
-    .list-group-item{
+@media screen and (min-width:567px)  and (max-width:767px)
+{
+    .list-group-item
+    {
         padding :7%;
     }
-    #sidebar{
+    #sidebar
+    {
         width: 30%;
     }
 }
 
-@media(max-width:567px){
-    #sidebar{
+@media(max-width:567px)
+{
+    #sidebar
+    {
         width: 100%;
         padding: 10px;
         margin: 0;
         float: left;
     }
-    .list-group-item{
+    .list-group-item
+    {
         padding: 3px;
     }
 
 }
+/* FIN FILTRE DE NAVIGATION */
 
-/*Slider*/
-.slider{
+/*SLIDER*/
+
+.slider
+{
     width: 800px;
     height: 500px;
     border-radius: 10px;
@@ -638,27 +476,32 @@ div.section > div > input {
     margin: 2% 2%;
 }
 
-.slides{
+.slides
+{
     width: 500%;
     height: 500px;
     display: flex;
 }
 
-.slides input{
+.slides input
+{
     display : none;
 }
 
-.slide{
+.slide
+{
     width: 20%;
     transition: 2s;
 }
 
-.slide img{
+.slide img
+{
     width: 100%;
     height: 500px;
 }
 
-.navigation-manuel{
+.navigation-manuel
+{
     position: absolute;
     width: 800px;
     margin-top: -40px;
@@ -666,7 +509,8 @@ div.section > div > input {
     justify-content: center;
 }
 
-.manuel-btn{
+.manuel-btn
+{
     border: 2px solid rgb(0, 0, 0);
     padding: 5px;
     border-radius: 10px;
@@ -674,31 +518,38 @@ div.section > div > input {
     transition : 1s;
 }
 
-.manuel-btn:not(:last-child){
+.manuel-btn:not(:last-child)
+{
     margin-right: 40px;
 }
 
-.manuel-btn:hover{
+.manuel-btn:hover
+{
     background : rgb(0, 0, 0);
 }
 
-#radio1:checked ~ .premier{
+#radio1:checked ~ .premier
+{
     margin-left: 0;
 }
 
-#radio2:checked ~ .premier{
+#radio2:checked ~ .premier
+{
     margin-left: -20%;
 }
 
-#radio3:checked ~ .premier{
+#radio3:checked ~ .premier
+{
     margin-left: -40%;
 }
 
-#radio4:checked ~ .premier{
+#radio4:checked ~ .premier
+{
     margin-left: -60%;
 }
 
-.navigation-auto{
+.navigation-auto
+{
     position: absolute;
     display: flex;
     width: 800px;
@@ -706,35 +557,127 @@ div.section > div > input {
     margin-top: 460px;
 }
 
-.navigation-auto div{
+.navigation-auto div
+{
     border: 2px solid rgb(0, 0, 0);
     padding : 5px;
     border-radius : 10px;
     transition: 1s;
 }
 
-.navigation-auto div:not(:last-child){
+.navigation-auto div:not(:last-child)
+{
     margin-right: 40px;
 }
 
-#radio1:checked ~ .navigation-auto .auto-btn1{
+#radio1:checked ~ .navigation-auto .auto-btn1
+{
     background:rgb(0, 0, 0);
 }
 
-#radio2:checked ~ .navigation-auto .auto-btn2{
+#radio2:checked ~ .navigation-auto .auto-btn2
+{
     background:rgb(0, 0, 0);
 }
 
-#radio3:checked ~ .navigation-auto .auto-btn3{
+#radio3:checked ~ .navigation-auto .auto-btn3
+{
     background:rgb(0, 0, 0);
 }
 
-#radio4:checked ~ .navigation-auto .auto-btn4{
+#radio4:checked ~ .navigation-auto .auto-btn4
+{
     background:rgb(0, 0, 0);
 }
 
-.slide p{
+.slide p
+{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
 }
+/* FIN SLIDER*/
+
+/* FOOTER */
+
+.footer
+{
+    background-color: #5DFDCB;
+    height: 1000px;
+}
+
+.footer .container
+{
+    background-color: #5DFDCB;
+}
+
+.footer h2
+{
+    text-align: left;
+    padding-top: 5%;
+    font-size: 40px;
+}
+
+.footer p
+{
+   color: #000000; 
+   text-align: left;
+   padding-top: 5%;
+   font-size: 25px;
+}
+
+#copyright
+{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.wrap
+{
+    position: relative;
+    display: block;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#carte
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#infos
+{
+    padding-top: 1%;
+    text-align: center;
+}
+
+.reseauxFooter
+{
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+}
+    
+.reseauxFooter:hover
+{
+    color:bisque;
+}
+
+ul.menuBas
+{
+    padding-top: 5%;
+    padding-left: 0%;
+    margin-bottom: 0;
+  
+}
+
+ul.menuBas li
+{
+    list-style: none;
+    font-size: 25px;
+}
+
+/*FIN FOOTER*/
