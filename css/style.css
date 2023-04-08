@@ -232,7 +232,6 @@ input[type=text]
 /*AFFICHAGE DES PRODUITS */
 .product{
     padding: 10%;
-    position: relative;
     margin: 10px;
     height: 90%;
 }
@@ -440,6 +439,7 @@ div.section > div > input
 {
     .list-group-item
     {
+        position: unset;  /*Pour retirer le position: relative par défaut*/
         padding :7%;
     }
     #sidebar
@@ -460,6 +460,7 @@ div.section > div > input
     .list-group-item
     {
         padding: 3px;
+        position: unset;
     }
 
 }
