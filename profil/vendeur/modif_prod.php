@@ -59,10 +59,6 @@
                                 <span class="d-none d-sm-inline">Liste des produits</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
-                                <span class="d-none d-sm-inline">Commandes</span> </a>
-                        </li>
-                        <li class="my-1">
                             <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
