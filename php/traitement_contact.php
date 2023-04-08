@@ -2,12 +2,14 @@
     if(isset($_POST['nom'])){  //On créé une condition pour récup les données si on a bien le nom
 
         $demande = array() ;
+
+        $demande['utilisateur'] = $_POST['utilisateur'] ;
         $demande['nom'] = $_POST['nom'] ;
         $demande['prenom'] = $_POST['prenom'] ;
         $demande['email'] = $_POST['email'] ;
-        $demande['sujet'] = $_POST['sujet'] ;
-        //$demande['tel'] = $_POST['tel'] ;
-        $demande['contenu'] = $_POST['contenu'] ;
+        $demande['objet'] = $_POST['objet'] ;
+        $demande['tel'] = $_POST['tel'] ;
+        $demande['message'] = $_POST['message'] ;
         $demande['date'] = date("d-m-Y  H:i") ;
         $demande['id'] = date("dmYHis") ; #Création d'un id unique par utilisateur
 

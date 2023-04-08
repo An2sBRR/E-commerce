@@ -1,143 +1,126 @@
-<?php
-    session_start();
-    $today = date('Y-m-d');
-    $date_min = date('1905-01-01');
-
-    $nom = isset($_POST['nom']) ? htmlentities($_POST['nom']) : "";
-    $email = isset($_POST['email']) ? htmlentities($_POST['email']) : "";
-    $date_naissance = isset($_POST['date_naissance']) ? htmlentities($_POST['date_naissance']) : "";
-    $type_util = isset($_POST['type_util']) ? htmlentities($_POST['type_util']) : "";
-    $prenom = isset($_POST['prenom']) ? htmlentities($_POST['prenom']) : "";
-    $genre = isset($_POST['genre']) ? htmlentities($_POST['genre']) : "";
-    $date_contact = isset($_POST['date_contact']) ? htmlentities($_POST['date_contact']) : "";
-    $sujet = isset($_POST['sujet']) ? htmlentities($_POST['sujet']) : "";
-    $contenu = isset($_POST['contenu']) ? htmlentities($_POST['contenu']) : "";
-    $succes="";
-
-    $erreurNom = "";
-    $erreurPrenom = "";
-    $erreurNaissance = "";
-    $erreurMail = "";
-    $erreurUtil = "";
-    $erreurPrenom = "";
-    $erreurContact = "";
-    $erreurSujet = "";
-    $erreurContenu = "";
-    $erreurGenre = "";
-    $nbr_erreur = 0;
-
-    if (isset($_POST['envoyer'])) {
-        if (empty($genre) || !isset($genre)) {
-            $erreurGenre = '<pre class="erreurGenre" style="color:red;">Sélectionnez un genre</pre>';
-            $nbr_erreur++;
-        }
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        if (empty($email) || !isset($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $erreurMail = '<pre class="erreurMail" style="color: red;">Entrez une adresse mail correct</pre>';
-            $nbr_erreur++;
-        }
-        if ((empty($prenom)) || (!isset($prenom)) || (!preg_match("/^[a-zA-ZÀ-ú\s]*$/", $prenom))) {
-            $erreurPrenom = '<pre class="erreurPrenom" style="color: red;">Entrez un prénom correct</pre>';
-            $nbr_erreur++;
-        }
-        if (empty($nom) || !isset($nom) || (!preg_match("/^[a-zA-ZÀ-ú\s]*$/", $nom))) {
-            $erreurNom = '<pre class="erreurNom" style="color: red;">Entrez un nom correct</pre>';
-            $nbr_erreur++;
-        }
-        if (empty($type_util) || !isset($type_util)) {
-            $erreurUtil = '<pre class="erreurUtil" style="color:red;">Séléctionnez un type d\'utilisateur</pre>';
-            $nbr_erreur++;
-        }
-        if (empty($sujet) || !isset($sujet) || (!preg_match('/./', $sujet))) {
-            $erreurSujet = '<pre class="erreurSujet" style="color: red;">Ne pas mettre de caractère spécial</pre>';
-            $nbr_erreur++;
-        }
-        if (empty($date_naissance) || !isset($date_naissance) || $today <= $date_naissance || $date_naissance <= $date_min) {
-            $erreurNaissance = '<pre class="erreurNaissance" style="color: red;">Séléctionnez une date correct</pre>';
-            $nbr_erreur++;
-        }
-        if (empty($date_contact) || !isset($date_contact) || $date_contact != $today) {
-            $erreurContact = '<pre class="erreurContact" style="color: red;">Séléctionnez la date d\'aujourd\'hui</pre>';
-            $nbr_erreur++;
-        }
-
-        if (empty($contenu) || !isset($contenu) || (!preg_match('/./', $contenu))) {
-            $erreurContenu = '<pre class="erreurContenu" style="color: red;">Entrez un message</pre>';
-            $nbr_erreur++;
-        }
-        if($nbr_erreur == 0){
-            $succes = 'Votre demande de contact a bien été envoyée';
-        }
-    }
-?>
 <!DOCTYPE html>
+<!-- AIT CHADI Anissa, BELHADJ Dillan, CERF Fabien COSTA Mathéo
+PréING2 MI Groupe 3-->
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/contact.css">
-    <title>Contactez nous</title>
+    <title>Nous contacter</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico"/>
 </head>
-
 <body>
-    <div class="formulaire">
-        <div class="formulaire_titre">Demande de contact</div>
 
-        <form action="traitement_contact.php" method="post" id="form_contact" autocomplete="off">
-            <div class=boite>
-                <div class="gauche">
-                    <div class="div_nom">
-                        <input type="text" name="nom" placeholder="Entrer votre nom" size="10" id="Nom" class="Nom" value="<?php if (isset($nom)) echo $nom; ?>"><?php echo $erreurNom; ?>
-                    </div>
-
-                    <div class="div_mail">
-                        <input type="mail" name="email" placeholder="Entrer votre adresse email" size="15" id="mail" class="mail" value="<?php if (isset($email)) echo $email; ?>"><?php echo $erreurMail; ?>
-                    </div>
-
-                    <div class="div_naissance">
-                        <label for="Date_de_Naissance">Date de Naissance :</label>
-                        <input type="date" name="date_naissance" id="Naissance" class="Naissance" min="1905-01-01" max="2030-01-01" value="<?php if (isset($date_naissance)) echo $date_naissance; ?>"><?php echo $erreurNaissance; ?>
-                    </div>
-                    <div class="div_util">
-                        <label for="type_util" class="labeltype_util">Type utilisateur :</label><br><br>
-                        <input type="radio" name="type_util" value="Client" <?php if ($type_util == 'Client') echo 'checked = "checked"'; ?>><label for="client">Client</label>
-                        <input type="radio" name="type_util" value="Vendeur" <?php if ($type_util == 'Vendeur') echo 'checked = "checked"'; ?>><label for="vendeur">Vendeur</label>
-                        <input type="radio" name="type_util" value="Livreur" <?php if ($type_util == 'Livreur') echo 'checked = "checked"'; ?>><label for="livreur">Livreur</label><?php echo $erreurUtil; ?>
-                    </div>
-                </div>
-
-                <div class="droite">
-                    <div class="div_prenom">
-                        <input type="text" name="prenom" placeholder="Entrer votre prénom" size="10" id="Prenom" class="Prenom" value="<?php if (isset($prenom)) echo $prenom; ?>"><?php echo $erreurPrenom; ?>
-                    </div>
-
-                    <div class="GenreRadio">
-                        <label for="genre" class="genre">Genre :</label>
-                        <input type="radio" name="genre" value="Homme" <?php if ($genre == 'Homme') echo 'checked = "checked"'; ?>><label for="homme">Homme</label>
-                        <input type="radio" name="genre" value="Femme" <?php if ($genre == 'Femme') echo 'checked = "checked"'; ?>><label for="femme">Femme</label><?php echo $erreurGenre; ?>
-                    </div>
-
-                    <div class="div_contact">
-                        <label for="Date_de_Contact" id="Date2contact">Date de Contact :</label>
-                        <input type="date" name="date_contact" id="Contact" class="Contact" value="<?php if (isset($date_contact)) echo $date_contact; ?>"><?php echo $erreurContact; ?>
-                    </div>
-                    <div class="div_sujet">
-                        <input type="text" name="sujet" placeholder="Entrer le sujet de votre message" size="16" id="sujet" class="sujet" value="<?php if (isset($sujet)) echo $sujet; ?>"><?php echo $erreurSujet; ?>
-                    </div>
-                </div>
+    <div class="contenu">
+        <!-- Formulaire de contact-->
+        <div class="formulaire">
+          <div class="contact-info">
+            <h3 class="titre">L'équipe Couturalia à votre écoute!</h3>
+            <p class="texte">
+              Pour toute remarque, complément d'information, problème ou réclamation,
+              nous vous invitons à remplir notre formulaire de contact.
+              Vous pouvez également faire un tour sur nos réseaux et nous envoyer un message privé dessus !
+            </p>
+              
+            <!-- Infos pratiques -->
+            <div class="info">
+              <div class="information">
+                <img src="../img/map.png" class="icone"/>
+                <p>42 boulevard du port, 95100 CERGY</p>
+              </div>
+              <div class="information">
+                <img src="../img/email.png" class="icone"/>
+                <p>couturalia-contact@society.com</p>
+              </div>
+              <div class="information">
+                <img src="../img/tel.png" class="icone"/>
+                <p> 01.77.88.92.99</p>
+              </div>
             </div>
-
-            <div class="contenu_sujet">
-                <textarea name="contenu" cols="70" rows="8" placeholder="Contenu de votre message ici" id="contenu" class="contenu"><?php if (isset($contenu)) echo $contenu; ?></textarea><?php echo $erreurContenu; ?>
+  
+            <div class="social-media">
+              <p>Nous suivre :</p>
+              <div class="logos-reseaux">
+                <a href="https://twitter.com" target="_blank">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://github.com/Le-7/PREING2MI3-AITCHADI-BELHADJ-CERF-COSTA" target="_blank">
+                  <ion-icon name="logo-github"></ion-icon>
+                </a>
+                <a href="https://pinterest.com" target="_blank">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </div>
             </div>
+          </div>
+           <!-- Partie de droite du formulaire de contact-->
+          <div class="contact-formulaire">
+            <span class="bulle un"></span>
+            <span class="bulle deux"></span>
+  
+              <!-- Raccord au fichier traitement.php avec la méthode POST-->
+            <form action="traitement_contact.php" method="post">
+              <h3 class="titre">Nous contacter</h3>
 
-            <input type="submit" value="Envoyer" name="envoyer" id="button-sbt">
-            <div class="succes" id="succes"><?php echo $succes; ?></div>
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/contact.js"></script> 
-</body>
+              <div class="input-contenu">
+                <select name="utilisateur">
+                <option value="Client">Client</option>
+                <option value="Vendeur">Vendeur</option>
+                <option value="Livreur">Livreur</option>
+                </select>
+              </div>
+                
+              <div class="input-contenu">
+                <input type="text" name="nom" class="input" placeholder="Nom prénom"/>   
+              </div>
+                
+              <div class="input-contenu">
+                <input type="email" name="email" class="input" placeholder="Email" required />   
+              </div>
+                
+              <div class="input-contenu">
+                <input type="text" name="objet" class="input" placeholder="Objet" required /> 
+              </div>
+
+              <div class="input-contenu">
+                <input type="tel" name="tel" class="input" placeholder="Téléphone" required pattern="^\d{10}$"/>
+              </div>
+                
+              <div class="input-contenu textarea">
+                <textarea name="message" class="input" placeholder="Votre message" required></textarea>
+              </div>
+                
+              <input type="submit" name="envoyer" value="Envoyer" class="bouton" required/>
+            </form>
+          </div>
+        </div>
+        <!-- Scripts pour utiliser ionicons-->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+    <?php  
+        #Récupération de la query dans l'url
+        function getquery(){ $url = $_SERVER['REQUEST_URI'];
+            return (parse_url($url, PHP_URL_QUERY)); }
+
+        function affichageerror() {  #Fonction pour afficher les erreurs dans le formulaire
+        $err = explode('=',getquery());
+        if($err[1]!=NULL)   
+        {
+         //echo "<script language='Javascript'>console.log(document.querySelectorAll('input[name=$err[1]]')[0]);</script>";
+         echo"<script language='Javascript'>document.querySelectorAll('input[name=$err[1]]').forEach(el => el.style.background='red');</script>";
+        }
+    }
+        affichageerror();
+    ?>
+
+
 </html>
+
+
+
+
+

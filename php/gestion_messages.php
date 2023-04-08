@@ -21,11 +21,13 @@
                 <!-- Lien sur le "bouton" x pour supprimer le message sélectionné -->
             <a href="traitement_contact.php?del=<?php echo$demande[$i]['id']; ?>" class="action" id="fermé">X</a> <br>
             <p>
-                <b><?php echo$demande[$i]['nom']; ?></b><br>
+                <b>
+                <?php echo$demande[$i]['utilisateur']; ?></b><br>
+                <?php echo$demande[$i]['nom']; ?></b><br>
                 <?php echo$demande[$i]['email']; ?><br>
                 <?php echo$demande[$i]['tel']; ?><br>
-                <?php echo$demande[$i]['sujet']; ?> <br>
-                <?php echo$demande[$i]['contenu']; ?> <br>
+                <?php echo$demande[$i]['objet']; ?> <br>
+                <?php echo$demande[$i]['message']; ?> <br>
                 
                 <b> <?php echo$demande[$i]['date']; ?></b><br> </p>
                 
