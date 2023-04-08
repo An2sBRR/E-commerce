@@ -8,16 +8,17 @@
 Hors Cahier des Charges : 
 
 - [X] Faire le css des pages catégories
-- [ ] Faire le css des pages produits
+- [X] Faire le css des pages produits
 - [X] Modifier la page du compte du client 
 - [X] Créer une table dans le sql pour y mettre les commandes
 - [ ] Mettre le vrai vendeur pour les produits et catégories
 - [ ] Faire la page panier
-- [ ] Ajouter des petites annimations qui rendent le site 🤌
+- [X] Ajouter des petites annimations qui rendent le site 🤌
 
 Coté Client :
 
-- [ ] Pouvoir comparer les prix, et livraisons des différents vendeurs d'un même produit
+- [X] Pouvoir comparer les prix d'un même produit
+- [ ] Pouvoir comparer les livraisons des différents vendeurs
 - [X] Filtrer sa recherche
 - [X] Faire les abonnements
 - [X] Créer un compte
@@ -38,9 +39,9 @@ Coté MarketPlace :
 - [X] Ajouter un produit
 - [X] Ajouter un vendeur
 - [ ] Afficher son chiffre d'affaires
-- [ ] Expédier une commande
+- [X] Expédier une commande
 - [ ] Rendre l'accès sécurisé au page admin
-- [ ] Modifier la page ajout produit pour y mettre les quantités
+- [X] Modifier la page ajout produit pour y mettre les quantités
 
 Coté livreur ou préparateur : 
 
