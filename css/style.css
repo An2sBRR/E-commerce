@@ -231,11 +231,10 @@ input[type=text]
 
 /*AFFICHAGE DES PRODUITS */
 .product{
-    padding: 10px;
+    padding: 10%;
     position: relative;
     margin: 10px;
     height: 90%;
-    border-radius: 5%;
 }
     
 #about h4{
@@ -290,6 +289,7 @@ input[type=text]
 
 .img-fluid{
     transition : transforme ease-in 0.2s;
+    margin: 18px;
 }
 
 .img-fluid:hover{
@@ -491,7 +491,7 @@ div.section > div > input
 .slide
 {
     width: 20%;
-    transition: 2s;
+    transition: 1s;
 }
 
 .slide img
@@ -602,6 +602,7 @@ div.section > div > input
 
 .footer
 {
+    margin-top: 2%;
     background-color: #5DFDCB;
     height: 1000px;
 }
