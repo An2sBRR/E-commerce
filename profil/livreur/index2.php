@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate">
+                            <a href="colis.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Colis</span>
                             </a>
