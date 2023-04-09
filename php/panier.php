@@ -35,7 +35,7 @@
                         if(getAbonnement() == 1){echo "<h6>Vous êtes abonné(e), ainsi vous bénéficiez d'une réduction de 10% et de la livraison gratuite.</h6>";}
                         foreach ($_SESSION['panier'] as $idProduit => $quantite) {
                             require '../include/config.php';
-                            $requete = $bdd->query('SELECT * FROM produit WHERE id LIKE '.$idProduit.'')->fetchAll(PDO::FETCH_OBJ);
+                            $requete = $bdd->query('SELECT produit.*, employes.pseudo AS pseudo FROM produit JOIN employes ON produit.id_employes = employes.id WHERE produit.id LIKE '.$idProduit.'')->fetchAll(PDO::FETCH_OBJ);
                             foreach ($requete as $produit){
                                 $id=$produit->id;
                                 $prix = $produit->prix;
@@ -44,6 +44,7 @@
                                 $image=$produit->image;
                                 $libelle=$produit->libelle;
                                 $quantiteproduit = $produit->quantite;
+                                $pseudo = $produit->pseudo;
                             }
                             echo "<div class='card rounded-3 mb-4'>
                             <div class='card-body p-4'>
@@ -53,7 +54,7 @@
                                     </div>
                                     <div class='col-md-3 col-lg-3 col-xl-3'>
                                         <p class='lead fw-normal mb-2'>".$libelle."</p>
-                                        <p><span class='text-muted'>Vendu par : </span>M</p>
+                                        <p><span class='text-muted'>Vendu par : </span>".$pseudo."</p>
                                         <p><span class='text-muted'>Prix unitaire :</span> ".$prixFinale." €</p>
                                     </div>
                                     <div class='col-md-3 col-lg-3 col-xl-2 d-flex'>
@@ -72,7 +73,7 @@
                         }
                         echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : ".$total." €</h4>";
                         if(!isset($_SESSION['user']))echo "<h6 class='connexion'>Veuillez-vous connecter <a id='connexion' href='co.php'>ici</a> pour valider votre panier.</h6><br>";
-                        if(getAbonnement() == 1){echo "<h4 class='text-danger total_abo'>Total avec réduction : ".$total*(1-0.1)." €</h4>";}
+                        if(getAbonnement() == 1){echo "<h4 class='text-danger total_abo'>Total avec réduction : ".$total*(1-0.1)." €</h4><br>";}
                         echo "<h5 class='text-uppercase mb-3'>Livraison</h5>
                         <div class='mb-4 pb-2'>
                         <select class='select'>
