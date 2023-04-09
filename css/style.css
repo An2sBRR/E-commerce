@@ -37,7 +37,7 @@ h2
 
 .header 
 {
-    background-color: #5e2bff;
+    background-color: #C2D8B9;
     height: 70px;
     line-height: 70px; /*Pour centrer ce qu'il y a à l'interieur de manière verticale*/
 }
@@ -91,7 +91,7 @@ header .reseauxlog:hover
     justify-content: center;
     height: 50px;
     text-decoration: none;
-    color: white;
+    color: #000000;
     font-size: 150%;
 }
 
@@ -164,7 +164,7 @@ header .reseauxlog:hover
     position: relative;
     top: 40%;  
     width: 100%;
-    background-color: #7CC6FE;
+    background-color: #E4F0D0;
 }
 
 input
@@ -189,7 +189,7 @@ input[type=text]
 .searchTerm 
 {
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #000000;
     border-right: none;
     padding: 5px;
     height: 20px;
@@ -200,15 +200,15 @@ input[type=text]
   
 .searchTerm:focus
 {
-    color: #00B4CC;
+    color: #000000;
 }
   
 .searchButton 
 {
     width: 40px;
     height: 50px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
+    border: 1px solid #000000;
+    background: #000000;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -244,7 +244,7 @@ input[type=text]
 }
 
 .nouveau_prix{
-    color: #e3a657;
+    color: #C2D8B9;
 }
 
 #about h5{
@@ -263,7 +263,7 @@ input[type=text]
 .dot{
     height: 40px;
     width: 40px;
-    background-color: #e3a657;
+    background-color: #C2D8B9;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -432,6 +432,7 @@ div.section > div > input
 {
     font-size: 20px;
 }
+
 
 @media screen and (min-width:567px)  and (max-width:767px)
 {
@@ -602,13 +603,13 @@ div.section > div > input
 .footer
 {
     margin-top: 7%;
-    background-color: #5DFDCB;
+    background-color: #C2D8B9;
     height: 1000px;
 }
 
 .footer .container
 {
-    background-color: #5DFDCB;
+    background-color: #C2D8B9;
 }
 
 .footer h2

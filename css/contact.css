@@ -37,14 +37,14 @@ ING 1 GI GROUPE 4*/
   }
   
   .contact-formulaire {
-    background-color : rgb(247, 212, 208);
+    background-color : #E4F0D0;
     /*background-color: #1abc9c;*/
     position: relative;
   }
   
   .bulle {       /*Petites bulles comme sur la page principale*/
     border-radius: 50%;
-    background: linear-gradient(135deg, transparent 20%,rgb(243, 185, 179) ) ;
+    background: linear-gradient(135deg, transparent 20%,#b9e966) ;
     position: absolute;
   }
   
@@ -67,7 +67,7 @@ ING 1 GI GROUPE 4*/
     position: absolute;
     width: 26px;
     height: 26px;
-    background-color:  rgb(247, 212, 208);
+    background-color: #E4F0D0 ;
     transform: rotate(45deg);
     top: 50px;
     left: -13px;
@@ -153,7 +153,7 @@ select{
     background-color: #fff;
     border: 2px solid #fafafa;
     font-size: 0.95rem;
-    color:  rgb(243, 185, 179);
+    color:  #E4F0D0;
     line-height: 1;
     outline: none;
     cursor: pointer;
@@ -186,7 +186,7 @@ select{
     opacity: 0;
     transition: 0.3s;
     height: 5px;
-    background-color:  rgb(247, 212, 208);
+    background-color:  #E4F0D0;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -218,7 +218,7 @@ select{
   }
   
   .contact-info .titre {
-    color:  rgb(243, 185, 179);
+    color:  #E4F0D0;
   }
   
   .texte {
@@ -257,7 +257,7 @@ select{
     width: 35px;
     height: 35px;
     border-radius: 5px;
-    background: linear-gradient(45deg,  rgb(247, 212, 208),  rgb(243, 185, 179));
+    background: linear-gradient(45deg,  #E4F0D0,  #b9e966);
     color: #fff;
     text-align: center;
     line-height: 35px;
@@ -274,7 +274,7 @@ select{
     position: absolute;
     width: 110px;
     height: 100px;
-    border: 22px solid  rgb(243, 185, 179);
+    border: 22px solid  #E4F0D0;
     border-radius: 50%;
     bottom: -77px;
     right: 50px;

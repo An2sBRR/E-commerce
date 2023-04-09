@@ -28,7 +28,7 @@
   
   /* Pricing header */
   ul .titre {
-    background-color: #af70da;
+    background-color: #C2D8B9;
     color: white;
     font-size: 25px;
     text-align: center;
@@ -74,10 +74,19 @@
     margin-left: 2%;
 }
 
+.valider:hover{
+  border: solid black;
+  font-weight: bold;
+}
+
 .annuler{
     background-color: rgb(197, 65, 48);
 }
 
+.annuler:hover{
+  border: solid black;
+  font-weight: bold;
+}
 .erreur{
     color: red;
     text-align: center;
