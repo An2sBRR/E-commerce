@@ -2,7 +2,6 @@
 AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
 ING 1 GI GROUPE 4 -->
 
-
 <?php 
     session_start();
 ?>
@@ -23,9 +22,13 @@ ING 1 GI GROUPE 4 -->
     <link rel="stylesheet" href ="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
     <!-- INCLUSION ICONS -->
     <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
-    <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
+    <script  nomodule  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
 
 </head>
 
@@ -42,14 +45,13 @@ ING 1 GI GROUPE 4 -->
             <!-- ICONS -->
             <div class="icons">
                 <?php 
-
                 // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
                 if(!isset($_SESSION['statut'])){
-                    echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "client"){
-                    echo "<a href='#' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='./profil/client/profil_cl.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
                     echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }
@@ -77,28 +79,6 @@ ING 1 GI GROUPE 4 -->
                     <i><ion-icon name="search"></ion-icon></i>
                     </button>
                 </div>
-
-                <script>
-                    function ZOOM(x){
-                        window.location="http://localhost:8000/index.php?zoom="+x;
-                    }
-                    function handleKeyPress(event) {
-                        if (event.keyCode === 13) {
-                        // Appel de la fonction souhaitée
-                            recherche();
-                        }
-                    }
-                    function recherche() {
-                    // Récupération de la valeur de l'input
-                    var searchTerm = document.getElementById("recherche").value;
-
-                    // Création du lien de recherche
-                    var searchLink = "?recherche="+searchTerm.toLowerCase().replace(/\s+/g, '-');
-
-                    // Redirection vers la page de recherche
-                    window.location.href = searchLink;
-                    }
-                </script>
              </div>
         </div>
     </header>
@@ -112,11 +92,11 @@ ING 1 GI GROUPE 4 -->
                 <input type="checkbox" id="toggle">
                 <div class="main_pages">
                     <a href="index.php">Accueil</a>
-                    <a href="index.php?cat=meilleur-vente">Meilleures&nbspventes</a>
                     <a href="index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="index.php?cat=lego">Lego</a>
                     <a href="#contact">Stratégie</a>
+                    <a href="php/abonnement.php">Abonnement</a>
                 </div>
             </nav>
         </div>
@@ -165,19 +145,6 @@ ING 1 GI GROUPE 4 -->
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript">
-            var counter = 2;
-            setInterval(function()
-            {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if(counter > 4)
-                {
-                    counter = 1;
-                }
-            }, 5000);
-        </script>
     </main>
     <!-- FIN PAGE PRINCIPALE -->
 
@@ -276,21 +243,22 @@ ING 1 GI GROUPE 4 -->
                     $prix = $produit->prix;
                     $discount = $produit->discount;
                     $prixFinale = $prix - (($prix*$discount)/100);
-                    $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
+                    $quantite = $produit->quantite;
                     echo "<div class='col-md-4'";
+                    echo "><div class='text-center'><div class='product'";
                     echo "onclick=ZOOM('";
                     echo $id;
-                    echo"')";
-                    echo "><div class='product text-center'>";  
+                    echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
-                    echo "<span class='text-muted'>".$description."</span>";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
-                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
+                    echo "</div> </div><span class='dot' id='".$id."'";
+                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
                 return;
@@ -306,20 +274,21 @@ ING 1 GI GROUPE 4 -->
                     $prix = $produit->prix;
                     $discount = $produit->discount;
                     $prixFinale = $prix - (($prix*$discount)/100);
-                    $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                     echo "<div class='col-md-4'";
+                    echo "><div class='text-center'><div class='product'";
                     echo "onclick=ZOOM('";
                     echo $id;
-                    echo"')";
-                    echo "><div class='product text-center'>";   
+                    echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
-                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
+                    echo "</div> </div><span class='dot' id='".$id."'";
+                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
             }
@@ -337,17 +306,20 @@ ING 1 GI GROUPE 4 -->
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
+                    $quantite = $produit->quantite;
                     echo "<div class='col-md-4'";
+                    echo "><div class='text-center'><div class='product'";
                     echo "onclick=ZOOM('";
                     echo $id;
-                    echo"')";
-                    echo "><div class='product text-center'>";       
+                    echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
                     if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
-                    echo "</div> <span class='dot'><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
+                    echo "</div> </div><span class='dot' id='".$id."'";
+                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
             }
@@ -366,6 +338,7 @@ ING 1 GI GROUPE 4 -->
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
+                    $quantite = $produit->quantite;
 
                     echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
                     echo "<img style='max-width:100%;' src='data/".$image."'></div>";
@@ -375,10 +348,14 @@ ING 1 GI GROUPE 4 -->
                     echo "<div class='section'><h6 class='title-attr' style='margin-top:15px;' ><small>Prix initial : ".$prix."€</small></h6>";                    
                     echo "<div> </div></div>";
                     echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6> ";                  
-                    echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' min='0' max='Stock' />"; //ATTENTION METTRE VARIABLE LA VRAIE
+                    echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' value='0' min='0' max='";
+                    if(isset($_SESSION['panier']) && $_SESSION['panier'][$id] != NULL){ 
+                        echo $quantite-$_SESSION['panier'][$id];
+                    }else{echo $quantite;}
+                    echo "' id='quantite'/>"; 
                     echo "<div class='btn-plus'><span class='glyphicon glyphicon-plus'></span></div></div></div>";
                     echo "<div class='section' style='padding-bottom:20px;'>";
-                    echo "<button class='btn btn-success'><span style='margin-right:20px' class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span>Ajouter au panier</button>";
+                    echo "<button class='btn btn-success' onclick=ajouter_panier(".$id.")><span style='margin-right:20px' class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span>Ajouter au panier</button>";
                     echo "</div></div>";   
                     echo "<div class='col-xs-9' style='width: 100%;'>";
                     echo "<ul class='menu-items'><li class='active'>Détails du produit</li><li>Avis</li><li>Vendeurs</li><li>Livraison</li></ul>";   
@@ -392,6 +369,5 @@ ING 1 GI GROUPE 4 -->
         }
         affichage();
     ?>
-    
 </body>
 </html>
