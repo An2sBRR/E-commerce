@@ -136,22 +136,22 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `discount`, `id_categorie`, `id_employes`, `date_creation`, `description`, `image`, `quantite`) VALUES
-(22, 'UNO', '12', 0, 37, 0, '2023-03-20 00:00:00', 'Super jeu en amis ou en famille', '../data/UNO.jpg', 15),
-(23, 'Monopoly', '35', 15, 37, 0, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 10),
-(24, 'Jenga', '15', 0, 37, 0, '2023-03-21 00:00:00', 'Jeu d&#39adresse pour toute la famille', '../data/jenga.jpg', 8),
-(25, 'Dobble', '10', 5, 37, 0, '2023-03-22 00:00:00', 'Jeu d&#39observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
-(26, 'Scrabble', '25', 10, 37, 0, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 4),
-(27, 'Puissance 4', '20', 0, 37, 0, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
-(28, 'LEGO Star Wars: X-wing Starfighter', '70', 0, 39, 0, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
-(29, 'LEGO City: Le Poste de Police', '60', 0, 39, 0, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
-(30, 'LEGO City - La caserne de pompiers', '90', 20, 39, 0, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
-(31, 'LEGO Creator - Le march&eacute d hiver', '80', 10, 39, 0, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
-(32, 'Jeu d&#39&eacutechecs en bois', '50', 0, 38, 0, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 3),
-(33, 'Mikado en bois', '15', 5, 38, 0, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
-(34, 'Jeu de dames en bois', '25', 0, 38, 0, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
-(35, 'Jeu de croquet en bois', '100', 20, 38, 0, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', 5),
-(36, 'Jeu de quilles en bois', '80', 10, 38, 0, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', 4),
-(37, 'Jeu de palets en bois', '60', 5, 38, 0, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', 3);
+(22, 'UNO', '12', 0, 37, 11, '2023-03-20 00:00:00', 'Super jeu en amis ou en famille', '../data/UNO.jpg', 15),
+(23, 'Monopoly', '35', 15, 37, 11, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 10),
+(24, 'Jenga', '15', 0, 37, 12, '2023-03-21 00:00:00', 'Jeu d&#39adresse pour toute la famille', '../data/jenga.jpg', 8),
+(25, 'Dobble', '10', 5, 37, 11, '2023-03-22 00:00:00', 'Jeu d&#39observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
+(26, 'Scrabble', '25', 10, 37, 11, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 4),
+(27, 'Puissance 4', '20', 0, 37, 11, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
+(28, 'LEGO Star Wars: X-wing Starfighter', '70', 12, 39, 11, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
+(29, 'LEGO City: Le Poste de Police', '60', 12, 39, 12, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
+(30, 'LEGO City - La caserne de pompiers', '90', 20, 39, 11, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
+(31, 'LEGO Creator - Le march&eacute d hiver', '80', 10, 39, 12, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
+(32, 'Jeu d&#39&eacutechecs en bois', '50', 0, 38, 11, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 3),
+(33, 'Mikado en bois', '15', 5, 38, 11, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
+(34, 'Jeu de dames en bois', '25', 0, 38, 12, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
+(35, 'Jeu de croquet en bois', '100', 20, 38, 11, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', 5),
+(36, 'Jeu de quilles en bois', '80', 10, 38, 12, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', 4),
+(37, 'Jeu de palets en bois', '60', 5, 38, 11, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', 3);
 
 -- --------------------------------------------------------
 
