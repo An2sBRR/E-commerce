@@ -26,10 +26,6 @@ i:hover{
     cursor: pointer;
 }
 
-.total{
-    padding-left: 70%;
-}
-
 #connexion{
     color: rgb(172, 136, 206);
     text-decoration: underline;
@@ -37,10 +33,5 @@ i:hover{
 }
 
 .connexion{
-    padding-left: 35%;
     font-weight: 400;
-}
-
-.total_abo{
-    padding-left: 70%;
 }
