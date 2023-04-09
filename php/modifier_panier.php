@@ -2,7 +2,9 @@
     session_start();
     $id = $_GET['id'];
     $choix = $_GET['choix'];
-    $quantite = $_GET['quantite'];
+    if(isset($_GET['quantite'])){
+        $quantite = $_GET['quantite'];
+    }
     if($choix == 0){
         unset($_SESSION['panier'][$id]);
     }else if($choix == 1){
