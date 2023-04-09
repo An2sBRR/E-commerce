@@ -12,6 +12,7 @@ Hors Cahier des Charges :
 - [X] Modifier la page du compte du client 
 - [X] Créer une table dans le sql pour y mettre les commandes
 - [ ] Mettre le vrai vendeur pour les produits et catégories
+- [ ] Lier le slider aux meilleurs ventes
 - [X] Faire la page panier
 - [X] Ajouter des petites annimations qui rendent le site 🤌
 
