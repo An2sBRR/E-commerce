@@ -329,7 +329,7 @@ ING 1 GI GROUPE 4 -->
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
-                $categories = $bdd->query('SELECT * FROM produit WHERE id LIKE \''.$num[1].'\'')->fetchAll(PDO::FETCH_OBJ);
+                $categories = $bdd->query('SELECT produit.*, employes.pseudo AS pseudo FROM produit JOIN employes ON produit.id_employes = employes.id WHERE produit.id LIKE \''.$num[1].'\'')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
                     $id=$produit->id;
                     $prix = $produit->prix;
@@ -339,11 +339,12 @@ ING 1 GI GROUPE 4 -->
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                     $quantite = $produit->quantite;
+                    $vendeur = $produit->pseudo;
 
                     echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
                     echo "<img style='max-width:100%;' src='data/".$image."'></div>";
                     echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
-                    echo "<h5 style='color:#337ab7'>Vendu par ".$nomvendeur."<small style='color:#337ab7'>(".rand(50,10000)." ventes)</small></h5>";
+                    echo "<h5 style='color:#337ab7'>Vendu par ".$vendeur."<br><small style='color:#337ab7'>(".rand(50,10000)." ventes)</small></h5>";
                     echo "<h6 class='title-price'><small>PRIX</small></h6><h3 style='margin-top:0px;'>".$prixFinale."€</h3>";
                     echo "<div class='section'><h6 class='title-attr' style='margin-top:15px;' ><small>Prix initial : ".$prix."€</small></h6>";                    
                     echo "<div> </div></div>";
