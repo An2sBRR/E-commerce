@@ -1,8 +1,9 @@
 <?php
     session_start();
     $id = $_GET['id'];
-    $quantite = $_GET['quantite'];
-    if(is_null($quantite)){
+    if(isset($_GET['quantite'])){
+        $quantite = $_GET['quantite'];
+    }else{
         $quantite = 1;
     }
     if($quantite !=0){
