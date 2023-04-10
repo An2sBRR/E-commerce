@@ -74,9 +74,9 @@
 
 <table>
   <tr colspan="3" style="background-color: #D3D3D3;"><th>Mode de livraison</th><th>Temps de livraison</th><th>Frais</th></tr>
-  <tr><td>Livraison Standard</td><td>6-8 jours ouvrables</td><td>3.99€—Pour chaque livraison<br> Gratuit—Avec l'abonnement.</td></tr><tr>
-    <td>Livraison en Point Relais</td><td>6-8 jours ouvrables</td><td>1.99€—Pour chaque livraison<br> Gratuit—Avec l'abonnement.</td></tr>
-  <tr> <td>Livraison Express</td><td>3-5 jours ouvrables</td><td>5.90€</td></tr></table>
+  <tr><td>Livraison Standard</td><td>5 jours ouvrables</td><td>5.00€—Pour chaque livraison<br> Gratuit—Avec l'abonnement.</td></tr><tr>
+    <td>Livraison en Point Relais</td><td>5-6 jours ouvrables</td><td>2.00€—Pour chaque livraison<br> Gratuit—Avec l'abonnement.</td></tr>
+  <tr> <td>Livraison Express</td><td>1-2 jours ouvrables</td><td>8.00€</td></tr></table>
   <p>Les frais de livraison sont susceptibles d'être modifiés sans préavis. Veuillez vous référer à la page de paiement pour obtenir les frais de livraison actuels.</td></tr><br>
   <p>Si vous constatez que :</p>
 <ol>
