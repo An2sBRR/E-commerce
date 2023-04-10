@@ -12,7 +12,7 @@ html {
 
 body {
     height: 100%;
-    background:rgb(250, 238, 238); }
+    background:whitesmoke; }
 
  
 .test{
@@ -22,16 +22,31 @@ body {
 .zones {
    margin-left: auto;
    margin-right: auto;
+   padding-right: 1%;
+   padding-left: 1%;
     min-height: 100%;
     width: 30%;
     position: relative;
     border: solid black 3px;
-    background: rgb(243, 185, 179);
+    background: linear-gradient(135deg, transparent 20%,#b9e966) ;
 }
 
-.zones>p{
-    text-align: center;
+.zones>#profil{
+    text-align: right;
+    
 }
+
+.zones>#nom{
+    text-align: center;
+    
+}
+
+.zones>#coordonnes{
+    text-align: left;
+   
+}
+
+
 
 #fermé {           /*Bouton pour fermer le formulaire de connexion*/
     text-align: right;
