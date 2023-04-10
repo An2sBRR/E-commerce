@@ -12,7 +12,7 @@ setInterval(function()
 }, 5000);
 
 function ZOOM(x){
-    window.location="http://localhost:8000/index.php?zoom="+x;
+    window.location="index.php?zoom="+x;
 }
 
 function handleKeyPress(event) {
