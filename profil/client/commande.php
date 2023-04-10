@@ -70,3 +70,41 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
+            <main class="col overflow-auto h-100 w-100">
+    <div class="container py-2">
+    <div class="container py-2">
+    <h2>Liste de mes Commandes</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Opérations</th>
+        </tr>
+        </thead>
+        <tbody>
+ <?php
+                        //connexion à la base de données
+                        require_once '../../include/config.php'; 
+                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($commandes as $commande) {
+     ?>
+    <tr>
+
+    <td><?php echo $commande['id']?></td>
+    <td><?php echo $commande['pseudo']?></td>
+    <td><?php echo $commande['total']?></td>
+    <td><?php echo $commande['date_creation']?></td>
+     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
+            </tr>
+            <?php
+        }
+        ?>
+  </tbody>
+    </table>
+</div>
+
+</body>
+</html>

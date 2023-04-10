@@ -55,7 +55,7 @@
                                 <ul><a href="pol_retour.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Politique de retour</span> </a></li></ul>
 
-                                <ul><a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
+                                <ul><a href="poli_conf.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Politique de confidentialité</span> </a></li></ul>
     
                         <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
