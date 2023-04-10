@@ -16,7 +16,7 @@
 }
 
 .button {
-    background-color: #702CF6;
+    background-color: #C2D8B9;
     color: white;
     padding: 16px 32px;
     text-align: center;
@@ -33,12 +33,12 @@
   }
   
   .button1 {
-    background-color: #702CF6; 
+    background-color: #C2D8B9; 
     color: black; 
-    border: 2px solid #702CF6;
+    border: 2px solid #C2D8B9;
   }
   
   .button1:hover {
     background-color: white;
-    color: #702CF6;
+    color: #C2D8B9;
   }

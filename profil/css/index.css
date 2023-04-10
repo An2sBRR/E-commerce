@@ -3,15 +3,18 @@
 }
 
 .row [class*='col'] {
-    background-color: #efefef;
+    /*background-color: #E4F0D0;*/
     background-clip: content-box;
 }
 
 .nav-item {
-    background-color: #eeeeff;
     background-clip: content-box;
 }
 
 #log-logo{
     font-size: xx-large;
+}
+
+li:hover{
+    background-color: #E4F0D0;
 }
