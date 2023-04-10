@@ -19,22 +19,32 @@
         <div class="test">
             <div class="zones">
                 <!-- Lien sur le "bouton" x pour supprimer le message sélectionné -->
-            <a href="traitement_contact.php?del=<?php echo$demande[$i]['id']; ?>" class="action" id="fermé">X</a> <br>
-            <p>
-                <b>
-                <?php echo$demande[$i]['utilisateur']; ?></b><br>
-                <?php echo$demande[$i]['nom']; ?></b><br>
-                <?php echo$demande[$i]['email']; ?><br>
-                <?php echo$demande[$i]['tel']; ?><br>
-                <?php echo$demande[$i]['objet']; ?> <br>
-                <?php echo$demande[$i]['message']; ?> <br>
+                <a href="traitement_contact.php?del=<?php echo$demande[$i]['id']; ?>" class="action" id="fermé">X</a> <br>
+                <p id="profil">
+                    <b><?php echo $demande[$i]['utilisateur']; ?><br><br></b>
+                    <b>Date :</b> <?php echo $demande[$i]['date']; ?><br><br>
+                </p>
+                <p id="nom">
+                    <b><?php echo $demande[$i]['nom']; ?><br><br></b>
+                    
+                </p>  
+                <p id="coordonnees">
                 
-                <b> <?php echo$demande[$i]['date']; ?></b><br> </p>
+                    <b>Objet :</b> <?php echo $demande[$i]['objet']; ?><br><br>
+                    <b>Message :</b> <?php echo $demande[$i]['message']; ?><br><br>
+                </p>
                 
-            </div>
-            
-               
+                <div class="bas">
+                <div id="email" style="float: left; ">
+                    <b>Email :</b> <?php echo $demande[$i]['email']; ?><br><br>
+                </div>
+                <div id="tel" style="float: right;">
+                    <b>Tel :</b> <?php echo $demande[$i]['tel']; ?><br><br>
+                </div>
+                <div style="clear: both;"></div>  <!-- Pour pas que les autres éléments float-->
+                </div>
 
+            </div>
         </div>
     <?php endfor; ?>
 
