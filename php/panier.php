@@ -1,7 +1,7 @@
 <?php
     session_start();
-    //unset($_SESSION['panier']);
-    if($_SESSION['panier'] == NULL){
+
+    if(empty($_SESSION['panier'])){
         unset($_SESSION['panier']);
     }
 ?>
