@@ -208,7 +208,7 @@ ING 1 GI GROUPE 4 -->
         // Fonction modifiant le contenu de la page selon l'url
         function affichage() {
             $num = explode('=',getquery());
-            if($num[2]!= NULL)   
+            if(isset($num[2]))   
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
                 echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
@@ -350,7 +350,7 @@ ING 1 GI GROUPE 4 -->
                     echo "<div> </div></div>";
                     echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6> ";                  
                     echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' value='0' min='0' max='";
-                    if(isset($_SESSION['panier']) && $_SESSION['panier'][$id] != NULL){ 
+                    if(isset($_SESSION['panier']) && isset($_SESSION['panier'][$id])){ 
                         echo $quantite-$_SESSION['panier'][$id];
                     }else{echo $quantite;}
                     echo "' id='quantite'/>"; 
