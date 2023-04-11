@@ -257,7 +257,7 @@ ING 1 GI GROUPE 4 -->
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
-                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
                     echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
@@ -287,7 +287,7 @@ ING 1 GI GROUPE 4 -->
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
-                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
                     echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
@@ -318,7 +318,7 @@ ING 1 GI GROUPE 4 -->
                     echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
-                    if($_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) echo "onclick=ajouter_panier_categorie(this.id)";
+                    if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
                     echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
