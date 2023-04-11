@@ -71,23 +71,37 @@
                             </div>";
                             $total += $prixFinale*$quantite;
                         }
-                        echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : ".$total." €</h4>";
+                        echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : ".$total." €</h4><br>";
                         if(!isset($_SESSION['user']))echo "<h6 class='connexion'>Veuillez-vous connecter <a id='connexion' href='co.php'>ici</a> pour valider votre panier.</h6><br>";
-                        if(getAbonnement() == 1){echo "<h4 class='text-danger total_abo'>Total avec réduction : ".$total*(1-0.1)." €</h4><br>";}
-                        echo "<h5 class='text-uppercase mb-3'>Livraison</h5>
-                        <div class='mb-4 pb-2'>
-                        <select class='select'>
-                            <option value='1'>Livraison standard (5 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "5.00 €";}
-                            echo "</option>
-                            <option value='2'>Livraison en relais (5 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "2.00 €";} echo "</option>
-                            <option value='3'>Livraison express (1 à 2 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "8.00 €";} echo "</option>
-                        </select>
-                        </div>
-                        <div class='card'>
+                        echo "<div class='row'>
+                                <div class='container'>
+                                <form action='' method='post'>
+                                    <div class='row'>
+                                    <div>
+                                        <h5 class='text-uppercase mb-3'>Vos informations</h5>
+                                        <label for='nom'><i class='fa fa-user'></i> Nom Prénom</label>
+                                        <input type='text' id='nom' name='nom' placeholder='Thomas Dupont' required>
+                                        <label for='email'><i class='fa fa-envelope'></i> Email</label>
+                                        <input type='email' id='email' name='email' placeholder='thomas@exemple.com' required>
+                                        <label for='adr'><i class='fa fa-address-card-o'></i> Adresse</label>
+                                        <input type='text' id='adr' name='adr' placeholder='2 rue de la paix' required>
+                                        <label for='ville'><i class='fa fa-institution'></i> Ville</label>
+                                        <input type='text' id='ville' name='ville' placeholder='Paris' required>
+                                        <label for='code_postal'>Code Postal</label>
+                                        <input type='text' id='code_postal' name='code_postal' placeholder='75001' required>
+                                        <div class='mb-4 '>
+                                        <h5 class='text-uppercase mb-3'>Livraison</h5>
+                                        <select id='livraison' name='livraison'>
+                                            <option value='standard'>Livraison standard (5 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "5.00 €";}echo "</option>
+                                            <option value='relais'>Livraison en relais (5 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "2.00 €";} echo "</option>
+                                            <option value='express'>Livraison express (1 à 2 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "8.00 €";} echo "</option>
+                                        </select><br><br>";
+                                        if(getAbonnement() == 1){echo "<h4 class='text-danger total_abo'>Total avec votre abonnement : ".$total*(1-0.1)." €</h4><br>";};
+                        echo "<div class='card'>
                         <div class='card-body'>
-                            <button type='button' class='btn btn-block btn-lg'>Valider votre panier</button>
-                        </div>
-                        </div>";
+                            <input type='submit' value='Valider votre panier' class='btn btn-block btn-lg'>
+                        </div></div></div></div>
+                        </form></div></div>";
                     }else{
                         echo "<h3 class='fw-normal mb-0 text-black'>Votre panier est vide</h3></div>";
                     }
