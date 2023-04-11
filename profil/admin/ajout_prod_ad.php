@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un vendeur</title>
+    <title>Ajouter un produit</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -127,8 +127,9 @@
                     <label class="form-label">Prix</label>
                     <input type="number" class="form-control" step="0.1" name="prix" min="0">
 
-                    <label class="form-label">Discount</label>
-                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90">
+                    <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
+                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
+                    
 
                     <label class="form-label">Description</label>
                     <textarea class="form-control" name="description"></textarea>
