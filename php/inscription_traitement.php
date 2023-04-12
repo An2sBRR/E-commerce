@@ -10,6 +10,7 @@
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $password_retype = htmlspecialchars($_POST['password_retype']);
+        
 
         // On vérifie si l'utilisateur existe
         $check = $bdd->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
@@ -30,22 +31,17 @@
                             $cost = ['cost' => 12];
                             $password = password_hash($password, PASSWORD_BCRYPT, $cost);
                       
-                             /*
-                              ATTENTION
-                              Verifiez bien que le champs token est présent dans votre table utilisateurs, il a été rajouté APRÈS la vidéo
-                              le .sql est dispo pensez à l'importer ! 
-                              ATTENTION
-                            */
                             // On insère dans la base de données
                             $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password, token) VALUES(:pseudo, :email, :password, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
                                 'password' => $password,
-                                'token' => bin2hex(openssl_random_pseudo_bytes(64))
+                                'token' => bin2hex(openssl_random_pseudo_bytes(64)),
+                                
                             ));
                             // On redirige avec le message de succès
-                            $_SESSION['user'] = $data['token'];
+                            //$_SESSION['user'] = $data['token'];
                             header('Location:co.php?reg_err=success');
                             die();
                         }else{ header('Location: inscription.php?reg_err=password'); die();}

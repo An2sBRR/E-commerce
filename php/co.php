@@ -59,7 +59,7 @@ sinon affiche compte non existant
                         <input type="password" type="password"  name="password" placeholder="password &#x1F512" required="required" autocomplete="off">
                     </div>
                     <div class="forget">
-                         <a href="#">mot de passe oublié</a></label>
+                         <a href="mdp.php">mot de passe oublié</a></label>
                     </div>
                     <p class="inscription">Je suis <span style="text-decoration: underline; color: red;"> client </span> et je n'ai pas de <span>compte</span>.Je m'en <span><a href="inscription.php">crée</span> un.</a></p>
                     <div class="form-group">

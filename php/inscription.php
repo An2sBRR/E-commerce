@@ -53,6 +53,11 @@ sinon le compte existe deja*/
     <form action="inscription_traitement.php" method="post">   
     <h2>Inscription Client </h2>
         <div class="inputs">
+        <select name="status">
+            <option value="client">Client</option>
+            <option value="vendeur">Vendeur</option>
+            <option value="livreur">Livreur</option>
+        </select><br>
             <input type="text" name="pseudo" placeholder="Pseudo" required="required" autocomplete="off">
             <input type="email" name="email"  placeholder="Email" required="required" autocomplete="off">
             <input type="password" name="password" placeholder="Mot de passe" required="required" autocomplete="off">
