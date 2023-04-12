@@ -72,3 +72,7 @@ label {
 .btn:hover {
     background-color: #6fd575;
 }
+
+.erreur{
+    color: red;
+}
