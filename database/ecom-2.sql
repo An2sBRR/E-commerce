@@ -113,7 +113,9 @@ CREATE TABLE `ligne_commande` (
 CREATE TABLE `produit` (
   `id` int(11) NOT NULL,
   `libelle` varchar(100) CHARACTER SET armscii8 NOT NULL,
-  `prix` decimal(10,0) NOT NULL,
+  `prix` decimal(14,4) NOT NULL,
+  `hauteur` decimal(14,4) NOT NULL,
+  `poids` decimal(14,4) NOT NULL,
   `discount` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `id_employes` int(11) NOT NULL,
