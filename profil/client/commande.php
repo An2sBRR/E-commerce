@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -94,9 +93,9 @@ foreach ($commandes as $commande) {
     <tr>
 
     <td><?php echo $commande['id']?></td>
-    <td><?php echo $commande['pseudo']?></td>
     <td><?php echo $commande['total']?></td>
     <td><?php echo $commande['date_creation']?></td>
+    <td><?php echo $commande['valide']?></td>
      <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
             </tr>
             <?php
