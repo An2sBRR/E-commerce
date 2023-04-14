@@ -10,13 +10,13 @@ body{
 
 form {
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #C2D8B9;
     padding: 40px 60px;
     border-radius: 10px;
     min-width: 300px;
   }
   form h2{
-    color: #cda6a5;
+    /*color: #E4F0D0;*/
     text-align:center;
   }
   form .social-media{
@@ -46,7 +46,7 @@ form {
     padding: 15px;
     border:none;
     border-radius: 5px;
-    background-color:#f2f2f2;
+    background-color:#E4F0D0;
     outline:none;
     margin-bottom: 15px;
   }
@@ -56,15 +56,14 @@ form {
     color: #878787;
   }
   form p.inscription span{
-    color: #cda6a5;
+    color:#878787;
   }
   form button{
     padding: 15px 25px;
     border-radius: 15px;
     border:none;
     font-size: 15px;
-    color: #fff;
-    background-color: #cda6a5;
+    background-color: #E4F0D0;
     outline:none;
     cursor:pointer;
   }
