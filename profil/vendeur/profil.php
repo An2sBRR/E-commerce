@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -75,7 +78,16 @@
                     <div class="d-flex justify-content-center">
                         <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
-                    <div class="d-flex justify-content-center"><h3>Nom Prénom</h3></div>
+                    <div class="d-flex justify-content-center"><h3>
+                    <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['prenom'])." ";
+                            echo ucfirst($resultat['nom']);
+                        ?></h3>
+                    </div>
                         <h4>Information personnel :</h4>
                 </div>   
             </main>
