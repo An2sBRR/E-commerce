@@ -136,9 +136,9 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (44, 'jeu quilles finlandaise ', '28', 0.187, 5, 0, 38, 48, '2023-04-12 21:44:05', 'jeu de quilles finlandaises, un jeu d\'adresse convivial pour jouer en exterieur', '../data/quille.jpg', 4),
 (45, 'Attrape bille Geant ', '138', 0.187, 5, 10, 38, 48, '2023-04-13 18:48:34', 'un joueur envoie la bille dans le tunnel et un autre essaye de l\'attraper le plutot possible afin de marquer le plus de points possible', '../data/bille.jpg', 6),
 (46, 'Billard roulette ', '241', 0.187, 5, 9, 38, 48, '2023-04-13 18:48:34', 'faire rouler les palets sur la tranche afin de passer sous les arches ', '../data/roulette.jpg', 6),
-(47, 'Lego marvel ', '249', 0.187, 5, 0, 39, 15, '2023-04-13 18:28:48', 'Attention danger etouffement interdit pour les 0-4 ans ', '../data/marvel.png', 10),
-(48, 'bloc Mario', '199', 0.187, 5, 0, 39, 13, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 18),
-(49, 'Lego aquarium  ', '30', 0.187, 5, 0, 39, 13, '2023-04-13 18:28:48', 'incroyable ', '../data/aqua.jpg', 26);
+(47, 'Lego marvel ', '249', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'Attention danger etouffement interdit pour les 0-4 ans ', '../data/marvel.png', 10),
+(48, 'bloc Mario', '199', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 18),
+(49, 'Lego aquarium  ', '30', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'incroyable ', '../data/aqua.jpg', 26);
 
 -- --------------------------------------------------------
 
