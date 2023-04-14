@@ -5,7 +5,10 @@ ING 1 GI GROUPE 4*/
 
 @charset "UTF-8";
 
-/* font-family: 'Boogaloo', cursive; */
+/* font-family: 'Boogaloo', cursive; 
+vert foncé : #C2D8B9
+vert clair : #E4F0D0
+*/
 
 body, html
 {
@@ -245,6 +248,7 @@ input[type=text]
 
 .nouveau_prix{
     color: #C2D8B9;
+    font-size: 30px;
 }
 
 #about h5{
@@ -254,11 +258,12 @@ input[type=text]
 #ancien_prix{
     color: red;
     text-decoration: line-through;
+    margin-left: 10%;
 }
 
-#about span{
+/*#about span{
     font-size: 13px;
-}
+}*/
 
 .dot{
     height: 40px;
@@ -287,6 +292,8 @@ input[type=text]
 .img-fluid{
     transition : transforme ease-in 0.2s;
     margin: 18px;
+    height: 100px;
+    width: 100px;
 }
 
 .img-fluid:hover{
