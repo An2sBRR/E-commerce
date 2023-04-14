@@ -41,7 +41,8 @@ CREATE TABLE `categorie` (
 INSERT INTO `categorie` (`id`, `libelle`, `description`, `date_creation`) VALUES
 (37, 'jeu_societe', ' La forme d&#39un jeu de plateau avec des pions ou d&#39un jeu de cartes.', '2023-03-20 10:59:03'),
 (38, 'jeu_en_bois', ' Jeux traditionnels dont certains sont de grands classiques', '2023-03-20 11:00:47'),
-(39, 'lego', 'est une gamme de jouets de construction', '2023-03-20 11:01:57');
+(39, 'lego', 'est une gamme de jouets de construction', '2023-03-20 11:01:57'),
+(40, 'strategie', 'Ideal pour utiliser ses méninges.', '2023-04-14 23:06:06');
 
 -- --------------------------------------------------------
 
@@ -111,34 +112,38 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, `id_categorie`, `id_utilisateurs`, `date_creation`, `description`, `image`, `quantite`) VALUES
-(22, 'UNO', '12', 0.187, 5, 0, 37, 48, '2023-03-20 00:00:00', 'Super jeu en amis ou en famille', '../data/UNO.jpg', 15),
-(23, 'Monopoly', '35', 0.187, 5, 15, 37, 48, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 10),
-(24, 'Jenga', '15', 0.187, 5, 0, 38, 48, '2023-03-21 00:00:00', 'Jeu d\'adresse pour toute la famille', '../data/jenga.jpg', 8),
-(25, 'Dobble', '10', 0.187, 5, 5, 37, 48, '2023-03-22 00:00:00', 'Jeu d&#39observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
-(26, 'Scrabble', '25', 0.187, 5, 10, 37, 48, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 4),
-(27, 'Puissance 4', '20', 0.187, 5, 0, 37, 48, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
-(28, 'LEGO Star Wars: X-wing Starfighter', '70', 0.187, 5, 12, 39, 48, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
-(29, 'LEGO City: Le Poste de Police', '60', 0.187, 5, 12, 39, 48, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
-(30, 'LEGO City - La caserne de pompiers', '90', 0.187, 5, 20, 39, 48, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
-(31, 'LEGO Creator - Le march&eacute d hiver', '80', 0.187, 5, 10, 39, 48, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
-(32, 'Jeu d&#39&eacutechecs en bois', '50', 0.187, 5, 0, 38, 48, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 3),
-(33, 'Mikado en bois', '15', 0.187, 5, 5, 38, 48, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
-(34, 'Jeu de dames en bois', '25', 0.187, 5, 0, 38, 48, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
-(35, 'Jeu de croquet en bois', '100', 0.187, 5, 20, 38, 48, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', 5),
-(36, 'Jeu de quilles en bois', '80', 0.187, 5, 10, 38, 48, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', 4),
-(37, 'Jeu de palets en bois', '60', 0.187, 5, 5, 38, 48, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', 3),
-(38, 'Air hockey', '155', 0.187, 5, 0, 38, 13, '2023-04-12 20:49:55', 'Le but du jeu de la table a glisser est de mettre le palet dans le camp de l\'adversaire tout en protegeant son propre but', '../data/air_hocket.jpg', 10),
-(39, 'bomboleo', '163', 0.187, 5, 15, 38, 13, '2023-04-12 21:26:38', 'jouet en bois familial qui promet de belles parties', '../data/equilibre.jpg', 4),
-(40, 'shut the box nombre', '22', 0.187, 5, 0, 38, 48, '2023-04-12 21:26:38', 'Des en bois, jeu a boire, jeu de societe, jeu d\'ambiance ', '../data/des.jpg', 12),
-(41, 'labyrinthe vertical ', '27', 0.187, 5, 5, 38, 48, '2023-04-12 21:31:38', 'un jeu de patience amusant et captivant, beaucoup de concentration pour arriver au but.', '../data/labi.jpg', 5),
-(42, 'Flitter geant ', '310', 0.187, 5, 0, 38, 48, '2023-04-12 21:31:38', 'un jeu d\'adresse et de coordination. Le jeu est compose d\'un plateau de jeu en bois avec fond inox, de 4 elastiques, de pions et d\'une poudre de glisse', '../data/flitzer.jpg', 7),
-(43, 'jeu de toc XL ', '38', 0.187, 5, 5, 38, 48, '2023-04-12 21:44:05', 'version canadienne des petits chevaux ', '../data/cheveux.jpg', 3),
-(44, 'jeu quilles finlandaise ', '28', 0.187, 5, 0, 38, 48, '2023-04-12 21:44:05', 'jeu de quilles finlandaises, un jeu d\'adresse convivial pour jouer en exterieur', '../data/quille.jpg', 4),
-(45, 'Attrape bille Geant ', '138', 0.187, 5, 10, 38, 48, '2023-04-13 18:48:34', 'un joueur envoie la bille dans le tunnel et un autre essaye de l\'attraper le plutot possible afin de marquer le plus de points possible', '../data/bille.jpg', 6),
-(46, 'Billard roulette ', '241', 0.187, 5, 9, 38, 48, '2023-04-13 18:48:34', 'faire rouler les palets sur la tranche afin de passer sous les arches ', '../data/roulette.jpg', 6),
-(47, 'Lego marvel ', '249', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'Attention danger etouffement interdit pour les 0-4 ans ', '../data/marvel.png', 10),
-(48, 'bloc Mario', '199', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 18),
-(49, 'Lego aquarium  ', '30', 0.187, 5, 0, 39, 48, '2023-04-13 18:28:48', 'incroyable ', '../data/aqua.jpg', 26);
+(22, 'UNO', '12', 14.6, 0.116, 0, 37, 48, '2023-03-20 00:00:00', 'Super jeu en amis ou en famille', '../data/UNO.jpg', 15),
+(23, 'Monopoly', '35', 40.2, 0.9, 15, 37, 48, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 10),
+(24, 'Jenga', '15', 12, 0.780, 0, 38, 48, '2023-03-21 00:00:00', 'Jeu d&#39adresse pour toute la famille', '../data/jenga.jpg', 8),
+(25, 'Dobble', '10', 15, 0.130, 5, 37, 48, '2023-03-22 00:00:00', 'Jeu d&#39observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
+(26, 'Scrabble', '25', 26.8, 1.35, 10, 37, 48, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 4),
+(27, 'Puissance 4', '20', 27.94, 0.460, 0, 37, 48, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
+(28, 'LEGO Star Wars: X-wing Starfighter', '110', 28.2, 0.990, 12, 39, 48, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
+(29, 'LEGO City: Le Poste de Police', '60', 26.2, 0.456, 12, 39, 48, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
+(30, 'LEGO City - La caserne de pompiers', '90', 37.8, 1.5, 20, 39, 48, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
+(31, 'LEGO Creator - Le march&eacute d hiver', '80', 7.06, 0.28, 10, 39, 48, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
+(32, 'Jeu d&#39&eacutechecs en bois', '50', 5.2, 0.8, 0, 38, 48, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 3),
+(33, 'Mikado en bois', '15', 7.5, 0.2, 5, 38, 48, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
+(34, 'Jeu de dames en bois', '25', 4, 0.35, 0, 38, 48, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
+(35, 'Jeu de croquet en bois', '100', 40, 2.02, 20, 38, 48, '2023-03-29 00:00:00', 'Jeu de croquet en bois pour jouer en ext&eacuterieur', '../data/croquet.jpg', 5),
+(36, 'Jeu de quilles en bois', '80', 19, 2, 10, 38, 48, '2023-03-30 00:00:00', 'Jeu de quilles en bois pour jouer en ext&eacuterieur', '../data/quilles.jpg', 4),
+(37, 'Jeu de palets en bois', '60', 4.5, 2.34, 5, 38, 48, '2023-03-31 00:00:00', 'Jeu de palets en bois pour jouer en ext&eacuterieur', '../data/palais.jpeg', 3),
+(38, 'Air hockey', '155', 10, 9.39, 0, 38, 13, '2023-04-12 20:49:55', 'Le but du jeu de la table a glisser est de mettre le palet dans le camp de l&#39adversaire tout en protegeant son propre but', '../data/air_hocket.jpg', 10),
+(39, 'Bomboleo', '163', 5, 1.5, 15, 38, 13, '2023-04-12 21:26:38', 'Jouet en bois familial qui promet de belles parties', '../data/equilibre.jpg', 4),
+(40, 'Shut the box nombre', '22', 22, 0.8, 0, 38, 48, '2023-04-12 21:26:38', 'Des en bois, jeu a boire, jeu de societe, jeu d&#39ambiance ', '../data/des.jpg', 12),
+(41, 'Labyrinthe vertical ', '27', 15, 1.6, 5, 38, 48, '2023-04-12 21:31:38', 'Un jeu de patience amusant et captivant, beaucoup de concentration pour arriver au but.', '../data/labi.jpg', 5),
+(42, 'Flitter geant ', '310', 5, 2.1, 0, 38, 48, '2023-04-12 21:31:38', 'Un jeu d&#39adresse et de coordination. Le jeu est compose d&#39un plateau de jeu en bois avec fond inox, de 4 elastiques, de pions et d&#39une poudre de glisse', '../data/flitzer.jpg', 7),
+(43, 'Jeu de toc XL ', '38', 15, 1.3, 5, 38, 48, '2023-04-12 21:44:05', 'Version canadienne des petits chevaux ', '../data/cheveux.jpg', 3),
+(44, 'Jeu quilles finlandaise ', '28', 19, 2, 0, 38, 48, '2023-04-12 21:44:05', 'Jeu de quilles finlandaises, un jeu d&#39adresse convivial pour jouer en exterieur', '../data/quille.jpg', 4),
+(45, 'Attrape bille Geant', '138', 14, 2.3, 10, 38, 48, '2023-04-13 18:48:34', 'Un joueur envoie la bille dans le tunnel et un autre essaye de l&#39attraper le plutot possible afin de marquer le plus de points possible', '../data/bille.jpg', 6),
+(46, 'Billard roulette', '241', 24, 3.2, 9, 38, 48, '2023-04-13 18:48:34', 'Faire rouler les palets sur la tranche afin de passer sous les arches ', '../data/roulette.jpg', 6),
+(47, 'Lego marvel', '249', 12.4, 3.13, 0, 39, 48, '2023-04-13 18:28:48', 'Attention danger etouffement interdit pour les 0-4 ans ', '../data/marvel.png', 10),
+(48, 'Bloc Mario', '199', 10.3, 0.79, 0, 39, 48, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 18),
+(49, 'Lego aquarium  ', '50', 5.9, 0.3, 0, 39, 48, '2023-04-13 18:28:48', 'Incroyable ', '../data/aqua.jpg', 26),
+(50, 'Carcassone', '34.99', 20, 0.8, 5, 40, 48, '2023-04-14 23:04:04', 'Carcassonne est un jeu de tuile o&ugrave toute la famille peut d&eacutefendre ses chateaux et pr&egraves pour gagner le plus de point', '../data/carcassonne.jpeg', 10),
+(51, 'Risk', '27.50', 27.4, 0.90, 0, 40, 48, '2023-04-14 23:21:02', 'Risk est un jeu o&ugrave le but du jeu est de menez des strat&eacutegies pour acc&eacuteder &agrave la gloire!', '../data/risk.jpeg', 4),
+(52, 'Les Aventuriers du Rail', '35.01', 24.0, 1.1, 5, 40, 48, '2023-04-14 23:33:02', 'Cr&eacuteer votre voyage et visitez les plus grandes villes d&#39Europe tout en gagnant la partie.', '../data/aventuriers.jpeg', 8),
+(53, 'Blocus', '22.99', 12.3, 0.50, 0, 40, 48, '2023-04-14 23:34:02', 'Bloquer vos adversaires sans piti&eacute', '../data/blocus.jpeg', 15);
 
 -- --------------------------------------------------------
 
@@ -230,7 +235,7 @@ ALTER TABLE `ligne_commande`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
