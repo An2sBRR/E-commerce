@@ -95,7 +95,7 @@ ING 1 GI GROUPE 4 -->
                     <a href="index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="index.php?cat=lego">Lego</a>
-                    <a href="index.php?cat=strategie">Stratégie</a>
+                    <a href="#contact">Stratégie</a>
                     <a href="php/abonnement.php">Abonnement</a>
                 </div>
             </nav>
@@ -124,11 +124,11 @@ ING 1 GI GROUPE 4 -->
                     </div>
                     <div class="slide">
                         <p>Les meilleurs ventes</p>
-                        <img src="./data/pompier.jpeg" alt="image d'un UNO">
+                        <img src="./data/pompier.jpeg" alt="image d'un lego pompier">
                     </div> 
                     <div class="slide">
                         <p>Les meilleurs ventes</p>
-                        <img src="./data/dames.jpeg" alt="image d'un UNO">
+                        <img src="./data/dames.jpeg" alt="image d'un jeu de dames">
                     </div>
                     <div class="navigation-auto">
                         <div class="auto-btn1"></div>
@@ -251,6 +251,7 @@ ING 1 GI GROUPE 4 -->
                     echo "onclick=ZOOM('";
                     echo $id;
                     echo"')>";       
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";  
                     echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
                     if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
@@ -265,10 +266,19 @@ ING 1 GI GROUPE 4 -->
             }
             if($num[0]=="recherche")   
             {
+                
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
                 echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php'; 
                 $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
+                if ($recherche==NULL) {
+                    $temp=1;
+                    echo "Désolé nous n'avons pas trouvé de résultat pour votre recherche <br> <br>";
+                    echo "Voici quelques produits qui pourrait vous interesser : ";
+                    $liste_mots = array("pompier", "puissance", "UNO", "dames", "lego");
+                    $alea = $liste_mots[array_rand($liste_mots)];
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$alea.'%\')')->fetchAll(PDO::FETCH_OBJ);
+                }
                 foreach ($recherche as $produit){
                     $id=$produit->id;
                     $prix = $produit->prix;
@@ -293,6 +303,10 @@ ING 1 GI GROUPE 4 -->
                     echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
                 }
                 echo "</div> </div>\";</script>";
+                if ($temp==1) {
+                    echo "<script>document.getElementById('sidebar').outerHTML= ''</script>";
+                    unset($temp);
+                }
             }
             if($num[0]=="cat")   
             {     
