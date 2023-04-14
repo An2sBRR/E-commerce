@@ -32,10 +32,10 @@
                     $total = 0;
                     if(isset($_SESSION['panier'])){
                         echo"<h3 class='fw-normal mb-0 text-black'>Votre panier</h3></div>";
-                        if(getAbonnement() == 1){echo "<h6 id='abonne'>Vous êtes abonné(e), ainsi vous bénéficiez d'une réduction de 10% et de la livraison gratuite.</h6>";}
+                        if(getAbonnement() == 1){echo "<h6>Vous êtes abonné(e), ainsi vous bénéficiez d'une réduction de 10% et de la livraison gratuite.</h6>";}
                         foreach ($_SESSION['panier'] as $idProduit => $quantite) {
                             require '../include/config.php';
-                            $requete = $bdd->query('SELECT produit.*, employes.pseudo AS pseudo FROM produit JOIN employes ON produit.id_employes = employes.id WHERE produit.id LIKE '.$idProduit.'')->fetchAll(PDO::FETCH_OBJ);
+                            $requete = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE produit.id LIKE '.$idProduit.'')->fetchAll(PDO::FETCH_OBJ);
                             foreach ($requete as $produit){
                                 $id=$produit->id;
                                 $prix = $produit->prix;
@@ -71,7 +71,7 @@
                             </div>";
                             $total += $prixFinale*$quantite;
                         }
-                        echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : <span id='total'>".$total."</span> €</h4><br>";
+                        echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : ".$total." €</h4><br>";
                         if(!isset($_SESSION['user']))echo "<h6 class='connexion'>Veuillez-vous connecter <a id='connexion' href='co.php'>ici</a> pour valider votre panier.</h6><br>";
                         echo "<div class='row'>
                                 <div class='container'>
@@ -81,8 +81,10 @@
                                         <h5 class='text-uppercase mb-3'>Vos informations</h5>
                                         <label for='nom'><i class='fa fa-user'></i> Nom Prénom</label>
                                         <input type='text' id='nom' name='nom' placeholder='Thomas Dupont' required>
-                                        <label for='adresse'><i class='fa fa-address-card-o'></i> Adresse</label>
-                                        <input type='text' id='adresse' name='adresse' placeholder='2 rue de la paix' required>
+                                        <label for='email'><i class='fa fa-envelope'></i> Email</label>
+                                        <input type='email' id='email' name='email' placeholder='thomas@exemple.com' required>
+                                        <label for='adr'><i class='fa fa-address-card-o'></i> Adresse</label>
+                                        <input type='text' id='adr' name='adr' placeholder='2 rue de la paix' required>
                                         <label for='ville'><i class='fa fa-institution'></i> Ville</label>
                                         <input type='text' id='ville' name='ville' placeholder='Paris' required>
                                         <label for='code_postal'>Code Postal</label>
@@ -94,37 +96,10 @@
                                             <option value='relais'>Livraison en relais (5 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "2.00 €";} echo "</option>
                                             <option value='express'>Livraison express (1 à 2 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "8.00 €";} echo "</option>
                                         </select><br><br>";
-                                        
-                                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                                            $nom_prenom = isset($_POST['nom']) && !empty($_POST['nom']) ? $_POST['nom'] : null;
-                                            $adresse = isset($_POST['adresse']) && !empty($_POST['adresse']) ? $_POST['adresse'] : null;
-                                            $ville = isset($_POST['ville']) && !empty($_POST['ville']) ? $_POST['ville'] : null;
-                                            $code_postal = isset($_POST['code_postal']) && !empty($_POST['code_postal']) ? $_POST['code_postal'] : null;
-                                            $livraison = isset($_POST['livraison']) && !empty($_POST['livraison']) ? $_POST['livraison'] : null;
-                                        
-                                            if (!$nom_prenom || !preg_match("/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zà-öø-ÿ]+(\s[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-Zà-öø-ÿ]*){1}$/", $nom_prenom)) {
-                                                echo "<h6 class='erreur'> Nom et prénom invalides</h6>";
-                                            } else if (!$adresse || !preg_match('/^\d+\s+([a-zA-Z]+\s)*[a-zA-Z]+$/', $adresse)) {
-                                                echo "<h6 class='erreur'>Adresse invalide</h6>";
-                                            } else if (!$ville || !preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-ZÀ-ÖØ-öø-ÿ\s-]*[a-zA-ZÀ-ÖØ-öø-ÿ]$/', $ville)) {
-                                                echo "<h6 class='erreur'>Ville invalide</h6>";
-                                            } else if (!$code_postal || !preg_match('/^[0-9]{5}$/', $code_postal)) {
-                                                echo "<h6 class='erreur'>Code postal invalide</h6>";
-                                            } else if (!$livraison || !in_array($livraison, array('standard', 'express', 'relais'))) {
-                                                echo "<h6 class='erreur'>Type de livraison invalide</h6>";
-                                            } else if(!isset($_SESSION['user'])){
-                                                echo "<h6 class='erreur'>Veuillez-vous connecter</h6>";
-                                            }else{
-                                                echo "C'EST VALIDAX ON MET TOUS CA DANS LA BDD";
-                                            }
-                                        }
-                                            echo "<h4 class='text-danger total_final'>";
-                                            if(getAbonnement() == 1){echo "Total avec votre abonnement : ".$total*(1-0.1)." €";}
-                                            echo "</h4><br>";     
+                                        if(getAbonnement() == 1){echo "<h4 class='text-danger total_abo'>Total avec votre abonnement : ".$total*(1-0.1)." €</h4><br>";};
                         echo "<div class='card'>
                         <div class='card-body'>
-                            <input type='submit' name='submit' value='Valider votre panier' class='btn btn-block btn-lg'>
+                            <input type='submit' value='Valider votre panier' class='btn btn-block btn-lg'>
                         </div></div></div></div>
                         </form></div></div>";
                     }else{
@@ -148,7 +123,7 @@
             }
         ?>
         <!-- JS -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../js/panier.js"></script>
 </body>
 </html>
