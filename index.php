@@ -95,7 +95,7 @@ ING 1 GI GROUPE 4 -->
                     <a href="index.php?cat=jeu_societe">Jeux&nbspde&nbspsociété</a>
                     <a href="index.php?cat=jeu_en_bois">Jeux&nbspen&nbspbois</a>
                     <a href="index.php?cat=lego">Lego</a>
-                    <a href="#contact">Stratégie</a>
+                    <a href="index.php?cat=strategie">Stratégie</a>
                     <a href="php/abonnement.php">Abonnement</a>
                 </div>
             </nav>
