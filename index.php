@@ -283,7 +283,7 @@ ING 1 GI GROUPE 4 -->
                     $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
-                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $prixFinale = round($prix - (($prix*$discount)/100),2);
                     $image=$produit->image;
                     $vendeur =$produit->pseudo;
                     $libelle=$produit->libelle;
@@ -318,7 +318,7 @@ ING 1 GI GROUPE 4 -->
                     $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
-                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $prixFinale = round($prix - (($prix*$discount)/100),2);
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
@@ -351,7 +351,7 @@ ING 1 GI GROUPE 4 -->
                     $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
-                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $prixFinale = round($prix - (($prix*$discount)/100),2);
                     $description=$produit->description;
                     $image=$produit->image;
                     $libelle=$produit->libelle;
