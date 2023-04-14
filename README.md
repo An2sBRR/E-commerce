@@ -25,13 +25,13 @@ Coté Client :
 - [X] Faire les abonnements
 - [X] Créer un compte
 - [ ] Un client ayant passé une commande peut suivre l’acheminement de son colis et recevra une notification de l’arrivée de son colis.
-- [ ] Choisir le mode de livraison
+- [X] Choisir le mode de livraison
 
 Coté Vendeur :
 
 - [X] S'identifier
 - [X] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
-- [ ] Suivre les ventes
+- [X] Suivre les ventes
 - [X] Signer/Renouveller/Résilier son contrat
 - [ ] Rendre l'accès sécurisé au page vendeur
 
@@ -49,7 +49,7 @@ Coté livreur ou préparateur :
 
 - [ ] Caractérisé par son nom, son prénom, son adresse et son type de permis.
 - [X] Un colis est caractérisé par son numéro, sa taille, son poids, l’adresse de livraison, et la date de livraison etc. 
-- [ ] Les colis sont livrés à domicile ou dans un point de retrait.
+- [x] Les colis sont livrés à domicile ou dans un point de retrait.
 - [ ] Les colis sont affectés aux livreurs selon leur disponibilité
 - [ ] Chaque livreur a son planning de livraison
 - [ ] Trouver le trajet le plus court pour déposer les colis à des adresses différentes.
