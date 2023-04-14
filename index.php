@@ -252,9 +252,9 @@ ING 1 GI GROUPE 4 -->
                     echo $id;
                     echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
-                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
-                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
-                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";  
+                    echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
+                    if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
                     if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
@@ -282,9 +282,9 @@ ING 1 GI GROUPE 4 -->
                     echo $id;
                     echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
-                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
-                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
-                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> "; 
+                    echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
+                    if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
                     if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
@@ -313,9 +313,9 @@ ING 1 GI GROUPE 4 -->
                     echo $id;
                     echo"')>";       
                     echo "<img class='img-fluid' width='100' src='data/".$image."'>";
-                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";
-                    if ($discount != 0){echo "<h3 id='ancien_prix'>".$prix."€</h3>";}
-                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
+                    echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> "; 
+                    echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
+                    if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
                     echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
                     if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
@@ -329,7 +329,7 @@ ING 1 GI GROUPE 4 -->
             {
                 echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
                 require './include/config.php';
-                $categories = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE produit.id LIKE \''.$num[1].'\'')->fetchAll(PDO::FETCH_OBJ);
+                $categories = $bdd->query('SELECT produit.*, employes.pseudo AS pseudo FROM produit JOIN employes ON produit.id_employes = employes.id WHERE produit.id LIKE \''.$num[1].'\'')->fetchAll(PDO::FETCH_OBJ);
                 foreach ($categories as $produit){
                     $id=$produit->id;
                     $prix = $produit->prix;
