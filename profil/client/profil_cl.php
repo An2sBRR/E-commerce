@@ -17,8 +17,6 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/plotly-2.18.2.min.js"></script>
     <script src="../js/graph.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -48,13 +46,13 @@
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
                         </li>
-                        <li class="my-1 nav-item">
+                        <li class="my-1">
                             <a href="profil_cl.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Mon profil</span>
                             </a>
                         </li>
-                        <li class="my-1">
+                        <li class="my-1 nav-item">
                             <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
@@ -75,20 +73,20 @@
             </aside>
             <main class="col overflow-auto h-100 w-100">
                 <div class="bg-light border rounded-3 p-3">
-                    <h2>Votre Profil :</h2>
+                    <h2>Votre Profil : Admin</h2>
                     <div class="d-flex justify-content-center">
                         <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
                     <div class="d-flex justify-content-center"><h3>
-                        <?php 
+                    <?php 
                             require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
                             $resultat = $requete->fetch();
                             echo ucfirst($resultat['prenom'])." ";
                             echo ucfirst($resultat['nom']);
-                        ?>
-                    </h3></div>
+                        ?></h3>
+                    </div>
                     <h4>Information personnel :</h4>
                     <div class="container">
                         <div class="col-md-12">
@@ -146,6 +144,13 @@
             </main>
         </div>
     </div>
+                </div>                    
+            </main>
+        </div>
+    </div>
+
+    </div>
+                    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
