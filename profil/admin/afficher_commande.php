@@ -74,6 +74,8 @@
                     </ul>
                 </div>
 </aside>
+<main class="col overflow-auto h-100 w-100">
+                <div class="container py-2">
 <?php
   //connexion à la base de données
   require_once '../../include/config.php'; 
@@ -86,12 +88,18 @@ $sqlState->execute([$idCommande]);
 $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
 
 ?>
-    <h2>Détails Commandes</h2>
+    <h2>Détails de la commande</h2>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th>#ID</th>
             <th>Client</th>
+            <th>Numéro commande</th>
+            <th>taille</th>
+            <th>poids</th>
+            <th>adresse livraison </th>
+            <th>ville</th>
+            <th>code postal </th>
             <th>Total</th>
             <th>Date</th>
             <th>Opérations</th>
@@ -99,16 +107,22 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
         </thead>
         <tbody>
         <?php
-        $sqlStateLigneCommandes = $bdd->prepare('SELECT ligne_commande.*,produit.libelle,produit.image from ligne_commande
+        $sqlStateLigne_commande = $bdd->prepare('SELECT ligne_commande.*,produit.libelle,produit.image from ligne_commande
                                                         INNER JOIN produit ON ligne_commande.id_produit = produit.id
                                                         WHERE id_commande = ?
                                                         ');
-        $sqlStateLigneCommandes->execute([$idCommande]);
-        $lignesCommandes = $sqlStateLigneCommandes->fetchAll(PDO::FETCH_OBJ);
+        $sqlStateLigne_commande->execute([$idCommande]);
+        $lignesCommandes = $sqlStateLigne_commande->fetchAll(PDO::FETCH_OBJ);
         ?>
         <tr>
             <td><?php echo $commande['id'] ?></td>
             <td><?php echo $commande['pseudo'] ?></td>
+            <td><?php echo $commande['numero_commande'] ?></td>
+            <td><?php echo $commande['taille'] ?></td>
+            <td><?php echo $commande['poids'] ?></td>
+            <td><?php echo $commande['adresse_livraison'] ?></td>
+            <td><?php echo $commande['ville'] ?></td>
+            <td><?php echo $commande['code_postal'] ?></td>
             <td><?php echo $commande['total'] ?> <i class="fa fa-solid fa-dollar"></i></td>
             <td><?php echo $commande['date_creation'] ?></td>
             <td>
@@ -125,31 +139,6 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
         ?>
         </tbody>
     </table>
-    <hr>
-    <h2>Produits : </h2>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Produit</th>
-            <th>Prix unitaire</th>
-            <th>Quantité</th>
-            <th>Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($lignesCommandes as $lignesCommande) : ?>
-            <tr>
-                <td><?php echo $lignesCommande->id ?></td>
-                <td><?php echo $lignesCommande->libelle ?></td>
-                <td><?php echo $lignesCommande->prix ?> <i class="fa fa-solid fa-dollar"></i></td>
-                <td>x <?php echo $lignesCommande->quantite ?></td>
-                <td><?php echo $lignesCommande->total ?> <i class="fa fa-solid fa-dollar"></i></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
 
 </body>
 </html>

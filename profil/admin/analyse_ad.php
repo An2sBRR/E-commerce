@@ -122,26 +122,43 @@
                 <h4>Diagramme sur les vendeurs de cette année </h4>
                 <div id="chart" class="col overflow-auto h-100 w-100"></div>
                 <script>
-                // Données pour le graphique
-                var data = [{
-                x: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai'],
-                y: [15, 30, 20, 10, 15, 25],
-                type: 'bar'
-            }];
 
-  // Mise en forme du graphique
-  var layout = {
-    title: 'nombre de vendeurs',
-    xaxis: {
-      title: 'Mois'
-    },
-    yaxis: {
-      title: 'Ventes'
-    }
-  };
+// Données pour le graphique
+var data = [{
+  x: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai'],
+  y: [10, 15, 12, 8, 11],
+  type: 'bar'
+}];
 
-  // Création du graphique
-  Plotly.newPlot('chart', data, layout);
+// Mise en forme du graphique
+var layout = {
+  title: 'Nombre de vendeurs',
+  xaxis: {
+    title: 'Mois'
+  },
+  yaxis: {
+    title: 'Nombre de vendeurs'
+  }
+};
+
+// Création du graphique
+Plotly.newPlot('chart', data, layout);
+
+// Fonction pour mettre à jour les données
+function updateData(newData) {
+  // Mettre à jour les données existantes
+  data[0].y = newData;
+  // Mettre à jour le graphique
+  Plotly.update('chart', data, layout);
+}
+
+// Exemple d'utilisation de la fonction pour ajouter un nouveau vendeur
+var newSellerCount = 1; // Nouveau vendeur ajouté en Mai
+var currentData = data[0].y;
+currentData[4] += newSellerCount; // Ajouter le nouveau vendeur à la liste des vendeurs de Mai
+updateData(currentData);
+
+
 </script>
             </main>
         </div>
