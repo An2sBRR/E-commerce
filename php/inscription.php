@@ -40,6 +40,18 @@ sinon le compte existe deja*/
                         <div class="alert alert-danger">
                             <strong>Erreur</strong> pseudo trop long
                         </div> <?php 
+                        break;
+                        case 'nom_length':
+                        ?>
+                        <div class="alert alert-danger">
+                            <strong>Erreur</strong> nom trop long
+                        </div><?php 
+                        break;
+                        case 'prenom_length':
+                        ?>
+                        <div class="alert alert-danger">
+                            <strong>Erreur</strong> prenom trop long
+                        </div> <?php 
                         case 'already':
                         ?><div class="alert alert-danger">
                             <strong>Erreur</strong> compte deja existant
@@ -58,7 +70,10 @@ sinon le compte existe deja*/
             <option value="vendeur">Vendeur</option>
             <option value="livreur">Livreur</option>
         </select><br>
+        <input type="text" name="nom" placeholder="nom" required="required" autocomplete="off">
+        <input type="text" name="prenom" placeholder="Prenom" required="required" autocomplete="off">
             <input type="text" name="pseudo" placeholder="Pseudo" required="required" autocomplete="off">
+            <input type="text" name="ville" placeholder="ville" required="required" autocomplete="off">
             <input type="email" name="email"  placeholder="Email" required="required" autocomplete="off">
             <input type="password" name="password" placeholder="Mot de passe" required="required" autocomplete="off">
         </div>
