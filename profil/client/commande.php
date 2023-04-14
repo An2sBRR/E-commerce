@@ -54,10 +54,6 @@
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
-                                <span class="d-none d-sm-inline">Service client</span> </a>
-                        </li>
-                        <li class="my-1">
                             <a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Politiques</span> </a>
                         </li>
@@ -69,14 +65,13 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-            <main class="col overflow-auto h-100 w-100">
-    <div class="container py-2">
     <div class="container py-2">
     <h2>Liste de mes Commandes</h2>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th>#ID</th>
+            <th>Numéro commande</th>
             <th>Total</th>
             <th>Date</th>
             <th>Opérations</th>
@@ -93,10 +88,12 @@ foreach ($commandes as $commande) {
     <tr>
 
     <td><?php echo $commande['id']?></td>
+    <td><?php echo $commande['numero_commande'] ?></td>
     <td><?php echo $commande['total']?></td>
     <td><?php echo $commande['date_creation']?></td>
     <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
+     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a>
+     <a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">retourner l'article</a></td>
             </tr>
             <?php
         }

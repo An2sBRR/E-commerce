@@ -57,10 +57,6 @@
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
-                                <span class="d-none d-sm-inline">Service client</span> </a>
-                        </li>
-                        <li class="my-1">
                             <a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Politiques</span> </a>
                         </li>
@@ -73,7 +69,7 @@
             </aside>
             <main class="col overflow-auto h-100 w-100">
                 <div class="bg-light border rounded-3 p-3">
-                    <h2>Votre Profil : Admin</h2>
+                    <h2>Votre Profil : Client </h2>
                     <div class="d-flex justify-content-center">
                         <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
@@ -104,7 +100,7 @@
                                         }
                                     }
                                 ?>
-                       
+                       </br>
                         <!-- Button trigger modal -->
                             <p>Vous avez la possibilité de changer votre mot de passe : <button type="button" data-toggle="modal" data-target="#change_password">Changer mon mot de passe</button></p>
                         </div>

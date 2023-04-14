@@ -41,10 +41,6 @@
                             <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
-                        <li class="my-1">
-                            <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
-                                <span class="d-none d-sm-inline">Service client</span> </a>
-                        </li>
                         <il class="my-1 nav-item">
                             <li><a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Politiques</span> </a></li>
