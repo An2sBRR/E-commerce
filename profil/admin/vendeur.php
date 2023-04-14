@@ -78,7 +78,6 @@
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
                     <h2>Liste des vendeurs</h2>
-                    <a href="ajout_vendeur.php" class="btn btn-primary">Ajouter un vendeur</a>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -86,7 +85,7 @@
                                 <th>Nom</th>
                                 <th>Prenom</th>
                                 <th>Pseudo</th>
-    
+                                <th>Ville</th>
                                 <th>Opérations</th>
                             </tr>
                         </thead>
@@ -107,6 +106,8 @@
                                             <td>".$utilisateurs["nom"]."</td>
                                             <td>".$utilisateurs["prenom"]."</td>
                                             <td>".$utilisateurs["pseudo"]."</td>
+                                            <td>".$utilisateurs["ville"]."</td>
+
                                 
                                             <td>
                                           
