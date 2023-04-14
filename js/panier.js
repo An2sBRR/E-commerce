@@ -82,3 +82,8 @@ $("#livraison").change(function(){  //on refait la même chose quand la personne
         $(".total_final").text("Total avec livraison : "+result+" €");
     }
 });
+
+if($("#reussite").length){
+    document.getElementById("tout").innerHTML = "<h4> Votre commande est validée !<br> Vous pouvez la consulter dans votre page profil. Merci pour votre confiance !</h4>";
+    setTimeout(function (){document.location.href="../index.php";}, 7000);
+}
