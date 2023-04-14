@@ -216,47 +216,47 @@ ING 1 GI GROUPE 4 -->
                 switch ($num[2]) {
                     case "decroissant":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs  WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
                         else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "croissant":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
                         else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "recente":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
                         else{$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "ancienne":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT * FROM produit WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
                         else{ $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     default:
-                    $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
                       break;
                 }
                 foreach ($recherche as $produit){
                     $id=$produit->id;
                     $prix = $produit->prix;
                     $discount = $produit->discount;
-                    $prixFinale = $prix - (($prix*$discount)/100);
+                    $prixFinale = round($prix - (($prix*$discount)/100), 2);
                     $image=$produit->image;
                     $libelle=$produit->libelle;
                     $quantite = $produit->quantite;
+                    $vendeur = $produit->pseudo;
                     echo "<div class='col-md-4'";
                     echo "><div class='text-center'><div class='product'";
                     echo "onclick=ZOOM('";
                     echo $id;
-                    echo"')>";       
-                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";
+                    echo"')>";    
+                    echo "<img class='img-fluid' width='100' src='data/".$image."'>";   
                     echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";  
                     echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
                     if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
-                    echo "<h3 class='nouveau_prix'>".$prixFinale."€</h3>";
-                    echo "<h5 class='text-muted'>Vendu par ierhgieh</h5>";
+                    echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
                     echo "</div> </div><span class='dot' id='".$id."'";
                     if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
                     echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
