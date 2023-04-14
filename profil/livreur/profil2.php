@@ -78,7 +78,16 @@
                     <div class="d-flex justify-content-center">
                     <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
-                    <div class="d-flex justify-content-center"><h3>Nom Prénom</h3></div>
+                    <div class="d-flex justify-content-center"><h3>
+                      <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['prenom'])." ";
+                            echo ucfirst($resultat['nom']);
+                        ?></h3></div>
+                        </br></br>
                     <h4>Information personnel:</h4>
                     <div class="container text-center">
                       <div class="col-xs-3 center-block colordiv"style="background-color: rgba(0, 0, 0, 0);">

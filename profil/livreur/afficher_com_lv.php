@@ -71,44 +71,65 @@
             </aside>
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
-            <div class="container py-2">
-    <h2>Liste des Colis</h2>
+            <?php
+  //connexion à la base de données
+  require_once '../../include/config.php'; 
+$idCommande = $_GET['id'];
+$sqlState = $bdd->prepare('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande 
+            INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id 
+                                               WHERE commande.id = ?
+                                               ORDER BY commande.date_creation DESC');
+$sqlState->execute([$idCommande]);
+$commande = $sqlState->fetch(PDO::FETCH_ASSOC);
+
+?>
+    <h2>Détails du colis</h2>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th>#ID</th>
+            <th>Client</th>
             <th>Numéro commande</th>
-            <th>Adresse livraison</th>
-            <th>Code postal</th>
+            <th>taille</th>
+            <th>poids</th>
+            <th>adresse livraison </th>
+            <th>ville</th>
+            <th>code postal </th>
             <th>Date</th>
-            <th>Colis validé </th>
             <th>Opérations</th>
         </tr>
         </thead>
         <tbody>
- <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($commandes as $commande) {
-     ?>
-    <tr>
-
-    <td><?php echo $commande['id']?></td>
-    <td><?php echo $commande['numero_commande'] ?></td>
-    <td><?php echo $commande['adresse_livraison']?></td>
-    <td><?php echo $commande['code_postal']?></td>
-    <td><?php echo $commande['date_creation']?></td>
-    <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="afficher_com_lv.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
-            </tr>
-            <?php
-        }
+        <?php
+        $sqlStateLigne_commande = $bdd->prepare('SELECT ligne_commande.*,produit.libelle,produit.image from ligne_commande
+                                                        INNER JOIN produit ON ligne_commande.id_produit = produit.id
+                                                        WHERE id_commande = ?
+                                                        ');
+        $sqlStateLigne_commande->execute([$idCommande]);
+        $lignesCommandes = $sqlStateLigne_commande->fetchAll(PDO::FETCH_OBJ);
         ?>
-  </tbody>
+        <tr>
+            <td><?php echo $commande['id'] ?></td>
+            <td><?php echo $commande['nom_prenom'] ?></td>
+            <td><?php echo $commande['numero_commande'] ?></td>
+            <td><?php echo $commande['taille'] ?></td>
+            <td><?php echo $commande['poids'] ?></td>
+            <td><?php echo $commande['adresse_livraison'] ?></td>
+            <td><?php echo $commande['ville'] ?></td>
+            <td><?php echo $commande['code_postal'] ?></td>
+            <td><?php echo $commande['date_creation'] ?></td>
+            <td>
+                <?php if ($commande['commande_livre'] == 0) : ?>
+                    <a class="btn btn-success btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=1">Colis livré</a>
+                    <?php else: ?>
+                    <a class="btn btn-danger btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=0">Colis en cours de livraison</a>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php
+        ?>
+        </tbody>
     </table>
-</div>
 
 </body>
 </html>
