@@ -8,7 +8,11 @@
     if($choix == 0){
         unset($_SESSION['panier'][$id]);
     }else if($choix == 1){
-        $_SESSION['panier'][$id]= $quantite;
+        if($quantite == 0){
+            unset($_SESSION['panier'][$id]);
+        }else{
+            $_SESSION['panier'][$id]= $quantite;
+        }
     }
     $reponse="ok";
     echo json_encode(['reponse' => $reponse]);
