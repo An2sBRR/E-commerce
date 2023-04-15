@@ -89,6 +89,9 @@
                         ?></h3>
                     </div>
                         <h4>Information personnel :</h4>
+                        <p>Pour accéder à votre contrat, cliquez ici :<a href="contrat.php" target="_blank" class="btn">Accéder au contrat</a></br>
+                        <em> Attention : vous devez telecharger votre contrat après l'avoir signé et l'envoyer par mail a notre adresse </em></p>
+
                 </div>   
             </main>
         </div>
