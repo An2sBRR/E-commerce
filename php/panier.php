@@ -134,8 +134,8 @@
                                                 $id_client = $stmt->fetchColumn();
                                                
                                                 
-                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,$date,$livraison]);
+                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison]);
                                                 if (!$inserted) {
                                                     ?>
                                                     <div class="alert alert-danger" role="alert">
