@@ -42,14 +42,14 @@
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
-                        <li class="my-1">
+                        <li class="my-1 nav-item">
                             <a href="index2.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
                         </li>
-                        <li class="my-1 nav-item">
-                            <a href="#" class="nav-link px-2 text-truncate">
+                        <li class="my-1">
+                            <a href="colis.php" class="nav-link px-2 text-truncate">
                             <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Colis</span>
                             </a>
@@ -70,45 +70,47 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-                <div class="container py-2">
-            <div class="container py-2">
-    <h2>Liste des Colis</h2>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Numéro commande</th>
-            <th>Adresse livraison</th>
-            <th>Code postal</th>
-            <th>Date</th>
-            <th>Colis validé </th>
-            <th>Opérations</th>
-        </tr>
-        </thead>
-        <tbody>
- <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($commandes as $commande) {
-     ?>
-    <tr>
 
-    <td><?php echo $commande['id']?></td>
-    <td><?php echo $commande['numero_commande'] ?></td>
-    <td><?php echo $commande['adresse_livraison']?></td>
-    <td><?php echo $commande['code_postal']?></td>
-    <td><?php echo $commande['date_creation']?></td>
-    <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="afficher_com_lv.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
-            </tr>
-            <?php
-        }
-        ?>
-  </tbody>
-    </table>
-</div>
+<?php
+// Coordonnées GPS de Cergy
+$origin_lat = 49.0397;
+$origin_lng = 2.0640;
 
-</body>
-</html>
+// Coordonnées GPS aléatoires pour les destinations
+$destinations = array();
+for ($i = 1; $i <= 10; $i++) {
+    $lat = 48.8 + (mt_rand() / mt_getrandmax()) * 0.4;
+    $lng = 1.9 + (mt_rand() / mt_getrandmax()) * 0.3;
+    $destinations[] = array('lat' => $lat, 'lng' => $lng);
+}
+
+// Génération de l'URL des directions avec les coordonnées GPS des destinations
+$waypoints = '';
+foreach ($destinations as $destination) {
+    $waypoints .= '|' . $destination['lat'] . ',' . $destination['lng'];
+}
+
+// Génération du code JavaScript pour afficher la carte avec les directions
+echo '<div id="map" style="height: 600px;"></div>';
+echo '<button class="button button1 w-25" onclick="startDirections()">Démarrer l\'itinéraire</button>';
+echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ztn-aM9tO6iM2dJ6iNdsZOZPmo7H4tA"></script>';
+echo '<script>';
+echo 'var map = new google.maps.Map(document.getElementById("map"), { center: { lat: ' . $origin_lat . ', lng: ' . $origin_lng . ' }, zoom: 13 });';
+echo 'var directionsService = new google.maps.DirectionsService();';
+echo 'var directionsRenderer = new google.maps.DirectionsRenderer();';
+echo 'directionsRenderer.setMap(map);';
+echo 'var request = { origin: { lat: ' . $origin_lat . ', lng: ' . $origin_lng . ' }, destination: { lat: ' . $origin_lat . ', lng: ' . $origin_lng . ' }, waypoints: [';
+foreach ($destinations as $destination) {
+    echo '{ location: { lat: ' . $destination['lat'] . ', lng: ' . $destination['lng'] . ' } },';
+}
+echo '], optimizeWaypoints: true, travelMode: "DRIVING" };';
+echo 'directionsService.route(request, function(result, status) { if (status == "OK") { directionsRenderer.setDirections(result); } });';
+
+// Fonction pour démarrer l'itinéraire
+echo 'function startDirections() {';
+echo 'window.open("' . 'https://www.google.com/maps/dir/?api=1&origin=' . $origin_lat . ',' . $origin_lng . '&destination=' . $origin_lat . ',' . $origin_lng . '&waypoints=' . urlencode(substr($waypoints, 1)) . '", "_blank");';
+echo '}';
+
+echo '</script>';
+?>
