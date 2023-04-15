@@ -86,9 +86,11 @@
                                 <th>#ID</th>
                                 <th>Libelle</th>
                                 <th>Prix</th>
+                                <th>hauteur</th>
+                                <th>poids </th>
                                 <th>Discount</th>
                                 <th>Catégorie</th>
-                                <th>Date de création</th>
+                         
                                 <th>Image</th>
                                 <th>Quantité</th>               
                                 <th>Opérations</th>
@@ -106,9 +108,10 @@
                                 <td><?= $produit->id ?></td>
                                 <td><?= $produit->libelle ?></td>
                                 <td><?= $prix ?> <i class="fa fa-solid fa-dollar"></i></td>
+                                <td><?= $produit-> hauteur?></td>
+                                <td><?= $produit-> poids?></td>
                                 <td><?= $discount ?> %</td>
                                 <td><?= $produit->categorie_libelle ?></td>
-                                <td><?= $produit->date_creation ?></td>
                                 <td><img class="img-fluid" width="90" src="../../data/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>
                                 <td><?= $produit->quantite ?></td>
                                 <td>
