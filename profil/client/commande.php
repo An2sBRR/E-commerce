@@ -74,6 +74,7 @@
             <th>Numéro commande</th>
             <th>Total</th>
             <th>Date</th>
+            <th>Commande livré</th>
             <th>Opérations</th>
         </tr>
         </thead>
