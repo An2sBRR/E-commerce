@@ -51,8 +51,8 @@ Coté livreur ou préparateur :
 - [X] Un colis est caractérisé par son numéro, sa taille, son poids, l’adresse de livraison, et la date de livraison etc. 
 - [x] Les colis sont livrés à domicile ou dans un point de retrait.
 - [ ] Les colis sont affectés aux livreurs selon leur disponibilité
-- [ ] Chaque livreur a son planning de livraison
-- [ ] Trouver le trajet le plus court pour déposer les colis à des adresses différentes.
+- [X] Chaque livreur a son planning de livraison
+- [X] Trouver le trajet le plus court pour déposer les colis à des adresses différentes.
 - [ ] Rendre l'accès sécurisé au page livreur
  
 
