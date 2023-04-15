@@ -174,13 +174,18 @@ ING 1 GI GROUPE 4 -->
                 </article> 
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Moyens de paiement</h2>
-                <p>
-                    okokoko
+                
+                <p class="images">
+
+                    <img src="data/visa.png" alt="visa">
+                    <img src="data/mastercard.png" alt="mastercard">
+                    <img src="data/cb.png" alt="cb">
+                  
                 </p>
                 </article> 
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">  
                 <h2>Suivre nos actualités </h2>
-                <p>
+                <div class="reseauxFooter">
                     <a class="reseauxFooter" href="https://twitter.com" target="_blank">
                         <ion-icon name="logo-twitter"></ion-icon>
                     </a>
@@ -190,7 +195,7 @@ ING 1 GI GROUPE 4 -->
                         <a class="reseauxFooter" href="https://github.com/An2sBRR/E-commerce" target="_blank">
                     <ion-icon name="logo-github"></ion-icon>
                     </a>
-                </p>  
+            </div>
                 </article>
             </div>
             <h3 id="copyright">
@@ -274,7 +279,7 @@ ING 1 GI GROUPE 4 -->
                 if ($recherche==NULL) {
                     $temp=1;
                     echo "Désolé nous n'avons pas trouvé de résultat pour votre recherche <br> <br>";
-                    echo "Voici quelques produits qui pourrait vous interesser : ";
+                    echo "Voici quelques produits qui pourraient vous interesser : ";
                     $liste_mots = array("pompier", "puissance", "UNO", "dames", "lego");
                     $alea = $liste_mots[array_rand($liste_mots)];
                     $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$alea.'%\')')->fetchAll(PDO::FETCH_OBJ);
