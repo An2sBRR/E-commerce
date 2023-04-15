@@ -63,7 +63,7 @@ sinon le compte existe deja*/
 <!--creation du formulaire d'inscription--->
 
     <form action="inscription_traitement.php" method="post">   
-    <h2>Inscription Client </h2>
+    <h2>Inscription </h2>
         <div class="inputs">
         <select name="status">
             <option value="client">Client</option>
