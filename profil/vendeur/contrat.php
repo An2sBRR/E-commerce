@@ -4,15 +4,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un vendeur</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+   
      <!-- Inclure la bibliothèque SignaturePad -->
 <script src="https://unpkg.com/signature_pad"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 
     <link href="../css/contrat.css" rel="stylesheet">
+
 </head>
+
+<body>
+  
 <div class="container">
   <h2>Contrat de vente :</h2>
   <p>Contrat de vente pour un site de jouet entre JeuxVente et <strong>
