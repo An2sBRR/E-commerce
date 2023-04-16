@@ -6,6 +6,7 @@
     if(!empty($_POST['nom'])&&!empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['ville']) &&!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_retype']))
     {
         // Patch XSS
+        $statut = isset($_POST['statut']) && !empty($_POST['statut']) ? htmlspecialchars($_POST['statut']) : null;
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -37,7 +38,7 @@
                             $password = password_hash($password, PASSWORD_BCRYPT, $cost);
                       
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO utilisateurs(nom, prenom, pseudo, ville, email, password, token) VALUES(:nom, :prenom, :pseudo, :ville, :email, :password, :token)');
+                            $insert = $bdd->prepare('INSERT INTO utilisateurs(nom, prenom, pseudo, ville, email, password, token, statut) VALUES(:nom, :prenom, :pseudo, :ville, :email, :password, :token, :statut)');
                             $insert->execute(array(
                                 'nom' => $nom,
                                 'prenom' => $prenom,
@@ -46,8 +47,9 @@
                                 'email' => $email,
                                 'password' => $password,
                                 'token' => bin2hex(openssl_random_pseudo_bytes(64)),
-                                
+                                'statut' => $statut
                             ));
+                            
                             // On redirige avec le message de succès
                             //$_SESSION['user'] = $data['token'];
                             header('Location:co.php?reg_err=success');
