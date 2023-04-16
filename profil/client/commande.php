@@ -93,7 +93,7 @@ foreach ($commandes as $commande) {
     <td><?php echo $commande['total']?></td>
     <td><?php echo $commande['date_creation']?></td>
     <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher détails</a>
+     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher facture</a>
      <a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">retourner l'article</a></td>
             </tr>
             <?php
