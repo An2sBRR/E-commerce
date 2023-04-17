@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    require '../../include/config.php';
+    $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
+    $requete->execute();
+    $id = $requete->fetchColumn();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -90,7 +97,7 @@
                         </thead>
                         <?php
                         require_once '../../include/config.php';
-                        $categories = $bdd->query("SELECT produit.*,categorie.libelle as 'categorie_libelle' FROM produit INNER JOIN categorie ON produit.id_categorie = categorie.id")->fetchAll(PDO::FETCH_OBJ);
+                        $categories = $bdd->query("SELECT produit.*,categorie.libelle as 'categorie_libelle' FROM produit INNER JOIN categorie ON produit.id_categorie = categorie.id WHERE produit.id_utilisateurs = ".$id."")->fetchAll(PDO::FETCH_OBJ);
                         foreach ($categories as $produit){
                             $prix = $produit->prix;
                             $discount = $produit->discount;
