@@ -51,7 +51,6 @@
                             ));
                             
                             // On redirige avec le message de succès
-                            //$_SESSION['user'] = $data['token'];
                             header('Location:co.php?reg_err=success');
                             die();
                         }else{ header('Location: inscription.php?reg_err=password'); die();}
