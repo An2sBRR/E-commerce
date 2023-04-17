@@ -18,6 +18,7 @@ Hors Cahier des Charges :
 - [ ] Faire les vérifications en php et js pour contact
 - [ ] Faire les commissions
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
+- [ ] Faire un texte pour remplir la page index 
 
 Coté Client :
 
