@@ -3,18 +3,60 @@ AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
 ING 1 GI GROUPE 4*/ 
 
 .container-fluid{
-    background-color: rgb(71, 71, 155);
-    padding: 1%;
+    background-color: #C2D8B9;
     text-align: center;
+}
+
+header{
+    height: 70px;
+    line-height: 70px;
 }
 
 .container a{
     outline: none;
     text-decoration: none;
-    color: antiquewhite;
     font-size: larger;
     font-weight: bold;
 }
+
+.logo{
+    float: left;
+    color: #ffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+    letter-spacing: 1px;
+    float: left;
+    font-family: 'Boogaloo', cursive;
+}
+
+.logo:hover
+{
+    font-size: 150%;  /*Léger zoom quand on passe dessus*/
+}
+
+header .reseauxlog
+{
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+}
+
+header .reseauxlog:hover
+{
+    color:bisque;
+    font-size: 300%;  /*Zoom des logos quand on passe dessus*/
+}
+
+.icons
+{
+    float:right;
+}
+
+.reseauxlog
+{
+    color: #000000;
+}
+
 
 .btn{
     background-color:rgb(174, 66, 66);
@@ -76,3 +118,7 @@ label {
 .erreur{
     color: red;
 }
+
+/*TEST LIVRAISON*/
+
+
