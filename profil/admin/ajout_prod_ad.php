@@ -1,4 +1,10 @@
-
+<?php 
+    session_start();
+    require '../../include/config.php';
+    $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
+    $requete->execute();
+    $id = $requete->fetchColumn();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -91,23 +97,19 @@
                     $categorie = $_POST['categorie'];
                     $description = $_POST['description'];
                     $quantite = $_POST['quantite'];
-                    
-
-                     // Récupération de l'ID du vendeur à partir de la session ou de la base de données utilisateur
-                    $id_utilisateurs = $_SESSION['id_utilisateur']; 
-
+                    $date = date('Y-m-d H:i:s');
 
                     $filename = 'produit.png';
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
-                        $filename = uniqid() . $image;
-                        move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
+                        $filename = '../data/'.uniqid() . $image;                        
                     }
                     
                     if (!empty($libelle) && !empty($prix) && !empty($categorie) && !empty($hauteur) && !empty($poids)) {
-                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?)');
-                        $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id_utilisateurs, $description, $filename, $quantite]);
+                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?,?)');
+                        $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id, $date, $description, $filename, $quantite]);
                         if ($inserted) {
+                            move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
                         // header('location: produit.php');
                         } else {
                             ?>
