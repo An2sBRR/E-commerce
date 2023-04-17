@@ -1,8 +1,15 @@
 <?php
     require_once '../include/config.php';
     $id = $_GET['id'];
+    $requete = $bdd->prepare('SELECT image FROM produit WHERE id=?');
+    $requete->execute([$id]);
+    $image = $requete->fetchColumn();
+
     $sqlState = $bdd->prepare('DELETE FROM produit WHERE id=?');
     $supprime = $sqlState->execute([$id]);
+
+    unlink($image); //supprime l'image 
+    
 
     if($_SESSION['statut'] === "vendeur"){
         header('location: ./vendeur/produit.php');
