@@ -16,6 +16,8 @@ Hors Cahier des Charges :
 - [X] Faire la page panier
 - [X] Ajouter des petites annimations qui rendent le site 🤌
 - [ ] Faire les vérifications en php et js pour contact
+- [ ] Faire les commissions
+- [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 
 Coté Client :
 
