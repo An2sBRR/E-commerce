@@ -13,7 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href ="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/panier.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
+    
+     <!-- INCLUSION ICONS -->
+     <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
+    <script  nomodule  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
 
     <title>Votre panier</title>
 </head>
@@ -21,6 +26,35 @@
     <header class="container-fluid header">
         <div class="container">
             <a href="../index.php" class="logo">JeuxVentes.fr</a>
+            <div class="icons">
+                <?php 
+                // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
+                if(!isset($_SESSION['statut'])){
+                    echo "<a href='php/co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "client"){
+                    echo "<a href='./profil/client/profil_cl.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
+                }
+                else if ($_SESSION['statut'] == "admin"){
+                    echo "<a href='./php/gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./profil/admin/main_ad.php' class='reseauxlog'> <ion-icon name=flask-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "vendeur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./profil/vendeur/main.php' class='reseauxlog'> <ion-icon name=storefront-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }else if($_SESSION['statut'] == "livreur"){
+                    echo "<a href='./php/contact.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
+                    echo "<a href='./profil/livreur/index2.php' class='reseauxlog'> <ion-icon name=bicycle-outline></ion-icon> </a>";
+                    echo "<a href='./php/deconnexion.php' class='reseauxlog'><ion-icon name=power-outline></ion-icon> </a>";
+                }
+                ?>
+            </div>
+            
+           
+    </header>
+    <!-- FIN DU HEADER -->
         </div>
     </header>
     <section class="h-100" style="background-color: #eee;">
@@ -34,7 +68,7 @@
                     $total = 0;
                     $hauteur_total = 0;
                     if(isset($_SESSION['panier'])){
-                        echo"<h3 class='fw-normal mb-0 text-black'>Votre panier</h3></div>";
+                        echo"<h3 class='fw-bold mb-0 text-black'>Votre panier</h3></div>";
                         if(getAbonnement() == 1){echo "<h6 id='abonne'>Vous êtes abonné(e), ainsi vous bénéficiez d'une réduction de 10% et de la livraison gratuite.</h6>";}
                         foreach ($_SESSION['panier'] as $idProduit => $quantite) {
                             require '../include/config.php';
@@ -58,7 +92,7 @@
                                         <img class='img-fluid' width='100' src='../data/".$image."'>
                                     </div>
                                     <div class='col-md-3 col-lg-3 col-xl-3'>
-                                        <p class='lead fw-normal mb-2'>".$libelle."</p>
+                                        <p class='lead fw-bold mb-2'>".$libelle."</p>
                                         <p><span class='text-muted'>Vendu par : </span>".$pseudo."</p>
                                         <p><span class='text-muted'>Prix unitaire :</span> ".$prixFinale." €</p>
                                     </div>
@@ -79,7 +113,7 @@
                             $poids_total += $poids*$quantite;
                             $total += $prixFinale*$quantite;
                         }
-                        echo "<h4 class='fw-normal text-black total'>Total (hors livraison) : <span id='total'>".$total."</span> €</h4><br>";
+                        echo "<h4 class='fw-bold text-black total'>Total (hors livraison) : <span id='total'>".$total."</span> €</h4><br>";
                         if(!isset($_SESSION['user']))echo "<h6 class='connexion'>Veuillez-vous connecter <a id='connexion' href='co.php'>ici</a> pour valider votre panier.</h6><br>";
                         echo "<div class='row'>
                                 <div class='container'>
