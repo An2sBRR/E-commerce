@@ -1,6 +1,10 @@
 <?php 
     session_start();
-?> 
+    require '../../include/config.php';
+    $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
+    $requete->execute();
+    $id = $requete->fetchColumn();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -81,25 +85,26 @@
                 if (isset($_POST['ajouter'])) {
                     $libelle = $_POST['libelle'];
                     $prix = $_POST['prix'];
+                    $hauteur = $_POST['hauteur'];
+                    $poids = $_POST['poids'];
                     $discount = $_POST['discount'];
                     $categorie = $_POST['categorie'];
                     $description = $_POST['description'];
                     $quantite = $_POST['quantite'];
-                    $date = date('Y-m-d');
-                    $id_employe=14;
-                    
+                    $date = date('Y-m-d H:i:s');
 
                     $filename = 'produit.png';
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
-                        $filename = uniqid() . $image;
-                        move_uploaded_file($_FILES['image']['tmp_name'], '../data/' . $filename);
+                        $filename = '../data/'.uniqid() . $image;
+                        
                     }
                     
-                    if (!empty($libelle) && !empty($prix) && !empty($categorie)) {
-                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?)');
-                        $inserted = $sqlState->execute([$libelle, $prix, $discount, $categorie, $id_employe, $date, $description, $filename, $quantite]);
+                    if (!empty($libelle) && !empty($prix) && !empty($categorie) && !empty($hauteur) && !empty($poids)) {
+                        $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?,?)');
+                        $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id, $date, $description, $filename, $quantite]);
                         if ($inserted) {
+                            move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
                         // header('location: produit.php');
                         } else {
                             ?>
@@ -125,9 +130,17 @@
                     <label class="form-label">Prix</label>
                     <input type="number" class="form-control" step="0.1" name="prix" min="0">
 
+                    <label class="form-label">Hauteur</label>
+                    <input type="text" class="form-control" name="hauteur">
+
+                    <label class="form-label">Poids</label>
+                    <input type="text" class="form-control" step="0.1" name="poids" min="0">
+
+
                     <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
                     <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
-                                        
+                    
+
                     <label class="form-label">Description</label>
                     <textarea class="form-control" name="description"></textarea>
 
