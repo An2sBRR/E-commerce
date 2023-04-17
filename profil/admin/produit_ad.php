@@ -108,8 +108,8 @@
                                 <td><?= $produit->id ?></td>
                                 <td><?= $produit->libelle ?></td>
                                 <td><?= $prix ?> <i class="fa fa-solid fa-dollar"></i></td>
-                                <td><?= $produit-> hauteur?></td>
-                                <td><?= $produit-> poids?></td>
+                                <td><?= $produit->hauteur?></td>
+                                <td><?= $produit->poids?></td>
                                 <td><?= $discount ?> %</td>
                                 <td><?= $produit->categorie_libelle ?></td>
                                 <td><img class="img-fluid" width="90" src="../../data/<?= $produit->image ?>" alt="<?= $produit->libelle ?>"></td>

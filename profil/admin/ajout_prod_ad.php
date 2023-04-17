@@ -93,6 +93,10 @@
                     $quantite = $_POST['quantite'];
                     
 
+                     // Récupération de l'ID du vendeur à partir de la session ou de la base de données utilisateur
+                    $id_utilisateurs = $_SESSION['id_utilisateur']; 
+
+
                     $filename = 'produit.png';
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
@@ -102,7 +106,7 @@
                     
                     if (!empty($libelle) && !empty($prix) && !empty($categorie) && !empty($hauteur) && !empty($poids)) {
                         $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?)');
-                        $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, 0,$description, $filename, $quantite]);
+                        $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id_utilisateurs, $description, $filename, $quantite]);
                         if ($inserted) {
                         // header('location: produit.php');
                         } else {
