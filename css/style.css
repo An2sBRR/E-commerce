@@ -486,8 +486,8 @@ div.section > div > input
 
 .slider
 {
-    width: 800px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border-radius: 10px;
     overflow: hidden;
     margin: 2% 2%;
@@ -619,7 +619,7 @@ div.section > div > input
 
 .footer
 {
-    margin-top: 7%;
+    margin-top: 5%;
     background-color: #C2D8B9;
     height: 1000px;
 }
