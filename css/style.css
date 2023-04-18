@@ -88,8 +88,7 @@ header .reseauxlog:hover
     height: 100%;
 }
 
-.menu .main_pages a 
-{
+.menu .main_pages a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,13 +97,17 @@ header .reseauxlog:hover
     color: #000000;
     font-size: 150%;
     margin-right: 3%;
+    background-image: linear-gradient(to right, #000000, #000000);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 3px;
+    transition: background-size 0.6s ease-in-out;
 }
 
-.menu a:hover 
-{
-    color: #5A5766;
-    border-bottom: 3px solid black;
+.menu .main_pages a:hover {
+    background-size: 100% 3px;
 }
+
 
 /* Changement de l'affichage du menu quand on diminue la taille de la fenêtre */
 #label-toggle, #toggle
@@ -123,7 +126,8 @@ header .reseauxlog:hover
     {
         display: none;
         flex-direction: column;
-        background: #48435C;
+        background-color: rgba(194, 216, 185, 0.5);
+        backdrop-filter: blur(5px);
         height: 220px;
     }
  
