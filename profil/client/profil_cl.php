@@ -86,6 +86,29 @@
                     <h4>Information personnel :</h4>
                     <div class="container">
                         <div class="col-md-12">
+                    <p> Pseudo : <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['pseudo'])." ";
+                        ?></p>
+
+                        <p> adresse mail : <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['email'])." ";
+                        ?></p>
+                    <p> Ville : <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['ville'])." ";
+                        ?></p>
+            
                             <?php 
                                     if(isset($_GET['err'])){
                                         $err = htmlspecialchars($_GET['err']);
