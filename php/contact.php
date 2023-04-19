@@ -15,7 +15,7 @@ PréING2 MI Groupe 3-->
         <!-- Formulaire de contact-->
         <div class="formulaire">
           <div class="contact-info">
-            <h3 class="titre">L'équipe Couturalia à votre écoute!</h3>
+            <h3 class="titre">L'équipe JeuxVente à votre écoute!</h3>
             <p class="texte">
               Pour toute remarque, complément d'information, problème ou réclamation,
               nous vous invitons à remplir notre formulaire de contact.
@@ -25,15 +25,15 @@ PréING2 MI Groupe 3-->
             <!-- Infos pratiques -->
             <div class="info">
               <div class="information">
-                <img src="../img/map.png" class="icone"/>
+                <img src="../data/map.png" class="icone"/>
                 <p>42 boulevard du port, 95100 CERGY</p>
               </div>
               <div class="information">
-                <img src="../img/email.png" class="icone"/>
-                <p>couturalia-contact@society.com</p>
+                <img src="../data/email.png" class="icone"/>
+                <p>JeuxVente-contact@society.com</p>
               </div>
               <div class="information">
-                <img src="../img/tel.png" class="icone"/>
+                <img src="../data/tel.png" class="icone"/>
                 <p> 01.77.88.92.99</p>
               </div>
             </div>
