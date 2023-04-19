@@ -52,7 +52,7 @@ Coté MarketPlace :
 
 Coté livreur ou préparateur : 
 
-- [ ] Caractérisé par son nom, son prénom, son adresse et son type de permis.
+- [X] Caractérisé par son nom, son prénom, son adresse et son type de permis.
 - [X] Un colis est caractérisé par son numéro, sa taille, son poids, l’adresse de livraison, et la date de livraison etc. 
 - [x] Les colis sont livrés à domicile ou dans un point de retrait.
 - [ ] Les colis sont affectés aux livreurs selon leur disponibilité
