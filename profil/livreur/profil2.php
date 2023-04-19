@@ -88,7 +88,32 @@
                         ?></h3></div>
                         </br></br>
                     <h4>Information personnel:</h4>
-                    <div class="container text-center">
+                    <div class="container">
+                      <div class="col-md-12">
+                    <p> Pseudo : <strong><?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['pseudo'])." ";
+                        ?></strong></p>
+
+                        <p> adresse mail :<strong> <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['email'])." ";
+                        ?></strong></p>
+                    <p> Ville : <strong><?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['ville'])." ";
+                        ?></strong></p>
+                      </div>
+  </br>  <div class="container text-center">
                       <div class="col-xs-3 center-block colordiv"style="background-color: rgba(0, 0, 0, 0);">
                         <div class = "#">
                           <div class="row">
