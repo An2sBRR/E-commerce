@@ -520,8 +520,8 @@ div.section > div > input
 .navigation-manuel
 {
     position: absolute;
-    width: 800px;
-    margin-top: -40px;
+    width: 600px;
+    margin-top: -20px;
     display: flex;
     justify-content: center;
 }
@@ -569,9 +569,9 @@ div.section > div > input
 {
     position: absolute;
     display: flex;
-    width: 800px;
+    width: 600px;
     justify-content: center;
-    margin-top: 460px;
+    margin-top: 480px;
 }
 
 .navigation-auto div
