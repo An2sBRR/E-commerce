@@ -77,19 +77,9 @@
 $origin_lat = 49.0397;
 $origin_lng = 2.0640;
 
-// Coordonnées GPS aléatoires pour les destinations
-$destinations = array();
-for ($i = 1; $i <= 10; $i++) {
-    $lat = 48.8 + (mt_rand() / mt_getrandmax()) * 0.4;
-    $lng = 1.9 + (mt_rand() / mt_getrandmax()) * 0.3;
-    $destinations[] = array('lat' => $lat, 'lng' => $lng);
-}
-
-// Génération de l'URL des directions avec les coordonnées GPS des destinations
-$waypoints = '';
-foreach ($destinations as $destination) {
-    $waypoints .= '|' . $destination['lat'] . ',' . $destination['lng'];
-}
+// Adresse pour les destinations
+require '../../include/config.php';
+$destinations= $bdd->query('SELECT * FROM commande')->fetchAll(PDO::FETCH_OBJ);
 
 // Génération du code JavaScript pour afficher la carte avec les directions
 echo '<div id="map" style="height: 600px;"></div>';
@@ -101,8 +91,22 @@ echo 'var directionsService = new google.maps.DirectionsService();';
 echo 'var directionsRenderer = new google.maps.DirectionsRenderer();';
 echo 'directionsRenderer.setMap(map);';
 echo 'var request = { origin: { lat: ' . $origin_lat . ', lng: ' . $origin_lng . ' }, destination: { lat: ' . $origin_lat . ', lng: ' . $origin_lng . ' }, waypoints: [';
+// Génération de l'URL des directions avec les coordonnées GPS des destinations
+$waypoints = '';
 foreach ($destinations as $destination) {
-    echo '{ location: { lat: ' . $destination['lat'] . ', lng: ' . $destination['lng'] . ' } },';
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    .urlencode($destination->adresse_livraison)
+    .urlencode($destination->ville)
+    .urlencode($destination->code_postal)
+    ."&key=AIzaSyA2ztn-aM9tO6iM2dJ6iNdsZOZPmo7H4tA";
+
+    $response = file_get_contents($url);
+    $data = json_decode($response);
+
+    $lat = $data->results[0]->geometry->location->lat;
+    $lng = $data->results[0]->geometry->location->lng;
+    $waypoints .= '|' . $lat . ',' . $lng;
+    echo '{ location: { lat: ' . $lat . ', lng: ' . $lng . ' } },';
 }
 echo '], optimizeWaypoints: true, travelMode: "DRIVING" };';
 echo 'directionsService.route(request, function(result, status) { if (status == "OK") { directionsRenderer.setDirections(result); } });';
