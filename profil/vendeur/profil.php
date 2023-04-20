@@ -89,6 +89,31 @@
                         ?></h3>
                     </div>
                         <h4>Information personnel :</h4>
+                        <div class="container">
+                      <div class="col-md-12">
+                    <p> Pseudo : <strong><?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['pseudo'])." ";
+                        ?></strong></p>
+
+                        <p> adresse mail :<strong> <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['email'])." ";
+                        ?></strong></p>
+                    <p> Ville : <strong><?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['ville'])." ";
+                        ?></strong></p>
+                      </div>
                         <p>Pour accéder à votre contrat, cliquez ici :<a href="contrat.php" target="_blank" class="btn">Accéder au contrat</a></br>
                         <em> Attention : vous devez telecharger votre contrat après l'avoir signé et l'envoyer par mail a notre adresse </em></p>
 
