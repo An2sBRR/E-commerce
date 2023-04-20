@@ -161,7 +161,7 @@
                         <input type="number" class="form-control" step="0.1" name="prix" min="0" value="<?= $produit->prix ?>">
 
                         <label class="form-label">Hauteur</label>
-                        <input type="number" class="form-control" name="hauteur" value="<?php echo $produit->hauteur ?>">
+                        <input type="number" class="form-control" step="0.1" name="hauteur" value="<?php echo $produit->hauteur ?>">
 
                         <label class="form-label">Poids</label>
                         <input type="number" class="form-control" step="0.1" name="poids" min="0" value="<?php echo $produit->poids ?>">
