@@ -42,7 +42,7 @@ Coté MarketPlace :
 
 - [ ] Afficher son chiffre d'affaires
 - [ ] Rendre l'accès sécurisé au page admin
-- [] Modifier la page modif_prod.php pour y mettre les quantités, la hauteur et le poids
+- [ ] Modifier la page modif_prod.php pour y mettre les quantités, la hauteur et le poids
 
 
 Coté livreur ou préparateur : 
