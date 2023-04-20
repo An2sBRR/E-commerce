@@ -32,7 +32,7 @@ Coté Client :
 
 Coté Vendeur :
 
-- [ ] Modifier modif_prod.php (rajouter hauteur, quantité,poids)
+- [X] Modifier modif_prod.php (rajouter hauteur, quantité,poids)
 - [ ] Suivre les ventes
 - [ ] mettre le contrat en pdf
 - [ ] Rendre l'accès sécurisé au page vendeur
@@ -42,7 +42,7 @@ Coté MarketPlace :
 
 - [ ] Afficher son chiffre d'affaires
 - [ ] Rendre l'accès sécurisé au page admin
-- [ ] Modifier la page modif_prod.php pour y mettre les quantités, la hauteur et le poids
+- [X] Modifier la page modif_prod.php pour y mettre les quantités, la hauteur et le poids
 
 
 Coté livreur ou préparateur : 
