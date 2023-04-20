@@ -131,11 +131,10 @@
                     <input type="number" class="form-control" step="0.1" name="prix" min="0">
 
                     <label class="form-label">Hauteur</label>
-                    <input type="text" class="form-control" name="hauteur">
+                    <input type="number" class="form-control" step="0.1" name="hauteur" min="0">
 
                     <label class="form-label">Poids</label>
-                    <input type="text" class="form-control" step="0.1" name="poids" min="0">
-
+                    <input type="number" class="form-control" step="0.1" name="poids" min="0">
 
                     <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
                     <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
