@@ -106,13 +106,11 @@ foreach ($commandes as $commande) {
         echo "Validé"; 
     }else echo "En attente...";
     ?></td>
-    
-    <td><a class="btn btn-primary btn-sm" href="afficher_com_lv.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>;
-                }
-    
-    
-
             <?php
+    if($commande['valide'] == 1){
+        echo "<td><a class='btn btn-primary btn-sm' href='afficher_com_lv.php?id=".$commande['id']."'>Afficher détails</a></td>";
+
+    }
         }
         ?>
   </tbody>
