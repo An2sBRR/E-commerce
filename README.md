@@ -34,21 +34,18 @@ Coté Client :
 
 Coté Vendeur :
 
-- [X] S'identifier
-- [X] Ajouter/Modifier/Supprimer un produit (nom du produit, description, prix, images, date de livraison)
-- [X] Suivre les ventes
-- [X] Signer/Renouveller/Résilier son contrat
+
+- [ ] Modifier/Supprimer un produit (rajouter hauteur, quantité,poids)
+- [ ] Suivre les ventes
+- [ ]mettre le contrat en pdf
 - [ ] Rendre l'accès sécurisé au page vendeur
 
 Coté MarketPlace :
 
-- [X] S'identifier
-- [X] Ajouter un produit
-- [X] Ajouter un vendeur
+
 - [ ] Afficher son chiffre d'affaires
-- [X] Expédier une commande
 - [ ] Rendre l'accès sécurisé au page admin
-- [X] Modifier la page ajout produit pour y mettre les quantités
+- [] Modifier la page ajout produit pour y mettre les quantités, la hauteur et le poids
 
 Coté livreur ou préparateur : 
 
