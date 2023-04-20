@@ -34,7 +34,7 @@ Coté Vendeur :
 
 - [ ] Modifier modif_prod.php (rajouter hauteur, quantité,poids)
 - [ ] Suivre les ventes
-- [ ]mettre le contrat en pdf
+- [ ] mettre le contrat en pdf
 - [ ] Rendre l'accès sécurisé au page vendeur
 
 
