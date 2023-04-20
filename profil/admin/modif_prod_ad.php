@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un vendeur</title>
+    <title>Modifier votre produit</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -39,7 +38,7 @@
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
 
                         <li class="my-1">
-                            <a href="../../index.php" class="nav-link px-2 text-truncate">
+                            <a href="main_ad.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
@@ -65,10 +64,10 @@
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="main_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
+                            <a href="profil_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="deconnexion.php" class="nav-link px-2 text-truncate">
+                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
                                 <span class="d-none d-sm-inline">Déconnexion</span>
                         </a>
@@ -77,21 +76,23 @@
             </aside>
             <main class="col overflow-auto h-100 w-100">
                 <?php
-                require_once '../../include/config.php';
+                require '../../include/config.php';
                 ?>
                     <h4>Modifier produit</h4>
                     <?php
                     $id = $_GET['id'];
-                    require_once '../../include/config.php';
                     $sqlState = $bdd->prepare('SELECT * from produit WHERE id=?');
                     $sqlState->execute([$id]);
                     $produit = $sqlState->fetch(PDO::FETCH_OBJ);;
                     if (isset($_POST['modifier'])) {
                         $libelle = $_POST['libelle'];
                         $prix = $_POST['prix'];
+                        $hauteur = $_POST['hauteur'];
+                        $poids = $_POST['poids'];
                         $discount = $_POST['discount'];
                         $categorie = $_POST['categorie'];
                         $description = $_POST['description'];
+                        $quantite = $_POST['quantite'];
 
                         $filename = '';
                         if (!empty($_FILES['image']['name'])) {
@@ -101,28 +102,34 @@
                         }
 
 
-                        if (!empty($libelle) && !empty($prix) && !empty($categorie)) {
+                        if (!empty($libelle) && !empty($prix) && !empty($categorie) && !(empty($hauteur)) && !(empty($quantite)) && !(empty($poids))) {
 
                             if (!empty($filename)) {
                                 $query = "UPDATE produit SET libelle=? ,
                                                                     prix=? ,
+                                                                    hauteur=?,
+                                                                    poids=?,
                                                                     discount=? ,
                                                                     id_categorie=?,
                                                                     description=?,
-                                                                    image=?
+                                                                    image=?,
+                                                                    quantite=?
                                                                 WHERE id = ? ";
                                 $sqlState = $bdd->prepare($query);
-                                $updated = $sqlState->execute([$libelle, $prix, $discount, $categorie, $description, $filename, $id]);
+                                $updated = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $description, $filename, $quantite, $id]);
                             } else {
                                 $query = "UPDATE produit 
                                                                 SET libelle=? ,
                                                                     prix=? ,
+                                                                    hauteur=?,
+                                                                    poids=?,
                                                                     discount=? ,
                                                                     id_categorie=?,
-                                                                    description=?
+                                                                    description=?,
+                                                                    quantite=?
                                                                 WHERE id = ? ";
                                 $sqlState = $bdd->prepare($query);
-                                $updated = $sqlState->execute([$libelle, $prix, $discount, $categorie, $description, $id]);
+                                $updated = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $description, $quantite,$id]);
                             }
 
                             if ($updated) {
@@ -153,6 +160,12 @@
                         <label class="form-label">Prix</label>
                         <input type="number" class="form-control" step="0.1" name="prix" min="0" value="<?= $produit->prix ?>">
 
+                        <label class="form-label">Hauteur</label>
+                        <input type="number" class="form-control" name="hauteur" value="<?php echo $produit->hauteur ?>">
+
+                        <label class="form-label">Poids</label>
+                        <input type="number" class="form-control" step="0.1" name="poids" min="0" value="<?php echo $produit->poids ?>">
+
                         <label class="form-label">Discount</label>
                         <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
                             value="<?= $produit->discount ?>">
@@ -160,12 +173,13 @@
                         <label class="form-label">Description</label>
                         <textarea class="form-control" name="description"><?= $produit->description ?></textarea>
 
+                        <label class="form-label">Quantité</label>
+                        <input type="number" class="form-control" name="quantite" min="0" required="required" value="<?php echo $produit->quantite?>"></input>
+
                         <label class="form-label">Image</label>
                         <input type="file" class="form-control" name="image">
                         <img width="250" class="img img-fluid" src="../../data/<?= $produit->image ?>"><br>
-                        <?php
 
-                        ?>
 
                         <?php
                         $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);
