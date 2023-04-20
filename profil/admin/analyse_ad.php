@@ -67,7 +67,7 @@
                             <a href="main_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
-                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
+                        <a href="php/deconnexion.php" class="nav-link px-2 text-truncate">
                         <i class="bi bi-toggle-off"></i></i>
                                 <span class="d-none d-sm-inline">Déconnexion</span>
                         </a>

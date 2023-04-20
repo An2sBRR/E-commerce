@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,11 +61,11 @@
                             <a href="produit_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
                                 <span class="d-none d-sm-inline">Liste des produits</span> </a>
                         </li>
-                        <li class="my-1 nav-item">
+                        <li class="my-1">
                             <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-calendar2-check"></i></i>
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
-                        <li class="my-1">
+                        <li class="my-1 nav-item">
                             <a href="main_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
@@ -72,43 +75,27 @@
                         </a>
                     </ul>
                 </div>
-</aside>
-<main class="col overflow-auto h-100 w-100">
-                <div class="container py-2">
-            <div class="container py-2">
-    <h2>Liste des commandes</h2>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Client</th>
-            <th>Numéro commande</th>
-            <th>Total</th>
-            <th>Date</th>
-            <th>Opérations</th>
-        </tr>
-        </thead>
-        <tbody>
- <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($commandes as $commande) {
-            ?>
-            <tr>
-                <td><?php echo $commande['id'] ?></td>
-                <td><?php echo $commande['pseudo'] ?></td>
-                <td><?php echo $commande['numero_commande'] ?></td>
-                <td><?php echo $commande['total'] ?> <i class="fa fa-solid fa-dollar"></i></td>
-                <td><?php echo $commande['date_creation'] ?></td>
-                <td><a class="btn btn-primary btn-sm" href="afficher_commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
-            </tr>
-            <?php
-        }
-        ?>
-  </tbody>
-    </table>
-</div>
-
+            </aside>
+            <main class="col overflow-auto h-100 w-100">
+                <div class="bg-light border rounded-3 p-3">
+                    <h2>Votre Profil : Admin</h2>
+                    <div class="d-flex justify-content-center">
+                        <i id="log-logo1" class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="d-flex justify-content-center"><h3>
+                    <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['prenom'])." ";
+                            echo ucfirst($resultat['nom']);
+                        ?></h3>
+                    </div>
+                
+                </div>                    
+            </main>
+        </div>
+    </div>
 </body>
 </html>
