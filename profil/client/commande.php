@@ -74,7 +74,7 @@
             <th>Numéro commande</th>
             <th>Total</th>
             <th>Date</th>
-            <th>Commande livré</th>
+            <th>Statut</th>
             <th>Opérations</th>
         </tr>
         </thead>
@@ -92,9 +92,18 @@ foreach ($commandes as $commande) {
     <td><?php echo $commande['numero_commande'] ?></td>
     <td><?php echo $commande['total']?></td>
     <td><?php echo $commande['date_creation']?></td>
-    <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">Afficher facture</a>
-     <a class="btn btn-primary btn-sm" href="commande.php?id=<?php echo $commande['id']?>">retourner l'article</a></td>
+    <td><?php 
+    if($commande['valide'] == 1)
+    {
+        echo "Livrée"; 
+    }else echo "En route...";
+    ?></td>
+    <td><a class="btn btn-primary btn-sm" href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
+    <?php
+    if($commande['valide'] == 1){
+        echo "<td><a class='btn btn-primary btn-sm' href='commande.php?id'".$commande['id'].">retourner l'article</a></td>";
+                }
+    ?>
             </tr>
             <?php
         }
