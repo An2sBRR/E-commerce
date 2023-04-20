@@ -81,7 +81,7 @@
             <th>Adresse livraison</th>
             <th>Code postal</th>
             <th>Date</th>
-            <th>Colis validé </th>
+            <th>Statut </th>
             <th>Opérations</th>
         </tr>
         </thead>
@@ -100,9 +100,18 @@ foreach ($commandes as $commande) {
     <td><?php echo $commande['adresse_livraison']?></td>
     <td><?php echo $commande['code_postal']?></td>
     <td><?php echo $commande['date_creation']?></td>
-    <td><?php echo $commande['valide']?></td>
-     <td><a class="btn btn-primary btn-sm" href="afficher_com_lv.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
-            </tr>
+    <td><?php 
+    if($commande['valide'] == 1)
+    {
+        echo "Validé"; 
+    }else echo "En attente...";
+    ?></td>
+    
+    <td><a class="btn btn-primary btn-sm" href="afficher_com_lv.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>;
+                }
+    
+    
+
             <?php
         }
         ?>

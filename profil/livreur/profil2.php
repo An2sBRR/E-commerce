@@ -117,8 +117,18 @@
                       <div class="col-xs-3 center-block colordiv"style="background-color: rgba(0, 0, 0, 0);">
                         <div class = "#">
                           <div class="row">
+                          <div class="col">
+                                <select class="form-select" aria-label="Default select example" name="horaire_debut">
+                                    <option selected>type de permis </option>
+                                    <option value="1">permis cyclomoteur : AM</option>
+                                    <option value="2">permis auto : B</option>
+                                    <option value="3">permis moto : A</option>
+                                    <option value="4">permis professionnel : C et D</option>
+                            
+                                  </select>
+  </div>
                               <div class="col">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" name="horaire_debut">
                                     <option selected>Heure de debut </option>
                                     <option value="1">6 heure</option>
                                     <option value="2">7 heure</option>
@@ -129,7 +139,7 @@
                                   </select>
                               </div>
                               <div class="col">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" name="horaire_fin">
                                     <option selected>Heure de fin</option>
                                     <option value="1">15 heure</option>
                                     <option value="2">16 heure</option>
@@ -142,7 +152,7 @@
                           </div>
                         </div>
                         <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41849.53154480777!2d2.0043335859188436!3d49.03729566715635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f4c72416d693%3A0x40b82c3688b34e0!2sCergy!5e0!3m2!1sfr!2sfr!4v1679224313614!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41849.53154480777!2d2.0043335859188436!3d49.03729566715635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f4c72416d693%3A0x40b82c3688b34e0!2sCergy!5e0!3m2!1sfr!2sfr!4v1679224313614!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                         <br><br>
                         <button class="button button1 w-25">Sauvegarder</button>
                       </div>
