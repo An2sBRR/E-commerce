@@ -1,4 +1,6 @@
-
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,7 +41,7 @@
                     <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
 
                         <li class="my-1 nav-item">
-                            <a href="main_ad.php" class="nav-link px-2 text-truncate">
+                            <a href="../../index.php" class="nav-link px-2 text-truncate">
                                 <i class="bi bi-house fs-5"></i>
                                 <span class="d-none d-sm-inline">Accueil</span>
                             </a>
@@ -65,7 +67,7 @@
                                 <span class="d-none d-sm-inline">Commandes</span> </a>
                         </li>
                         <li class="my-1">
-                            <a href="profil_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
+                            <a href="main_ad.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
                         <a href="../../index.php" class="nav-link px-2 text-truncate">
@@ -77,9 +79,18 @@
             </aside>
 
             <main class="col overflow-auto h-100">
-                <div class="bg-light border rounded-3 p-3">
-                    <h2>Bienvenue sur votre espace Admin</h2>
+                <div class="bg-light border rounded-3 p-3">                
+                    <h2>Bienvenue sur votre espace Admin  <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['prenom'])." ";
+                            echo ucfirst($resultat['nom']);
+                        ?></h2>
                     <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profit, le nombre de visiteurs sur votre espace analyse.</p> 
+                  
+                
                     <hr />
                 </div>
             </main>
