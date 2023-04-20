@@ -76,27 +76,38 @@
   });
 
 
-  // Générer le PDF lorsque le bouton "Générer le PDF" est cliqué
-  document.getElementById('generate-pdf-button').addEventListener('click', function() {
-    // Récupérer les données de la signature sous forme d'image PNG
-    var imageData = signaturePad.toDataURL();
+  // Créer une nouvelle instance de SignaturePad
+var canvas = document.getElementById('signature-pad');
+var signaturePad = new SignaturePad(canvas);
 
-    // Envoyer les données de la signature au serveur pour générer le PDF, etc.
-    // Vous pouvez utiliser Ajax pour envoyer les données au serveur.
+// Effacer la signature lorsque le bouton "Effacer" est cliqué
+document.getElementById('clear-button').addEventListener('click', function(event) {
+  signaturePad.clear();
+});
 
-    // Par exemple, pour envoyer les données via un formulaire :
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'generate_pdf.php';
 
-    var input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'signature-data';
-    input.value = imageData;
-    form.appendChild(input);
+// Générer le PDF lorsque le bouton "Générer le PDF" est cliqué
+document.getElementById('generate-pdf-button').addEventListener('click', function() {
+  // Récupérer les données de la signature sous forme d'image PNG
+  var imageData = signaturePad.toDataURL();
 
-    document.body.appendChild(form);
-    form.submit();
-  });
+  // Envoyer les données de la signature au serveur pour générer le PDF, etc.
+  // Vous pouvez utiliser Ajax pour envoyer les données au serveur.
+
+  // Par exemple, pour envoyer les données via un formulaire :
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'generate_pdf.php';
+
+  var input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'signature-data';
+  input.value = imageData;
+  form.appendChild(input);
+
+  document.body.appendChild(form);
+  form.submit();
+});
+
 </script>
 </div>
