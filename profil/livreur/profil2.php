@@ -114,6 +114,7 @@
                         ?></strong></p>
                       </div>
   </br>  <div class="container text-center">
+  <form action="traitement_livreur.php" method="post">   
                       <div class="col-xs-3 center-block colordiv"style="background-color: rgba(0, 0, 0, 0);">
                         <div class = "#">
                           <div class="row">
@@ -128,33 +129,19 @@
                                   </select>
   </div>
                               <div class="col">
-                                <select class="form-select" aria-label="Default select example" name="horaire_debut">
-                                    <option selected>Heure de debut </option>
-                                    <option value="1">6 heure</option>
-                                    <option value="2">7 heure</option>
-                                    <option value="3">8 heure</option>
-                                    <option value="4">9 heure</option>
-                                    <option value="5">10 heure</option>
-                                    <option value="6">11 heure</option>
-                                  </select>
+                                <label for="appt-time">Veuillez choisir une heure de début:</label>
+                                <input id="appt-time" type="time" name="appt-time" min="06:00" max="12:00" required value="9:30">
                               </div>
                               <div class="col">
-                                <select class="form-select" aria-label="Default select example" name="horaire_fin">
-                                    <option selected>Heure de fin</option>
-                                    <option value="1">15 heure</option>
-                                    <option value="2">16 heure</option>
-                                    <option value="3">17 heure</option>
-                                    <option value="4">18 heure</option>
-                                    <option value="5">19 heure</option>
-                                    <option value="6">20 heure</option>
-                                  </select>
+                              <label for="appt-time">Veuillez choisir une heure de fin:</label>
+                                <input id="appt-time" type="time" name="appt-time" min="13:00" max="20:00" required value="18:30">
                               </div>
                           </div>
                         </div>
                         <br>
                         <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41849.53154480777!2d2.0043335859188436!3d49.03729566715635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f4c72416d693%3A0x40b82c3688b34e0!2sCergy!5e0!3m2!1sfr!2sfr!4v1679224313614!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                         <br><br>
-                        <button class="button button1 w-25">Sauvegarder</button>
+                        <button type="submit" class="button button1 w-25">Sauvegarder</button>
                       </div>
                     </div>
                   <hr/>
