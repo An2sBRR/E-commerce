@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -66,57 +65,54 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-    <div class="container py-2">
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>Article</th>
-            <th>Prix unitaire</th>
-            <th>Quantité</th>
-            <th>TVA </th>
-            <th>Total</th>
-        </tr>
-        </thead>
-</tbody>
-<?php 
-    require '../../include/config.php';
-    $id_commande = $_GET['id']; // On récupère l'ID de la commande depuis l'URL
-    $ligne_co = $bdd->prepare('SELECT id_produit, quantite FROM ligne_commande WHERE id_commande = :id_commande');
-    
-    // On sélectionne les produits de la commande correspondante
-    $ligne_co->execute(array(':id_commande' => $id_commande)); // On exécute la requête en passant l'ID de la commande en paramètre
-    while ($ligne = $ligne_co->fetch(PDO::FETCH_ASSOC)) { // On boucle sur les résultats de la requête
-      echo "<tr>";
-      echo "<td>" .$ligne['id_produit'] . "</td>"; // On affiche l'ID du produit dans une cellule
-      echo "<td></td>"; // On affiche le prix unitaire (ici, on met une valeur fixe)
-      echo "<td>" . $ligne['quantite'] . "</td>"; // On affiche la quantité commandée dans une cellule
-      echo "<td>" . ($ligne['quantite']) . "€</td>"; // On calcule et affiche le total pour chaque ligne
-      echo "</tr>"; // On ferme la ligne du tableau
-    }
-  ?>
-            <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        
-                        // Récupération des informations de la commande à partir de la base de données
-                        $id_commande = $_GET['id']; 
-                        $commande_query = $bdd->query("SELECT * FROM commande WHERE id = $id_commande");
-            
-                        if ($commande_query === false) {
-                            print_r($bdd->errorInfo()); // Affiche le message d'erreur de PDO
-                        } else {
-                            $commande = $commande_query->fetch(PDO::FETCH_ASSOC);
-                        }
-                        
-                        // Affichage de l'en-tête de la facture
-                        echo "<h1>Facture JeuxVente.fr</h1>";
-                        echo "<p>Commande n°: " . $commande['numero_commande'] . "</p>";
-                        echo "<p>Date: " . $commande['date_creation'] . "</p>";
-                        echo "<p>Client: " . $commande['nom_prenom'] . "</p>";
-                        //echo "<p>Email: " . $commande['email_client'] . "</p>";
-                     ?>  
-               <!-- On ouvre le tableau -->
-<table>
- 
-  
-</table>
+            <div class="container py-2">
+            <table class="table table-striped table-hover">
+                <?php
+                    require '../../include/config.php';
+                    $id_commande = $_GET['id']; 
+                    $commande_query = $bdd->query("SELECT * FROM commande WHERE id = $id_commande");
+
+                    if ($commande_query === false) {
+                        print_r($bdd->errorInfo()); // Affiche le message d'erreur de PDO
+                    } else {
+                        $commande = $commande_query->fetch(PDO::FETCH_ASSOC);
+                    }
+                    // Affichage de l'en-tête de la facture
+                    echo "<h1>Facture JeuxVente.fr</h1>";
+                    echo "<p>Commande n° : ".$commande['numero_commande']."</p>";
+                    echo "<p>Date : ".$commande['date_creation']."</p>";
+                    echo "<p>Client : ".$commande['nom_prenom']."</p>";
+                    echo "<p>Livraison : ".ucfirst($commande['livraison'])."</p>";
+                    echo "<p>Total : ".$commande['total']." €</p>";
+                ?>
+                <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                </tbody>
+                <?php 
+                    $requete = $bdd->prepare('SELECT produit.image, produit.prix, produit.discount, ligne_commande.quantite FROM commande JOIN ligne_commande ON commande.id = ligne_commande.id_commande JOIN produit ON ligne_commande.id_produit = produit.id WHERE commande.id = ?');
+                    $requete->execute([$id_commande]);
+                    $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($resultats as $resultat) {
+                        $prix = $resultat['prix']*(1-$resultat['discount']/100);
+                        echo "<tr>";
+                        echo "<td><img src =../".$resultat['image']." width=100></td>";
+                        echo "<td>".$prix." €</td>";
+                        echo "<td>".$resultat['quantite'] . "</td>";
+                        echo "<td>".$prix*$resultat['quantite']." €</td>";
+                        echo "</tr>";
+                    }
+                ?>  
+
+            </table>
+            </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
