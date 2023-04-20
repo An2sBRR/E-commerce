@@ -92,7 +92,7 @@
             <tr>
                 <td><?php echo $commande['id']?></td>
                 <td><?php echo $commande['numero_commande'] ?></td>
-                <td><?php echo $commande['total']?></td>
+                <td><?php echo $commande['total']?> €</td>
                 <td><?php echo $commande['date_creation']?></td>
                 <td><?php 
                     if($commande['valide'] == 1){
