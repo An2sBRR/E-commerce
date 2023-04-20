@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : sam. 15 avr. 2023 à 17:42
+-- Généré le : jeu. 20 avr. 2023 à 18:09
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
@@ -101,6 +101,20 @@ INSERT INTO `ligne_commande` (`id`, `id_produit`, `id_commande`, `quantite`) VAL
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `livreur`
+--
+
+CREATE TABLE `livreur` (
+  `id` int(11) NOT NULL,
+  `id_utilisateurs` int(11) NOT NULL,
+  `type_permis` varchar(100) NOT NULL,
+  `horaire_debut` time NOT NULL,
+  `horaire_fin` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `produit`
 --
 
@@ -159,7 +173,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (54, 'splendor marvel ', '36.90', '2.5000', '4.0000', 0, 37, 50, '2023-04-15 17:16:25', 'Jeu familial par excellence ', '../data/2marvel.jpg', 15),
 (55, 'marvel champions', '53.95', '2.6700', '1.3400', 0, 40, 50, '2023-04-15 17:20:55', 'marvel champions JCE est un jeu de carte strategique ', '../data/1marvel.jpg', 12),
 (56, 'course folle marvel', '19.99', '26.7000', '4.1000', 0, 40, 50, '2023-04-15 17:20:55', 'jeu strategique sur le theme de marvel ', '../data/3marvel.jpg', 25),
-(57, 'monopoly marvel', '24.00', '4.0000', '2.0000', 0, 40, 50, '2023-04-15 17:20:55', 'jouez en famille ou entre amis au Monopoly avengers ', '../data/4marvel.jpeg', 5),
+(57, 'monopoly marvel', '24.00', '4.0000', '2.0000', 0, 37, 50, '2023-04-15 17:20:55', 'jouez en famille ou entre amis au Monopoly avengers ', '../data/4marvel.jpeg', 5),
 (58, 'lego marvel hulkbuster', '50.00', '5.3000', '2.6000', 0, 39, 50, '2023-04-15 17:33:27', 'Bruce banner enfile l&#39armure Hulkbuster pour defendre le Wakanda ', '../data/5marvel.jpeg', 6),
 (59, 'captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5);
 
@@ -218,6 +232,12 @@ ALTER TABLE `ligne_commande`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `livreur`
+--
+ALTER TABLE `livreur`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
@@ -250,6 +270,12 @@ ALTER TABLE `commande`
 --
 ALTER TABLE `ligne_commande`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `livreur`
+--
+ALTER TABLE `livreur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
