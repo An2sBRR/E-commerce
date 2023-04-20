@@ -94,7 +94,7 @@
                             echo ucfirst($resultat['pseudo'])." ";
                         ?></p>
 
-                        <p> adresse mail : <?php 
+                        <p> Adresse mail : <?php 
                             require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
