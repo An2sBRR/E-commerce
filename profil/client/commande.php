@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -79,35 +82,31 @@
         </tr>
         </thead>
         <tbody>
- <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
+        <?php
+            //connexion à la base de données
+            require_once '../../include/config.php'; 
+            $commandes = $bdd->query('SELECT commande.* FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id WHERE utilisateurs.id = (SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'") ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($commandes as $commande) {
-     ?>
-    <tr>
-
-    <td><?php echo $commande['id']?></td>
-    <td><?php echo $commande['numero_commande'] ?></td>
-    <td><?php echo $commande['total']?></td>
-    <td><?php echo $commande['date_creation']?></td>
-    <td><?php 
-    if($commande['valide'] == 1)
-    {
-        echo "Livrée"; 
-    }else echo "En route...";
-    ?></td>
-    <td><a class="btn btn-primary btn-sm" href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
-    <?php
-    if($commande['valide'] == 1){
-        echo "<td><a class='btn btn-primary btn-sm' href='commande.php?id'".$commande['id'].">retourner l'article</a></td>";
-                }
-    ?>
-            </tr>
-            <?php
-        }
+            foreach ($commandes as $commande) {
         ?>
+            <tr>
+                <td><?php echo $commande['id']?></td>
+                <td><?php echo $commande['numero_commande'] ?></td>
+                <td><?php echo $commande['total']?></td>
+                <td><?php echo $commande['date_creation']?></td>
+                <td><?php 
+                    if($commande['valide'] == 1){
+                        echo "Livrée"; 
+                    }else echo "En route...";
+                    ?></td>
+                    <td><a class="btn btn-primary btn-sm" href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
+                    <?php
+                        if($commande['valide'] == 1){
+                            echo "<td><a class='btn btn-primary btn-sm' href='commande.php?id'".$commande['id'].">retourner l'article</a></td>";
+                        }
+                    ?>
+            </tr>
+        <?php } ?>
   </tbody>
     </table>
 </div>
