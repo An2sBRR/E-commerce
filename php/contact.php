@@ -108,11 +108,7 @@ PréING2 MI Groupe 3-->
 
         function affichageerror() {  #Fonction pour afficher les erreurs dans le formulaire
         $err = explode('=',getquery());
-        if($err[1]!=NULL)   
-        {
-         //echo "<script language='Javascript'>console.log(document.querySelectorAll('input[name=$err[1]]')[0]);</script>";
-         echo"<script language='Javascript'>document.querySelectorAll('input[name=$err[1]]').forEach(el => el.style.background='red');</script>";
-        }
+       
     }
         affichageerror();
     ?>
