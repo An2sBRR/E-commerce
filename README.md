@@ -27,7 +27,7 @@ Hors Cahier des Charges :
 Coté Client :
 
 - [ ] Pouvoir comparer les livraisons des différents vendeurs
-- [ ] Un client ayant passé une commande peut suivre l’acheminement de son colis et recevra une notification de l’arrivée de son colis.
+- [ ] recevra une notification de l’arrivée de son colis.
 
 
 
