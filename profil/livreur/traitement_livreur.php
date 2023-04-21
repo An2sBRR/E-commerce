@@ -1,7 +1,7 @@
 <?php
   session_start();
   require_once '../../include/config.php'; // On inclut la connexion à la bdd
-
+// on appelle la table utilisateuur pour prendre l'id
   $requete=$bdd->prepare('SELECT id FROM utilisateurs WHERE token = ?');
   $requete->execute([$_SESSION['user']]);
   $livreur_id = $requete->fetchColumn();

@@ -21,7 +21,7 @@
     <script src="../js/plotly-2.18.2.min.js"></script>
     <script src="../js/graph.js"></script>
 </head>
-
+<!-----EN TETE // MENU -------->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -69,6 +69,8 @@
                     </ul>
                 </div>
             </aside>
+
+<!------------FIN MENU ---------------------->
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
             <?php
@@ -85,6 +87,7 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
 ?>
     <h2>Détails du colis</h2>
     <table class="table table-striped table-hover">
+ <!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
         <thead>
         <tr>
             <th>#ID</th>
@@ -101,6 +104,7 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
         </thead>
         <tbody>
         <?php
+        //requete sql qui permet de prendre toutes les informations dans la table ligne_commande et produit ce qui va permettre de detailler les commandes
         $sqlStateLigne_commande = $bdd->prepare('SELECT ligne_commande.*,produit.libelle,produit.image from ligne_commande
                                                         INNER JOIN produit ON ligne_commande.id_produit = produit.id
                                                         WHERE id_commande = ?
@@ -119,6 +123,7 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
             <td><?php echo $commande['code_postal'] ?></td>
             <td><?php echo $commande['date_creation'] ?></td>
             <td>
+                <!------------on regarde l'etat de la commande, si l'etat est validé alors on affiche livré---------------------->
                 <?php if ($commande['commande_livre'] == 0) : ?>
                     <a class="btn btn-success btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=1">Colis livré</a>
                     <?php else: ?>

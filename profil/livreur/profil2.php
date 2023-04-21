@@ -6,7 +6,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
+<!-----EN TETE // MENU -------->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,6 +73,7 @@
                     </ul>
                 </div>
             </aside>
+<!------------FIN MENU ---------------------->
 
             <main class="col overflow-auto h-100 w-100">
                 <div class="bg-light border rounded-3 p-3">
@@ -92,6 +93,7 @@
                         ?></h3>
                     </div>
                     </br></br>
+                      <!------------AFFICHAGE DES INFORMATIONS----->
                     <h4>Information personnel:</h4>
                     <div class="container">
                         <div class="col-md-12">
@@ -116,6 +118,7 @@
                             ?></strong></p>
                         </div>
                     </div></br>
+    <!------------DEMANDE DES INFORMATIONS POUR SON PERMIS, ET LES HORAIRES----->
                     <?php
                       $requete = $bdd->prepare('SELECT id FROM livreur WHERE id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = ?)');
                       $requete->execute([$_SESSION['user']]);
@@ -154,9 +157,62 @@
                             <p class="text-danger">Une fois sauvegardées, ces informations ne pourront être modifié.</p>
                             <button type="submit" class="button button1 w-25">Sauvegarder</button>
                         </form>
+                            </div>
+
                     </div>
                    <?php }?>
+
+
+                
+<?php 
+// Récupération des données du livreur à partir de la base de données
+$requete = $bdd->prepare('SELECT type_permis FROM livreur');
+$requete->execute(array('id_livreur' => $_SESSION['user']));
+$livreur = $requete->fetch();
+
+// Vérification que la requête a renvoyé des résultats
+if ($livreur !== false) {
+    // Détermination du type de permis à partir de la valeur dans la base de données
+    if ($livreur['type_permis'] == 1) {
+        $type_permis = "Permis cyclomoteur : AM"; 
+    } else if ($livreur['type_permis'] == 2) {
+        $type_permis = "Permis auto : B"; 
+    } else if ($livreur['type_permis'] == 3) {
+        $type_permis = "Permis moto : A"; 
+    } else if ($livreur['type_permis'] == 4) {
+        $type_permis = "Permis professionnel : C et D"; 
+    } else {
+        $type_permis = "Type de permis inconnu";
+    }
+} 
+?>
+<!-- Affichage du type de permis et des horaire -->
+<div class="container">
+    <div class="col-md-12">
+        <p> Type de permis : <strong><?php 
+            echo ucfirst($type_permis). " ";
+        ?></strong></p>
+    </div>
+</div>
+                   <div class="container">
+                        <div class="col-md-12">
+                            <p> horaire debut : <strong><?php 
+                                $requete = $bdd->prepare('SELECT horaire_debut FROM livreur');
+                                $requete->execute([$_SESSION['user']]);
+                                $resultat = $requete->fetch();
+                                echo ucfirst($resultat['horaire_debut'])." ";
+                            ?></strong></p>
                 </div>
+                <div class="container">
+                        <div class="col-md-12">
+                            <p> horaire fin  : <strong><?php 
+                                $requete = $bdd->prepare('SELECT horaire_fin FROM livreur');
+                                $requete->execute([$_SESSION['user']]);
+                                $resultat = $requete->fetch();
+                                echo ucfirst($resultat['horaire_fin'])." ";
+                            ?></strong></p>
+                </div>
+               
                 <hr/>
             </main>
         </div>

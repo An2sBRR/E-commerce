@@ -21,7 +21,7 @@
     <script src="../js/plotly-2.18.2.min.js"></script>
     <script src="../js/graph.js"></script>
 </head>
-
+<!-----EN TETE // MENU -------->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -70,6 +70,7 @@
                 </div>
             </aside>
 
+<!------------FIN MENU ---------------------->
             <main class="col overflow-auto h-100">
                 <div class="bg-light border rounded-3 p-3">
                     <h2>Bienvenue sur votre espace Livreur // préparateur </h2>

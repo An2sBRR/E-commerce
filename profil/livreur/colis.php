@@ -21,7 +21,7 @@
     <script src="../js/plotly-2.18.2.min.js"></script>
     <script src="../js/graph.js"></script>
 </head>
-
+<!-----EN TETE // MENU -------->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -69,11 +69,16 @@
                     </ul>
                 </div>
             </aside>
+
+<!------------FIN MENU ---------------------->
+
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
             <div class="container py-2">
     <h2>Liste des Colis</h2>
     <table class="table table-striped table-hover">
+
+<!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
         <thead>
         <tr>
             <th>#ID</th>
@@ -89,6 +94,7 @@
  <?php
                         //connexion à la base de données
                         require_once '../../include/config.php'; 
+                        //requete sql pour prendre eles données de la table
                         $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($commandes as $commande) {
@@ -101,12 +107,14 @@ foreach ($commandes as $commande) {
     <td><?php echo $commande['code_postal']?></td>
     <td><?php echo $commande['date_creation']?></td>
     <td><?php 
+    //si la commande est validé, un 1 apparait dans la base de donnée, alors on marque "validé"
     if($commande['valide'] == 1)
     {
         echo "Validé"; 
     }else echo "En attente...";
     ?></td>
             <?php
+            //si la commande est validé par l'admin alors le livreur a acces aux informations personnel
     if($commande['valide'] == 1){
         echo "<td><a class='btn btn-primary btn-sm' href='afficher_com_lv.php?id=".$commande['id']."'>Afficher détails</a></td>";
 

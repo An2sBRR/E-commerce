@@ -21,7 +21,7 @@
     <script src="../js/plotly-2.18.2.min.js"></script>
     <script src="../js/graph.js"></script>
 </head>
-
+<!-----EN TETE // MENU -------->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -71,6 +71,7 @@
             </aside>
             <main class="col overflow-auto h-100 w-100">
 
+<!------------FIN MENU ---------------------->
 
 <?php
 // Coordonnées GPS de Cergy
