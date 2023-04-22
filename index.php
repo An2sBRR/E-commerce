@@ -25,6 +25,8 @@ ING 1 GI GROUPE 4 -->
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- INCLUSION ICONS -->
     <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
@@ -73,8 +75,7 @@ ING 1 GI GROUPE 4 -->
             
             <!-- BARRE DE RECHERCHE -->
             <div class="wrap">
-                <div class="search">
-                    <input type="text" id="recherche" class="searchTerm" onkeydown="handleKeyPress(event)" placeholder="Que recherchez-vous ?">
+                <div class="search">                    <input type="text" id="recherche" class="searchTerm" onkeydown="handleKeyPress(event)" placeholder="Que recherchez-vous ?">
                     <button onclick="recherche()" class="searchButton">
                     <i><ion-icon name="search"></ion-icon></i>
                     </button>
@@ -105,46 +106,229 @@ ING 1 GI GROUPE 4 -->
 
     <!-- PAGE PRINCIPALE -->
     <main>
-        <div class="justify-content-center d-flex">
-            <!-- SLIDER MEILLEURES VENTES -->
-            <div class="slider"> 
-                <div class="slides">
-                    <input type="radio" name="radio-btn" id="radio1" checked>
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
-                    <input type="radio" name="radio-btn" id="radio4">
+      <div class="nous">
+                <h3 id="Propos">À&nbspPROPOS</h3>
 
-                    <div class="slide premier">
-                        <p>Les meilleurs ventes</p>
-                        <img src="./data/UNO.jpg" alt="image d'un UNO">
+      </div>
+
+      <div> 
+      <p id="blabla">Chez JeuxVente, vous trouverez tout le nécessaire pour passer un excellent moment de détente. Solo, à plusieurs, en famille ou entre amis, vous y trouverez 
+        assurément votre bonheur !
+        Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous assurer la meilleure qualité possible. <br> Pour tout problème, réclamation ou simple demande de contact,
+        n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace utilisateur ou en cliquant ici ! <br> Sachez également que vous pouvez accéder à des
+        avantages et offres promotionnelles en vous abonnant ici.
+      </p>
+    </div>
+      
+    <div class="container cta-100 ">
+        <div class="container">
+          <div class="row blog">
+            <div class="col-md-12">
+              <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#blogCarousel" data-slide-to="1"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°1</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/UNO.jpg" alt="image d'un UNO"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>UNO</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>12$</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°2</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/puissance-4.jpg" alt="image d'un puissance4"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Puissance 4</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>20$</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°3</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/mario1.png" alt="image d'un lego mario"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Bloc Mario</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>199$</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="slide">
-                        <p>Les meilleurs ventes</p>
-                        <img src="./data/puissance-4.jpg" alt="image d'un puissance4">
+                    <!--.row-->
+                  </div>
+                  <!--.item-->
+                  <div class="carousel-item ">
+                    <div class="row">
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°4</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/scrabble.jpg" alt="image d'un scrabble"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Scrabble</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>22.5$</i> Comments(3)</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°5</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/monopoly.jpg" alt="image d'un monopoly"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Monopoly</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>29.75$</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">N°6</span> </div>
+                            <!--Image-->
+                            <figure> <img src="./data/blocus.jpeg" alt="image d'un blocus"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Blocus</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p>22.99$</p>
+                            </div>
+                            <!--Txt-->
+                            <div class="item-box-blog-text">
+                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                            </div>
+                             <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <!--Plus de détails Button-->
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="slide">
-                        <p>Les meilleurs ventes</p>
-                        <img src="./data/pompier.jpeg" alt="image d'un lego pompier">
-                    </div> 
-                    <div class="slide">
-                        <p>Les meilleurs ventes</p>
-                        <img src="./data/dames.jpeg" alt="image d'un jeu de dames">
-                    </div>
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                        <div class="auto-btn4"></div>
-                    </div>
+                    <!--.row-->
+                  </div>
+                  <!--.item-->
                 </div>
-                <div class="navigation-manuel">
-                    <label for="radio1" class="manuel-btn"></label>
-                    <label for="radio2" class="manuel-btn"></label>
-                    <label for="radio3" class="manuel-btn"></label>
-                    <label for="radio4" class="manuel-btn"></label>
-                </div>
+                <!--.carousel-inner-->
+              </div>
+              
+              <!--.Carousel-->
             </div>
+          </div>
         </div>
+      </div>
+
+
+      <div> 
+      <p id="blabla">JeuxVente regroupe plusieurs vendeurs, y compris des débutants. Bien sûr, nous vérifions le sérieux de chaque vendeur ainsi que la qualité de ses produits. 
+        Un article vous plait ? Rien de plus simple : cliquez sur le petit bouton en bas du produit et achetez le ! Vous voulez peut-être plus de détails concernant le produit ou encore
+        en acheter en grande quantité ? Pas de problèmes : il suffit de cliquer sur l'image du produit et un meilleur affichage sera disponible. 
+      </p>
+    </div>
+   
     </main>
     <!-- FIN PAGE PRINCIPALE -->
 
