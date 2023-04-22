@@ -1,56 +1,132 @@
-/*SITE WEB 
-AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
-ING 1 GI GROUPE 4*/ 
-
-* {                              /*Pour retirer les margin par défaut du body*/
-    margin: 0;
-    padding: 0; }
-
-                                /*Pour faire en sorte que l'affichage prenne la taille de l'écran*/
-html {
-    height: 100%;}
-
 body {
-    height: 100%;
-    background:whitesmoke; }
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
- 
-.test{
-    padding-top: 2%;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.message {
+    border: 1px solid #ccc;
+    border-radius: 10px 10px 10px 10px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
     width: 100%;
-}
-.zones {
-   margin-left: auto;
-   margin-right: auto;
-   padding-right: 1%;
-   padding-left: 1%;
-    min-height: 100%;
-    width: 30%;
     position: relative;
-    border: solid black 3px;
-    background: linear-gradient(135deg, transparent 20%,#b9e966) ;
 }
 
-.zones>#profil{
+.message:before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+    transform: rotate(130deg);
+    border-radius: 0 0 0 10px;
+}
+
+.message.Client {
+    background-color: #c8e6c9; /* vert clair */
+}
+
+.message.Vendeur {
+    background-color: #fce4ec; /* rose clair */
+}
+
+.message.Livreur {
+    background-color: #e1bee7; /* violet */
+}
+
+.message header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message header .utilisateur {
+    margin-left: auto;
     text-align: right;
-    
 }
 
-.zones>#nom{
+.message header .user-date {
+    text-align: right;
+}
+
+.message header h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.message header p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.message .content {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.message .nom {
     text-align: center;
-    
+    flex: 1;
 }
 
-.zones>#coordonnes{
-    text-align: left;
-   
+.message .nom h3 {
+    font-size: 22px;
+    margin: 0;
 }
 
+.message .contenu {
+    flex: 2;
+    margin-right: 10px;
+}
 
+.message .contenu p {
+    margin: 5px 0;
+}
 
-#fermé {           /*Bouton pour fermer le formulaire de connexion*/
+.message .coordonnees {
     text-align: right;
-    width: fit-content;
-    border : solid black 2px;
-    background-color:grey;
-    color:white; }
+    flex: 1;
+}
+
+.message .coordonnees p {
+    margin: 5px 0;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0a49d;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    margin-right: -10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.action:hover {
+    background-color: #c0392b;
+    text-decoration: none;
+    cursor: pointer;
+}
