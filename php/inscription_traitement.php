@@ -46,11 +46,12 @@
                                 'ville' => $ville,
                                 'email' => $email,
                                 'password' => $password,
+                                'statut' => $statut,
                                 'token' => bin2hex(openssl_random_pseudo_bytes(64)),
-                                'statut' => $statut
+                                
                             ));
-                            
                             // On redirige avec le message de succès
+                            //$_SESSION['user'] = $data['token'];
                             header('Location:co.php?reg_err=success');
                             die();
                         }else{ header('Location: inscription.php?reg_err=password'); die();}
