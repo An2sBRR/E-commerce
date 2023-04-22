@@ -1,52 +1,51 @@
+<?php
+$demandes = json_decode(file_get_contents('../data/messages.json'), true);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="2">
+
     <link rel="stylesheet" href="../css/contacter.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <title>Test données</title>
 </head>
 <body>
 
-    <?php
-        $demande = file_get_contents('../data/messages.json') ; #on récupère les données du json
-        $demande = json_decode($demande, true) ; #on remet en php
-
-        for($i=0; $i<count($demande); $i++) : #on fait une boucle jusqu'à ce que tous les éléments soient lus puis on les écrit
-    ?>
-        <div class="test">
-            <div class="zones">
-                <!-- Lien sur le "bouton" x pour supprimer le message sélectionné -->
-                <a href="traitement_contact.php?del=<?php echo$demande[$i]['id']; ?>" class="action" id="fermé">X</a> <br>
-                <p id="profil">
-                    <b><?php echo $demande[$i]['utilisateur']; ?><br><br></b>
-                    <b>Date :</b> <?php echo $demande[$i]['date']; ?><br><br>
-                </p>
-                <p id="nom">
-                    <b><?php echo $demande[$i]['nom']; ?><br><br></b>
-                    
-                </p>  
-                <p id="coordonnees">
-                
-                    <b>Objet :</b> <?php echo $demande[$i]['objet']; ?><br><br>
-                    <b>Message :</b> <?php echo $demande[$i]['message']; ?><br><br>
-                </p>
-                
-                <div class="bas">
-                <div id="email" style="float: left; ">
-                    <b>Email :</b> <?php echo $demande[$i]['email']; ?><br><br>
-                </div>
-                <div id="tel" style="float: right;">
-                    <b>Tel :</b> <?php echo $demande[$i]['tel']; ?><br><br>
-                </div>
-                <div style="clear: both;"></div>  <!-- Pour pas que les autres éléments float-->
-                </div>
-
+<main>
+<?php foreach ($demandes as $demande) : ?>
+    <section class="message <?php echo $demande['utilisateur']; ?>">
+        <a href="traitement_contact.php?del=<?php echo $demande['id']; ?>" class="action" id="ferme">X</a><br>
+        <header>
+            <div class="user-date">
+                <h2><?php echo $demande['utilisateur']; ?></h2>
+                <p><b>Date : </b><?php echo $demande['date']; ?></p>
+            </div>
+        </header>
+        <div class="nom">
+            <h3><?php echo $demande['nom']; ?></h3>
+        </div>
+        <div class="content">
+            <div class="contenu">
+                <p><b><u>Objet</u> :</b> <?php echo $demande['objet']; ?></p>
+                <p><b>Message :</b> <em><?php echo $demande['message']; ?></em></p>
+                <p><b>Email :</b> <?php echo $demande['email']; ?></p>
+            </div>
+            <div class="coordonnees">
+                <p><b>Tel :</b> <?php echo $demande['tel']; ?></p>
             </div>
         </div>
-    <?php endfor; ?>
+    </section>
+<?php endforeach; ?>
+
+
+</main>
 
 </body>
 </html>
