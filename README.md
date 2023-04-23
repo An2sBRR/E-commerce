@@ -35,7 +35,7 @@ Coté Vendeur :
 
 Coté MarketPlace :
 
-- [ ] Afficher son chiffre d'affaires
+FINI
 
 Coté livreur ou préparateur : 
 
