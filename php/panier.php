@@ -64,6 +64,7 @@
                     <div class="d-flex align-items-center mb-4">
                     <?php 
                     // donnée qu'on récupère pour le colis
+                    $commission = 0;
                     $poids_total = 0;
                     $total = 0;
                     $hauteur_total = 0;
@@ -77,10 +78,11 @@
                                 $id=$produit->id;
                                 $prix = $produit->prix;
                                 $discount = $produit->discount;
-                                $prixFinale = $prix - (($prix*$discount)/100);
+                                $prixFinale = number_format($prix - (($prix*$discount)/100),2);
                                 $image=$produit->image;
                                 $libelle=$produit->libelle;
                                 $quantiteproduit = $produit->quantite;
+                                $id_utilisateurs = $produit->id_utilisateurs;
                                 $pseudo = $produit->pseudo;
                                 $poids = $produit->poids;
                                 $hauteur= $produit->hauteur;
@@ -109,6 +111,10 @@
                             </div>
                             </div>";
 
+                            $statut_vendeur = $bdd->query('SELECT statut FROM utilisateurs WHERE id = '.$id_utilisateurs.'')->fetchColumn();
+                            if($statut_vendeur == "vendeur"){
+                                $commission += number_format($prixFinale * 0.05 * $quantite,2); //pour les 5% de commissions de la marketplace
+                            }
                             $hauteur_total += $hauteur*$quantite;
                             $poids_total += $poids*$quantite;
                             $total += $prixFinale*$quantite;
@@ -166,10 +172,9 @@
                                                 $stmt = $bdd->prepare('SELECT id FROM utilisateurs WHERE token = ?');
                                                 $stmt->execute([$_SESSION['user']]);
                                                 $id_client = $stmt->fetchColumn();
-                                               
                                                 
-                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison]);
+                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison, $commission]);
                                                 if (!$inserted) {
                                                     ?>
                                                     <div class="alert alert-danger" role="alert">
