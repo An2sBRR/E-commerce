@@ -1,5 +1,8 @@
-<?php 
+<?php
     session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
+        header('Location: ../../index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,12 +13,12 @@
     <title>Contrat</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/contrat.css" rel="stylesheet">
    
      <!-- Inclure la bibliothèque SignaturePad -->
 <script src="https://unpkg.com/signature_pad"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 
-    <link href="../css/contrat.css" rel="stylesheet">
 
 </head>
 
@@ -57,6 +60,9 @@
   
   <!-- Ajouter les balises pour la signature électronique -->
   <br><br><br><br>
+
+  </style>
+
   <h5>Signature de : <?php 
                             require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
@@ -69,15 +75,14 @@
   <br>   <form>
   <button id="clear-button">Effacer la signature</button>
   <button id="impression-bouton" type="button" onclick="imprimer_page()">Imprimer cette page</button>
-
 </form>
 
  <!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE ---> 
 <script type="text/javascript">
 function imprimer_page(){
   window.print();
-} 
-  // Créer une nouvelle instance de SignaturePad
+}
+   // Créer une nouvelle instance de SignaturePad
 var canvas = document.getElementById('signature-pad');
 var signaturePad = new SignaturePad(canvas);
 
