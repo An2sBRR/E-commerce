@@ -29,22 +29,16 @@ Coté Client :
 - [ ] Pouvoir comparer les livraisons des différents vendeurs
 - [ ] recevra une notification de l’arrivée de son colis.
 
-
 Coté Vendeur :
 
 - [ ] Suivre les ventes
 
-
-
 Coté MarketPlace :
 
 - [ ] Afficher son chiffre d'affaires
-- [ ] Rendre l'accès sécurisé au page admin
-
 
 Coté livreur ou préparateur : 
 
 - [ ] Les colis sont affectés aux livreurs selon leur disponibilité
-- [ ] Rendre l'accès sécurisé au page livreur
  
 
