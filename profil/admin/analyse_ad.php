@@ -76,90 +76,68 @@
             </aside>
 
             <main class="col overflow-auto h-100 w-100">
-                <h4>Votre progression :</h4>
-                <div id="ProgressionGraph" class="ProgressionGraph"></div>
-                <script>
 
-                var layout = {font: {size: 18},
-                                title: "Progression",
-                                yaxis: {title: 'chiffre d affaire (€)', showgrid: false},
-                                xaxis: {showgrid: false},
-                                paper_bgcolor: 'rgba(0,0,0,0)',
-                                plot_bgcolor: 'rgba(0,0,0,0)'}
-                var config = {responsive: true};
+<!--2 eme graphique LES VENDEURS --->
 
-                var trace1 = {
-                    x: [1, 2, 3, 4, 5, 6],
-                    y: [88, 86, 78, 76, 75, 78],
-                    type: 'scatter',
-                    mode: 'lines + dot',
-                    line: {color: "#702CF6"},
-                    name: 'votre chiffre'
-                    };
-                    var trace2 = {
-                    x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                    y: [80, 80, 80, 80, 80, 80,80, 80, 80, 80],
-                    mode: 'lines',
-                    line: {dash: 'dot', width: 4, color: "#F29700"},
-                    name: 'votre objectif'
-                    };
-                    var trace3={
-                        x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                    y: [73, 76, 52, 50, 73, 89,67, 50, 63, 80],
-                    type: 'scatter',
-                    mode: 'lines + dot',
-                    name: 'N-1'
-                    }
+<?php
+require_once '../../include/config.php'; // On inclut la connexion à la bdd
 
-                var data = [trace1, trace2, trace3];
+// On récupère les données de la base de données
+$requete = $bdd->query("SELECT DATE(date_inscription) AS date, COUNT(*) AS total_inscriptions FROM utilisateurs WHERE statut = 'vendeur' GROUP BY DATE(date_inscription)");
+$donnees = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-                TESTER = document.getElementById('ProgressionGraph');
-
-                Plotly.newPlot(TESTER, data, layout, config);
-                </script>
-                <br><br>
-<!--2 eme graphique --->
-                <h4>Diagramme sur les vendeurs de cette année </h4>
-                <div id="chart" class="col overflow-auto h-100 w-100"></div>
-                <script>
-
-// Données pour le graphique
-var data = [{
-  x: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai'],
-  y: [10, 15, 12, 8, 11],
-  type: 'bar'
-}];
-
-// Mise en forme du graphique
-var layout = {
-  title: 'Nombre de vendeurs',
-  xaxis: {
-    title: 'Mois'
-  },
-  yaxis: {
-    title: 'Nombre de vendeurs'
-  }
-};
-
-// Création du graphique
-Plotly.newPlot('chart', data, layout);
-
-// Fonction pour mettre à jour les données
-function updateData(newData) {
-  // Mettre à jour les données existantes
-  data[0].y = newData;
-  // Mettre à jour le graphique
-  Plotly.update('chart', data, layout);
+// On construit les tableaux de labels et de données pour le graphique
+$labels = array();
+$data = array();
+foreach ($donnees as $row) {
+    $labels[] = $row['date'];
+    $data[] = $row['total_inscriptions'];
 }
-
-// Exemple d'utilisation de la fonction pour ajouter un nouveau vendeur
-var newSellerCount = 1; // Nouveau vendeur ajouté en Mai
-var currentData = data[0].y;
-currentData[4] += newSellerCount; // Ajouter le nouveau vendeur à la liste des vendeurs de Mai
-updateData(currentData);
-
+?>
+   <title>Graphique des inscriptions de vendeurs</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<h4>Nombre de vendeur  :</h4>
+<!-- Création de l'élément canvas qui va contenir le graphe -->
+<canvas id="myChart"></canvas>
+<script>
+    // Récupération de l'élément canvas et initialisation du graphe
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // Définition du type de graphe (barre)
+        type: 'bar',
+        // Définition des données à afficher
+        data: {
+            labels: <?php echo json_encode($labels); ?>, // étiquettes de l'axe x (date inscription)
+            datasets: [{
+                label: 'Nombre d\'inscriptions', // nom de la série de données
+                data: <?php echo json_encode($data); ?>, // valeurs de la série de données
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // couleur de fond des barres
+                borderColor: 'rgba(75, 192, 192, 1)', // couleur de bordure des barres
+                borderWidth: 2 // largeur de bordure des barres
+            }]
+        },
+        // Options de configuration du graphe
+        options: {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true, // afficher l'axe y à partir de 0
+                        stepSize: 1 // afficher les valeurs de l'axe y de 1 en 1
+                    }
+                }]
+            }
+        }
+    });
+</script>
 
 </script>
+
+</body>
+</html>
+
+          
+
+
             </main>
         </div>
     </div>
