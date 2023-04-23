@@ -1,5 +1,10 @@
 <?php
-session_start();
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
+        header('Location: ../../index.php');
+    }
+?>
+<?php
 require_once '../../include/config.php'; // On inclut la connexion à la BDD
 
 // Si le formulaire a été soumis

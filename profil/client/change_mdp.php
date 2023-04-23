@@ -1,5 +1,12 @@
-<?php 
+<?php
     session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
+        header('Location: ../../index.php');
+    }
+?>
+
+<?php 
+
     require_once '../../include/config.php'; // On inclu la connexion à la bdd
 
     // Si la session n'existe pas 
