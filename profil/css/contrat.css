@@ -62,9 +62,9 @@ body {
   /* Pour la signature */
   #signature-pad {
     border: 1px solid black;
-    padding: 10px;
+    padding: 100px;
     width: 100%;
-    max-width: 400px;
+    max-width: 200px;
     margin: 0 auto;
     display: block;
     height: 150px;
@@ -82,15 +82,50 @@ body {
     font-size: 16px; /* Taille de police */
   }
   
-  /* Style au survol */
-  button:hover {
-    background-color: #3e8e41;
-  }
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="button"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
   
-  /* Style lorsqu'on clique */
-  button:active {
-    background-color: #3e8e41;
-    transform: translateY(1px); /* Légère descente */
-  }
+button:hover,
+input[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+button:active,
+input[type="button"]:active {
+  background-color: #3e8e41;
+  transform: translateY(1px);
+}
+
   
   
