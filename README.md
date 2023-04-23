@@ -30,11 +30,9 @@ Coté Client :
 - [ ] recevra une notification de l’arrivée de son colis.
 
 
-
 Coté Vendeur :
 
 - [ ] Suivre les ventes
-- [ ] mettre le contrat en pdf
 - [ ] Rendre l'accès sécurisé au page vendeur
 
 
@@ -42,7 +40,6 @@ Coté MarketPlace :
 
 - [ ] Afficher son chiffre d'affaires
 - [ ] Rendre l'accès sécurisé au page admin
-
 
 
 Coté livreur ou préparateur : 
