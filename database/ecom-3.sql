@@ -64,17 +64,18 @@ CREATE TABLE `commande` (
   `valide` int(11) DEFAULT '0',
   `commande_livre` int(11) NOT NULL DEFAULT '0',
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `livraison` varchar(15) NOT NULL
+  `livraison` varchar(15) NOT NULL, 
+  `commission` decimal(5,2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
-INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_commande`, `taille`, `poids`, `adresse_livraison`, `ville`, `code_postal`, `valide`, `commande_livre`, `date_creation`, `livraison`) VALUES
-(1, 46, 'Sarah Bergere', '59.50', '81e1b6ee19cf9a5772e2821265a503', '0.3740', '10.0000', '2 Chemin des paradis', 'Cergy', 95000, 0, 0, '2023-04-14 13:35:02', 'standard'),
-(2, 49, 'Maheo pereira', '29.75', '5dad1375807ac0acd5956d68bdbe79', '40.2000', '0.9000', '11 cotes de neauphle', 'Beynes', 78650, 0, 1, '2023-04-15 07:26:56', 'standard'),
-(3, 46, 'Sara Bergere', '199.00', '8611440d20f9b9e3394366abe9477b', '10.3000', '0.7900', '2 rue de la paix', 'Paris', 75001, 1, 1, '2023-04-15 10:23:08', 'standard');
+INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_commande`, `taille`, `poids`, `adresse_livraison`, `ville`, `code_postal`, `valide`, `commande_livre`, `date_creation`, `livraison`, `commission`) VALUES
+(1, 46, 'Sarah Bergere', '59.50', '81e1b6ee19cf9a5772e2821265a503', '0.3740', '10.0000', '2 Chemin des paradis', 'Cergy', 95000, 0, 0, '2023-04-14 13:35:02', 'standard', '0'),
+(2, 49, 'Maheo pereira', '29.75', '5dad1375807ac0acd5956d68bdbe79', '40.2000', '0.9000', '11 cotes de neauphle', 'Beynes', 78650, 0, 1, '2023-04-15 07:26:56', 'standard', '0'),
+(3, 46, 'Sara Bergere', '199.00', '8611440d20f9b9e3394366abe9477b', '10.3000', '0.7900', '2 rue de la paix', 'Paris', 75001, 1, 1, '2023-04-15 10:23:08', 'standard', '0');
 
 -- --------------------------------------------------------
 
