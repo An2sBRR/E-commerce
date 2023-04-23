@@ -33,7 +33,7 @@ Coté Client :
 Coté Vendeur :
 
 - [ ] Suivre les ventes
-- [ ] Rendre l'accès sécurisé au page vendeur
+
 
 
 Coté MarketPlace :
