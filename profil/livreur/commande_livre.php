@@ -1,4 +1,9 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
+        header('Location: ../../index.php');
+    }
+?>
 <!------------cette page permet de validé les commandes, ce qui permet de voir l'acheminement coté client--------------------->
 
 <?php

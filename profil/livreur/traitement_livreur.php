@@ -1,5 +1,10 @@
 <?php
-  session_start();
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
+        header('Location: ../../index.php');
+    }
+?>
+<?php
   require_once '../../include/config.php'; // On inclut la connexion à la bdd
 // on appelle la table utilisateuur pour prendre l'id
   $requete=$bdd->prepare('SELECT id FROM utilisateurs WHERE token = ?');
