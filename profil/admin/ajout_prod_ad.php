@@ -1,5 +1,11 @@
-<?php 
+<?php
     session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+?>
+<?php 
+   
     require '../../include/config.php';
     $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
     $requete->execute();

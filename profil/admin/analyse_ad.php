@@ -1,4 +1,9 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

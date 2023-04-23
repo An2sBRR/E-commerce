@@ -1,4 +1,9 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+?>
 <?php
 include_once '../../include/config.php'; 
 $id = $_GET['id'];
