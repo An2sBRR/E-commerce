@@ -124,7 +124,7 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
             <td><?php echo $commande['date_creation'] ?></td>
             <td>
                 <!------------on regarde l'etat de la commande, si l'etat est validé alors on affiche livré---------------------->
-                <?php if ($commande['commande_livre'] == 0) : ?>
+                <?php if ($commande['commande_livre'] == 1) : ?>
                     <a class="btn btn-success btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=1">Colis livré</a>
                     <?php else: ?>
                     <a class="btn btn-danger btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=0">Colis en cours de livraison</a>
