@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un vendeur</title>
+    <title>Contrat</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
    
@@ -54,28 +54,29 @@
   <p>Chaque partie peut résilier le contrat à tout moment, moyennant un préavis de 30 jours. La résiliation doit être notifiée par écrit dans l'espace demande contact, seul l'admin peut gerer cette modification.</p>
   <strong>Confidentialité :</strong>
   <p>Les deux parties s'engagent à maintenir la confidentialité des informations échangées dans le cadre de ce contrat.</p>
-  <strong>Loi applicable :</strong>
-  <p>Ce contrat est régi par les lois en vigueur dans le pays où est établie la marketplace.</p>
-
+  
   <!-- Ajouter les balises pour la signature électronique -->
-  <h2>Signature :</h2>
+  <br><br><br><br>
+  <h5>Signature de : <?php 
+                            require '../../include/config.php';
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                            echo ucfirst($resultat['prenom'])." ";
+                            echo ucfirst($resultat['nom']);
+                        ?></h5>
   <canvas id="signature-pad" style="border: 1px solid black; padding: 10px;"></canvas>
-  <br>
+  <br>   <form>
   <button id="clear-button">Effacer la signature</button>
-  <button id="generate-pdf-button">Générer le PDF</button>
+  <button id="impression-bouton" type="button" onclick="imprimer_page()">Imprimer cette page</button>
 
+</form>
 
-<script>
-  // Créer une nouvelle instance de SignaturePad
-  var canvas = document.getElementById('signature-pad');
-  var signaturePad = new SignaturePad(canvas);
-
-  // Effacer la signature lorsque le bouton "Effacer" est cliqué
-  document.getElementById('clear-button').addEventListener('click', function(event) {
-    signaturePad.clear();
-  });
-
-
+ <!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE ---> 
+<script type="text/javascript">
+function imprimer_page(){
+  window.print();
+} 
   // Créer une nouvelle instance de SignaturePad
 var canvas = document.getElementById('signature-pad');
 var signaturePad = new SignaturePad(canvas);
@@ -84,30 +85,12 @@ var signaturePad = new SignaturePad(canvas);
 document.getElementById('clear-button').addEventListener('click', function(event) {
   signaturePad.clear();
 });
+</script>
 
-
-// Générer le PDF lorsque le bouton "Générer le PDF" est cliqué
-document.getElementById('generate-pdf-button').addEventListener('click', function() {
-  // Récupérer les données de la signature sous forme d'image PNG
-  var imageData = signaturePad.toDataURL();
-
-  // Envoyer les données de la signature au serveur pour générer le PDF, etc.
-  // Vous pouvez utiliser Ajax pour envoyer les données au serveur.
-
-  // Par exemple, pour envoyer les données via un formulaire :
-  var form = document.createElement('form');
-  form.method = 'POST';
-  form.action = 'generate_pdf.php';
-
-  var input = document.createElement('input');
-  input.type = 'hidden';
-  input.name = 'signature-data';
-  input.value = imageData;
-  form.appendChild(input);
-
-  document.body.appendChild(form);
-  form.submit();
-});
-
+<!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE ---> 
+<script type="text/javascript">
+function imprimer_page(){
+  window.print();
+}
 </script>
 </div>
