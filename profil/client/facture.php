@@ -85,12 +85,17 @@
                     echo "<p>Livraison : ".ucfirst($commande['livraison'])."</p>";
                     echo "<p>Total : ".$commande['total']." €</p>";
                 ?>
+<!-- BOUTON QUI PERMET D'IMPRIMER LA COMMANDE PASSÉ + DE L'ENREGISTRER EN PDF--->
+                           <form>
+  <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
+</form>
                 <thead>
                 <tr>
                     <th>Article</th>
                     <th>Prix unitaire</th>
                     <th>Quantité</th>
                     <th>Total</th>
+                   
                 </tr>
                 </thead>
                 </tbody>
@@ -108,11 +113,16 @@
                         echo "</tr>";
                     }
                 ?>  
-
             </table>
             </div>
             </main>
         </div>
     </div>
+<!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE ---> 
+    <script type="text/javascript">
+function imprimer_page(){
+  window.print();
+}
+</script>
 </body>
 </html>
