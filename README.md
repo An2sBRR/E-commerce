@@ -18,7 +18,7 @@ Hors Cahier des Charges :
 - [ ] Faire les vérifications en php et js pour contact
 - [X] Faire les commissions
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
-- [ ] Faire un texte pour remplir la page index 
+- [..] Faire un texte pour remplir la page index 
 - [X] Faire un texte qui explique qu'il n'y a pas de message de contact au lieu que la page soit vide
 - [ ] Probleme avec le tri décroissant pour les produits en discount
 
