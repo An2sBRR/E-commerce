@@ -32,8 +32,7 @@ Coté Client :
 - [ ] recevra une notification de l’arrivée de son colis.
 
 Coté Vendeur :
-
-- [ ] Suivre les ventes
+FINI
 
 Coté MarketPlace :
 
