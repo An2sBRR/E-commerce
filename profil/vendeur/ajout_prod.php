@@ -1,35 +1,23 @@
-<?php
+<!-- On a securisé la page c'est a dire le vendeur a acces qu'au page vendeur que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --><?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
     }
 ?>
-
 <?php 
     require '../../include/config.php';
     $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
     $requete->execute();
     $id = $requete->fetchColumn();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un produit</title>
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/sidenav.css" rel="stylesheet">
-    <link href="../css/header2.css" rel="stylesheet">
-    <link href="../css/index.css" rel="stylesheet">
-    <link href="../css/profilpage.css" rel="stylesheet">
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un vendeur</title><link href="../css/bootstrap.css" rel="stylesheet"><link href="../css/bootstrap-icons.css" rel="stylesheet"><link href="../css/sidenav.css" rel="stylesheet"><link href="../css/header2.css" rel="stylesheet"><link href="../css/index.css" rel="stylesheet"><link href="../css/profilpage.css" rel="stylesheet"><script src="../js/bootstrap.js"></script><script src="../js/plotly-2.18.2.min.js"></script><script src="../js/graph.js"></script>
 </head>
-
+<!-- permet d'avoir le menu de la page vendeur-->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -40,10 +28,7 @@
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
-        </div>
+              </a></div></div></div>
     </header>
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
@@ -85,11 +70,14 @@
             <main class="col overflow-auto h-100 w-100">
 
             <?php
+            //on se connecte a la base de donnée 
             require_once '../../include/config.php';
             ?>
-                <h4>Ajouter produit</h4>
+                <h4>Ajouter produit</h4> <!-- notre titre--> 
                 <?php
-                if (isset($_POST['ajouter'])) {
+                // vérifie si le formulaire a été soumis en vérifiant si la variable $_POST['ajouter'] est définie. 
+                //Si elle est définie, cela signifie que le bouton d'envoi a été cliqué et que les données du formulaire ont été envoyées au serveur.
+                if (isset($_POST['ajouter'])) { 
                     $libelle = $_POST['libelle'];
                     $prix = $_POST['prix'];
                     $hauteur = $_POST['hauteur'];
@@ -100,7 +88,7 @@
                     $quantite = $_POST['quantite'];
                     $date = date('Y-m-d H:i:s');
 
-                    $filename = 'produit.png';
+                    $filename = 'produit.png'; // Cette ligne initialise la variable $filename à "produit.png" par défaut.
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
                         $filename = '../data/'.uniqid() . $image;
@@ -130,31 +118,17 @@
 
                 }
                 ?>
+                <!--- formulaire pour rentrer les produits--->
                 <form method="post" enctype="multipart/form-data">
-                    <label class="form-label">Libelle</label>
-                    <input type="text" class="form-control" name="libelle">
-
-                    <label class="form-label">Prix</label>
-                    <input type="number" class="form-control" step="0.1" name="prix" min="0">
-
-                    <label class="form-label">Hauteur</label>
-                    <input type="number" class="form-control" step="0.1" name="hauteur" min="0">
-
-                    <label class="form-label">Poids</label>
-                    <input type="number" class="form-control" step="0.1" name="poids" min="0">
-
+                    <label class="form-label">Libelle</label><input type="text" class="form-control" name="libelle">
+                    <label class="form-label">Prix</label> <input type="number" class="form-control" step="0.1" name="prix" min="0">
+                    <label class="form-label">Hauteur</label><input type="number" class="form-control" step="0.1" name="hauteur" min="0">
+                    <label class="form-label">Poids</label><input type="number" class="form-control" step="0.1" name="poids" min="0">
                     <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
                     <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
-                    
-
-                    <label class="form-label">Description</label>
-                    <textarea class="form-control" name="description"></textarea>
-
-                    <label class="form-label">Quantité</label>
-                    <input type="number" class="form-control" name="quantite" min="0" required="required"></input>
-
-                    <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image">
+                    <label class="form-label">Description</label> <textarea class="form-control" name="description"></textarea>
+                    <label class="form-label">Quantité</label><input type="number" class="form-control" name="quantite" min="0" required="required"></input>
+                    <label class="form-label">Image</label><input type="file" class="form-control" name="image">
 
                     <?php
                     $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);

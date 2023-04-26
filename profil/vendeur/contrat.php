@@ -1,4 +1,5 @@
-<?php
+<!-- On a securisé la page c'est a dire le vendeur a acces qu'au page vendeur que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --><?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');

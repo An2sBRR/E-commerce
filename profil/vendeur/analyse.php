@@ -1,5 +1,5 @@
-
-<?php
+<!-- On a securisé la page c'est a dire le vendeur a acces qu'au page vendeur que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --><?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
@@ -21,7 +21,7 @@
     <script src="../js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
+<!-- permet d'avoir le menu de la page vendeur-->
 <body>
     <header class="shadow rounded-3 bg-light" id="header-box" >
         <div class="container-fluid col-11" id="header-container">
@@ -115,29 +115,21 @@
                             },
                             options: {
                                 scales: {
-                                    xAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Mois'
-                                        }
-                                    }],
                                     yAxes: [{
                                         ticks: {
-                                            beginAtZero: true,
-                                            min: 0,
-                                            stepSize: 1
-                                            
+                                            beginAtZero: true
                                         },
                                         scaleLabel: {
                                             display: true,
                                             labelString: 'Nombre de ventes'
                                         }
-                                    }]                                    
-                                },
-                                elements: {
-                                    line: {
-                                        tension: 0.3
-                                    }
+                                    }],
+                                    xAxes: [{
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Mois'
+                                        }
+                                    }]
                                 }
                             }
                         });
