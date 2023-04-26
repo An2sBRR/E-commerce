@@ -58,7 +58,7 @@ sinon affiche compte non existant
                         <input type="email"  name="email"  placeholder="Email &#128233" required="required" autocomplete="off" >
                         <input type="password" type="password"  name="password" placeholder="password &#x1F512" required="required" autocomplete="off">
                     </div>
-                    <p class="inscription">Je suis <span style="text-decoration: underline; color: red;"> client </span> et je n'ai pas de <span>compte</span>.Je m'en <span><a href="inscription.php">crée</span> un.</a></p>
+                    <p class="inscription">Je n'ai pas enocre de <span>compte</span>.Je m'en <span><a href="inscription.php">crée</span> un.</a></p>
                     <div class="form-group">
                 </div>   
                     <button type="submit" class="btn btn-primary btn-block">Connexion</button>
