@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -11,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un vendeur</title>
+    <title>Votre Analyse</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -19,8 +18,7 @@
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/profilpage.css" rel="stylesheet">
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -77,41 +75,63 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
+            <?php 
+                require '../../include/config.php';
+                $requete = $bdd->prepare("SELECT DATE_FORMAT(c.date_creation, '%Y-%m') as mois, SUM(lc.quantite) AS quantite_vendue
+                                            FROM ligne_commande lc
+                                            INNER JOIN commande c ON lc.id_commande = c.id
+                                            INNER JOIN produit p ON lc.id_produit = p.id
+                                            WHERE p.id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = ?)
+                                            GROUP BY mois
+                                            ORDER BY mois
+                                            ");
+                $requete->execute([$_SESSION['user']]);
+                $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
+                // On va stocker des données dans des tableaux pour les utiliser en php
+                $mois = array();
+                $quantite = array();
+                foreach ($result as $row) {
+                    array_push($mois, $row['mois']);
+                    array_push($quantite, $row['quantite_vendue']);
+                }                 
+            ?> 
             <h4>Votre progression :</h4>
-                    <div id="ProgressionGraph" class="ProgressionGraph"></div>
+                    <canvas id="ProgressionGraph"></canvas>
                     <script>
-
-                      var layout = {font: {size: 18},
-                                    title: "Progression",
-                                    yaxis: {title: 'chiffre d affaire (€)', showgrid: false},
-                                    xaxis: {showgrid: false},
-                                    paper_bgcolor: 'rgba(0,0,0,0)',
-                                    plot_bgcolor: 'rgba(0,0,0,0)'}
-                      var config = {responsive: true};
-
-                      var trace1 = {
-                        x: [1, 2, 3, 4, 5, 6],
-                        y: [88, 86, 78, 76, 75, 78],
-                        type: 'scatter',
-                        mode: 'lines + dot',
-                        line: {color: "#702CF6"},
-                        name: 'votre chiffre'
-                        };
-
-                        var trace2 = {
-                        x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                        y: [80, 80, 80, 80, 80, 80,80, 80, 80, 80],
-                        mode: 'lines',
-                        line: {dash: 'dot', width: 4, color: "#F29700"},
-                        name: 'votre objectif'
-                        };
-
-                      var data = [trace1, trace2];
-
-                      TESTER = document.getElementById('ProgressionGraph');
-
-                      Plotly.newPlot(TESTER, data, layout, config);
+                        var balise = document.getElementById('ProgressionGraph').getContext('2d');
+                        var graph = new Chart(balise, {
+                            type: 'line',
+                            data: {
+                                labels: <?php echo json_encode($mois); ?>,
+                                datasets: [{
+                                    label: 'Nombre de ventes',
+                                    data: <?php echo json_encode($quantite); ?>,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Nombre de ventes'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Mois'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
                     </script>
             </main>
         </div>
