@@ -405,12 +405,12 @@ ING 1 GI GROUPE 4 -->
                 switch ($num[2]) {
                     case "decroissant":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs  WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs  WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix_reduit DESC;')->fetchAll(PDO::FETCH_OBJ);}
                         else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "croissant":
                         if ($num[0]=="cat") {
-                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie=(SELECT id FROM categorie WHERE libelle LIKE \''.$num[1].'\') ORDER BY prix_reduit ASC;')->fetchAll(PDO::FETCH_OBJ);}
                         else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
                       break;
                     case "recente":
