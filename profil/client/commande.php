@@ -101,7 +101,7 @@ sinon l'utilisateur est redireigé sur la page index -->
             <tr>
                 <!-- on appelle dans la base de donnée commande 'l'id de l'utilisateur
                 on fait de meme pour les commandes, le total et la date de creation ---->
-                <
+                
                 <td><?php echo $commande['id']?></td>
                 <td><?php echo $commande['numero_commande'] ?></td>
                 <td><?php echo $commande['total']?> €</td>

@@ -1,9 +1,12 @@
+<!-- On a securisé la page c'est a dire le client a acces qu'au page client que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --> 
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
 ?>
+<!-- permet d'avoir le menu de la page client -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -70,52 +73,57 @@
                     </ul>
                 </div>
             </aside>
+<!-- fin du menu  -->
             <main class="col overflow-auto h-100 w-100">
             <div class="container py-2">
             <table class="table table-striped table-hover">
+                <!---- on se connecte a la base de donnée commande ---> 
                 <?php
                     require '../../include/config.php';
                     $id_commande = $_GET['id']; 
                     $commande_query = $bdd->query("SELECT * FROM commande WHERE id = $id_commande");
-
+//si la base de donnée n'arrive pas a se connecter  alors un message s'affiche en expliquant le probleme 
                     if ($commande_query === false) {
                         print_r($bdd->errorInfo()); // Affiche le message d'erreur de PDO
+ //sinon la commande peut s'executer normalement
                     } else {
                         $commande = $commande_query->fetch(PDO::FETCH_ASSOC);
                     }
-                    // Affichage de l'en-tête de la facture
+                    // Affichage de l'en-tête de la facture avec les données personnel du client 
+                    // son numero de commande, la date, le nom prenom, livraison et le total de commande
                     echo "<h1>Facture JeuxVente.fr</h1>";
                     echo "<p>Commande n° : ".$commande['numero_commande']."</p>";
                     echo "<p>Date : ".$commande['date_creation']."</p>";
                     echo "<p>Client : ".$commande['nom_prenom']."</p>";
                     echo "<p>Livraison : ".ucfirst($commande['livraison'])."</p>";
-                    echo "<p>Total : ".$commande['total']." €</p>";
+                    echo "<p>Total : ".round($commande['total'],2)." €</p>";
                 ?>
-<!-- BOUTON QUI PERMET D'IMPRIMER LA COMMANDE PASSÉ + DE L'ENREGISTRER EN PDF--->
-                           <form>
-  <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
-</form>
+
+<!-- en cliquant sur le bouton "imprimer page", il fait appel a un script qui permet d'imprimer la facture --->
+                        <form><input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" /></form>
                 <thead>
+        <!--- tableau affichant les differentes informations ---> 
                 <tr>
                     <th>Article</th>
                     <th>Prix unitaire</th>
                     <th>Quantité</th>
                     <th>Total</th>
-                   
                 </tr>
                 </thead>
                 </tbody>
                 <?php 
+//on fait appel a la base de donnée pour afficher l'image, le prix.. en s'aidant de la table ligne_commande qui stock la quantité, id_produit... 
                     $requete = $bdd->prepare('SELECT produit.image, produit.prix, produit.discount, ligne_commande.quantite FROM commande JOIN ligne_commande ON commande.id = ligne_commande.id_commande JOIN produit ON ligne_commande.id_produit = produit.id WHERE commande.id = ?');
                     $requete->execute([$id_commande]);
                     $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultats as $resultat) {
+ //on affiche donc l'article, le prix unitaire la quantité et le total  
                         $prix = $resultat['prix']*(1-$resultat['discount']/100);
                         echo "<tr>";
                         echo "<td><img src =../".$resultat['image']." width=100></td>";
-                        echo "<td>".round($prix ,2)." €</td>";
+                        echo "<td>".$prix." €</td>";
                         echo "<td>".$resultat['quantite'] . "</td>";
-                        echo "<td>".round($prix*$resultat['quantite'],2)." €</td>";
+                        echo "<td>".$prix*$resultat['quantite']." €</td>";
                         echo "</tr>";
                     }
                 ?>  

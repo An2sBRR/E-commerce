@@ -1,9 +1,13 @@
+<!-- On a securisé la page c'est a dire le client a acces qu'au page client que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --> 
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
 ?>
+<!-- permet d'avoir le menu de la page client -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -80,12 +84,13 @@
                     </ul>
                 </div>
             </aside>
+ <!-----FIN DU MENU ----->
             <main class="col overflow-auto h-100 w-100">
                 <div class="bg-light border rounded-3 p-3">
                 <a name="0"><div class="d-flex justify-content-center"><h2>Livraison</h2></div>
                 <div class="d-flex justify-content-center"><h3>Temps de préparation : 1-3 jours</h3></div>
                 <br>
-
+<!---- Cette partie concerne le mode de livraison, il explique toutes les conditions ----> 
 <table>
   <tr colspan="3" style="background-color: #D3D3D3;"><th>Mode de livraison</th><th>Temps de livraison</th><th>Frais</th></tr>
   <tr><td>Livraison Standard</td><td>5 jours ouvrables</td><td>5.00€—Pour chaque livraison<br> Gratuit—Avec l'abonnement.</td></tr><tr>
@@ -101,6 +106,7 @@
 <p>Veuillez cliquer sur le bouton "Confirmer la livraison" dans les 6 mois à compter de la date d'expédition. Après cela, le bouton deviendra gris et ne pourra plus être utilisé pour obtenir des points supplémentaires.</p>
 <p>Dans la plupart des cas, le colis sera livré dans les délais estimés. Cependant, la date réelle de livraison peut être changée par les vols, les conditions météorologiques ou d'autres facteurs externes. Veuillez-vous référer aux informations de suivi pour une date de livraison plus précise.</p>
 
+<!---- Cette partie concerne le retour des articles, il explique toutes les conditions et le temps de preparation ----> 
 <div class="d-flex justify-content-center"><h2>Retour</h2></div>
 <a name="1"><div class="d-flex justify-content-center"><h3>Temps de préparation : 1-3 jours</h3></div>
                 <br>
@@ -120,9 +126,9 @@
   <a href="commande.php" style="background-color: #000000; color: white; padding: 12px 24px; text-decoration: none; display: inline-block; border-radius: 4px; font-size: 18px;">Commencer votre retour</a>
 </div>
 
+<!---- Cette partie concerne les politiques de confidentialité, il explique toutes les conditions ----> 
 <div class="bg-light border rounded-3 p-3">
 <a name="2"><div class="d-flex justify-content-center"><h2>Politique de confidentialité</h2></div>
-
 </br>
 <p>Nous accordons une grande importance à la protection de vos données personnelles et à la confidentialité de vos informations. Cette politique de confidentialité explique comment <strong><em>nous recueillons, utilisons et partageons vos données personnelles</strong></em>lorsque vous utilisez notre site e-commerce.</p>
 <strong>Collecte de données personnelles</strong>

@@ -1,9 +1,13 @@
+<!-- On a securisé la page c'est a dire le client a acces qu'au page client que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index --> 
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
 ?>
+<!-- permet d'avoir le menu de la page client -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -70,6 +74,7 @@
                     </ul>
                 </div>
             </aside>
+ <!-----FIN DU MENU ----->
             <main class="col overflow-auto h-100 w-100">
                 <div class="bg-light border rounded-3 p-3">
                     <h2>Votre Profil : Client </h2>
@@ -77,42 +82,39 @@
                         <i id="log-logo1" class="bi bi-person-circle"></i>
                     </div>
                     <div class="d-flex justify-content-center"><h3>
+<!--- on se connecte a la vase de donnée pour avoir le nom et prenom de l'utilisateur-->
                     <?php 
                             require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
                             $resultat = $requete->fetch();
+                            //suite a cette requette on affiche le prenom et le nom de l'utilisateur 
                             echo ucfirst($resultat['prenom'])." ";
                             echo ucfirst($resultat['nom']);
                         ?></h3>
                     </div>
+<!--- on va faire de meme avec les informations personnel on va donc demander son pseudo,l'adresse mail, et la ville
+nous alons donc faire le meme processus --->
                     <h4>Information personnel :</h4>
                     <div class="container">
                         <div class="col-md-12">
                     <p> Pseudo : <?php 
-                            require '../../include/config.php';
-                            $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
-                            $requete->execute([$_SESSION['user']]);
-                            $resultat = $requete->fetch();
+                            require '../../include/config.php'; $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch();
                             echo ucfirst($resultat['pseudo'])." ";
                         ?></p>
 
                         <p> Adresse mail : <?php 
-                            require '../../include/config.php';
-                            $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
-                            $requete->execute([$_SESSION['user']]);
-                            $resultat = $requete->fetch();
+                            require '../../include/config.php';$requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch();
                             echo ucfirst($resultat['email'])." ";
                         ?></p>
                     <p> Ville : <?php 
-                            require '../../include/config.php';
-                            $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
-                            $requete->execute([$_SESSION['user']]);
-                            $resultat = $requete->fetch();
+                            require '../../include/config.php';$requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch();
                             echo ucfirst($resultat['ville'])." ";
                         ?></p>
-            
-                            <?php 
+                            <?php
+//lorsque le mot de passe a été changé par l'utilisateur, il recoit un message d'erreur ou de succes 
+//cependant si l'utilisateur rentre un mauvais mot de passe actuel  un message d'erreur s'affiche
+// et si l'utilisateur decide de changer son mot de passe alors une notification succes apparait
                                     if(isset($_GET['err'])){
                                         $err = htmlspecialchars($_GET['err']);
                                         switch($err){
@@ -133,7 +135,8 @@
                     </div>
                 </div>    
      
-                <!-- Modal -->
+                <!-- Modalité pour changer le mot de passe 
+                une pop up apparait avec un formulaire --> 
                 <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -154,24 +157,13 @@
                                     <label for='new_password_retype'>Re tapez le nouveau mot de passe</label>
                                     <input type="password" id="new_password_retype" name="new_password_retype" class="form-control" required/>
                                     <br />
+                                    <!-- en appuyant sur envoyer, les données sont envoyé a change_mdp.php, les données sont alors vérifié--> 
                                     <button type="submit" class="btn btn-success">Sauvegarder</button>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-                </div>                    
-            </main>
-        </div>
-    </div>
-
-    </div>
+                            </div></div> </div></div></main></div></div></div></main> </div></div></div>
                     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
