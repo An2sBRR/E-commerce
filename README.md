@@ -29,7 +29,6 @@ Hors Cahier des Charges :
 Coté Client :
 
 - [ ] Retourner l'article
-- [ ] Pouvoir comparer les livraisons des différents vendeurs
 - [ ] recevra une notification de l’arrivée de son colis.
 
 Coté Vendeur :
