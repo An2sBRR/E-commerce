@@ -4,8 +4,7 @@ sinon l'utilisateur est redireigé sur la page index --><?php
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
     }
-?>
-<?php 
+?><?php 
     require '../../include/config.php';
     $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
     $requete->execute();
@@ -13,22 +12,8 @@ sinon l'utilisateur est redireigé sur la page index --><?php
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un produit</title>
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/sidenav.css" rel="stylesheet">
-    <link href="../css/header2.css" rel="stylesheet">
-    <link href="../css/index.css" rel="stylesheet">
-    <link href="../css/profilpage.css" rel="stylesheet">
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
+<head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vos produit</title><link href="../css/bootstrap.css" rel="stylesheet"><link href="../css/bootstrap-icons.css" rel="stylesheet"><link href="../css/sidenav.css" rel="stylesheet"><link href="../css/header2.css" rel="stylesheet"><link href="../css/index.css" rel="stylesheet"><link href="../css/profilpage.css" rel="stylesheet"><script src="../js/bootstrap.js"></script><script src="../js/plotly-2.18.2.min.js"></script><script src="../js/graph.js"></script>
 </head>
-
 
 <body>
 <header class="shadow rounded-3 bg-light" id="header-box" >
@@ -39,11 +24,7 @@ sinon l'utilisateur est redireigé sur la page index --><?php
             </div>
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
-        </div>
+                <i id="log-logo" class="bi bi-person-circle"></i></a> </div>  </div></div>
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
@@ -83,12 +64,12 @@ sinon l'utilisateur est redireigé sur la page index --><?php
                     </ul>
                 </div>
             </aside>
-            <main class="col overflow-auto h-100 w-100">
-                <div class="container py-2">
+<!---fin du menu vendeur ----> 
+            <main class="col overflow-auto h-100 w-100"> <div class="container py-2">
                     <h2>Liste des produits</h2>
-                    <a href="ajout_prod.php" class="btn btn-primary">Ajouter produit</a>
-                    <table class="table table-striped table-hover">
+                    <a href="ajout_prod.php" class="btn btn-primary">Ajouter produit</a><table class="table table-striped table-hover">
                         <thead>
+                            <!--- tableau concernant les differentes informations---> 
                             <tr>
                                 <th>#ID</th>
                                 <th>Libelle</th>
