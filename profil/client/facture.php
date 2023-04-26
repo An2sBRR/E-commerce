@@ -113,9 +113,9 @@
                         $prix = $resultat['prix']*(1-$resultat['discount']/100);
                         echo "<tr>";
                         echo "<td><img src =../".$resultat['image']." width=100></td>";
-                        echo "<td>".$prix." €</td>";
+                        echo "<td>".round($prix ,2)." €</td>";
                         echo "<td>".$resultat['quantite'] . "</td>";
-                        echo "<td>".$prix*$resultat['quantite']." €</td>";
+                        echo "<td>".round($prix*$resultat['quantite'],2)." €</td>";
                         echo "</tr>";
                     }
                 ?>  
