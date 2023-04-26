@@ -22,6 +22,7 @@ Hors Cahier des Charges :
 - [X] Faire un texte qui explique qu'il n'y a pas de message de contact au lieu que la page soit vide
 - [ ] Probleme avec le tri décroissant pour les produits en discount
 - [ ] Ajouter les catégories liés à la base de données dans le footer au moins 
+- [ ] Changer la livraison -> pb si on se désabonne on ne sait plus le prix de la livraison
 
 
 
