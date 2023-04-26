@@ -158,7 +158,7 @@
                                         
                                             if (!$nom_prenom || !preg_match("/^([a-zA-ZÀ-ÖØ-öø-ÿ]+([ -][a-zA-ZÀ-ÖØ-öø-ÿ]+)*){1,2}$/", $nom_prenom)) {
                                                 echo "<h6 class='erreur'> Nom et prénom invalides</h6>";
-                                            } else if (!$adresse || !preg_match("/^\d+\s+([a-zA-ZÀ-ÖØ-öø-ÿ']+(\s+[a-zA-ZÀ-ÖØ-öø-ÿ']+)*[a-zA-ZÀ-ÖØ-öø-ÿ']*)$/", $adresse)) {
+                                            } else if (!$adresse || !preg_match("/^\d+\s+([a-zA-ZÀ-ÖØ-öø-ÿ'-]+(\s+[a-zA-ZÀ-ÖØ-öø-ÿ'-]+)*[a-zA-ZÀ-ÖØ-öø-ÿ'-]*)$/", $adresse)) {
                                                 echo "<h6 class='erreur'>Adresse invalide</h6>";
                                             } else if (!$ville || !preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-ZÀ-ÖØ-öø-ÿ\s-]*[a-zA-ZÀ-ÖØ-öø-ÿ]$/', $ville)) {
                                                 echo "<h6 class='erreur'>Ville invalide</h6>";
