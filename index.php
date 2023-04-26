@@ -114,8 +114,8 @@ ING 1 GI GROUPE 4 -->
       <div> 
       <p id="blabla">Chez JeuxVente, vous trouverez tout le nécessaire pour passer un excellent moment de détente. Solo, à plusieurs, en famille ou entre amis, vous y trouverez 
         assurément votre bonheur !
-        Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous assurer la meilleure qualité possible. <br> Pour tout problème, réclamation ou simple demande de contact,
-        n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace utilisateur ou en cliquant ici ! <br> Sachez également que vous pouvez accéder à des
+        Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous assurer la meilleure qualité possible. Pour tout problème, réclamation ou simple demande de contact,
+        n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace utilisateur ou en cliquant ici ! Sachez également que vous pouvez accéder à des
         avantages et offres promotionnelles en vous abonnant ici.
       </p>
     </div>
@@ -133,7 +133,7 @@ ING 1 GI GROUPE 4 -->
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="row">
-                      <div class="col-md-4" >
+                      <div class="col-md-4">
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">
                             <!--Date-->
@@ -144,24 +144,24 @@ ING 1 GI GROUPE 4 -->
                           <div class="item-box-blog-body">
                             <!--Heading-->
                             <div class="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>UNO</h5>
                               </a>
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>12$</p>
+                              <p>12€</p>
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Super jeu en amis ou en famille</p>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <div class="mt"> <a onclick=ZOOM(22) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4" >
+                      <div class="col-md-4">
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">
                             <!--Date-->
@@ -178,13 +178,13 @@ ING 1 GI GROUPE 4 -->
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>20$</p>
+                              <p>20€</p>
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Jeu de strat&eacutegie pour deux joueurs</p>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <div class="mt"> <a onclick=ZOOM(27) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
@@ -206,13 +206,13 @@ ING 1 GI GROUPE 4 -->
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>199$</p>
+                              <p>199€</p>
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Univers Mario</p>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <div class="mt"> <a onclick=ZOOM(48) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
@@ -223,7 +223,7 @@ ING 1 GI GROUPE 4 -->
                   <!--.item-->
                   <div class="carousel-item ">
                     <div class="row">
-                      <div class="col-md-4" >
+                      <div class="col-md-4">
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">
                             <!--Date-->
@@ -240,13 +240,13 @@ ING 1 GI GROUPE 4 -->
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>22.5$</i> Comments(3)</p>
+                              <p>22.5€</i> Comments(3)</p>
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Jeu de lettres pour les amateurs de mots</p>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <div class="mt"> <a onclick=ZOOM(26) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
@@ -268,18 +268,18 @@ ING 1 GI GROUPE 4 -->
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>29.75$</p>
+                              <p>29.75€</p>
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Jeu de soci&eacutet&eacute classique pour toute la famille</p>
                             </div>
-                            <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                            <div class="mt"> <a onclick=ZOOM(23) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4" >
+                      <div class="col-md-4">
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">
                             <!--Date-->
@@ -296,13 +296,13 @@ ING 1 GI GROUPE 4 -->
                             </div>
                             <!--Data-->
                             <div class="item-box-blog-data" style="padding: px 15px;">
-                              <p>22.99$</p>
+                              <p>22.99€</p>
                             </div>
                             <!--Txt-->
                             <div class="item-box-blog-text">
-                              <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
+                              <p>Bloquer vos adversaires sans piti&eacute</p>
                             </div>
-                             <div class="mt"> <a href="#" tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                             <div class="mt"> <a onclick=ZOOM(53) tabindex="0" class="btn bg-blue-ui white read">Plus de détails</a> </div>
                             <!--Plus de détails Button-->
                           </div>
                         </div>
