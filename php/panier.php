@@ -156,9 +156,9 @@
                                             $date = date('Y-m-d H:i:s');
                                             $numero_commande = bin2hex(random_bytes(15));
                                         
-                                            if (!$nom_prenom || !preg_match("/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zà-öø-ÿ]+(\s[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-Zà-öø-ÿ]*){1}$/", $nom_prenom)) {
+                                            if (!$nom_prenom || !preg_match("/^([a-zA-ZÀ-ÖØ-öø-ÿ]+([ -][a-zA-ZÀ-ÖØ-öø-ÿ]+)*){1,2}$/", $nom_prenom)) {
                                                 echo "<h6 class='erreur'> Nom et prénom invalides</h6>";
-                                            } else if (!$adresse || !preg_match('/^\d+\s+([a-zA-Z]+\s)*[a-zA-Z]+$/', $adresse)) {
+                                            } else if (!$adresse || !preg_match("/^\d+\s+([a-zA-ZÀ-ÖØ-öø-ÿ']+(\s+[a-zA-ZÀ-ÖØ-öø-ÿ']+)*[a-zA-ZÀ-ÖØ-öø-ÿ']*)$/", $adresse)) {
                                                 echo "<h6 class='erreur'>Adresse invalide</h6>";
                                             } else if (!$ville || !preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-ZÀ-ÖØ-öø-ÿ\s-]*[a-zA-ZÀ-ÖØ-öø-ÿ]$/', $ville)) {
                                                 echo "<h6 class='erreur'>Ville invalide</h6>";
