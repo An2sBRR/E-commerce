@@ -56,6 +56,7 @@ if(!$("#abonne").length){ //si la personne n'est pas abonné on va modifier une 
     }
     total = parseFloat($("#total").text());
     var result = total+livraison;
+    result = Math.round(result * Math.pow(10,2)) / Math.pow(10,2);
     $(".total_final").text("Total avec livraison : "+result+" €");
 }
 
@@ -79,6 +80,7 @@ $("#livraison").change(function(){  //on refait la même chose quand la personne
         }
         total = parseFloat($("#total").text());
         var result = total+livraison;
+        result = Math.round(result * Math.pow(10,2)) / Math.pow(10,2);
         $(".total_final").text("Total avec livraison : "+result+" €");
     }
 });
