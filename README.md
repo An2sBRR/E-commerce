@@ -20,7 +20,7 @@ Hors Cahier des Charges :
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 - [ ] Faire un texte pour remplir la page index 
 - [X] Faire un texte qui explique qu'il n'y a pas de message de contact au lieu que la page soit vide
-- [ ] Probleme avec le tri décroissant pour les produits en discount
+- [X] Probleme avec le tri décroissant pour les produits en discount
 - [ ] Ajouter les catégories liés à la base de données dans le footer au moins 
 - [ ] Changer la livraison -> pb si on se désabonne on ne sait plus le prix de la livraison
 
