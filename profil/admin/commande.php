@@ -91,6 +91,7 @@
             <th>Numéro commande</th>
             <th>Total</th>
             <th>Date</th>
+            <th>Etat</th>
             <th>Opérations</th>
         </tr>
         </thead>
@@ -107,6 +108,11 @@
                 <td><?php echo $commande['numero_commande'] ?></td>
                 <td><?php echo $commande['total'] ?> <i class="fa fa-solid fa-dollar"></i></td>
                 <td><?php echo $commande['date_creation'] ?></td>
+                <td><?php 
+                    if($commande['valide'] == 1){
+                        echo "Accepté"; 
+                    }else echo "En attente...";
+                    ?></td>
                 <td><a class="btn btn-primary btn-sm" href="afficher_commande.php?id=<?php echo $commande['id']?>">Afficher détails</a></td>
             </tr>
             <?php
