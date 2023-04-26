@@ -143,7 +143,7 @@
                                             <option value='express'>Livraison express (1 à 2 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "8.00 €";} echo "</option>
                                         </select><br><br>";
                             echo "<h4 class='text-danger total_final'>";
-                            if(getAbonnement() == 1){echo "Total avec votre abonnement : "; $total = $total*(1-0.1); echo $total." €";}
+                            if(getAbonnement() == 1){echo "Total avec votre abonnement : "; $total = $total*(1-0.1); echo round($total,2)." €";}
                             echo "</h4><br>";  
                                         
                                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
