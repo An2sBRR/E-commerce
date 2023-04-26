@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html lang="fr">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,13 +67,13 @@ sinon le compte existe deja*/
         <div class="inputs">
         <select name="statut">
             <option value="client">Client</option>
-            <option value="vendeur">Vendeur</option>
+            <option value="veneur">Vendeur</option>
             <option value="livreur">Livreur</option>
         </select><br>
-        <input type="text" name="nom" placeholder="nom" required="required" autocomplete="off">
-        <input type="text" name="prenom" placeholder="Prenom" required="required" autocomplete="off">
+        <input type="text" name="nom" placeholder="Nom" required="required" autocomplete="off">
+        <input type="text" name="prenom" placeholder="Prénom" required="required" autocomplete="off">
             <input type="text" name="pseudo" placeholder="Pseudo" required="required" autocomplete="off">
-            <input type="text" name="ville" placeholder="ville" required="required" autocomplete="off">
+            <input type="text" name="ville" placeholder="Ville" required="required" autocomplete="off">
             <input type="email" name="email"  placeholder="Email" required="required" autocomplete="off">
             <input type="password" name="password" placeholder="Mot de passe" required="required" autocomplete="off">
         </div>
