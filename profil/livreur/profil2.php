@@ -1,3 +1,5 @@
+<!-- On a securisé la page c'est a dire le livreur a acces qu'au page livreur que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
@@ -83,43 +85,24 @@
                     </div>
                     <div class="d-flex justify-content-center">
                         <h3>
+            <!--- on se connecte a la base de donnée pour acceder a ses differentes informations ---> 
                             <?php 
                             require '../../include/config.php';
-                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
-                            $requete->execute([$_SESSION['user']]);
-                            $resultat = $requete->fetch();
-                            echo ucfirst($resultat['prenom'])." ";
-                            echo ucfirst($resultat['nom']);
-                        ?></h3>
-                    </div>
-                    </br></br>
+                            //on selectionne donc le nom et prenom dans utilisateur et on l'affiche dans le profil 
+                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch();echo ucfirst($resultat['prenom'])." ";echo ucfirst($resultat['nom']);?></h3>
+                    </div></br></br>
                       <!------------AFFICHAGE DES INFORMATIONS----->
                     <h4>Information personnel:</h4>
                     <div class="container">
                         <div class="col-md-12">
-                            <p> Pseudo : <strong><?php 
-                                $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
-                                $requete->execute([$_SESSION['user']]);
-                                $resultat = $requete->fetch();
-                                echo ucfirst($resultat['pseudo'])." ";
-                            ?></strong></p>
-
-                            <p> Adresse mail :<strong> <?php 
-                                $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
-                                $requete->execute([$_SESSION['user']]);
-                                $resultat = $requete->fetch();
-                                echo ucfirst($resultat['email'])." ";
-                            ?></strong></p>
-                            <p> Ville : <strong><?php 
-                                $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
-                                $requete->execute([$_SESSION['user']]);
-                                $resultat = $requete->fetch();
-                                echo ucfirst($resultat['ville'])." ";
-                            ?></strong></p>
-                        </div>
-                    </div></br>
+                        <!--- on fait de meme avec le pseudo, l'adresse mail et la ville du livreur --> 
+                            <p> Pseudo : <strong><?php $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch(); echo ucfirst($resultat['pseudo'])." "?></strong></p>
+                            <p> Adresse mail :<strong> <?php $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch(); echo ucfirst($resultat['email'])." "?></strong></p>
+                            <p> Ville : <strong><?php $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');$requete->execute([$_SESSION['user']]);$resultat = $requete->fetch();echo ucfirst($resultat['ville'])." "?></strong></p> </div></div></br>
     <!------------DEMANDE DES INFORMATIONS POUR SON PERMIS, ET LES HORAIRES----->
                     <?php
+        //Lorsque le livreur se connecte sur son profil il doit remplir differentes informations concernant ses horaires de travail, 
+        // il doit aussi indiquer son type de permis et validé les informations
                       $requete = $bdd->prepare('SELECT id FROM livreur WHERE id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = ?)');
                       $requete->execute([$_SESSION['user']]);
                       $resultat = $requete->fetchColumn();
@@ -154,6 +137,8 @@
                             </div>
                             <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41849.53154480777!2d2.0043335859188436!3d49.03729566715635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6f4c72416d693%3A0x40b82c3688b34e0!2sCergy!5e0!3m2!1sfr!2sfr!4v1679224313614!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                             <br><br>
+                            <!---- lorsqu'il sauvegarde ses données, ils sont automatiquement enregistré dans la base de données (non modifiable) 
+                            et ils sont afficher sur son profil ---> 
                             <p class="text-danger">Une fois sauvegardées, ces informations ne pourront être modifié.</p>
                             <button type="submit" class="button button1 w-25">Sauvegarder</button>
                         </form>

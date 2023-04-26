@@ -1,3 +1,5 @@
+<!-- On a securisé la page c'est a dire le livreur a acces qu'au page livreur que si il est connecté 
+sinon l'utilisateur est redireigé sur la page index -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
@@ -100,21 +102,23 @@
 foreach ($commandes as $commande) {
      ?>
     <tr>
-
+<!-- on appelle donc les informations numero commande, adresse livraison, code postal et date de creation-->
     <td><?php echo $commande['id']?></td>
     <td><?php echo $commande['numero_commande'] ?></td>
     <td><?php echo $commande['adresse_livraison']?></td>
     <td><?php echo $commande['code_postal']?></td>
     <td><?php echo $commande['date_creation']?></td>
     <td><?php 
-    //si la commande est validé, un 1 apparait dans la base de donnée, alors on marque "validé"
+
+    //si la commande est validé par l'admin, un 1 apparait dans la base de donnée,
+    // grace a notre conditions, un message apparait en marquant "validé" sinon en attente 
     if($commande['valide'] == 1)
     {
         echo "Validé"; 
     }else echo "En attente...";
     ?></td>
             <?php
-            //si la commande est validé par l'admin alors le livreur a acces aux informations personnel
+            //de plus, si la commande est validé par l'admin alors le livreur a acces aux informations personnel sinon n'y a pas acces 
     if($commande['valide'] == 1){
         echo "<td><a class='btn btn-primary btn-sm' href='afficher_com_lv.php?id=".$commande['id']."'>Afficher détails</a></td>";
 
