@@ -1,3 +1,4 @@
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -114,21 +115,29 @@
                             },
                             options: {
                                 scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Nombre de ventes'
-                                        }
-                                    }],
                                     xAxes: [{
                                         scaleLabel: {
                                             display: true,
                                             labelString: 'Mois'
                                         }
-                                    }]
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            min: 0,
+                                            stepSize: 1
+                                            
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Nombre de ventes'
+                                        }
+                                    }]                                    
+                                },
+                                elements: {
+                                    line: {
+                                        tension: 0.3
+                                    }
                                 }
                             }
                         });
