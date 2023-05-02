@@ -31,12 +31,9 @@ Coté Client :
 - [ ] Retourner l'article
 - [ ] recevra une notification de l’arrivée de son colis.
 
-Coté Vendeur :
-FINI
+Coté Vendeur :FINI
 
-Coté MarketPlace :
-
-FINI
+Coté MarketPlace : FINI
 
 Coté livreur ou préparateur : 
 
