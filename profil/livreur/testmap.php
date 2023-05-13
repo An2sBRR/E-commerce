@@ -1,6 +1,4 @@
-
-<!-- On a securisé la page c'est a dire le livreur a acces qu'au page livreur que si il est connecté 
-sinon l'utilisateur est redireigé sur la page index --><?php
+<?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
         header('Location: ../../index.php');

@@ -1,5 +1,3 @@
-<!-- On a securisé la page c'est a dire le livreur a acces qu'au page livreur que si il est connecté 
-sinon l'utilisateur est redireigé sur la page index -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){
@@ -115,7 +113,6 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
         $lignesCommandes = $sqlStateLigne_commande->fetchAll(PDO::FETCH_OBJ);
         ?>
         <tr>
-            <!--on va appeller dans le tableau, l'id , le nom prenom, la taille et le poids du colis et les differentes informations ---> 
             <td><?php echo $commande['id'] ?></td>
             <td><?php echo $commande['nom_prenom'] ?></td>
             <td><?php echo $commande['numero_commande'] ?></td>
@@ -126,9 +123,8 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
             <td><?php echo $commande['code_postal'] ?></td>
             <td><?php echo $commande['date_creation'] ?></td>
             <td>
-                <!------------on regarde l'etat de la commande, si l'etat est validé alors on affiche livré 
-                sinon le colis affiche en cours de livraison ---------------------->
-                <?php if ($commande['commande_livre'] == 1) : ?>
+                <!------------on regarde l'etat de la commande, si l'etat est validé alors on affiche livré---------------------->
+                <?php if ($commande['commande_livre'] == 0) : ?>
                     <a class="btn btn-success btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=1">Colis livré</a>
                     <?php else: ?>
                     <a class="btn btn-danger btn-sm" href="commande_livre.php?id=<?= $commande['id']?>&etat=0">Colis en cours de livraison</a>
