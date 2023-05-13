@@ -15,7 +15,7 @@ Hors Cahier des Charges :
 - [ ] Lier le slider aux meilleurs ventes
 - [X] Faire la page panier
 - [X] Ajouter des petites annimations qui rendent le site 🤌
-- [ ] Faire les vérifications en php et js pour contact
+- [X] Faire les vérifications en php et js pour contact
 - [X] Faire les commissions
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 - [ ] Faire un texte pour remplir la page index 
