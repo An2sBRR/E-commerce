@@ -67,7 +67,7 @@ sinon le compte existe deja*/
         <div class="inputs">
         <select name="statut">
             <option value="client">Client</option>
-            <option value="veneur">Vendeur</option>
+            <option value="vendeur">Vendeur</option>
             <option value="livreur">Livreur</option>
         </select><br>
         <input type="text" name="nom" placeholder="Nom" required="required" autocomplete="off">
