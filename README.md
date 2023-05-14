@@ -12,7 +12,6 @@ Hors Cahier des Charges :
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 - [ ] Faire un texte pour remplir la page index 
 - [ ] Ajouter les catégories liés à la base de données dans le footer au moins 
-- [ ] Changer la livraison -> pb si on se désabonne on ne sait plus le prix de la livraison
 
 Coté Client :
 
