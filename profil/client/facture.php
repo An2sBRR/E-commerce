@@ -118,7 +118,7 @@ sinon l'utilisateur est redireigé sur la page index -->
                     $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultats as $resultat) {
  //on affiche donc l'article, le prix unitaire la quantité et le total  
-                        $prix = $resultat['prix']*(1-$resultat['discount']/100);
+                        $prix = number_format($resultat['prix']*(1-$resultat['discount']/100),2);
                         echo "<tr>";
                         echo "<td><img src =../".$resultat['image']." width=100></td>";
                         echo "<td>".$prix." €</td>";
