@@ -29,7 +29,8 @@ Hors Cahier des Charges :
 Coté Client :
 
 - [ ] Retourner l'article
-- [ ] recevra une notification de l’arrivée de son colis.
+- [X] recevra une notification de l’arrivée de son colis.
+- [ ] envoyer un mail 
 
 Coté Vendeur :FINI
 
