@@ -143,7 +143,7 @@
                                             <option value='express'>Livraison express (1 à 2 jours) - ";if(getAbonnement() == 1){echo "Gratuit";}else{echo "8.00 €";} echo "</option>
                                         </select><br><br>";
                             echo "<h4 class='text-danger total_final'>";
-                            if(getAbonnement() == 1){echo "Total avec votre abonnement : "; $total = $total*(1-0.1); echo round($total,2)." €";}
+                            if(getAbonnement() == 1){echo "Total avec votre abonnement : "; $total = number_format($total*(1-0.1),2); echo $total." €";}
                             echo "</h4><br>";  
                                         
                                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -156,11 +156,11 @@
                                             $date = date('Y-m-d H:i:s');
                                             $numero_commande = bin2hex(random_bytes(15));
                                         
-                                            if (!$nom_prenom || !preg_match("/^([a-zA-ZÀ-ÖØ-öø-ÿ]+([ -][a-zA-ZÀ-ÖØ-öø-ÿ]+)*){1,2}$/", $nom_prenom)) {
+                                            if (!$nom_prenom || !preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ'-]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ'-]+)*$/", $nom_prenom)) {
                                                 echo "<h6 class='erreur'> Nom et prénom invalides</h6>";
-                                            } else if (!$adresse || !preg_match("/^\d+\s+([a-zA-ZÀ-ÖØ-öø-ÿ'-]+(\s+[a-zA-ZÀ-ÖØ-öø-ÿ'-]+)*[a-zA-ZÀ-ÖØ-öø-ÿ'-]*)$/", $adresse)) {
+                                            } else if (!$adresse || !preg_match("/^[0-9]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ' -]+)+$/", $adresse)) {
                                                 echo "<h6 class='erreur'>Adresse invalide</h6>";
-                                            } else if (!$ville || !preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ][a-zA-ZÀ-ÖØ-öø-ÿ\s-]*[a-zA-ZÀ-ÖØ-öø-ÿ]$/', $ville)) {
+                                            } else if (!$ville || !preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/", $ville)) {
                                                 echo "<h6 class='erreur'>Ville invalide</h6>";
                                             } else if (!$code_postal || !preg_match('/^[0-9]{5}$/', $code_postal)) {
                                                 echo "<h6 class='erreur'>Code postal invalide</h6>";
@@ -169,6 +169,10 @@
                                             } else if(!isset($_SESSION['user'])){
                                                 echo "<h6 class='erreur'>Veuillez-vous connecter</h6>";
                                             }else{
+                                                $adresse = htmlentities($adresse, ENT_QUOTES, 'UTF-8');
+                                                $nom_prenom = htmlentities($nom_prenom, ENT_QUOTES, 'UTF-8');
+                                                $ville = htmlentities($ville, ENT_QUOTES, 'UTF-8');
+
                                                 $stmt = $bdd->prepare('SELECT id FROM utilisateurs WHERE token = ?');
                                                 $stmt->execute([$_SESSION['user']]);
                                                 $id_client = $stmt->fetchColumn();
