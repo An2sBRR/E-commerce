@@ -7,29 +7,16 @@
 
 Hors Cahier des Charges : 
 
-- [X] Faire le css des pages catégories
-- [X] Faire le css des pages produits
-- [X] Modifier la page du compte du client 
-- [X] Créer une table dans le sql pour y mettre les commandes
-- [X] Mettre le vrai vendeur pour les produits et catégories et trouver une solution pour celui de la marketplace
 - [ ] Lier le slider aux meilleurs ventes
-- [X] Faire la page panier
-- [X] Ajouter des petites annimations qui rendent le site 🤌
-- [X] Faire les vérifications en php et js pour contact
-- [X] Faire les commissions
+- [ ] Ajouter des petites annimations qui rendent le site 🤌
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 - [ ] Faire un texte pour remplir la page index 
-- [X] Faire un texte qui explique qu'il n'y a pas de message de contact au lieu que la page soit vide
-- [X] Probleme avec le tri décroissant pour les produits en discount
 - [ ] Ajouter les catégories liés à la base de données dans le footer au moins 
-- [X] Changer la livraison -> pb si on se désabonne on ne sait plus le prix de la livraison
-
-
+- [ ] Changer la livraison -> pb si on se désabonne on ne sait plus le prix de la livraison
 
 Coté Client :
 
 - [ ] Retourner l'article
-- [X] recevra une notification de l’arrivée de son colis.
 - [ ] envoyer un mail 
 
 Coté Vendeur :FINI
