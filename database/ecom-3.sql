@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorie` (
   `id` int NOT NULL,
-  `libelle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
+  `libelle` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `description` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -76,14 +76,14 @@ INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_comman
 (1, 54, 'Marie Bergere', '302.15', '525ccf9ab2f7e20547924b7c0c6558', '54.8000', '5.6300', '2 rue du quartier', 'Paris', 75011, 0, 0, '2023-01-17 09:34:03', 'express', '0.00'),
 (2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 0, 0, '2023-01-10 09:34:52', 'relais', '1.66'),
 (3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 0, 0, '2022-03-26 09:48:22', 'relais', '9.95'),
-(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l\'hautil', 'Cergy', 95000, 0, 0, '2023-01-26 09:55:56', 'standard', '3.90'),
+(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de lhautil', 'Cergy', 95000, 0, 0, '2023-01-26 09:55:56', 'standard', '3.90'),
 (5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 09:58:10', 'relais', '1.20'),
 (6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 10:00:16', 'relais', '1.66'),
 (7, 46, 'Sarah Bergere', '24.00', '15b1fe1daf058b2fdd013c696e9c77', '4.0000', '2.0000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2022-09-26 10:02:02', 'relais', '0.00'),
 (8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-04-26 10:04:16', 'express', '3.33'),
 (9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-03-10 10:06:15', 'express', '0.60'),
-(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l\'Oise', 'Cergy', 95000, 0, 0, '2023-01-02 10:07:54', 'relais', '6.93'),
-(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l\'Oise', 'Cergy', 95000, 0, 0, '2022-12-17 10:08:37', 'relais', '4.00'),
+(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de lOise', 'Cergy', 95000, 0, 0, '2023-01-02 10:07:54', 'relais', '6.93'),
+(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de lOise', 'Cergy', 95000, 0, 0, '2022-12-17 10:08:37', 'relais', '4.00'),
 (12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '0202-11-26 10:10:13', 'express', '10.97'),
 (13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2023-02-25 11:11:42', 'express', '4.00'),
 (14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2022-11-03 11:18:17', 'relais', '1.66');
@@ -150,7 +150,7 @@ CREATE TABLE `livreur` (
 
 CREATE TABLE `produit` (
   `id` int NOT NULL,
-  `libelle` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
+  `libelle` varchar(100) CHARACTER SET armscii8 NOT NULL,
   `prix` decimal(5,2) NOT NULL,
   `hauteur` decimal(14,4) NOT NULL,
   `poids` decimal(14,4) NOT NULL,
@@ -158,8 +158,8 @@ CREATE TABLE `produit` (
   `id_categorie` int NOT NULL,
   `id_utilisateurs` int NOT NULL,
   `date_creation` datetime NOT NULL,
-  `description` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
-  `image` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `image` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
   `quantite` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
