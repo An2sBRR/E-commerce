@@ -119,6 +119,7 @@
                             $poids_total += $poids*$quantite;
                             $total += $prixFinale*$quantite;
                         }
+                        $total = number_format($total,2);
                         echo "<h4 class='fw-bold text-black total'>Total (hors livraison) : <span id='total'>".$total."</span> €</h4><br>";
                         if(!isset($_SESSION['user']))echo "<h6 class='connexion'>Veuillez-vous connecter <a id='connexion' href='co.php'>ici</a> pour valider votre panier.</h6><br>";
                         echo "<div class='row'>
@@ -169,6 +170,15 @@
                                             } else if(!isset($_SESSION['user'])){
                                                 echo "<h6 class='erreur'>Veuillez-vous connecter</h6>";
                                             }else{
+                                                if(getAbonnement() == 0){
+                                                    if ($livraison == "standard") {
+                                                        $total += 5;
+                                                    } elseif ($livraison == "relais") {
+                                                        $total += 2;
+                                                    } elseif ($livraison == "express") {
+                                                        $total += 8;
+                                                    }
+                                                }
                                                 $adresse = htmlentities($adresse, ENT_QUOTES, 'UTF-8');
                                                 $nom_prenom = htmlentities($nom_prenom, ENT_QUOTES, 'UTF-8');
                                                 $ville = htmlentities($ville, ENT_QUOTES, 'UTF-8');
