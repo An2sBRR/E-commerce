@@ -83,21 +83,12 @@
 
             <main class="col overflow-auto h-100">
                 <div class="bg-light border rounded-3 p-3">                
-                    <h2>Bienvenue sur votre espace Admin  <?php 
-                            require '../../include/config.php';
-                            $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
-                            $requete->execute([$_SESSION['user']]);
-                            $resultat = $requete->fetch();
-                            echo ucfirst($resultat['prenom'])." ";
-                            echo ucfirst($resultat['nom']);
-                        ?></h2>
-                    <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profil et le nombre d'inscrit sur votre espace analyse.</p> 
-                  
-                
+                    <h2>Bienvenue sur votre espace Admin</h2><br>
+                    <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profil et le nombre d'inscrit sur votre espace analyse.</p>
                     <hr />
                 </div>
             </main>
         </div>
     </div>    
 </body>
-</html>    
+</html>
