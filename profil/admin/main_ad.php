@@ -91,7 +91,7 @@
                             echo ucfirst($resultat['prenom'])." ";
                             echo ucfirst($resultat['nom']);
                         ?></h2>
-                    <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profit, le nombre de visiteurs sur votre espace analyse.</p> 
+                    <p>L'un des avantages les plus importants d'une page d'administration est la capacité de surveiller l'évolution des ventes en temps réel. Vous pouvez donc suivre plus facilement vos ventes, votre profil et le nombre d'inscrit sur votre espace analyse.</p> 
                   
                 
                     <hr />
