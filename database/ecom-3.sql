@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 26, 2023 at 11:34 AM
+-- Generation Time: May 14, 2023 at 07:35 PM
 -- Server version: 8.0.32-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3-4ubuntu2.18
 
@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -76,17 +77,18 @@ INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_comman
 (1, 54, 'Marie Bergere', '302.15', '525ccf9ab2f7e20547924b7c0c6558', '54.8000', '5.6300', '2 rue du quartier', 'Paris', 75011, 0, 0, '2023-01-17 09:34:03', 'express', '0.00'),
 (2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 0, 0, '2023-01-10 09:34:52', 'relais', '1.66'),
 (3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 0, 0, '2022-03-26 09:48:22', 'relais', '9.95'),
-(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de lhautil', 'Cergy', 95000, 0, 0, '2023-01-26 09:55:56', 'standard', '3.90'),
+(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 0, 0, '2023-01-26 09:55:56', 'standard', '3.90'),
 (5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 09:58:10', 'relais', '1.20'),
 (6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 10:00:16', 'relais', '1.66'),
 (7, 46, 'Sarah Bergere', '24.00', '15b1fe1daf058b2fdd013c696e9c77', '4.0000', '2.0000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2022-09-26 10:02:02', 'relais', '0.00'),
 (8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-04-26 10:04:16', 'express', '3.33'),
 (9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-03-10 10:06:15', 'express', '0.60'),
-(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de lOise', 'Cergy', 95000, 0, 0, '2023-01-02 10:07:54', 'relais', '6.93'),
-(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de lOise', 'Cergy', 95000, 0, 0, '2022-12-17 10:08:37', 'relais', '4.00'),
+(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 0, 0, '2023-01-02 10:07:54', 'relais', '6.93'),
+(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 0, 0, '2022-12-17 10:08:37', 'relais', '4.00'),
 (12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '0202-11-26 10:10:13', 'express', '10.97'),
 (13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2023-02-25 11:11:42', 'express', '4.00'),
-(14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2022-11-03 11:18:17', 'relais', '1.66');
+(14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2022-11-03 11:18:17', 'relais', '1.66'),
+(15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 0, 0, '2023-05-14 19:32:52', 'relais', '2.64');
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,8 @@ INSERT INTO `ligne_commande` (`id`, `id_produit`, `id_commande`, `quantite`) VAL
 (18, 37, 13, 1),
 (19, 53, 13, 1),
 (20, 50, 14, 1),
-(21, 51, 14, 1);
+(21, 51, 14, 1),
+(22, 29, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +178,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (26, 'Scrabble', '25.00', '26.8000', '1.3500', 10, 37, 44, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 3),
 (27, 'Puissance 4', '20.00', '27.9400', '0.4600', 0, 37, 48, '2023-03-24 00:00:00', 'Jeu de strat&eacutegie pour deux joueurs', '../data/puissance-4.jpg', 18),
 (28, 'LEGO Star Wars: X-wing Starfighter', '110.00', '28.2000', '0.9900', 12, 39, 50, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
-(29, 'LEGO City: Le Poste de Police', '60.00', '26.2000', '0.4560', 12, 39, 48, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 8),
+(29, 'LEGO City: Le Poste de Police', '60.00', '26.2000', '0.4560', 12, 39, 48, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 7),
 (30, 'LEGO City - La caserne de pompiers', '90.00', '37.8000', '1.5000', 20, 39, 48, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
 (31, 'LEGO Creator - Le march&eacute d hiver', '80.00', '7.0600', '0.2800', 10, 39, 48, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
 (32, 'Jeu d&#39&eacutechecs en bois', '50.00', '5.2000', '0.8000', 0, 38, 48, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 2),
@@ -201,11 +204,11 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (52, 'Les Aventuriers du Rail', '35.01', '24.0000', '1.1000', 5, 40, 50, '2023-04-14 23:33:02', 'Cr&eacuteer votre voyage et visitez les plus grandes villes d&#39Europe tout en gagnant la partie.', '../data/aventuriers.jpeg', 5),
 (53, 'Blocus', '22.99', '12.3000', '0.5000', 0, 40, 48, '2023-04-14 23:34:02', 'Bloquer vos adversaires sans piti&eacute', '../data/blocus.jpeg', 14),
 (54, 'Splendor marvel', '36.90', '2.5000', '4.0000', 0, 37, 44, '2023-04-15 17:16:25', 'Jeu familial par excellence ', '../data/2marvel.jpg', 15),
-(55, 'marvel champions', '53.95', '2.6700', '1.3400', 0, 40, 50, '2023-04-15 17:20:55', 'marvel champions JCE est un jeu de carte strategique ', '../data/1marvel.jpg', 12),
-(56, 'course folle marvel', '19.99', '26.7000', '4.1000', 0, 40, 50, '2023-04-15 17:20:55', 'jeu strategique sur le theme de marvel ', '../data/3marvel.jpg', 25),
-(57, 'monopoly marvel', '24.00', '4.0000', '2.0000', 0, 37, 44, '2023-04-15 17:20:55', 'jouez en famille ou entre amis au Monopoly avengers ', '../data/4marvel.jpeg', 4),
-(58, 'lego marvel hulkbuster', '50.00', '5.3000', '2.6000', 0, 39, 50, '2023-04-15 17:33:27', 'Bruce banner enfile l&#39armure Hulkbuster pour defendre le Wakanda ', '../data/5marvel.jpeg', 6),
-(59, 'captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5);
+(55, 'Marvel champions', '53.95', '2.6700', '1.3400', 0, 40, 50, '2023-04-15 17:20:55', 'Marvel champions JCE est un jeu de carte strategique ', '../data/1marvel.jpg', 12),
+(56, 'Course folle marvel', '19.99', '26.7000', '4.1000', 0, 40, 50, '2023-04-15 17:20:55', 'Jeu strategique sur le theme de marvel ', '../data/3marvel.jpg', 25),
+(57, 'Monopoly marvel', '24.00', '4.0000', '2.0000', 0, 37, 44, '2023-04-15 17:20:55', 'Jouez en famille ou entre amis au Monopoly avengers ', '../data/4marvel.jpeg', 4),
+(58, 'Lego marvel hulkbuster', '50.00', '5.3000', '2.6000', 0, 39, 50, '2023-04-15 17:33:27', 'Bruce banner enfile l&#39armure Hulkbuster pour defendre le Wakanda ', '../data/5marvel.jpeg', 6),
+(59, 'Captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'Jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -300,13 +303,13 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT for table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `livreur`
