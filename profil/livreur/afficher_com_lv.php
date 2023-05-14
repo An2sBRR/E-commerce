@@ -90,16 +90,7 @@ $commande = $sqlState->fetch(PDO::FETCH_ASSOC);
  <!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
         <thead>
         <tr>
-            <th>#ID</th>
-            <th>Client</th>
-            <th>Numéro commande</th>
-            <th>taille</th>
-            <th>poids</th>
-            <th>adresse livraison </th>
-            <th>ville</th>
-            <th>code postal </th>
-            <th>Date</th>
-            <th>Opérations</th>
+            <th>#ID</th><th>Client</th><th>Numéro commande</th><th>taille</th><th>poids</th><th>adresse livraison </th><th>ville</th><th>code postal </th><th>Date</th><th>Opérations</th>
         </tr>
         </thead>
         <tbody>
