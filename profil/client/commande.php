@@ -11,19 +11,7 @@ sinon l'utilisateur est redireigé sur la page index -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Client</title>
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/sidenav.css" rel="stylesheet">
-    <link href="../css/header2.css" rel="stylesheet">
-    <link href="../css/index.css" rel="stylesheet">
-    <link href="../css/profilpage.css" rel="stylesheet">
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Espace Client</title><link href="../css/bootstrap.css" rel="stylesheet"><link href="../css/bootstrap-icons.css" rel="stylesheet"><link href="../css/sidenav.css" rel="stylesheet"><link href="../css/header2.css" rel="stylesheet"><link href="../css/index.css" rel="stylesheet"><link href="../css/profilpage.css" rel="stylesheet"><script src="../js/bootstrap.js"></script><script src="../js/plotly-2.18.2.min.js"></script><script src="../js/graph.js"></script>
 </head>
 
 <body>
@@ -31,49 +19,22 @@ sinon l'utilisateur est redireigé sur la page index -->
         <div class="container-fluid col-11" id="header-container">
           <div class=" d-flex align-items-center justify-content-between">
             <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuVente.fr</div>
-            </div>
+              <div id="title">JeuVente.fr</div></div>
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
-        </div>
+                <i id="log-logo" class="bi bi-person-circle"></i></a></div></div></div>
     </header>
-    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
-        <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
-            <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
-                <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
-                    <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
-
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto"><div class="row flex-grow-sm-1 flex-grow-0 container-fluid"><aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2"><div class="bg-light border rounded-3 p-1 h-100 sticky-top"><ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
+                         <li class="my-1">
+                            <a href="../../index.php" class="nav-link px-2 text-truncate"><i class="bi bi-house fs-5"></i><span class="d-none d-sm-inline">Accueil</span></a> </li>
                         <li class="my-1">
-                            <a href="../../index.php" class="nav-link px-2 text-truncate">
-                                <i class="bi bi-house fs-5"></i>
-                                <span class="d-none d-sm-inline">Accueil</span>
-                            </a>
-                        </li>
-                        <li class="my-1">
-                            <a href="profil_cl.php" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-layout-text-sidebar-reverse"></i></i>
-                                <span class="d-none d-sm-inline">Mon profil</span>
-                            </a>
-                        </li>
+                            <a href="profil_cl.php" class="nav-link px-2 text-truncate"><i class="bi bi-layout-text-sidebar-reverse"></i></i><span class="d-none d-sm-inline">Mon profil</span> </a></li>
                         <li class="my-1 nav-item">
-                            <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
-                                <span class="d-none d-sm-inline">Commandes</span> </a>
-                        </li>
+                            <a href="commande.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i><span class="d-none d-sm-inline">Commandes</span> </a> </li>
                         <li class="my-1">
-                            <a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
-                                <span class="d-none d-sm-inline">Politiques</span> </a>
-                        </li>
-                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
-                        <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
-                        </a>
-                    </ul>
-                </div>
-            </aside>
+                            <a href="politique.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i><span class="d-none d-sm-inline">Politiques</span> </a> </li>
+                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate"><i class="bi bi-toggle-off"></i></i><span class="d-none d-sm-inline">Déconnexion</span>
+                        </a></ul></div></aside>
 <!-----FIN DU MENU ----->
             <main class="col overflow-auto h-100 w-100">
     <div class="container py-2">
@@ -109,20 +70,28 @@ sinon l'utilisateur est redireigé sur la page index -->
                 <td><?php 
                 //lorsque le livreur va validé la livraison alors le client va avoir une notification "livré"
                 //il peut donc suivre ses commandes en voyant le statut 
-                    if($commande['valide'] == 1){
-                        echo "Livrée"; 
-                    }else echo "En route...";
-                    ?></td>
-                    <!-- permet d'afficher la facture des commandes ---> 
-                    <td><a class="btn btn-primary btn-sm" href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
-                    <!-- lorsque son colis est livré et validé sur livré il a la possibilité de retourner l'article-->
-                    <?php
-                        if($commande['valide'] == 1){
-                            echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id'".$commande['id'].">retourner l'article</a></td>";
-                        }
-                    ?>
+                if($commande['valide'] == 1){
+                    if($commande['commande_livre'] == 1){
+                        echo "Livré";
+                    } else {
+                        echo "Validation de l'admin";
+                    }
+                } else {
+                    echo "En attente...";
+                }
+            ?>
+            </td>
+            <!-- permet d'afficher la facture des commandes ---> 
+            <td><a class="btn btn-primary btn-sm" href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
+            <!-- lorsque son colis est livré et validé sur livré il a la possibilité de retourner l'article-->
+            <?php
+                if($commande['commande_livre'] == 1){
+                    echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id=".$commande['id']."'>retourner l'article</a></td>";
+                }
+            ?>    
             </tr>
-        <?php } ?>
+            <?php } ?>
+   
   </tbody>
     </table>
 </div>
