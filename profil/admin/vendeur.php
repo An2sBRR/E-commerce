@@ -37,35 +37,36 @@
     </thead>
 
     <?php
-    // Connexion à la base de données
-    require_once '../../include/config.php';
+// Connexion à la base de données
+require_once '../../include/config.php';
 
-    // Exécution d'une requête SQL pour récupérer toutes les informations des utilisateurs
-    $req = $bdd->query("SELECT * FROM utilisateurs");
+// Exécution d'une requête SQL pour récupérer toutes les informations des utilisateurs
+$req = $bdd->query("SELECT * FROM utilisateurs");
 
-    // Vérification si la requête a retourné des résultats
-    if ($req->rowCount() > 0) {
-        // Parcours de chaque utilisateur retourné par la requête
-        while($utilisateurs = $req->fetch()) {
-            // Vérification si l'utilisateur est un vendeur
-            if($utilisateurs["statut"] == "vendeur"){
-                // Affichage des informations du vendeur dans le tableau
-                echo "<tr>
-                        <td>".$utilisateurs["id"]."</td>
-                        <td>".$utilisateurs["nom"]."</td>
-                        <td>".$utilisateurs["prenom"]."</td>
-                        <td>".$utilisateurs["pseudo"]."</td>
-                        <td>".$utilisateurs["ville"]."</td>
+// Vérification si la requête a retourné des résultats
+if ($req->rowCount() > 0) {
+    // Parcours de chaque utilisateur retourné par la requête
+    while($utilisateurs = $req->fetch()) {
+        // Vérification si l'utilisateur est un vendeur
+        if($utilisateurs["statut"] == "vendeur"){
+            // Affichage des informations du vendeur dans le tableau
+            echo "<tr>
+                    <td>".$utilisateurs["id"]."</td>
+                    <td>".$utilisateurs["nom"]."</td>
+                    <td>".$utilisateurs["prenom"]."</td>
+                    <td>".$utilisateurs["pseudo"]."</td>
+                    <td>".$utilisateurs["ville"]."</td>
 
-                        <td>
-                            <!-- Bouton pour supprimer le vendeur -->
-                            <a  class='btn btn-primary' href='supp_vendeur.php?id=".$utilisateurs["id"]."'>Supprimer</a>
-                        </td>
-                      </tr>";
-            }
+                    <td>
+                        <!-- Bouton pour supprimer le vendeur -->
+                        <a  class='btn btn-primary' href='supp_vendeur.php?id=".$utilisateurs["id"]."' onclick=\"return confirm('Êtes-vous sûr de vouloir supprimer ce vendeur?');\">Supprimer</a>
+                    </td>
+                  </tr>";
         }
     }
-?>                        
+}
+?>
+                      
  
 
                     
