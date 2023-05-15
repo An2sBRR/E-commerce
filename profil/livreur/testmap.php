@@ -80,7 +80,9 @@ $origin_lng = 2.0640;
 
 // Adresse pour les destinations
 require '../../include/config.php';
-$destinations= $bdd->query('SELECT * FROM commande')->fetchAll(PDO::FETCH_OBJ);
+$resultat = $bdd->query("SELECT id FROM utilisateurs WHERE token LIKE '".$_SESSION['user']."'")->fetch(PDO::FETCH_OBJ);
+$id_utilisateur = intval($resultat->id);
+$destinations= $bdd->query("SELECT * FROM commande WHERE id_livreur LIKE ".$id_utilisateur."")->fetchAll(PDO::FETCH_OBJ);
 
 // Génération du code JavaScript pour afficher la carte avec les directions
 echo '<div id="map" style="height: 600px;"></div>';
