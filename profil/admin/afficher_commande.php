@@ -37,7 +37,7 @@
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <!-- barre de navigation -->
-            <?php include 'barre_navigation.php';?> 
+            <?php include 'barre_navigation_ad.php';?> 
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
                     <?php
