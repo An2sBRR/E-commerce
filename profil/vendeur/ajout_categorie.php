@@ -3,13 +3,14 @@
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
     }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier une catégorie</title>
+    <title>Ajouter une catégorie</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -33,8 +34,8 @@
             </div>
           </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
                 <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
@@ -73,45 +74,36 @@
                 </div>
             </aside>
             <main class="col overflow-auto h-100 w-100">
-                <h4> Modifier une catégorie <h4>
-                <?php
-                require_once '../../include/config.php';
-                $check = $bdd->prepare('SELECT * FROM categorie WHERE id=?');
-                $id = $_GET['id'];
-                $check->execute([$id]);
-
-                $category = $check->fetch(PDO::FETCH_ASSOC);
-                if (isset($_POST['modifier'])) {
-                    $libelle = $_POST['libelle'];
-                    $description = $_POST['description'];
-
-                    if (!empty($libelle) && !empty($description)) {
-                        $requete = $bdd->prepare('UPDATE categorie SET libelle = :libelle, description = :description WHERE id = :id');
-                        $requete->execute(array(
-                            'libelle' => $libelle, 
-                            'description' => $description, 
-                            'id' => $id));
-                        header('location: categorie.php');
-                    } else {
-                        ?>
-                        <div class="alert alert-danger" role="alert">
-                            La libellé et la description sont obligatoires.
-                        </div>
-                        <?php
-                    }
-                }
-
-                ?>
+                <h4> Ajouter catégorie </h4>  
                 <form method="post">
-                    <input type="hidden" class="form-control" name="id" value="<?php echo $category['id'] ?>">
-                    <label class="form-label">Libelle</label>
-                    <input type="text" class="form-control" name="libelle" value="<?php echo $category['libelle'] ?>">
-
-                    <label class="form-label">Description</label>
-                    <textarea class="form-control" name="description"><?php echo $category['description'] ?></textarea>
-
-                    <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2" name="modifier">
+                    <label class="from-label">Libellé</label>
+                    <input type="text" class="from-control" name="libelle">
+                    <label class="from-label">Description</label>
+                    <input type="text" class="from-control" name="description">
+                    <input type="submit" value="Ajouter catégorie" class="btn btn-primary my-2" name="ajouter">
                 </form>
+                <?php
+                    if(isset($_POST['ajouter'])){
+                        $libelle = $_POST['libelle'];
+                        $description = $_POST['description'];
+                        $date = date('Y-m-d H:i:s');
+
+                        if(!empty($libelle) && !empty($description)){
+                            require '../../include/config.php';
+                            $check = $bdd->prepare('INSERT INTO categorie(libelle,description,date_creation) VALUES(:libelle,:description,:date_creation)');
+                            $check->execute(array(
+                                'libelle' => $libelle,
+                                'description' => $description,
+                                'date_creation' => $date));
+                        }else{
+                            ?>
+                            <div class="alert alert-danger" role="alert">
+                                Le libellé et la description sont obligatoires.
+                            </div>
+                            <?php
+                        }
+                    }
+                ?>
             </main>
         </div>
     </div>

@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un vendeur</title>
+    <title>Liste des catégories</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -27,7 +27,7 @@
         <div class="container-fluid col-11" id="header-container">
           <div class=" d-flex align-items-center justify-content-between">
             <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuVente.fr</div>
+              <div id="title">JeuxVente.fr</div>
             </div>
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,7 +78,7 @@
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
                 <h2>Liste des catégories</h2>
-                    <a href="ajou_categorie.php" class ="btn btn-primary">Ajouter catégorie</a>
+                    <a href="ajout_categorie.php" class ="btn btn-primary">Ajouter catégorie</a>
                     <table class = "table table-striped table-hover">
                         <thead>
                             <tr>
@@ -102,7 +102,7 @@
                                 <td><?php echo $categorie['date_creation'] ?></td>
                                 <td>
                                     <a href="modif_cat.php?id=<?php echo $categorie['id'] ?>" class="btn btn-primary"> Modifier</a>
-                                    <a href="../supp_cat.php?id= <?php echo $categorie['id'] ?>" onclick="return confirm('Voulez vous vraiment supprimer la catégorie <?php echo $categorie['libelle'] ?>');" class="btn btn-danger">Supprimer</a>
+                                    <a href="supp_cat.php?id=<?php echo $categorie['id'] ?>" onclick="return confirm('Voulez vous vraiment supprimer la catégorie <?php echo $categorie['libelle'] ?>');" class="btn btn-danger">Supprimer</a>
                                 </td>
                             </tr>
                             <?php
