@@ -28,7 +28,7 @@
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuVente.fr</div>
+                    <div id="title">JeuxVente.fr</div>
                 </div>
                 <div class="dropdown text-end"><a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i id="log-logo" class="bi bi-person-circle"></i> </a></div>
             </div>
@@ -36,7 +36,7 @@
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
-            <?php include 'barre_navigation.php';?>
+            <?php include 'barre_navigation_ad.php';?>
             <!-- Début de la section principale du contenu du site -->
             <main class="col overflow-auto h-100 w-100">
                 <!-- Création d'un conteneur pour le contenu -->
