@@ -7,8 +7,7 @@
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
         header('Location: ../../index.php');
     }
-?>
-<?php
+
     // Inclusion de la configuration de la base de données
     include_once '../../include/config.php'; 
 
