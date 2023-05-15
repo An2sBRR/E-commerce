@@ -5,13 +5,10 @@ sinon l'utilisateur est redireigé sur la page index -->
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
-?>
 
-<?php 
     require_once '../../include/config.php'; // On inclu la connexion à la bdd
     // Si la session n'existe pas 
-    if(!isset($_SESSION['user']))
-    {
+    if(!isset($_SESSION['user'])){
         header('Location:../index.php');
         die();
     }
@@ -63,6 +60,4 @@ sinon l'utilisateur est redireigé sur la page index -->
         header('Location: profil_cl.php');
         die();
     }
-
-
-
+?>
