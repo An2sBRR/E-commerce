@@ -156,6 +156,7 @@
                                             $livraison = isset($_POST['livraison']) && !empty($_POST['livraison']) ? $_POST['livraison'] : null;
                                             $date = date('Y-m-d H:i:s');
                                             $numero_commande = bin2hex(random_bytes(15));
+                                            $id_livreur = $bdd->query("SELECT id FROM utilisateurs WHERE statut = 'livreur' ORDER BY RAND() LIMIT 1")->fetchColumn();
                                         
                                             if (!$nom_prenom || !preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ'-]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ'-]+)*$/", $nom_prenom)) {
                                                 echo "<h6 class='erreur'> Nom et prénom invalides</h6>";
@@ -187,8 +188,8 @@
                                                 $stmt->execute([$_SESSION['user']]);
                                                 $id_client = $stmt->fetchColumn();
                                                 
-                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison, $commission]);
+                                                $sqlState = $bdd->prepare('INSERT INTO commande VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison, $commission,$id_livreur]);
                                                 if (!$inserted) {
                                                     ?>
                                                     <div class="alert alert-danger" role="alert">
