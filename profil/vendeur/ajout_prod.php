@@ -3,9 +3,7 @@
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
     }
-?>
 
-<?php 
     require '../../include/config.php';
     $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token ="'.$_SESSION['user'].'"');
     $requete->execute();
@@ -89,7 +87,8 @@
             ?>
                 <h4>Ajouter produit</h4>
                 <?php
-                if (isset($_POST['ajouter'])) {
+                if (isset($_POST['ajouter'])) { // Vérification si le formulaire a été soumis
+                    // Récupération des valeurs du formulaire
                     $libelle = $_POST['libelle'];
                     $prix = $_POST['prix'];
                     $hauteur = $_POST['hauteur'];
@@ -99,21 +98,23 @@
                     $description = $_POST['description'];
                     $quantite = $_POST['quantite'];
                     $date = date('Y-m-d H:i:s');
-
+                    // Assignation d'une image par défaut pour le produit
                     $filename = 'produit.png';
+                    // Vérification si une image a été téléchargée
                     if (!empty($_FILES['image']['name'])) {
                         $image = $_FILES['image']['name'];
                         $filename = '../data/'.uniqid() . $image;
-                        
                     }
-                    
+                    // Vérification si les champs obligatoires ont été remplis
                     if (!empty($libelle) && !empty($prix) && !empty($categorie) && !empty($hauteur) && !empty($poids)) {
                         $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?,?)');
                         $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id, $date, $description, $filename, $quantite]);
+                        // Vérification si l'insertion a été réussie
                         if ($inserted) {
                             move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
-                        // header('location: produit.php');
+                            header('location: produit.php');
                         } else {
+                            // Affichage d'un message d'erreur si l'insertion a échoué
                             ?>
                             <div class="alert alert-danger" role="alert">
                                 Database error (40023).
@@ -121,15 +122,17 @@
                             <?php
                         }
                     } else {
+                        // Affichage d'un message d'erreur si les champs obligatoires ne sont pas remplis
                         ?>
                         <div class="alert alert-danger" role="alert">
-                            Libelle , prix , catégorie sont obligatoires.
+                            Libelle, prix, catégorie sont obligatoires.
                         </div>
                         <?php
                     }
 
                 }
                 ?>
+                <!-- Formulaire -->
                 <form method="post" enctype="multipart/form-data">
                     <label class="form-label">Libelle</label>
                     <input type="text" class="form-control" name="libelle">
@@ -159,6 +162,7 @@
                     <?php
                     $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);
                     ?>
+                    <!-- Affichage des différentes catégories -->
                     <label class="form-label">Catégorie</label>
                     <select name="categorie" class="form-control">
                         <option value="">Choisissez une catégorie</option>
