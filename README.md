@@ -11,7 +11,6 @@ Hors Cahier des Charges :
 - [ ] Ajouter des petites annimations qui rendent le site 🤌
 - [ ] Un contrat se termine à une certaine date -> faire en sorte qu'il se termine à la date
 - [ ] Faire un texte pour remplir la page index 
-- [ ] Ajouter les catégories liés à la base de données dans le footer au moins 
 
 Coté Client :
 
