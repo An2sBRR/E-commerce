@@ -115,7 +115,7 @@ header .reseauxlog:hover
     display: none;
 }
  
-@media all and (max-width: 991px)
+@media all and (max-width: 1150px)
 {
     .menu
     {
@@ -128,7 +128,7 @@ header .reseauxlog:hover
         flex-direction: column;
         background-color: rgba(194, 216, 185, 0.5);
         backdrop-filter: blur(5px);
-        height: 220px;
+        height: auto;
     }
  
     menu .main_pages a 
@@ -525,9 +525,7 @@ div.section > div > input
     background: #41cb52;
   }
   
-  
-  
-  
+
   .item-carousel-blog-block {
     outline: medium none;
     padding: 15px;
@@ -701,15 +699,16 @@ ul.menuBas
     padding-top: 5%;
     padding-left: 0%;
     margin-bottom: 0;
-    
-  
 }
 
 ul.menuBas li
 {
     list-style: none;
-    color: #000000;
     font-size: 20px;
+}
+
+.menuBas a {
+    color: #000000;
 }
 
 ul.menuBas li:hover{
@@ -740,8 +739,6 @@ ul.menuBas li:hover{
     justify-content: center;
     margin-top: 2%;
     color:#ccc;
-   
-  
 }
 
 #Propos{
@@ -781,12 +778,4 @@ ul.menuBas li:hover{
     margin-right: 8%;
     font-size: 25px;
     text-align: justify;
-
 }
-
-
-
-
-
-
-
