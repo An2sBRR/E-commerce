@@ -91,11 +91,6 @@ sinon l'utilisateur est redirigé sur la page index -->
                                 <td><a class="btn btn-primary btn-sm"
                                         href="facture.php?id=<?php echo $commande['id']?>">Afficher facture</a>
                                     <!-- lorsque son colis est livré et validé sur livré il a la possibilité de retourner l'article-->
-                                    <?php
-                                        if($commande['commande_livre'] == 1){
-                                            echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id=".$commande['id']."'>retourner l'article</a></td>";
-                                        }
-                                    ?>
                             </tr>
                             <?php } ?>
                         </tbody>
