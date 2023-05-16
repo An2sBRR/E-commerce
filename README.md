@@ -14,7 +14,7 @@ Hors Cahier des Charges :
 
 Coté Client :
 
-- [ ] Retourner l'article
+- [X] Retourner l'article
 - [ ] envoyer un mail 
 
 Coté Vendeur :FINI
