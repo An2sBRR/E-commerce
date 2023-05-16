@@ -6,11 +6,12 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil livreur</title>
+    <title>Colis</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/sidenav.css" rel="stylesheet">
@@ -18,23 +19,23 @@
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/profilpage.css" rel="stylesheet">
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
 </head>
 <!-----EN TETE // MENU -------->
+
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
@@ -50,12 +51,13 @@
                         </li>
                         <li class="my-1 nav-item">
                             <a href="#" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-layout-text-sidebar-reverse"></i></i>
+                                <i class="bi bi-layout-text-sidebar-reverse"></i></i>
                                 <span class="d-none d-sm-inline">Colis</span>
                             </a>
                         </li>
                         <li class="my-1">
-                            <a href="testmap.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
+                            <a href="testmap.php" class="nav-link px-2 text-truncate"><i
+                                    class="bi bi-card-text fs-5"></i>
                                 <span class="d-none d-sm-inline">Planning livraison</span> </a>
                         </li>
                         <li class="my-1">
@@ -63,67 +65,71 @@
                                 <span class="d-none d-sm-inline">Profil</span> </a>
                         </li>
                         <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
-                        <i class="bi bi-toggle-off"></i></i>
-                                <span class="d-none d-sm-inline">Déconnexion</span>
+                            <i class="bi bi-toggle-off"></i></i>
+                            <span class="d-none d-sm-inline">Déconnexion</span>
                         </a>
                     </ul>
                 </div>
             </aside>
 
-<!------------FIN MENU ---------------------->
+            <!------------FIN MENU ---------------------->
 
             <main class="col overflow-auto h-100 w-100">
                 <div class="container py-2">
-            <div class="container py-2">
-    <h2>Liste des Colis</h2>
-    <table class="table table-striped table-hover">
+                    <div class="container py-2">
+                        <h2>Liste des Colis</h2>
+                        <table class="table table-striped table-hover">
 
-<!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Numéro commande</th>
-            <th>Adresse livraison</th>
-            <th>Code postal</th>
-            <th>Date</th>
-            <th>Statut </th>
-            <th>Opérations</th>
-        </tr>
-        </thead>
-        <tbody>
- <?php
-                        //connexion à la base de données
-                        require_once '../../include/config.php'; 
-                        //requete sql pour prendre eles données de la table
-                        $commandes = $bdd->query('SELECT commande.*,utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
+                            <!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Numéro commande</th>
+                                    <th>Adresse livraison</th>
+                                    <th>Code postal</th>
+                                    <th>Date</th>
+                                    <th>Statut </th>
+                                    <th>Opérations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    //connexion à la base de données
+                                    require_once '../../include/config.php'; 
+                                    //requete sql pour prendre eles données de la table
+                                    $commandes = $bdd->query('SELECT commande.*, utilisateurs.pseudo as "pseudo" FROM commande INNER JOIN utilisateurs ON commande.id_client = utilisateurs.id WHERE commande.id_livreur = (SELECT id FROM utilisateurs WHERE token = "'.$_SESSION['user'].'") ORDER BY commande.date_creation DESC')->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($commandes as $commande) {
-     ?>
-    <tr>
+                                    foreach ($commandes as $commande) {
+                                ?>
+                                <tr>
 
-    <td><?php echo $commande['id']?></td>
-    <td><?php echo $commande['numero_commande'] ?></td>
-    <td><?php echo $commande['adresse_livraison']?></td>
-    <td><?php echo $commande['code_postal']?></td>
-    <td><?php echo $commande['date_creation']?></td>
-    <td><?php 
-    //si la commande est validé, un 1 apparait dans la base de donnée, alors on marque "validé"
-    if($commande['valide'] == 1)
-    {
-        echo "Validé"; 
-    }else echo "En attente...";
-    ?></td>
-            <?php
-            //si la commande est validé par l'admin alors le livreur a acces aux informations personnel
-    if($commande['valide'] == 1){
-        echo "<td><a class='btn btn-primary btn-sm' href='afficher_com_lv.php?id=".$commande['id']."'>Afficher détails</a></td>";
+                                    <td><?php echo $commande['id']?></td>
+                                    <td><?php echo $commande['numero_commande'] ?></td>
+                                    <td><?php echo $commande['adresse_livraison']?></td>
+                                    <td><?php echo $commande['code_postal']?></td>
+                                    <td><?php echo $commande['date_creation']?></td>
+                                    <td><?php 
+                                        //si la commande est validé, un 1 apparait dans la base de donnée, alors on marque "validé"
+                                        if($commande['valide'] == 1)
+                                        {
+                                            echo "Validé"; 
+                                        }else echo "En attente...";
+                                        ?>
+                                    </td>
+                                    <?php
+                                        //si la commande est validé par l'admin alors le livreur a acces aux informations personnel
+                                        if($commande['valide'] == 1){
+                                            echo "<td><a class='btn btn-primary btn-sm' href='afficher_com_lv.php?id=".$commande['id']."'>Afficher détails</a></td>";
 
-    }
-        }
-        ?>
-  </tbody>
-    </table>
-</div>
-
+                                        }
+                                    }?>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
 </html>
