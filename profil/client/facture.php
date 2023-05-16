@@ -5,6 +5,14 @@ sinon l'utilisateur est redirigé sur la page index -->
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
+
+
+
+    /*
+                        if($commande['commande_livre'] == 1){
+                            echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id=".$commande['id']."'>retourner l'article</a></td>";
+                     }
+    */
 ?>
 <!-- permet d'avoir le menu de la page client -->
 <!DOCTYPE html>
@@ -75,22 +83,30 @@ sinon l'utilisateur est redirigé sur la page index -->
                     <th>Prix unitaire</th>
                     <th>Quantité</th>
                     <th>Total</th>
+                    <?php
+                        if($commande['commande_livre'] == 1){
+                            echo "<th>Retourner l'article</th>";
+                        }
+                    ?>
                 </tr>
                 </thead>
                 </tbody>
                 <?php 
 //on fait appel a la base de donnée pour afficher l'image, le prix.. en s'aidant de la table ligne_commande qui stock la quantité, id_produit... 
-                    $requete = $bdd->prepare('SELECT produit.image, produit.prix, produit.discount, ligne_commande.quantite FROM commande JOIN ligne_commande ON commande.id = ligne_commande.id_commande JOIN produit ON ligne_commande.id_produit = produit.id WHERE commande.id = ?');
+                    $requete = $bdd->prepare('SELECT produit.id, produit.image, produit.prix, produit.discount, ligne_commande.quantite FROM commande JOIN ligne_commande ON commande.id = ligne_commande.id_commande JOIN produit ON ligne_commande.id_produit = produit.id WHERE commande.id = ?');
                     $requete->execute([$id_commande]);
                     $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultats as $resultat) {
  //on affiche donc l'article, le prix unitaire la quantité et le total  
-                        $prix = $resultat['prix']*(1-$resultat['discount']/100);
+                        $prix = number_format($resultat['prix']*(1-$resultat['discount']/100),2);
                         echo "<tr>";
                         echo "<td><img src =../".$resultat['image']." width=100></td>";
                         echo "<td>".$prix." €</td>";
                         echo "<td>".$resultat['quantite'] . "</td>";
                         echo "<td>".$prix*$resultat['quantite']." €</td>";
+                        if($commande['commande_livre'] == 1){
+                            echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id=".$commande['id']."&id_prod=".$resultat['id']."'>retourner l'article</a></td>";
+                        }
                         echo "</tr>";
                     }
                 ?>  
