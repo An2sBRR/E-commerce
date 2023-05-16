@@ -21,8 +21,6 @@ Coté Vendeur :FINI
 
 Coté MarketPlace : FINI
 
-Coté livreur ou préparateur : 
-
-- [ ] Les colis sont affectés aux livreurs selon leur disponibilité
+Coté livreur ou préparateur : FINI
  
 
