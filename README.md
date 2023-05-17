@@ -7,7 +7,7 @@
 
 Hors Cahier des Charges : 
 
-- [ ] Lier le slider aux meilleurs ventes
+- [X] Lier le slider aux meilleurs ventes
 - [ ] Ajouter des petites annimations qui rendent le site 🤌
 - [ ] Faire un texte pour remplir la page index 
 
