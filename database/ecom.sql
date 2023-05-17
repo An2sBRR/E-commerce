@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 17, 2023 at 02:54 AM
--- Server version: 8.0.32-0ubuntu0.20.04.2
+-- Generation Time: May 17, 2023 at 03:22 PM
+-- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3-4ubuntu2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorie` (
   `id` int NOT NULL,
   `libelle` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `description` varchar(255) CHARACTER SET armscii8  NOT NULL,
+  `description` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -147,6 +147,13 @@ CREATE TABLE `livreur` (
   `horaire_debut` time NOT NULL,
   `horaire_fin` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `livreur`
+--
+
+INSERT INTO `livreur` (`id`, `id_utilisateurs`, `type_permis`, `horaire_debut`, `horaire_fin`) VALUES
+(1, 45, '2', '09:30:00', '18:30:00');
 
 -- --------------------------------------------------------
 
@@ -319,7 +326,7 @@ ALTER TABLE `ligne_commande`
 -- AUTO_INCREMENT for table `livreur`
 --
 ALTER TABLE `livreur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `produit`
