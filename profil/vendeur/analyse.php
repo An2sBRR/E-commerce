@@ -28,7 +28,7 @@
         <div class="container-fluid col-11" id="header-container">
           <div class=" d-flex align-items-center justify-content-between">
             <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuVente.fr</div>
+              <div id="title">JeuxVente.fr</div>
             </div>
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
