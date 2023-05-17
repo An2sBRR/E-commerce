@@ -2,10 +2,10 @@
 -- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 15 mai 2023 à 10:44
--- Version du serveur :  8.0.33-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3-4ubuntu2.18
+-- Host: localhost:3306
+-- Generation Time: May 17, 2023 at 02:54 AM
+-- Server version: 8.0.32-0ubuntu0.20.04.2
+-- PHP Version: 7.4.3-4ubuntu2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `ecom`
+-- Database: `ecom`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Table structure for table `categorie`
 --
 
 CREATE TABLE `categorie` (
@@ -36,19 +36,19 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Déchargement des données de la table `categorie`
+-- Dumping data for table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `libelle`, `description`, `date_creation`) VALUES
-(37, 'jeu_societe', ' La forme d&#39un jeu de plateau avec des pions ou d&#39un jeu de cartes.', '2023-03-20 10:59:03'),
-(38, 'jeu_en_bois', ' Jeux traditionnels dont certains sont de grands classiques', '2023-03-20 11:00:47'),
-(39, 'lego', 'est une gamme de jouets de construction', '2023-03-20 11:01:57'),
-(40, 'strategie', 'Ideal pour utiliser ses m?ninges.', '2023-04-14 23:06:06');
+(37, 'Jeux de société', ' La forme d\'un jeu de plateau avec des pions ou d\'un jeu de cartes.', '2023-03-20 10:59:03'),
+(38, 'Jeux en bois', ' Jeux traditionnels dont certains sont de grands classiques', '2023-03-20 11:00:47'),
+(39, 'Lego', 'Lego est une gamme de jouets de construction', '2023-03-20 11:01:57'),
+(40, 'Stratégie', 'Ideal pour utiliser ses m?ninges.', '2023-04-14 23:06:06');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commande`
+-- Table structure for table `commande`
 --
 
 CREATE TABLE `commande` (
@@ -71,31 +71,31 @@ CREATE TABLE `commande` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Déchargement des données de la table `commande`
+-- Dumping data for table `commande`
 --
 
 INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_commande`, `taille`, `poids`, `adresse_livraison`, `ville`, `code_postal`, `valide`, `commande_livre`, `date_creation`, `livraison`, `commission`, `id_livreur`) VALUES
-(1, 54, 'Marie Bergere', '302.15', '525ccf9ab2f7e20547924b7c0c6558', '54.8000', '5.6300', '2 rue du quartier', 'Paris', 75011, 0, 0, '2023-01-17 09:34:03', 'express', '0.00', NULL),
-(2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 0, 0, '2023-01-10 09:34:52', 'relais', '1.66', NULL),
-(3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 0, 0, '2022-03-26 09:48:22', 'relais', '9.95', NULL),
-(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 0, 0, '2023-01-26 09:55:56', 'standard', '3.90', NULL),
-(5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 09:58:10', 'relais', '1.20', NULL),
-(6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-04-26 10:00:16', 'relais', '1.66', NULL),
-(7, 46, 'Sarah Bergere', '24.00', '15b1fe1daf058b2fdd013c696e9c77', '4.0000', '2.0000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2022-09-26 10:02:02', 'relais', '0.00', NULL),
-(8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-04-26 10:04:16', 'express', '3.33', NULL),
-(9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-03-10 10:06:15', 'express', '0.60', NULL),
-(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 0, 0, '2023-01-02 10:07:54', 'relais', '6.93', NULL),
-(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 0, 0, '2022-12-17 10:08:37', 'relais', '4.00', NULL),
-(12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '0202-11-26 10:10:13', 'express', '10.97', NULL),
-(13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2023-02-25 11:11:42', 'express', '4.00', NULL),
-(14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 0, 0, '2022-11-03 11:18:17', 'relais', '1.66', NULL),
-(15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 0, 0, '2023-05-14 19:32:52', 'relais', '2.64', NULL),
+(1, 54, 'Marie Bergere', '302.15', '525ccf9ab2f7e20547924b7c0c6558', '54.8000', '5.6300', '2 rue du quartier', 'Paris', 75011, 1, 1, '2023-01-17 09:34:03', 'express', '0.00', 58),
+(2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 1, 1, '2023-01-10 09:34:52', 'relais', '1.66', 58),
+(3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 1, 0, '2022-03-26 09:48:22', 'relais', '9.95', 45),
+(4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 1, '2023-01-26 09:55:56', 'standard', '3.90', 58),
+(5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 0, '2023-04-26 09:58:10', 'relais', '1.20', 45),
+(6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2023-04-26 10:00:16', 'relais', '1.66', 58),
+(7, 46, 'Sarah Bergere', '24.00', '15b1fe1daf058b2fdd013c696e9c77', '4.0000', '2.0000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2022-09-26 10:02:02', 'relais', '0.00', 58),
+(8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 0, '2023-04-26 10:04:16', 'express', '3.33', 58),
+(9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 0, '2023-03-10 10:06:15', 'express', '0.60', 45),
+(10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 0, '2023-01-02 10:07:54', 'relais', '6.93', 45),
+(11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 0, '2022-12-17 10:08:37', 'relais', '4.00', 45),
+(12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2022-11-26 10:10:13', 'express', '10.97', 58),
+(13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 0, '2023-02-25 11:11:42', 'express', '4.00', 45),
+(14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 1, '2022-11-03 11:18:17', 'relais', '1.66', 58),
+(15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 0, 0, '2023-05-14 19:32:52', 'relais', '2.64', 58),
 (16, 51, 'Mat&eacute;o gd', '45.00', 'c1593146ffadddeede911f2ee1ef6c', '5.2000', '0.8000', '21 boulevard de l&#039;oise', 'Cergy', 95000, 0, 0, '2023-05-15 10:32:30', 'express', '2.50', 45);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ligne_commande`
+-- Table structure for table `ligne_commande`
 --
 
 CREATE TABLE `ligne_commande` (
@@ -106,13 +106,13 @@ CREATE TABLE `ligne_commande` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Déchargement des données de la table `ligne_commande`
+-- Dumping data for table `ligne_commande`
 --
 
 INSERT INTO `ligne_commande` (`id`, `id_produit`, `id_commande`, `quantite`) VALUES
 (1, 47, 1, 1),
 (2, 41, 1, 1),
-(3, 51, 1, 1),
+(3, 51, 1, 0),
 (4, 50, 2, 1),
 (5, 51, 2, 2),
 (6, 48, 3, 1),
@@ -137,7 +137,7 @@ INSERT INTO `ligne_commande` (`id`, `id_produit`, `id_commande`, `quantite`) VAL
 -- --------------------------------------------------------
 
 --
--- Structure de la table `livreur`
+-- Table structure for table `livreur`
 --
 
 CREATE TABLE `livreur` (
@@ -151,7 +151,7 @@ CREATE TABLE `livreur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produit`
+-- Table structure for table `produit`
 --
 
 CREATE TABLE `produit` (
@@ -170,7 +170,7 @@ CREATE TABLE `produit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Déchargement des données de la table `produit`
+-- Dumping data for table `produit`
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, `id_categorie`, `id_utilisateurs`, `date_creation`, `description`, `image`, `quantite`) VALUES
@@ -203,7 +203,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (48, 'Bloc Mario', '199.00', '10.3000', '0.7900', 0, 39, 50, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 16),
 (49, 'Lego aquarium  ', '50.00', '5.9000', '0.3000', 0, 39, 48, '2023-04-13 18:28:48', 'Incroyable ', '../data/aqua.jpg', 26),
 (50, 'Carcassone', '34.99', '20.0000', '0.8000', 5, 40, 50, '2023-04-14 23:04:04', 'Carcassonne est un jeu de tuile o&ugrave toute la famille peut d&eacutefendre ses chateaux et pr&egraves pour gagner le plus de point', '../data/carcassonne.jpeg', 8),
-(51, 'Risk', '27.50', '27.4000', '0.9000', 0, 40, 44, '2023-04-14 23:21:02', 'Risk est un jeu o&ugrave le but du jeu est de menez des strat&eacutegies pour acc&eacuteder &agrave la gloire!', '../data/risk.jpeg', 0),
+(51, 'Risk', '27.50', '27.4000', '0.9000', 0, 40, 44, '2023-04-14 23:21:02', 'Risk est un jeu o&ugrave le but du jeu est de menez des strat&eacutegies pour acc&eacuteder &agrave la gloire!', '../data/risk.jpeg', 1),
 (52, 'Les Aventuriers du Rail', '35.01', '24.0000', '1.1000', 5, 40, 50, '2023-04-14 23:33:02', 'Cr&eacuteer votre voyage et visitez les plus grandes villes d&#39Europe tout en gagnant la partie.', '../data/aventuriers.jpeg', 5),
 (53, 'Blocus', '22.99', '12.3000', '0.5000', 0, 40, 48, '2023-04-14 23:34:02', 'Bloquer vos adversaires sans piti&eacute', '../data/blocus.jpeg', 14),
 (54, 'Splendor marvel', '36.90', '2.5000', '4.0000', 0, 37, 44, '2023-04-15 17:16:25', 'Jeu familial par excellence ', '../data/2marvel.jpg', 15),
@@ -216,7 +216,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Table structure for table `utilisateurs`
 --
 
 CREATE TABLE `utilisateurs` (
@@ -234,7 +234,7 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 --
--- Déchargement des données de la table `utilisateurs`
+-- Dumping data for table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `pseudo`, `ville`, `email`, `password`, `abonnement`, `statut`, `token`, `date_inscription`) VALUES
@@ -250,87 +250,88 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `pseudo`, `ville`, `email`, `
 (54, 'Bergere', 'Marie', 'marie_dehaud', 'Paris', 'mariedehaud@gmail.com', '$2y$12$k5tSv/SS2L.Mn5K44K.UM.D9Run7lYrGBarnjculleMo015zv794G', 0, 'client', '3e7130f5ba5f06c085c6b61c2d8c5b9774cde31b9d3c3feb78a0a82d9d51dafb67cc49bf9500a483f343434ada263160e6e2c0222a1b4d2072f817bf8918ebe2', '2023-04-26 09:26:15'),
 (55, 'Esnee', 'Laure', 'laureesn', 'Fontenay Sous Bois', 'laureesn@gmail.com', '$2y$12$KCX99WR0gqybho8CUy3PyeOtoehX/3uX2Wd7oSUuLAo/SdchKd1rG', 0, 'client', '843b2dae0b278310478a8eabbb9b599cda497079c932ed8532957858c69680e594d19eadfab18fa848900d6ef2fa59b6a31f5e8e9f56d1db50f7f1d892407d5b', '2023-04-26 09:26:49'),
 (56, 'Bergere', 'Christian', 'abcd', 'Fontenay Sous Bois ', 'christianbergere@gmail.com', '$2y$12$EMu4G7rkzLK6mNHJJ/tzM.85GKkcM9CTKvPTdLmRABOTv4uGSDD1C', 1, 'client', 'd873c560fd3abb739b50c0cd8c6dc704fad096d9b80d0716b480945181b2e4712347f714d495f590710cbe4357bcc7892131531c725e86ff05e3ab932b589ce4', '2023-04-26 09:27:29'),
-(57, 'Pierrard', 'Charles', 'charles', 'Paris', 'charles@gmail.com', '$2y$12$Hn3uvfHz36b08owarIe67eaxS.ZTnqT24141yAqNbUZF2E/fPbUqi', 0, 'client', '00d32ae0271c441fe7f691c7e6f9b66cda862e5a52b8db20f4ad0618ed4fdf50005ac9e71092906342e8e3fd156bda16851f06a0f59a68db0b8af009f45364ca', '2023-04-26 09:28:31');
+(57, 'Pierrard', 'Charles', 'charles', 'Paris', 'charles@gmail.com', '$2y$12$Hn3uvfHz36b08owarIe67eaxS.ZTnqT24141yAqNbUZF2E/fPbUqi', 0, 'client', '00d32ae0271c441fe7f691c7e6f9b66cda862e5a52b8db20f4ad0618ed4fdf50005ac9e71092906342e8e3fd156bda16851f06a0f59a68db0b8af009f45364ca', '2023-04-26 09:28:31'),
+(58, 'Dupont', 'Léa', 'leadpt', 'Cergy', 'leadupont@gmail.com', '$2y$12$BZnwScTRcUd9HS7MbwjtzeQ8j63G8F1.PVYBBaSwpyMN6.9fOgqhi', 0, 'livreur', '6d8a38e027678d7e03d54dd473f584787f98f5fc60946c816640b41b22fb0fc63a5bf8eb037ce38f20d960f94fd5ee803fb19cf4e0ec31cfa33794b4546d1a1d', '2023-05-17 00:10:24');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `categorie`
+-- Indexes for table `categorie`
 --
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `commande`
+-- Indexes for table `commande`
 --
 ALTER TABLE `commande`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `ligne_commande`
+-- Indexes for table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `livreur`
+-- Indexes for table `livreur`
 --
 ALTER TABLE `livreur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `produit`
+-- Indexes for table `produit`
 --
 ALTER TABLE `produit`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `utilisateurs`
+-- Indexes for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `categorie`
+-- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT pour la table `commande`
+-- AUTO_INCREMENT for table `commande`
 --
 ALTER TABLE `commande`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT pour la table `ligne_commande`
+-- AUTO_INCREMENT for table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT pour la table `livreur`
+-- AUTO_INCREMENT for table `livreur`
 --
 ALTER TABLE `livreur`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `produit`
+-- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- AUTO_INCREMENT pour la table `utilisateurs`
+-- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
