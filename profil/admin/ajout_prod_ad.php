@@ -24,8 +24,6 @@
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/profilpage.css" rel="stylesheet">
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/plotly-2.18.2.min.js"></script>
-    <script src="../js/graph.js"></script>
 </head>
 
 <body>
@@ -35,7 +33,11 @@
                 <div class="py-3 col-sm-auto justify-content-center">
                     <div id="title">JeuxVente.fr</div>
                 </div>
-                <div class="dropdown text-end"><a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i id="log-logo" class="bi bi-person-circle"></i></a></div>
+                <div class="text-end">
+                    <a href="main_ad.php" class="d-block link-dark text-decoration-none">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a> 
+                </div>            
             </div>
         </div>
     </header>
