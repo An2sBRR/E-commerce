@@ -3,7 +3,9 @@
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
         header('Location: ../../index.php');
     }
-?><!DOCTYPE html>
+    include 'fin_contrat.php';
+?>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -26,8 +28,8 @@
             <div class="py-3 col-sm-auto justify-content-center">
               <div id="title">JeuxVente.fr</div>
             </div>
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="text-end">
+              <a href="profil.php" class="d-block link-dark text-decoration-none">
                 <i id="log-logo" class="bi bi-person-circle"></i>
               </a> 
             </div>
@@ -36,45 +38,13 @@
       </header>
       <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
-            <aside class="col-sm-3 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3 col-lg-2">
-                <div class="bg-light border rounded-3 p-1 h-100 sticky-top">
-                    <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
-                        <li class="my-1">
-                            <a href="../../index.php" class="nav-link px-2 text-truncate">
-                                <i class="bi bi-house fs-5"></i>
-                                <span class="d-none d-sm-inline">Accueil</span>
-                            </a>
-                        </li>
-                        <li class="my-1">
-                            <a href="analyse.php" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-graph-up"></i></i>
-                                <span class="d-none d-sm-inline">Analyse</span>
-                            </a>
-                        </li>
-                        <li class="my-1 nav-item">
-                            <a href="categorie.php" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-layout-text-sidebar-reverse"></i></i>
-                                <span class="d-none d-sm-inline">Liste des categories</span>
-                            </a>
-                        </li>
-                        <li class="my-1">
-                            <a href="produit.php" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-5"></i>
-                                <span class="d-none d-sm-inline">Liste des produits</span> </a>
-                        </li>
-                        <li class="my-1">
-                            <a href="profil.php" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-5"></i>
-                                <span class="d-none d-sm-inline">Profil</span> </a>
-                        </li>
-                        <a href="../../php/deconnexion.php" class="nav-link px-2 text-truncate">
-                        <i class="bi bi-toggle-off"></i></i>
-                            <span class="d-none d-sm-inline">Déconnexion</span>
-                        </a>
-                    </ul>
-                </div>
-            </aside>
+            <!-- BARRE DE NAVIGATION -->
+            <?php include 'barre_navigation_vd.php'; ?>
             <main class="col overflow-auto h-100 w-100">
                 <h4> Modifier une catégorie <h4>
                 <?php
+                //récupération des données de la catégorie en question
+
                 require_once '../../include/config.php';
                 $check = $bdd->prepare('SELECT * FROM categorie WHERE id=?');
                 $id = $_GET['id'];
@@ -85,7 +55,8 @@
                     $libelle = $_POST['libelle'];
                     $description = $_POST['description'];
 
-                    if (!empty($libelle) && !empty($description)) {
+                    if (!empty($libelle) && !empty($description)) { // si les informations sont rentrés dans le formulaire on continue
+                        //mise à jour de la base de donnée
                         $requete = $bdd->prepare('UPDATE categorie SET libelle = :libelle, description = :description WHERE id = :id');
                         $requete->execute(array(
                             'libelle' => $libelle, 
@@ -95,7 +66,7 @@
                     } else {
                         ?>
                         <div class="alert alert-danger" role="alert">
-                            La libellé et la description sont obligatoires.
+                            Le libellé et la description sont obligatoires.
                         </div>
                         <?php
                     }
@@ -104,7 +75,7 @@
                 ?>
                 <form method="post">
                     <input type="hidden" class="form-control" name="id" value="<?php echo $category['id'] ?>">
-                    <label class="form-label">Libelle</label>
+                    <label class="form-label">Libellé</label>
                     <input type="text" class="form-control" name="libelle" value="<?php echo $category['libelle'] ?>">
 
                     <label class="form-label">Description</label>
