@@ -18,6 +18,7 @@ Coté Vendeur :FINI
 
 Coté MarketPlace : FINI
 
-Coté livreur ou préparateur : FINI
+Coté livreur ou préparateur : 
+ne fonctionne pas 
  
 
