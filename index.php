@@ -142,192 +142,122 @@ ING 1 GI GROUPE 4 -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">
+                                        <?php
+                                        require 'include/config.php';
+                                        // Récupérer les informations des produits les plus commandés à partir de la requête SQL
+                                        $query = "SELECT p.*
+                                                    FROM produit p
+                                                    JOIN (
+                                                        SELECT id_produit, SUM(quantite) AS total_commande
+                                                        FROM ligne_commande
+                                                        GROUP BY id_produit
+                                                        ORDER BY total_commande DESC
+                                                        LIMIT 3
+                                                    ) lc ON p.id = lc.id_produit";
+
+                                        $stmt = $bdd->query($query);
+                                        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        $i = 1;
+                                        // boucle pour afficher les informations des produits
+                                        foreach ($results as $row) {
+                                        ?>
                                         <div class="col-md-4">
                                             <div class="item-box-blog">
                                                 <div class="item-box-blog-image">
                                                     <!--Date-->
                                                     <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°1</span> </div>
+                                                            class="mon">N°<?php echo $i; ?></span> </div>
                                                     <!--Image-->
-                                                    <figure> <img src="./data/UNO.jpg" alt="image d'un UNO"> </figure>
+                                                    <figure> <img src="<?php echo $row['image']; ?>"
+                                                            alt="Image du produit"> </figure>
                                                 </div>
                                                 <div class="item-box-blog-body">
                                                     <!--Heading-->
                                                     <div class="item-box-blog-heading">
-                                                        <h5>UNO</h5>
+                                                        <h5><?php echo $row['nom']; ?></h5>
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>12€</p>
+                                                        <p><?php echo $row['prix']; ?>€</p>
                                                     </div>
                                                     <!--Text-->
                                                     <div class="item-box-blog-text">
-                                                        <p>Super jeu en amis ou en famille</p>
+                                                        <p><?php echo $row['description']; ?></p>
                                                     </div>
-                                                    <div class="mt"> <a onclick=ZOOM(22) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                                                    <div class="mt"> <a onclick="ZOOM(<?php echo $row['id']; ?>)"
+                                                            tabindex="0" class="btn bg-blue-ui white read">Plus de
+                                                            détails</a> </div>
                                                     <!--Plus de détails Button-->
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="item-box-blog">
-                                                <div class="item-box-blog-image">
-                                                    <!--Date-->
-                                                    <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°2</span> </div>
-                                                    <!--Image-->
-                                                    <figure> <img src="./data/puissance-4.jpg"
-                                                            alt="image d'un puissance4"> </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <!--Heading-->
-                                                    <div class="item-box-blog-heading">
-                                                        <h5>Puissance 4</h5>
-                                                    </div>
-                                                    <!--Data-->
-                                                    <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>20€</p>
-                                                    </div>
-                                                    <!--Text-->
-                                                    <div class="item-box-blog-text">
-                                                        <p>Jeu de strat&eacutegie pour deux joueurs</p>
-                                                    </div>
-                                                    <div class="mt"> <a onclick=ZOOM(27) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
-                                                    <!--Plus de détails Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="item-box-blog">
-                                                <div class="item-box-blog-image">
-                                                    <!--Date-->
-                                                    <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°3</span> </div>
-                                                    <!--Image-->
-                                                    <figure> <img src="./data/mario1.png" alt="image d'un lego mario">
-                                                    </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <!--Heading-->
-                                                    <div class="item-box-blog-heading">
-                                                        <h5>Bloc Mario</h5>
-                                                    </div>
-                                                    <!--Data-->
-                                                    <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>199€</p>
-                                                    </div>
-                                                    <!--Text-->
-                                                    <div class="item-box-blog-text">
-                                                        <p>Univers Mario</p>
-                                                    </div>
-                                                    <div class="mt"> <a onclick=ZOOM(48) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
-                                                    <!--Plus de détails Button-->
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                        $i++;
+                                        }
+                                        ?>
                                     </div>
                                     <!--.row-->
                                 </div>
                                 <!--.item-->
-                                <div class="carousel-item ">
+                                <div class="carousel-item">
                                     <div class="row">
+                                        <?php
+                                        // Récupérer les informations des produits les plus commandés à partir de la requête SQL
+                                        $query = "SELECT p.*
+                                                    FROM produit p
+                                                    JOIN (
+                                                        SELECT id_produit, SUM(quantite) AS total_commande
+                                                        FROM ligne_commande
+                                                        GROUP BY id_produit
+                                                        ORDER BY total_commande DESC
+                                                        LIMIT 3 OFFSET 3
+                                                    ) lc ON p.id = lc.id_produit";
+
+                                            $stmt = $bdd->query($query);
+                                            $i = 4;
+                                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                            // boucle pour afficher les informations des produits
+                                            foreach ($result as $row) {
+                                            ?>
                                         <div class="col-md-4">
                                             <div class="item-box-blog">
                                                 <div class="item-box-blog-image">
                                                     <!--Date-->
                                                     <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°4</span> </div>
+                                                            class="mon">N°<?php echo $i; ?></span> </div>
                                                     <!--Image-->
-                                                    <figure> <img src="./data/scrabble.jpg" alt="image d'un scrabble">
-                                                    </figure>
+                                                    <figure> <img src="<?php echo $row['image']; ?>"
+                                                            alt="Image du produit"> </figure>
                                                 </div>
                                                 <div class="item-box-blog-body">
                                                     <!--Heading-->
                                                     <div class="item-box-blog-heading">
-                                                        <h5>Scrabble</h5>
+                                                        <h5><?php echo $row['nom']; ?></h5>
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>22.5€</i></p>
+                                                        <p><?php echo $row['prix']; ?>€</p>
                                                     </div>
                                                     <!--Text-->
                                                     <div class="item-box-blog-text">
-                                                        <p>Jeu de lettres pour les amateurs de mots</p>
+                                                        <p><?php echo $row['description']; ?></p>
                                                     </div>
-                                                    <div class="mt"> <a onclick=ZOOM(26) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
+                                                    <div class="mt"> <a onclick="ZOOM(<?php echo $row['id']; ?>)"
+                                                            tabindex="0" class="btn bg-blue-ui white read">Plus de
+                                                            détails</a> </div>
                                                     <!--Plus de détails Button-->
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="item-box-blog">
-                                                <div class="item-box-blog-image">
-                                                    <!--Date-->
-                                                    <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°5</span> </div>
-                                                    <!--Image-->
-                                                    <figure> <img src="./data/monopoly.jpg" alt="image d'un monopoly">
-                                                    </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <!--Heading-->
-                                                    <div class="item-box-blog-heading">
-                                                        <h5>Monopoly</h5>
-                                                    </div>
-                                                    <!--Data-->
-                                                    <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>29.75€</p>
-                                                    </div>
-                                                    <!--Text-->
-                                                    <div class="item-box-blog-text">
-                                                        <p>Jeu de soci&eacutet&eacute classique pour toute la famille
-                                                        </p>
-                                                    </div>
-                                                    <div class="mt"> <a onclick=ZOOM(23) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
-                                                    <!--Plus de détails Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="item-box-blog">
-                                                <div class="item-box-blog-image">
-                                                    <!--Date-->
-                                                    <div class="item-box-blog-date bg-blue-ui white"> <span
-                                                            class="mon">N°6</span> </div>
-                                                    <!--Image-->
-                                                    <figure> <img src="./data/blocus.jpeg" alt="image d'un blocus">
-                                                    </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <!--Heading-->
-                                                    <div class="item-box-blog-heading">
-                                                        <h5>Blocus</h5>
-                                                    </div>
-                                                    <!--Data-->
-                                                    <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p>22.99€</p>
-                                                    </div>
-                                                    <!--Txt-->
-                                                    <div class="item-box-blog-text">
-                                                        <p>Bloquer vos adversaires sans piti&eacute</p>
-                                                    </div>
-                                                    <div class="mt"> <a onclick=ZOOM(53) tabindex="0"
-                                                            class="btn bg-blue-ui white read">Plus de détails</a> </div>
-                                                    <!--Plus de détails Button-->
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                        $i++;
+                                        }
+                                        ?>
                                     </div>
                                     <!--.row-->
                                 </div>
                                 <!--.item-->
                             </div>
-                            <!--.carousel-inner-->
                         </div>
                         <!--.Carousel-->
                     </div>
