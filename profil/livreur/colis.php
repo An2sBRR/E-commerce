@@ -49,7 +49,7 @@
                         <h2>Colis à livrer</h2>
                         <table class="table table-striped table-hover">
 
-                            <!------------on fait un tableau qui va permettre d'afficher la liste de nos colis---------------------->
+                            <!------------on fait un tableau qui va permettre d'afficher la liste de nos colis qui sont à livrer---------------------->
                             <thead>
                                 <tr>
                                     <th>#ID</th>
