@@ -13,8 +13,6 @@ Hors Cahier des Charges :
 - [ ] Faire un texte pour remplir la page index 
 
 Coté Client :
-
-- [X] Retourner l'article
 - [ ] envoyer un mail 
 
 Coté Vendeur :FINI
