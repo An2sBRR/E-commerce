@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorie` (
   `id` int NOT NULL,
-  `libelle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
+  `libelle` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `description` varchar(255) CHARACTER SET armscii8  NOT NULL,
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -156,7 +156,7 @@ CREATE TABLE `livreur` (
 
 CREATE TABLE `produit` (
   `id` int NOT NULL,
-  `libelle` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
+  `libelle` varchar(100) CHARACTER SET armscii8 NOT NULL,
   `prix` decimal(5,2) NOT NULL,
   `hauteur` decimal(14,4) NOT NULL,
   `poids` decimal(14,4) NOT NULL,
@@ -164,8 +164,8 @@ CREATE TABLE `produit` (
   `id_categorie` int NOT NULL,
   `id_utilisateurs` int NOT NULL,
   `date_creation` datetime NOT NULL,
-  `description` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
-  `image` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `image` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
   `quantite` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
