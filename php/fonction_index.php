@@ -9,32 +9,40 @@ function affichage() {
     $num = explode('=',getquery());
     if(isset($num[2]))   
     {
-        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancien</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
         echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
         require './include/config.php';
         switch ($num[2]) {
             case "decroissant":
                 if ($num[0]=="cat") {
                     $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs  WHERE produit.id_categorie= '.$num[1].' ORDER BY prix_reduit DESC;')->fetchAll(PDO::FETCH_OBJ);}
-                else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                else if ($num[0]=="recherche"){
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')ORDER BY prix_reduit DESC')->fetchAll(PDO::FETCH_OBJ);
+                }else{$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix DESC;')->fetchAll(PDO::FETCH_OBJ);}
               break;
             case "croissant":
                 if ($num[0]=="cat") {
                     $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie='.$num[1].' ORDER BY prix_reduit ASC;')->fetchAll(PDO::FETCH_OBJ);}
-                else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                else if ($num[0]=="recherche"){
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo, ROUND(produit.prix * (1 - produit.discount/100), 2) AS prix_reduit FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')ORDER BY prix_reduit ASC')->fetchAll(PDO::FETCH_OBJ);
+                }else {$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY prix ASC;')->fetchAll(PDO::FETCH_OBJ);}
               break;
             case "recente":
                 if ($num[0]=="cat") {
                     $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie='.$num[1].' ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
-                else{$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
+                else if ($num[0]=="recherche"){
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')ORDER BY date_creation DESC')->fetchAll(PDO::FETCH_OBJ);
+                }else{$recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);}
               break;
             case "ancienne":
                 if ($num[0]=="cat") {
                     $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE produit.id_categorie='.$num[1].' ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
-                else{ $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
+                else if ($num[0]=="recherche"){
+                    $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')ORDER BY date_creation ASC')->fetchAll(PDO::FETCH_OBJ);
+                }else{ $recherche = $bdd->query('SELECT * FROM produit WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation ASC;')->fetchAll(PDO::FETCH_OBJ);}
               break;
             default:
-            $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
+                $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON utilisateurs.id = produit.id_utilisateurs WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\') ORDER BY date_creation DESC;')->fetchAll(PDO::FETCH_OBJ);
               break;
         }
         foreach ($recherche as $produit){
@@ -65,7 +73,7 @@ function affichage() {
     }
     if($num[0]=="recherche")   
     {
-        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?".$num[0]."=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?".$num[0]."=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancien</li></a><a href='index.php?".$num[0]."=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
         echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
         require './include/config.php'; 
         $recherche = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE LOWER(libelle) LIKE LOWER(\'%'.$num[1].'%\')')->fetchAll(PDO::FETCH_OBJ);
@@ -108,7 +116,7 @@ function affichage() {
         $requete = $bdd->prepare('SELECT libelle FROM categorie WHERE id ='.$num[1].'');
         $requete->execute();
         $nom = $requete->fetchColumn();
-        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='text-center'><br><br><h3 class='text-bold'>".$nom."</h3></div><section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?cat=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancient</li></a><a href='index.php?cat=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
+        echo "<script>document.getElementsByTagName('main')[0].innerHTML=\"<div class='text-center'><br><br><h3 class='text-bold'>".$nom."</h3></div><section id='sidebar'><div><h6 class='p-1 border-bottom'>Filtrer par Prix</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=decroissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Décroissant</li></a><a href='index.php?cat=".$num[1]."=croissant'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Croissant</li></a></ul></div><div><h6 class='p-1 border-bottom'>Filtrer par Date</h6><ul id='filtre' class='list-group'><a href='index.php?cat=".$num[1]."=ancienne'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus ancien</li></a><a href='index.php?cat=".$num[1]."=recente'><li class='list-group-item list-group-item-action mb-2 rounded'><span class='fa pr-1'></span>Plus récent</li></a></ul></div></section>";
         echo "<div class='container mt-5'><div class='row d-flex justify-content-center g-1'>";
         $categories = $bdd->query('SELECT produit.*, utilisateurs.pseudo AS pseudo FROM produit JOIN utilisateurs ON produit.id_utilisateurs = utilisateurs.id WHERE produit.id_categorie='.$num[1].'')->fetchAll(PDO::FETCH_OBJ);
         if($categories == null){
@@ -168,13 +176,16 @@ function affichage() {
             $vendeur = $produit->pseudo;
 
             echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
-            echo "<img style='max-width:100%;' src='data/".$image."'></div>";
+            echo "<img style='max-width:80%;' src='data/".$image."'></div>";
             echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
             echo "<h5 style='color:#337ab7'>Vendu par ".$vendeur."</h5>";
             echo "<h6 class='title-price'><small>PRIX</small></h6><h3 style='margin-top:0px;'>".$prixFinale."€</h3>";
-            echo "<div class='section'><h6 class='title-attr' style='margin-top:15px;' ><small>Prix initial : ".$prix."€</small></h6>";                    
+            echo "<div class='section'>";
+            if($discount > 0){
+                echo "<h6 class='title-attr' style='margin-top:15px;color:red;'><small>Prix initial : ".$prix."€</small></h6>";  
+            }              
             echo "<div> </div></div>";
-            echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6> ";                  
+            echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6><br>";                  
             echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' value='0' min='0' max='";
             if(isset($_SESSION['panier']) && isset($_SESSION['panier'][$id])){ 
                 echo $quantite-$_SESSION['panier'][$id];
@@ -185,9 +196,9 @@ function affichage() {
             echo "<button class='btn btn-success' onclick=ajouter_panier(".$id.")><span style='margin-right:20px' class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span>Ajouter au panier</button>";
             echo "</div></div>";   
             echo "<div class='col-xs-9' style='width: 100%;'>";
-            echo "<ul class='menu-items'><li class='active'>Détails du produit</li><li>Avis</li><li>Vendeurs</li><li>Livraison</li></ul>";   
+            echo "<h5>Description</h5>";   
             echo "<div style='width:100%; border-top:1px solid silver'>";
-            echo "<p style='padding:15px;'><small>Ceci est une petite description de ".$libelle." :<br>".$description."</small></p>";                                   
+            echo "<p style='padding:15px;'>".$description."</p>";                                   
             echo "</div></div></div></div>";
 
         }
