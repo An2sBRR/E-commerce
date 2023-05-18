@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if($_SESSION['statut'] != "client"){
+        header("Location: ../index.php");
+    }
+
     $id = $_GET['id'];
     $choix = $_GET['choix'];
     if(isset($_GET['quantite'])){

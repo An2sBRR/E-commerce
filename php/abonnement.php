@@ -1,6 +1,10 @@
 <?php
     session_start();
     $_SESSION['page_abo']=true;
+    
+    if($_SESSION['statut'] != "client"){
+        header("Location: ../index.php");
+    }
 ?>
 
 <!DOCTYPE html>

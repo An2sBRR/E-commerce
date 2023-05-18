@@ -6,6 +6,9 @@
     if(getAbonnement() == 1){
         header('Location: abonnement.php');
     }
+    if($_SESSION['statut'] != "client"){
+        header("Location: ../index.php");
+    }
 ?>
 
 <!DOCTYPE html>

@@ -4,6 +4,10 @@
     if(empty($_SESSION['panier'])){
         unset($_SESSION['panier']);
     }
+
+    if($_SESSION['statut'] != "client"){
+        header("Location: ../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
