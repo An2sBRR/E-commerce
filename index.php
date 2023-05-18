@@ -174,7 +174,7 @@ ING 1 GI GROUPE 4 -->
                                                 <div class="item-box-blog-body">
                                                     <!--Heading-->
                                                     <div class="item-box-blog-heading">
-                                                        <h5><?php echo $row['nom']; ?></h5>
+                                                        <h5><?php echo $row['libelle']; ?></h5>
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
@@ -232,7 +232,7 @@ ING 1 GI GROUPE 4 -->
                                                 <div class="item-box-blog-body">
                                                     <!--Heading-->
                                                     <div class="item-box-blog-heading">
-                                                        <h5><?php echo $row['nom']; ?></h5>
+                                                        <h5><?php echo $row['libelle']; ?></h5>
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
