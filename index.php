@@ -145,8 +145,8 @@ ING 1 GI GROUPE 4 -->
                                         <?php
                                         require 'include/config.php';
                                         // Récupérer les informations des produits les plus commandés à partir de la requête SQL
-                                        $query = "SELECT p.*
-                                                    FROM produit p
+                                        $query = "SELECT p.*, ROUND(p.prix * (1 - p.discount/100), 2) AS prix_reduit
+                                                    FROM produit p 
                                                     JOIN (
                                                         SELECT id_produit, SUM(quantite) AS total_commande
                                                         FROM ligne_commande
@@ -154,7 +154,6 @@ ING 1 GI GROUPE 4 -->
                                                         ORDER BY total_commande DESC
                                                         LIMIT 3
                                                     ) lc ON p.id = lc.id_produit";
-
                                         $stmt = $bdd->query($query);
                                         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         $i = 1;
@@ -178,7 +177,7 @@ ING 1 GI GROUPE 4 -->
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p><?php echo $row['prix']; ?>€</p>
+                                                        <p><?php echo $row['prix_reduit']; ?>€</p>
                                                     </div>
                                                     <!--Text-->
                                                     <div class="item-box-blog-text">
@@ -203,7 +202,7 @@ ING 1 GI GROUPE 4 -->
                                     <div class="row">
                                         <?php
                                         // Récupérer les informations des produits les plus commandés à partir de la requête SQL
-                                        $query = "SELECT p.*
+                                        $query = "SELECT p.*, ROUND(p.prix * (1 - p.discount/100), 2) AS prix_reduit
                                                     FROM produit p
                                                     JOIN (
                                                         SELECT id_produit, SUM(quantite) AS total_commande
@@ -236,7 +235,7 @@ ING 1 GI GROUPE 4 -->
                                                     </div>
                                                     <!--Data-->
                                                     <div class="item-box-blog-data" style="padding: px 15px;">
-                                                        <p><?php echo $row['prix']; ?>€</p>
+                                                        <p><?php echo $row['prix_reduit']; ?>€</p>
                                                     </div>
                                                     <!--Text-->
                                                     <div class="item-box-blog-text">
