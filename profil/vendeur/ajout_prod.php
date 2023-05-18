@@ -60,7 +60,7 @@
                     $poids = $_POST['poids'];
                     $discount = $_POST['discount'];
                     $categorie = $_POST['categorie'];
-                    $description = $_POST['description'];
+                    $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');;
                     $quantite = $_POST['quantite'];
                     $date = date('Y-m-d H:i:s');
                     // Assignation d'une image par défaut pour le produit
@@ -90,7 +90,7 @@
                         // Affichage d'un message d'erreur si les champs obligatoires ne sont pas remplis
                         ?>
                         <div class="alert alert-danger" role="alert">
-                            Libelle, prix, catégorie sont obligatoires.
+                            Le libellé, le prix et la catégorie sont obligatoires.
                         </div>
                         <?php
                     }
@@ -99,7 +99,7 @@
                 ?>
                 <!-- Formulaire -->
                 <form method="post" enctype="multipart/form-data">
-                    <label class="form-label">Libelle</label>
+                    <label class="form-label">Libellé</label>
                     <input type="text" class="form-control" name="libelle">
 
                     <label class="form-label">Prix</label>
