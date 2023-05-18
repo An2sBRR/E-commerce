@@ -218,7 +218,8 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (56, 'Course folle marvel', '19.99', '26.7000', '4.1000', 0, 40, 50, '2023-04-15 17:20:55', 'Jeu strategique sur le theme de marvel ', '../data/3marvel.jpg', 25),
 (57, 'Monopoly marvel', '24.00', '4.0000', '2.0000', 0, 37, 44, '2023-04-15 17:20:55', 'Jouez en famille ou entre amis au Monopoly avengers ', '../data/4marvel.jpeg', 4),
 (58, 'Lego marvel hulkbuster', '50.00', '5.3000', '2.6000', 0, 39, 50, '2023-04-15 17:33:27', 'Bruce banner enfile l&#39armure Hulkbuster pour defendre le Wakanda ', '../data/5marvel.jpeg', 6),
-(59, 'Captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'Jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5);
+(59, 'Captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'Jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5),
+(60, 'Uno', '10.00', '14.6000', '0.1000', 0, 37, 50, '2023-05-19 00:05:29', 'Assemblez les cartes par couleur ou par valeur et jouez des cartes sp&eacute;ciales pour pimenter l&#039;action.', '../data/6466a1298c4c7Uno.png', 15);
 
 -- --------------------------------------------------------
 
