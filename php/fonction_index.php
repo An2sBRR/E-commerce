@@ -170,7 +170,7 @@ function affichage() {
             echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
             echo "<img style='max-width:100%;' src='data/".$image."'></div>";
             echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
-            echo "<h5 style='color:#337ab7'>Vendu par ".$vendeur."<br><small style='color:#337ab7'>(".rand(50,10000)." ventes)</small></h5>";
+            echo "<h5 style='color:#337ab7'>Vendu par ".$vendeur."</h5>";
             echo "<h6 class='title-price'><small>PRIX</small></h6><h3 style='margin-top:0px;'>".$prixFinale."€</h3>";
             echo "<div class='section'><h6 class='title-attr' style='margin-top:15px;' ><small>Prix initial : ".$prix."€</small></h6>";                    
             echo "<div> </div></div>";
