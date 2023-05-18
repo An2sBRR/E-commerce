@@ -5,8 +5,9 @@
         unset($_SESSION['panier']);
     }
 
-    if($_SESSION['statut'] != "client"){
-        header("Location: ../index.php");
+    if(isset($_SESSION['statut'])){
+        if($_SESSION['statut'] != "client")
+            header("Location: ../index.php");
     }
 ?>
 <!DOCTYPE html>
