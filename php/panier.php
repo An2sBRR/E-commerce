@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
 
@@ -56,8 +59,6 @@
                 }
                 ?>
             </div>
-            
-           
     </header>
     <!-- FIN DU HEADER -->
         </div>
