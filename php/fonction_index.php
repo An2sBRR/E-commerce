@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
 // Fonction pour récupérer l'url de la page
 function getquery(){ $url=$_SERVER['REQUEST_URI'];
@@ -176,23 +179,26 @@ function affichage() {
             $vendeur = $produit->pseudo;
 
             echo "<div class='container' id='produits'> <div class='row' id='affiche'><div class='col-xs-4 item-photo'>";
-            echo "<img style='max-width:80%;' src='data/".$image."'></div>";
+            echo "<img style='max-width:70%;' src='data/".$image."'></div>";
             echo "<div class='col-xs-5' style='border:0px solid gray'><h3>".$libelle."</h3>";
             echo "<h5 style='color:#337ab7'>Vendu par ".$vendeur."</h5>";
             echo "<h6 class='title-price'><small>PRIX</small></h6><h3 style='margin-top:0px;'>".$prixFinale."€</h3>";
-            echo "<div class='section'>";
+            if($quantite <= 5){
+                if($quantite == 0) {echo "<h5 class='title-attr'><span style='color:red'>Cette article a été victime de son succès.</span></h5>";}
+                else if($quantite == 1){
+                    echo "<h5 class='title-price'>Il ne reste plus que <span style='color:red;'>".$quantite."</span> article !</h5><br>";
+                } else{echo "<h5 class='title-attr'><small>Il ne reste plus que <span style='color:red;'>".$quantite."</span> articles</small></h5><br>";}
+            }
+            echo "<div class='section my-3'>";
             if($discount > 0){
-                echo "<h6 class='title-attr' style='margin-top:15px;color:red;'><small>Prix initial : ".$prix."€</small></h6>";  
+                echo "<h6 class='title' style='margin-top:15px;color:red;'><small>Prix initial : ".$prix."€</small></h6><br>";  
             }              
-            echo "<div> </div></div>";
-            echo "<div class='section' style='padding-bottom:20px;'><h6 class='title-attr'><small>QUANTITÉ</small></h6><br>";                  
-            echo "<div><div class='btn-minus'><span class='glyphicon glyphicon-minus'></span></div><input type='number' value='0' min='0' max='";
+            echo "<h6 class='title-attr'><small>QUANTITÉ</small></h6>";                  
+            echo "<input type='number' value='0' min='0' max='";
             if(isset($_SESSION['panier']) && isset($_SESSION['panier'][$id])){ 
                 echo $quantite-$_SESSION['panier'][$id];
             }else{echo $quantite;}
             echo "' id='quantite'/>"; 
-            echo "<div class='btn-plus'><span class='glyphicon glyphicon-plus'></span></div></div></div>";
-            echo "<div class='section' style='padding-bottom:20px;'>";
             echo "<button class='btn btn-success' onclick=ajouter_panier(".$id.")><span style='margin-right:20px' class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span>Ajouter au panier</button>";
             echo "</div></div>";   
             echo "<div class='col-xs-9' style='width: 100%;'>";
