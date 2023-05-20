@@ -304,7 +304,7 @@ ING 1 GI GROUPE 4 -->
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
                     <h2>Mentions légales</h2>
                     <p>
-                        JeuxVentes<br>01.02.03.04.05<br>JeuxVentes@contact.fr<br>Chemin des Paradis, 95000 CERGY.
+                        JeuxVentes<br>01.02.03.04.05<br><a href="mailto:JeuxVentes@contact.fr" id ="mail">JeuxVentes@contact.fr</a><br>Chemin des Paradis, 95000 CERGY.
                     </p>
                 </article>
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
