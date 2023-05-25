@@ -115,23 +115,10 @@ ING 1 GI GROUPE 4 -->
 
     <!-- PAGE PRINCIPALE -->
     <main>
-        <div class="nous">
-            <h3 id="Propos">À&nbspPROPOS</h3>
-        </div>
-
-        <div>
-            <p id="blabla">Chez JeuxVente, vous trouverez tout le nécessaire pour passer un excellent moment de détente.
-                Solo, à plusieurs, en famille ou entre amis, vous y trouverez
-                assurément votre bonheur ! Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous
-                assurer la meilleure qualité possible. Pour tout problème, réclamation ou simple demande de contact,
-                n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace
-                utilisateur ou en cliquant ici ! Sachez également que vous pouvez accéder à des
-                avantages et offres promotionnelles en vous abonnant ici.
-            </p>
-        </div>
+        <div class="cta-100"><img src="data/Banniere.png" width=100%></div>
         <div id="meilleurs_ventes" class="container cta-100 ">
             <div class="container">
-                <div class="row blog">
+                <div class="row blog"><h4>Nos Meilleurs Ventes</h4>
                     <div class="col-md-12">
                         <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -263,17 +250,20 @@ ING 1 GI GROUPE 4 -->
                 </div>
             </div>
         </div>
-
-        <div>
-            <p id="blabla">JeuxVente regroupe plusieurs vendeurs, y compris des débutants. Bien sûr, nous vérifions le
-                sérieux de chaque vendeur ainsi que la qualité de ses produits.
-                Un article vous plait ? Rien de plus simple : cliquez sur le petit bouton en bas du produit et achetez
-                le ! Vous voulez peut-être plus de détails concernant le produit ou encore
-                en acheter en grande quantité ? Pas de problèmes : il suffit de cliquer sur l'image du produit et un
-                meilleur affichage sera disponible.
-            </p>
+        <div class="nous">
+            <h3 id="Propos">À&nbspPROPOS</h3>
         </div>
 
+        <div>
+            <p id="blabla">Chez JeuxVente, vous trouverez tout le nécessaire pour passer un excellent moment de détente.
+                Solo, à plusieurs, en famille ou entre amis, vous y trouverez
+                assurément votre bonheur ! Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous
+                assurer la meilleure qualité possible. Pour tout problème, réclamation ou simple demande de contact,
+                n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace
+                utilisateur ou en cliquant ici ! Sachez également que vous pouvez accéder à des
+                avantages et offres promotionnelles en vous abonnant ici.
+            </p>
+        </div>
     </main>
     <!-- FIN PAGE PRINCIPALE -->
 
