@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -60,7 +63,7 @@
                     $poids = $_POST['poids'];
                     $discount = $_POST['discount'];
                     $categorie = $_POST['categorie'];
-                    $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');;
+                    $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');
                     $quantite = $_POST['quantite'];
                     $date = date('Y-m-d H:i:s');
                     // Assignation d'une image par défaut pour le produit
@@ -78,7 +81,7 @@
                         if ($inserted) {
                             move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
                             header('location: produit.php');
-                        } else {
+                        }else {
                             // Affichage d'un message d'erreur si l'insertion a échoué
                             ?>
                             <div class="alert alert-danger" role="alert">
@@ -94,7 +97,6 @@
                         </div>
                         <?php
                     }
-
                 }
                 ?>
                 <!-- Formulaire -->
@@ -103,26 +105,26 @@
                     <input type="text" class="form-control" name="libelle">
 
                     <label class="form-label">Prix</label>
-                    <input type="number" class="form-control" step="0.1" name="prix" min="0">
+                    <input type="number" class="form-control" step="0.01" name="prix" min="0">
 
                     <label class="form-label">Hauteur</label>
-                    <input type="number" class="form-control" step="0.1" name="hauteur" min="0">
+                    <input type="number" class="form-control" step="0.01" name="hauteur" min="0">
 
                     <label class="form-label">Poids</label>
-                    <input type="number" class="form-control" step="0.1" name="poids" min="0">
+                    <input type="number" class="form-control" step="0.01" name="poids" min="0">
 
                     <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
                     <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
                     
 
-                    <label class="form-label">Description</label>
+                    <label class="form-label">Description (255 caractères)</label>
                     <textarea class="form-control" name="description"></textarea>
 
                     <label class="form-label">Quantité</label>
                     <input type="number" class="form-control" name="quantite" min="0" required="required"></input>
 
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" class="form-control" name="image" enctype="multipart/form-data">
 
                     <?php
                     $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);
