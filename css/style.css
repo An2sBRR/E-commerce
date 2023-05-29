@@ -258,6 +258,12 @@ input[type=text] {
     font-weight: bold;
 }
 
+.col-md-4{
+    padding-bottom: 20px;
+    height: 350px;
+}
+
+
 /*#about span{
     font-size: 13px;
 }*/
@@ -475,7 +481,7 @@ div.section>input {
     margin-top: 60px;
 }
 
-.col-md-4 {
+.carousel-item .row .col-md-4 {
     padding-bottom: 20px;
     height: 500px;
 }
