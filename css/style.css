@@ -122,6 +122,8 @@ header .reseauxlog:hover {
         background-color: rgba(194, 216, 185, 0.5);
         backdrop-filter: blur(5px);
         height: auto;
+        position: relative;
+        z-index: 5;
     }
 
     menu .main_pages a {
