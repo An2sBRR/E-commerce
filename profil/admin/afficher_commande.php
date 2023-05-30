@@ -1,3 +1,7 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
@@ -26,7 +30,7 @@
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVente.fr</div>
+                    <div id="title">JeuxVentes.fr</div>
                 </div>
                 <div class="text-end">
                     <a href="main_ad.php" class="d-block link-dark text-decoration-none">
@@ -41,6 +45,7 @@
             <!-- barre de navigation -->
             <?php include 'barre_navigation_ad.php';?> 
             <main class="col overflow-auto h-100 w-100">
+                <a class="btn btn-dark btn-sm" href="commande.php">← Retour</a><br>
                 <div class="container py-2">
                     <?php
                         //connexion à la base de données
