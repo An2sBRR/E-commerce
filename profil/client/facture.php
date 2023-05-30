@@ -1,22 +1,19 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
 <!-- On a securisé la page c'est a dire le client a acces qu'au page client que si il est connecté 
-sinon l'utilisateur est redirigé sur la page index --> 
+sinon l'utilisateur est redirigé sur la page index -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "client"){
         header('Location: ../../index.php');
     }
-
-
-
-    /*
-                        if($commande['commande_livre'] == 1){
-                            echo "<td><a class='btn btn-primary btn-sm' href='retour_traitement.php?id=".$commande['id']."'>retourner l'article</a></td>";
-                     }
-    */
 ?>
 <!-- permet d'avoir le menu de la page client -->
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,28 +29,30 @@ sinon l'utilisateur est redirigé sur la page index -->
 </head>
 
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <?php include 'barre_navigation_cl.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-            <div class="container py-2">
-            <table class="table table-striped table-hover">
-                <!---- on se connecte a la base de donnée commande ---> 
-                <?php
+                <a class="btn btn-dark btn-sm" href="produit_ad.php">← Retour</a><br><br>
+                <div class="container py-2">
+                    <table class="table table-striped table-hover">
+                        <!---- on se connecte a la base de donnée commande --->
+                        <?php
                     require '../../include/config.php';
                     $id_commande = $_GET['id']; 
                     $commande_query = $bdd->query("SELECT * FROM commande WHERE id = $id_commande");
@@ -74,24 +73,25 @@ sinon l'utilisateur est redirigé sur la page index -->
                     echo "<p>Total : ".round($commande['total'],2)." €</p>";
                 ?>
 
-<!-- en cliquant sur le bouton "imprimer page", il fait appel a un script qui permet d'imprimer la facture --->
-                        <form><input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" /></form>
-                <thead>
-        <!--- tableau affichant les differentes informations ---> 
-                <tr>
-                    <th>Article</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                    <?php
+                        <!-- en cliquant sur le bouton "imprimer page", il fait appel a un script qui permet d'imprimer la facture --->
+                        <form><input id="impression" name="impression" type="button" onclick="imprimer_page()"
+                                value="Imprimer cette page" /></form>
+                        <thead>
+                            <!--- tableau affichant les differentes informations --->
+                            <tr>
+                                <th>Article</th>
+                                <th>Prix unitaire</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <?php
                         if($commande['commande_livre'] == 1){
                             echo "<th>Retourner l'article</th>";
                         }
                     ?>
-                </tr>
-                </thead>
-                </tbody>
-                <?php 
+                            </tr>
+                        </thead>
+                        </tbody>
+                        <?php 
 //on fait appel a la base de donnée pour afficher l'image, le prix.. en s'aidant de la table ligne_commande qui stock la quantité, id_produit... 
                     $requete = $bdd->prepare('SELECT produit.id, produit.image, produit.prix, produit.discount, ligne_commande.quantite FROM commande JOIN ligne_commande ON commande.id = ligne_commande.id_commande JOIN produit ON ligne_commande.id_produit = produit.id WHERE commande.id = ?');
                     $requete->execute([$id_commande]);
@@ -109,17 +109,18 @@ sinon l'utilisateur est redirigé sur la page index -->
                         }
                         echo "</tr>";
                     }
-                ?>  
-            </table>
-            </div>
+                ?>
+                    </table>
+                </div>
             </main>
         </div>
     </div>
-<!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE ---> 
+    <!-- SCRIPT QUI PERMET D'IMPRIMER LA FACTURE --->
     <script type="text/javascript">
-        function imprimer_page(){
+    function imprimer_page() {
         window.print();
-        }
+    }
     </script>
 </body>
+
 </html>
