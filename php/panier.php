@@ -15,21 +15,23 @@ ING 1 GI GROUPE 4 -->
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href ="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/panier.css">
     <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
-    
-     <!-- INCLUSION ICONS -->
-     <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
-    <script  nomodule  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- INCLUSION ICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <title>Votre panier</title>
 </head>
+
 <body>
     <header class="container-fluid header">
         <div class="container">
@@ -59,16 +61,16 @@ ING 1 GI GROUPE 4 -->
                 }
                 ?>
             </div>
-    </header>
-    <!-- FIN DU HEADER -->
         </div>
     </header>
+    <!-- FIN DU HEADER -->
+
     <section class="h-100" style="background-color: #eee;">
-            <div class="container h-100 py-5">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                <div id ="tout" class="col-10">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div id="tout" class="col-10">
                     <div class="d-flex align-items-center mb-4">
-                    <?php 
+                        <?php 
                     // donnée qu'on récupère pour le colis
                     $commission = 0;
                     $poids_total = 0;
@@ -198,10 +200,10 @@ ING 1 GI GROUPE 4 -->
                                                 $inserted = $sqlState->execute([$id_client,$nom_prenom,$total,$numero_commande,$hauteur_total,$poids_total,$adresse,$ville,$code_postal,0,0,$date,$livraison, $commission,$id_livreur]);
                                                 if (!$inserted) {
                                                     ?>
-                                                    <div class="alert alert-danger" role="alert">
-                                                        Database error (40023).
-                                                    </div>
-                                                    <?php
+                        <div class="alert alert-danger" role="alert">
+                            Database error (40023).
+                        </div>
+                        <?php
                                                 }else {
                                                     $id_commande = $bdd->query("SELECT id FROM commande WHERE numero_commande = '".$numero_commande."'")->fetchColumn();
                                                     foreach ($_SESSION['panier'] as $idProduit => $quantite) {
@@ -228,11 +230,11 @@ ING 1 GI GROUPE 4 -->
                         echo "<h3 class='fw-normal mb-0 text-black'>Votre panier est vide</h3></div>";
                     }
                     ?>
-                </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <?php
+    </section>
+    <?php
             function getAbonnement(){
                 require '../include/config.php';
                 if(isset($_SESSION['user'])){
@@ -244,8 +246,9 @@ ING 1 GI GROUPE 4 -->
                 }else return 2; //il n'est pas connecte
             }
         ?>
-        <!-- JS -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>        
-        <script type="text/javascript" src="../js/panier.js"></script>
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/panier.js"></script>
 </body>
+
 </html>
