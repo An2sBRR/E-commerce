@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
@@ -99,13 +102,13 @@
 
                 <!--2 eme graphique --->
                 <?php
-                $requete = $bdd->query("SELECT DATE(date_inscription) AS date, COUNT(*) AS total_inscriptions FROM utilisateurs WHERE statut = 'vendeur' GROUP BY DATE(date_inscription)");
+                $requete = $bdd->query("SELECT DATE_FORMAT(date_inscription, '%Y-%m') as month, COUNT(*) AS total_inscriptions FROM utilisateurs WHERE statut = 'vendeur' GROUP BY month ORDER BY month");
                 $donnees = $requete->fetchAll(PDO::FETCH_ASSOC);
                 // On construit les tableaux de labels et de données pour le graphique
                 $labels = array();
                 $data = array();
                 foreach ($donnees as $row) {
-                    $labels[] = $row['date'];
+                    $labels[] = $row['month'];
                     $data[] = $row['total_inscriptions'];
                 }
               ?>
