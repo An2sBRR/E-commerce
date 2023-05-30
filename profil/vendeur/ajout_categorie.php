@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -7,6 +10,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,25 +26,26 @@
 </head>
 
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="text-end">
+                    <a href="profil.php" class="d-block link-dark text-decoration-none">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="text-end">
-              <a href="profil.php" class="d-block link-dark text-decoration-none">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <?php include 'barre_navigation_vd.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-                <h4> Ajouter catégorie </h4>  <br>
+                <a class="btn btn-dark btn-sm" href="categorie.php">← Retour</a><br><br>
+                <h4> Ajouter catégorie </h4> <br>
                 <form method="post" enctype="multipart/form-data">
                     <label class="from-label">Libellé</label>
                     <input type="text" class="from-control" name="libelle"><br><br>
@@ -63,10 +68,10 @@
                                 'date_creation' => $date));
                         }else{
                             ?>
-                            <div class="alert alert-danger" role="alert">
-                                Le libellé et la description sont obligatoires.
-                            </div>
-                            <?php
+                <div class="alert alert-danger" role="alert">
+                    Le libellé et la description sont obligatoires.
+                </div>
+                <?php
                         }
                     }
                 ?>
@@ -74,4 +79,5 @@
         </div>
     </div>
 </body>
+
 </html>
