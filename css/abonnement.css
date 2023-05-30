@@ -8,7 +8,7 @@ ING 1 GI GROUPE 4 */
   text-align: center;
 }
 
-.head {
+.entete {
   font-size: x-large;
   font-weight: bolder;
 }
@@ -28,8 +28,8 @@ ING 1 GI GROUPE 4 */
   box-sizing: border-box;
 }
 
-/* Style the list */
-ul {
+/* Style the ul */
+.list {
   list-style-type: none;
   border: 1px solid #eee;
   margin: 0;
@@ -40,27 +40,27 @@ ul {
 }
 
 /* Add shadows on hover */
-ul:hover {
+.list:hover {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
 }
 
 /* Pricing header */
-ul .titre {
+.list .titre {
   background-color: #C2D8B9;
   color: white;
   font-size: 25px;
   text-align: center;
 }
 
-/* List items */
-ul li {
+/* ul items */
+.list li {
   border-bottom: 1px solid #eee;
   padding: 20px;
   text-align: center;
 }
 
-/* Grey list item */
-ul .couleur {
+/* Grey ul item */
+.list .couleur {
   background-color: #eee;
   font-size: 20px;
 }
@@ -142,7 +142,7 @@ header .reseauxlog:hover {
 }
 
 @media screen and (min-width: 1000px) {
-  ul {
+  .list {
     width: 800px;
   }
 }
