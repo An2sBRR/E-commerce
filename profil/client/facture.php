@@ -48,7 +48,7 @@ sinon l'utilisateur est redirigé sur la page index -->
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <?php include 'barre_navigation_cl.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-                <a class="btn btn-dark btn-sm" href="produit_ad.php">← Retour</a><br><br>
+                <a class="btn btn-dark btn-sm" href="commande.php">← Retour</a><br><br>
                 <div class="container py-2">
                     <table class="table table-striped table-hover">
                         <!---- on se connecte a la base de donnée commande --->
