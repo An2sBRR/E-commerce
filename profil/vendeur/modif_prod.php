@@ -1,3 +1,7 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -8,6 +12,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,30 +28,31 @@
 </head>
 
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="text-end">
+                    <a href="profil.php" class="d-block link-dark text-decoration-none">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="text-end">
-              <a href="profil.php" class="d-block link-dark text-decoration-none">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <!-- BARRE DE NAVIGATION -->
             <?php include 'barre_navigation_vd.php'; ?>
             <main class="col overflow-auto h-100 w-100">
+                <a class="btn btn-dark btn-sm" href="produit.php">← Retour</a><br><br>
                 <?php
                 require'../../include/config.php';
                 ?>
-                    <h4>Modifier produit</h4>
-                    <?php
+                <h4>Modifier produit</h4>
+                <?php
 
                     //récupération des données
                     $id = $_GET['id'];
@@ -105,67 +111,72 @@
                             } else {
 
                                 ?>
-                                <div class="alert alert-danger" role="alert">
-                                    Database error (40023).
-                                </div>
-                                <?php
+                <div class="alert alert-danger" role="alert">
+                    Database error (40023).
+                </div>
+                <?php
                             }
                         } else {
                             ?>
-                            <div class="alert alert-danger" role="alert">
-                                Le libellé, le prix et le nom du produits sont obligatoires.
-                            </div>
-                            <?php
+                <div class="alert alert-danger" role="alert">
+                    Le libellé, le prix et le nom du produits sont obligatoires.
+                </div>
+                <?php
                         }
 
                     }
                     ?>
-                    <form method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="<?= $produit->id ?>">
-                        <label class="form-label">Libelle</label>
-                        <input type="text" class="form-control" name="libelle" value="<?= $produit->libelle ?>">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $produit->id ?>">
+                    <label class="form-label">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" value="<?= $produit->libelle ?>">
 
-                        <label class="form-label">Prix</label>
-                        <input type="number" class="form-control" step="0.1" name="prix" min="0" value="<?= $produit->prix ?>">
+                    <label class="form-label">Prix</label>
+                    <input type="number" class="form-control" step="0.1" name="prix" min="0"
+                        value="<?= $produit->prix ?>">
 
-                        <label class="form-label">Hauteur</label>
-                        <input type="number" class="form-control" step="0.1" name="hauteur" value="<?= $produit->hauteur ?>">
+                    <label class="form-label">Hauteur</label>
+                    <input type="number" class="form-control" step="0.1" name="hauteur"
+                        value="<?= $produit->hauteur ?>">
 
-                        <label class="form-label">Poids</label>
-                        <input type="number" class="form-control" step="0.1" name="poids" min="0" value="<?= $produit->poids ?>">
+                    <label class="form-label">Poids</label>
+                    <input type="number" class="form-control" step="0.1" name="poids" min="0"
+                        value="<?= $produit->poids ?>">
 
-                        <label class="form-label">Discount</label>
-                        <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
-                            value="<?= $produit->discount ?>">
+                    <label class="form-label">Discount</label>
+                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
+                        value="<?= $produit->discount ?>">
 
-                        <label class="form-label">Description</label>
-                        <textarea class="form-control" name="description"><?= $produit->description ?></textarea>
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" name="description"><?= $produit->description ?></textarea>
 
-                        <label class="form-label">Quantité</label>
-                        <input type="number" class="form-control" name="quantite" min="0" required="required" value="<?= $produit->quantite?>"></input>
+                    <label class="form-label">Quantité</label>
+                    <input type="number" class="form-control" name="quantite" min="0" required="required"
+                        value="<?= $produit->quantite?>"></input>
 
-                        <label class="form-label">Image</label>
-                        <input type="file" class="form-control" name="image">
-                        <img width="250" class="img img-fluid" src="../../data/<?= $produit->image ?>"><br>
+                    <label class="form-label">Image</label>
+                    <input type="file" class="form-control" name="image">
+                    <img width="250" class="img img-fluid" src="../../data/<?= $produit->image ?>"><br>
 
-                        <?php
+                    <?php
                         $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);
                         ?>
-                        <label class="form-label">Catégorie</label>
-                        <select name="categorie" class="form-control">
-                            <option value="">Choisissez une catégorie</option>
-                            <?php
+                    <label class="form-label">Catégorie</label>
+                    <select name="categorie" class="form-control">
+                        <option value="">Choisissez une catégorie</option>
+                        <?php
                             foreach ($categories as $categorie) {
                                 $selected = $produit->id_categorie == $categorie['id'] ? ' selected ' : '';
                                 echo "<option $selected value='" . $categorie['id'] . "'>" . $categorie['libelle'] . "</option>";
                             }
                             ?>
-                        </select>
-                        <input type="submit" value="Modifier produit" class="btn btn-primary my-2" name="modifier">
-                    </form>
-                </div>
-            </main>
+                    </select>
+                    <input type="submit" value="Modifier produit" class="btn btn-primary my-2" name="modifier">
+                </form>
         </div>
+        </main>
+    </div>
     </div>
 </body>
+
 </html>
