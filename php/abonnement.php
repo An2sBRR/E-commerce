@@ -1,3 +1,4 @@
+
 <!-- SITE WEB 
 AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
 ING 1 GI GROUPE 4 -->
@@ -6,7 +7,6 @@ ING 1 GI GROUPE 4 -->
     $_SESSION['page_abo']=true;
     
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,7 +26,7 @@ ING 1 GI GROUPE 4 -->
 <body>
     <header class="container-fluid header">
         <div class="container">
-            <a href="../index.php" class="logo">JeuxVentes.fr</a>
+            <a href="../index.php" class="logo">LE REPÈRE DE MASS</a>
             <div class="icons">
                 <?php 
                 // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
