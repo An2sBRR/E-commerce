@@ -134,7 +134,7 @@ ING 1 GI GROUPE 4 -->
                    <?php }else {
 
                         // Récupération des données du livreur à partir de la base de données
-                        $requete = $bdd->prepare('SELECT type_permis FROM livreur');
+                        $requete = $bdd->prepare('SELECT type_permis FROM livreur WHERE id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = "'.$_SESSION['user'].'")');
                         $requete->execute(array('id_livreur' => $_SESSION['user']));
                         $livreur = $requete->fetch();
 
