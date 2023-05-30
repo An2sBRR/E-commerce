@@ -11,7 +11,8 @@ ING 1 GI GROUPE 4 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Sympa askip</title>
+    <title>Le Repère de MASS</title>
+    <link rel="shortcut icon" href="data/logo.png" type="image">
 
     <!-- POLICE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +46,7 @@ ING 1 GI GROUPE 4 -->
         <div class="container">
 
             <!-- LOGO SITE -->
-            <a href="index.php" class="logo">JeuxVentes.fr</a>
+            <a href="index.php" class="logo">LE REPÈRE DE MASS</a>
 
             <!-- ICONS -->
             <div class="icons">
@@ -255,7 +256,7 @@ ING 1 GI GROUPE 4 -->
         </div>
 
         <div>
-            <p id="blabla">Chez JeuxVente, vous trouverez tout le nécessaire pour passer un excellent moment de détente.
+            <p id="blabla">Chez Le Repère de MASS, vous trouverez tout le nécessaire pour passer un excellent moment de détente.
                 Solo, à plusieurs, en famille ou entre amis, vous y trouverez
                 assurément votre bonheur ! Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous
                 assurer la meilleure qualité possible. Pour tout problème, réclamation ou simple demande de contact,
@@ -294,7 +295,7 @@ ING 1 GI GROUPE 4 -->
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
                     <h2>Mentions légales</h2>
                     <p>
-                        JeuxVentes<br>01.02.03.04.05<br><a href="mailto:JeuxVentes@contact.fr" id ="mail">JeuxVentes@contact.fr</a><br>Chemin des Paradis, 95000 CERGY.
+                        Le Repère de MASS<br>01.02.03.04.05<br><a href="mailto:JeuxVentes@contact.fr" id ="mail">LeReperedeMASS@contact.fr</a><br>Chemin des Paradis, 95000 CERGY.
                     </p>
                 </article>
                 <article class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
