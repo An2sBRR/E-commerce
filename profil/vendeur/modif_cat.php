@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -7,6 +10,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,27 +26,28 @@
 </head>
 
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="text-end">
+                    <a href="profil.php" class="d-block link-dark text-decoration-none">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="text-end">
-              <a href="profil.php" class="d-block link-dark text-decoration-none">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
-      </header>
-      <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    </header>
+    <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <!-- BARRE DE NAVIGATION -->
             <?php include 'barre_navigation_vd.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-                <h4> Modifier une catégorie <h4>
-                <?php
+                <a class="btn btn-dark btn-sm" href="categorie.php">← Retour</a><br><br>
+                <h4> Modifier une catégorie <h4><br>
+                        <?php
                 //récupération des données de la catégorie en question
 
                 require_once '../../include/config.php';
@@ -76,15 +81,19 @@
                 <form method="post">
                     <input type="hidden" class="form-control" name="id" value="<?php echo $category['id'] ?>">
                     <label class="form-label">Libellé</label>
-                    <input type="text" class="form-control" name="libelle" value="<?php echo $category['libelle'] ?>">
+                    <input type="text" class="form-control" name="libelle"
+                        value="<?php echo $category['libelle'] ?>">
 
                     <label class="form-label">Description</label>
-                    <textarea class="form-control" name="description"><?php echo $category['description'] ?></textarea>
+                    <textarea class="form-control"
+                        name="description"><?php echo $category['description'] ?></textarea>
 
-                    <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2" name="modifier">
+                    <input type="submit" value="Modifier catégorie" class="btn btn-primary my-2"
+                        name="modifier">
                 </form>
             </main>
         </div>
     </div>
 </body>
+
 </html>
