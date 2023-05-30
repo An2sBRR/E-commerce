@@ -16,6 +16,7 @@ ING 1 GI GROUPE 4 -->
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,26 +32,26 @@ ING 1 GI GROUPE 4 -->
 </head>
 
 <body>
-    <header class="shadow rounded-3 bg-light" id="header-box" >
+    <header class="shadow rounded-3 bg-light" id="header-box">
         <div class="container-fluid col-11" id="header-container">
-          <div class=" d-flex align-items-center justify-content-between">
-            <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+            <div class=" d-flex align-items-center justify-content-between">
+                <div class="py-3 col-sm-auto justify-content-center">
+                    <div id="title">JeuxVente.fr</div>
+                </div>
+                <div class="text-end">
+                    <a href="profil.php" class="d-block link-dark text-decoration-none">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
+                </div>
             </div>
-            <div class="text-end">
-              <a href="profil.php" class="d-block link-dark text-decoration-none">
-                <i id="log-logo" class="bi bi-person-circle"></i>
-              </a> 
-            </div>
-          </div>
         </div>
     </header>
     <div class="mt-3 container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <?php include 'barre_navigation_vd.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-
-            <?php
+                <a class="btn btn-dark btn-sm" href="produit.php">← Retour</a><br><br>
+                <?php
             require_once '../../include/config.php';
             ?>
                 <h4>Ajouter produit</h4>
@@ -84,18 +85,18 @@ ING 1 GI GROUPE 4 -->
                         }else {
                             // Affichage d'un message d'erreur si l'insertion a échoué
                             ?>
-                            <div class="alert alert-danger" role="alert">
-                                Database error (40023).
-                            </div>
-                            <?php
+                <div class="alert alert-danger" role="alert">
+                    Database error (40023).
+                </div>
+                <?php
                         }
                     } else {
                         // Affichage d'un message d'erreur si les champs obligatoires ne sont pas remplis
                         ?>
-                        <div class="alert alert-danger" role="alert">
-                            Le libellé, le prix et la catégorie sont obligatoires.
-                        </div>
-                        <?php
+                <div class="alert alert-danger" role="alert">
+                    Le libellé, le prix et la catégorie sont obligatoires.
+                </div>
+                <?php
                     }
                 }
                 ?>
@@ -113,9 +114,11 @@ ING 1 GI GROUPE 4 -->
                     <label class="form-label">Poids</label>
                     <input type="number" class="form-control" step="0.01" name="poids" min="0">
 
-                    <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
-                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
-                    
+                    <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput"
+                        for="discount">0</output>%
+                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
+                        oninput="discountOutput.value = discount.value">
+
 
                     <label class="form-label">Description (255 caractères)</label>
                     <textarea class="form-control" name="description"></textarea>
@@ -145,4 +148,5 @@ ING 1 GI GROUPE 4 -->
         </div>
     </div>
 </body>
+
 </html>
