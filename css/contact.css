@@ -1,351 +1,408 @@
 /*SITE WEB 
 AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
-ING 1 GI GROUPE 4*/ 
+ING 1 GI GROUPE 4*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, input, textarea {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  .contenu {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    padding: 2rem;
-    background-color: #fafafa;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .formulaire {
-    width: 100%;
-    max-width: 820px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .contact-formulaire {
-    background-color : #E4F0D0;
-    /*background-color: #1abc9c;*/
-    position: relative;
-  }
-  
-  .bulle {       /*Petites bulles comme sur la page principale*/
-    border-radius: 50%;
-    background: linear-gradient(135deg, transparent 20%,#b9e966) ;
-    position: absolute;
-  }
-  
-  .bulle.un {
-    width: 130px;
-    height: 130px;
-    top: 130px;
-    right: -40px;
-  }
-  
-  .bulle.deux {
-    width: 80px;
-    height: 80px;
-    top: 10px;
-    right: 30px;
-  }
-  
-  .contact-formulaire:before {
-    content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background-color: #E4F0D0 ;
-    transform: rotate(45deg);
-    top: 50px;
-    left: -13px;
-  }
-  
-  form {
-    padding: 2.3rem 2.2rem;
-    z-index: 10;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .titre{
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 1;
-    margin-bottom: 0.7rem;
-  }
-  
-/*NOUVEAUTÉS*/
-select{
-    background-color: transparent;
-    width: 100%;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border: 2px solid #fafafa;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    padding: 0.6rem 1.2rem;
-    color: #555;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
-  .input-contenu {
-    position: relative;
-    margin: 1rem 0;
+.container-fluid {
+  background-color: #E4F0D0;
+  text-align: center;
+}
+
+header {
+  height: 70px;
+  line-height: 70px;
+}
+
+.container a {
+  outline: none;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.logo {
+  float: left;
+  color: #ffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: large;
+  letter-spacing: 1px;
+  float: left;
+  font-family: 'Boogaloo', cursive;
+}
+
+.logo:hover {
+  font-size: 150%;
+  /*Léger zoom quand on passe dessus*/
+}
+
+header .reseauxlog {
+  font-size: 200%;
+  color: rgb(0, 0, 0);
+}
+
+header .reseauxlog:hover {
+  color: bisque;
+  font-size: 300%;
+  /*Zoom des logos quand on passe dessus*/
+}
+
+.icons {
+  float: right;
+}
+
+.reseauxlog {
+  color: #000000;
+}
+
+.contenu {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  background-color: #fafafa;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formulaire {
+  width: 100%;
+  max-width: 820px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-formulaire {
+  background-color: #E4F0D0;
+  position: relative;
+}
+
+.bulle {
+  border-radius: 50%;
+  background: linear-gradient(135deg, transparent 20%, #b9e966);
+  position: absolute;
+}
+
+.bulle.un {
+  width: 130px;
+  height: 130px;
+  top: 130px;
+  right: -40px;
+}
+
+.bulle.deux {
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  right: 30px;
+}
+
+.contact-formulaire:before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: #E4F0D0;
+  transform: rotate(45deg);
+  top: 50px;
+  left: -13px;
+}
+
+form {
+  padding: 2.3rem 2.2rem;
+  z-index: 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.titre {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+/*NOUVEAUTÉS*/
+select {
+  background-color: transparent;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: 2px solid #fafafa;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 0.6rem 1.2rem;
+  color: #555;
+}
+
+
+.input-contenu {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  border: 2px solid #fafafa;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: black;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  /*border-radius: 25px;*/
+  transition: 0.3s;
+}
+
+textarea.input {
+  padding: 0.8rem 1.2rem;
+  min-height: 150px;
+  /*border-radius: 22px;*/
+  resize: none;
+  overflow-y: auto;
+}
+
+.input-contenu label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  padding: 0 0.4rem;
+  color: #fafafa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  pointer-events: none;
+  z-index: 1000;
+  transition: 0.5s;
+}
+
+.input-contenu.textarea label {
+  top: 1rem;
+  transform: translateY(0);
+}
+
+.bouton {
+  padding: 0.6rem 1.3rem;
+  background-color: #fff;
+  border: 2px solid #fafafa;
+  font-size: 0.95rem;
+  color: #b9e966;
+  line-height: 1;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0;
+}
+
+.bouton :hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.input-contenu span {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  transform: translateY(-50%);
+  /*Pour déplacement vertical*/
+  font-size: 0.8rem;
+  padding: 0 0.4rem;
+  color: transparent;
+  pointer-events: none;
+  z-index: 500;
+}
+
+.input-contenu span:before,
+.input-contenu span:after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  opacity: 0;
+  transition: 0.3s;
+  height: 5px;
+  background-color: #E4F0D0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-contenu span:before {
+  left: 50%;
+}
+
+.input-contenu span:after {
+  right: 50%;
+}
+
+.input-contenu.focus label {
+  top: 0;
+  transform: translateY(-50%);
+  left: 25px;
+  font-size: 0.8rem;
+}
+
+.input-contenu.focus span:before,
+.input-contenu.focus span:after {
+  width: 50%;
+  opacity: 1;
+}
+
+.contact-info {
+  padding: 2.3rem 2.2rem;
+  position: relative;
+}
+
+.contact-info .titre {
+  color: #b9e966;
+  font-weight: bold;
+}
+
+.texte {
+  color: #333;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.information {
+  display: flex;
+  color: #555;
+  margin: 0.7rem 0;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.icone {
+  width: 28px;
+  margin-right: 0.7rem;
+}
+
+.social-media {
+  padding: 2rem 0 0 0;
+}
+
+.social-media p {
+  color: #333;
+}
+
+.logos-reseaux {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.logos-reseaux a {
+  padding-top: 1%;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #E4F0D0, #b9e966);
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+
+.logos-reseaux a:hover {
+  transform: scale(1.05);
+}
+
+.contact-info:before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 100px;
+  border: 22px solid #E4F0D0;
+  border-radius: 50%;
+  bottom: -77px;
+  right: 50px;
+  opacity: 0.5;
+}
+
+@media (max-width: 850px) {
+  .formulaire {
+    grid-template-columns: 1fr;
   }
-  
-  .input {
-    width: 100%;
-    outline: none;
-    border: 2px solid #fafafa;
-    background: none;
-    padding: 0.6rem 1.2rem;
-    color: black;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    /*border-radius: 25px;*/
-    transition: 0.3s;
-  }
-  
-  textarea.input {
-    padding: 0.8rem 1.2rem;
-    min-height: 150px;
-    /*border-radius: 22px;*/
-    resize: none;
-    overflow-y: auto;
-  }
-  
-  .input-contenu label {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    padding: 0 0.4rem;
-    color: #fafafa;
-    font-size: 0.9rem;
-    font-weight: 400;
-    pointer-events: none;
-    z-index: 1000;
-    transition: 0.5s;
-  }
-  
-  .input-contenu.textarea label {
-    top: 1rem;
-    transform: translateY(0);
-  }
-  
-  .bouton  {
-    padding: 0.6rem 1.3rem;
-    background-color: #fff;
-    border: 2px solid #fafafa;
-    font-size: 0.95rem;
-    color:  #b9e966;
-    line-height: 1;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 0;
-  }
-  
-  .bouton :hover {
-    background-color: transparent;
-    color: #fff;
-  }
-  
-  .input-contenu span {
-    position: absolute;
-    top: 0;
-    left: 25px;
-    transform: translateY(-50%); /*Pour déplacement vertical*/
-    font-size: 0.8rem;
-    padding: 0 0.4rem;
-    color: transparent;
-    pointer-events: none;
-    z-index: 500;
-  }
-  
-  .input-contenu span:before,
-  .input-contenu span:after {
-    content: "";
-    position: absolute;
-    width: 10%;
-    opacity: 0;
-    transition: 0.3s;
-    height: 5px;
-    background-color:  #E4F0D0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .input-contenu span:before {
-    left: 50%;
-  }
-  
-  .input-contenu span:after {
-    right: 50%;
-  }
-  
-  .input-contenu.focus label {
-    top: 0;
-    transform: translateY(-50%);
-    left: 25px;
-    font-size: 0.8rem;
-  }
-  
-  .input-contenu.focus span:before,
-  .input-contenu.focus span:after {
-    width: 50%;
-    opacity: 1;
-  }
-  
-  .contact-info {
-    padding: 2.3rem 2.2rem;
-    position: relative;
-  }
-  
-  .contact-info .titre {
-    color:   #b9e966;
-    font-weight: bold;
-  }
-  
-  .texte {
-    color: #333;
-    margin: 1.5rem 0 2rem 0;
-  }
-  
-  .information {
-    display: flex;
-    color: #555;
-    margin: 0.7rem 0;
-    align-items: center;
-    font-size: 0.95rem;
-  }
-  
-  .icone {
-    width: 28px;
-    margin-right: 0.7rem;
-  }
-  
-  .social-media {
-    padding: 2rem 0 0 0;
-  }
-  
-  .social-media p {
-    color: #333;
-  }
-  
-  .logos-reseaux {
-    display: flex;
-    margin-top: 0.5rem;
-  }
-  
-  .logos-reseaux a {
-    padding-top: 1%;
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-    background: linear-gradient(45deg,  #E4F0D0,  #b9e966);
-    color: #fff;
-    text-align: center;
-    line-height: 35px;
-    margin-right: 0.5rem;
-    transition: 0.3s;
-  }
-  
-  .logos-reseaux a:hover {
-    transform: scale(1.05);
-  }
-  
+
   .contact-info:before {
-    content: "";
-    position: absolute;
-    width: 110px;
-    height: 100px;
-    border: 22px solid  #E4F0D0;
-    border-radius: 50%;
-    bottom: -77px;
-    right: 50px;
-    opacity: 0.5;
+    bottom: initial;
+    top: -75px;
+    right: 65px;
+    transform: scale(0.95);
   }
-  
-  @media (max-width: 850px) {
-    .formulaire {
-      grid-template-columns: 1fr;
-    }
-  
-    .contact-info:before {
-      bottom: initial;
-      top: -75px;
-      right: 65px;
-      transform: scale(0.95);
-    }
-  
-    .contact-formulaire:before {
-      top: -13px;
-      left: initial;
-      right: 70px;
-    }
-  
-    .text {
-      margin: 1rem 0 1.5rem 0;
-    }
-  
-    .social-media {
-      padding: 1.5rem 0 0 0;
-    }
+
+  .contact-formulaire:before {
+    top: -13px;
+    left: initial;
+    right: 70px;
   }
-  
-  @media (max-width: 480px) {
-    .contenu {
-      padding: 1.5rem;
-    }
-  
-    .contact-info:before {
-      display: none;
-    }
-  
-  
-    form, .contact-info {
-      padding: 1.7rem 1.6rem;
-    }
-  
-    .text, .information, .social-media p {
-      font-size: 0.8rem;
-    }
-  
-    .titre {
-      font-size: 1.15rem;
-    }
-  
-    .logo-reseaux a {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-    }
-  
-    .icone {
-      width: 23px;
-    }
-  
-    .input {
-      padding: 0.45rem 1.2rem;
-    }
-  
-    .bouton  {
-      padding: 0.45rem 1.2rem;
-    }
+
+  .text {
+    margin: 1rem 0 1.5rem 0;
   }
+
+  .social-media {
+    padding: 1.5rem 0 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenu {
+    padding: 1.5rem;
+  }
+
+  .contact-info:before {
+    display: none;
+  }
+
+
+  form,
+  .contact-info {
+    padding: 1.7rem 1.6rem;
+  }
+
+  .text,
+  .information,
+  .social-media p {
+    font-size: 0.8rem;
+  }
+
+  .titre {
+    font-size: 1.15rem;
+  }
+
+  .logo-reseaux a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .icone {
+    width: 23px;
+  }
+
+  .input {
+    padding: 0.45rem 1.2rem;
+  }
+
+  .bouton {
+    padding: 0.45rem 1.2rem;
+  }
+}
