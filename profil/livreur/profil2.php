@@ -162,7 +162,7 @@
                    <div class="container">
                         <div class="col-md-12">
                             <p> Horaire debut : <strong><?php 
-                                $requete = $bdd->prepare('SELECT horaire_debut FROM livreur');
+                                $requete = $bdd->prepare('SELECT horaire_debut FROM livreur WHERE id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = "'.$_SESSION['user'].'")');
                                 $requete->execute([$_SESSION['user']]);
                                 $resultat = $requete->fetch();
                                 echo ucfirst($resultat['horaire_debut'])." ";
@@ -172,7 +172,7 @@
                     <div class="container">
                         <div class="col-md-12">
                             <p> Horaire fin  : <strong><?php 
-                                $requete = $bdd->prepare('SELECT horaire_fin FROM livreur');
+                                $requete = $bdd->prepare('SELECT horaire_fin FROM livreur WHERE id_utilisateurs = (SELECT id FROM utilisateurs WHERE token = "'.$_SESSION['user'].'")');
                                 $requete->execute([$_SESSION['user']]);
                                 $resultat = $requete->fetch();
                                 echo ucfirst($resultat['horaire_fin'])." ";
