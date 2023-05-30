@@ -1,3 +1,7 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
@@ -46,6 +50,7 @@
             <!-- Barre de navigation -->
             <?php include 'barre_navigation_ad.php'; ?>
             <main class="col overflow-auto h-100 w-100">
+            <a class="btn btn-dark btn-sm" href="produit_ad.php">← Retour</a><br><br>
                 <?php
                     // connexion à la base de données
                     require_once '../../include/config.php'; 
