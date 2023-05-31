@@ -78,11 +78,13 @@ ING 1 GI GROUPE 4 -->
                     if (!empty($libelle) && !empty($prix) && !empty($categorie) && !empty($hauteur) && !empty($poids)) {
                         $sqlState = $bdd->prepare('INSERT INTO produit VALUES (null,?,?,?,?,?,?,?,?,?,?,?)');
                         $inserted = $sqlState->execute([$libelle, $prix, $hauteur, $poids, $discount, $categorie, $id, $date, $description, $filename, $quantite]);
+                    
                         // Vérification si l'insertion a été réussie
                         if ($inserted) {
                             move_uploaded_file($_FILES['image']['tmp_name'], '../../data/' . $filename);
                             header('location: produit.php');
                         }else {
+                            var_dump($sqlState->errorInfo());
                             // Affichage d'un message d'erreur si l'insertion a échoué
                             ?>
                 <div class="alert alert-danger" role="alert">
