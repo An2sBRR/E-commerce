@@ -44,6 +44,7 @@ ING 1 GI GROUPE 4 -->
         <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
             <?php include 'barre_navigation_cl.php'; ?>
             <main class="col overflow-auto h-100 w-100">
+                <a class="btn btn-dark btn-sm" href="facture.php?id=<?= $id_commande?>">← Retour</a><br><br>
                 <h4>Retourner un article</h4>
                 <?php 
                     require_once '../../include/config.php'; // On inclut la connexion à la BDD
