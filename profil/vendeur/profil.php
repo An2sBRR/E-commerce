@@ -62,7 +62,6 @@ ING 1 GI GROUPE 4 -->
                         <div class="container">
                       <div class="col-md-12">
                     <p> Pseudo : <strong><?php 
-                            require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
                             $resultat = $requete->fetch();
@@ -70,24 +69,28 @@ ING 1 GI GROUPE 4 -->
                         ?></strong></p>
 
                         <p> Adresse mail :<strong> <?php 
-                            require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT email FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
                             $resultat = $requete->fetch();
                             echo ucfirst($resultat['email'])." ";
                         ?></strong></p>
                     <p> Ville : <strong><?php 
-                            require '../../include/config.php';
                             $requete = $bdd->prepare('SELECT ville FROM utilisateurs WHERE token = ?');
                             $requete->execute([$_SESSION['user']]);
                             $resultat = $requete->fetch();
                             echo ucfirst($resultat['ville'])." ";
                         ?></strong></p>
                       </div>
-                        <p>Pour accéder à votre contrat, cliquez ici :<a href="contrat.php" target="_blank" class="btn">Accéder au contrat</a></br>
+                        <p>Pour accéder à votre contrat, cliquez ici :  <a href="contrat.php" target="_blank" class="btn btn-secondary">Accéder au contrat</a></br>
                         <em> Attention : vous devez télécharger votre contrat après l'avoir signé et l'envoyer par mail à notre adresse</em></p>
-
-                </div>   
+                        <?php 
+                            $requete = $bdd->prepare('SELECT id FROM utilisateurs WHERE token = ?');
+                            $requete->execute([$_SESSION['user']]);
+                            $resultat = $requete->fetch();
+                        ?>
+                        <a href="renouveler.php?id=<?php echo $resultat['id'] ?>" onclick="return confirm('Voulez vous vraiment renouveler votre contrat ?');" class="btn btn-success">Renouveler votre contrat</a>
+                        <a href="resilier.php?id=<?php echo $resultat['id'] ?>" onclick="return confirm('Voulez vous vraiment résilier votre contrat ? (cela entrainera la suppression de votre compte et de toutes vos données)');" class="btn btn-danger">Résilier votre contrat</a>
+                </div>
             </main>
         </div>
     </div>
