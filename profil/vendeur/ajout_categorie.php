@@ -30,7 +30,7 @@ ING 1 GI GROUPE 4 -->
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVente.fr</div>
+                    <div id="title">LE REPÈRE DE MASS</div>
                 </div>
                 <div class="text-end">
                     <a href="profil.php" class="d-block link-dark text-decoration-none">
@@ -55,8 +55,8 @@ ING 1 GI GROUPE 4 -->
                 </form>
                 <?php
                     if(isset($_POST['ajouter'])){
-                        $libelle = $_POST['libelle'];
-                        $description = $_POST['description'];
+                        $libelle = htmlentities($_POST['libelle'], ENT_QUOTES, 'UTF-8');
+                        $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');
                         $date = date('Y-m-d H:i:s');
 
                         if(!empty($libelle) && !empty($description)){

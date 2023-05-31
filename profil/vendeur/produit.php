@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -31,7 +34,7 @@
         <div class="container-fluid col-11" id="header-container">
           <div class=" d-flex align-items-center justify-content-between">
             <div class="py-3 col-sm-auto justify-content-center">
-              <div id="title">JeuxVente.fr</div>
+              <div id="title">LE REPÈRE DE MASS</div>
             </div>
             <div class="text-end">
               <a href="profil.php" class="d-block link-dark text-decoration-none">

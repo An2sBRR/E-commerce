@@ -9,7 +9,10 @@ Hors Cahier des Charges :
 
 - [X] Lier le slider aux meilleurs ventes
 - [ ] Ajouter des petites annimations qui rendent le site 🤌
-- [X] Faire un texte pour remplir la page index 
+- [ ] Faire un texte pour remplir la page index 
+
+Coté Client :
+- [ ] envoyer un mail 
 
 Coté Vendeur :FINI
 

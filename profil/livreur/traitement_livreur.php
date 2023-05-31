@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "livreur"){

@@ -1,3 +1,7 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
+
 <!-- On a securisé la page c'est a dire le client a acces qu'au page client que si il est connecté 
 sinon l'utilisateur est redirigé sur la page index --> 
 <?php

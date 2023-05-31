@@ -33,11 +33,10 @@ sinon l'utilisateur est redirigé sur la page index -->
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVente.fr</div>
+                    <div id="title">LE REPÈRE DE MASS</div>
                 </div>
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                <div class="text-end">
+                    <a href="profil_cl.php">
                         <i id="log-logo" class="bi bi-person-circle"></i>
                     </a>
                 </div>
@@ -65,7 +64,7 @@ sinon l'utilisateur est redirigé sur la page index -->
                     }
                     // Affichage de l'en-tête de la facture avec les données personnel du client 
                     // son numero de commande, la date, le nom prenom, livraison et le total de commande
-                    echo "<h1>Facture JeuxVente.fr</h1>";
+                    echo "<h1>Facture Le Repère De MASS</h1>";
                     echo "<p>Commande n° : ".$commande['numero_commande']."</p>";
                     echo "<p>Date : ".$commande['date_creation']."</p>";
                     echo "<p>Client : ".$commande['nom_prenom']."</p>";

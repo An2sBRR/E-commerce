@@ -33,10 +33,12 @@ sinon l'utilisateur est redirigé sur la page index -->
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVente.fr</div>
+                    <div id="title">LE REPÈRE DE MASS</div>
                 </div>
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i id="log-logo" class="bi bi-person-circle"></i></a>
+                <div class="text-end">
+                    <a href="profil_cl.php">
+                        <i id="log-logo" class="bi bi-person-circle"></i>
+                    </a>
                 </div>
             </div>
         </div>

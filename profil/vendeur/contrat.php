@@ -1,3 +1,6 @@
+<!-- SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 -->
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['statut'] != "vendeur"){
@@ -28,7 +31,7 @@
 <div class="mt-3 container pb-3 flex-grow-1 d-flex flex-column flex-sm-row ">
   <div class="row flex-grow-sm-1 flex-grow-0 container-fluid">
         <h2>Contrat de vente :</h2>
-        <p>Contrat de vente pour un site de jouet entre JeuxVente et <strong>
+        <p>Contrat de vente pour un site de jouet entre Le Repère de MASS et <strong>
           <?php 
               require '../../include/config.php';
               $requete = $bdd->prepare('SELECT nom, prenom FROM utilisateurs WHERE token = ?');
