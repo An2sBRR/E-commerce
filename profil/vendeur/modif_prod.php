@@ -60,13 +60,13 @@ ING 1 GI GROUPE 4 -->
                     $sqlState->execute([$id]);
                     $produit = $sqlState->fetch(PDO::FETCH_OBJ);;
                     if (isset($_POST['modifier'])) {
-                        $libelle = $_POST['libelle'];
+                        $libelle = htmlentities($_POST['libelle'], ENT_QUOTES, 'UTF-8');
                         $prix = $_POST['prix'];
                         $hauteur = $_POST['hauteur'];
                         $poids = $_POST['poids'];
                         $discount = $_POST['discount'];
                         $categorie = $_POST['categorie'];
-                        $description = $_POST['description'];
+                        $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');
                         $quantite = $_POST['quantite'];
 
                         $filename = '';
@@ -132,15 +132,15 @@ ING 1 GI GROUPE 4 -->
                     <input type="text" class="form-control" name="libelle" value="<?= $produit->libelle ?>">
 
                     <label class="form-label">Prix</label>
-                    <input type="number" class="form-control" step="0.1" name="prix" min="0"
+                    <input type="number" class="form-control" step="0.01" name="prix" min="0"
                         value="<?= $produit->prix ?>">
 
                     <label class="form-label">Hauteur</label>
-                    <input type="number" class="form-control" step="0.1" name="hauteur"
+                    <input type="number" class="form-control" step="0.01" name="hauteur"
                         value="<?= $produit->hauteur ?>">
 
                     <label class="form-label">Poids</label>
-                    <input type="number" class="form-control" step="0.1" name="poids" min="0"
+                    <input type="number" class="form-control" step="0.01" name="poids" min="0"
                         value="<?= $produit->poids ?>">
 
                     <label class="form-label">Discount</label>
