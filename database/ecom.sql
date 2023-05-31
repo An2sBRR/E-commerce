@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2023 at 12:16 PM
+-- Generation Time: May 31, 2023 at 07:14 PM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3-4ubuntu2.18
 
@@ -77,7 +77,7 @@ CREATE TABLE `commande` (
 INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_commande`, `taille`, `poids`, `adresse_livraison`, `ville`, `code_postal`, `valide`, `commande_livre`, `date_creation`, `livraison`, `commission`, `id_livreur`) VALUES
 (1, 54, 'Marie Bergere', '302.15', '525ccf9ab2f7e20547924b7c0c6558', '54.8000', '5.6300', '2 rue du quartier', 'Paris', 75011, 1, 1, '2023-01-17 09:34:03', 'express', '0.00', 58),
 (2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 1, 1, '2023-01-10 09:34:52', 'relais', '1.66', 58),
-(3, 51, 'Mat&eacute;o Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 1, 1, '2022-03-26 09:48:22', 'relais', '9.95', 45),
+(3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 1, 1, '2022-03-26 09:48:22', 'relais', '9.95', 45),
 (4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 1, '2023-01-26 09:55:56', 'standard', '3.90', 58),
 (5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 0, '2023-04-26 09:58:10', 'relais', '1.20', 45),
 (6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2023-04-26 10:00:16', 'relais', '1.66', 58),
@@ -86,7 +86,7 @@ INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_comman
 (9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2023-03-10 10:06:15', 'express', '0.60', 45),
 (10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 1, '2023-01-02 10:07:54', 'relais', '6.93', 45),
 (11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 1, '2022-12-17 10:08:37', 'relais', '4.00', 45),
-(12, 55, 'Laure Esn&eacute;e', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2022-11-26 10:10:13', 'express', '10.97', 58),
+(12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2022-11-26 10:10:13', 'express', '10.97', 58),
 (13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 1, '2023-02-25 11:11:42', 'express', '4.00', 45),
 (14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 1, '2022-11-03 11:18:17', 'relais', '1.66', 58),
 (15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 1, 0, '2023-05-14 19:32:52', 'relais', '2.64', 58),
@@ -203,7 +203,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (28, 'LEGO Star Wars: X-wing Starfighter', '110.00', '28.2000', '0.9900', 12, 39, 50, '2023-03-23 00:00:00', 'Rejoignez la lutte contre l&#39Empire avec ce mod?le X-wing Starfighter de LEGO Star Wars', '../data/X-wing.jpeg', 7),
 (29, 'LEGO City: Le Poste de Police', '60.00', '26.2000', '0.4560', 12, 39, 48, '2023-03-24 00:00:00', 'Assurez la s&eacutecurit&eacute de LEGO City avec le poste de police et ses figurines', '../data/police.jpeg', 7),
 (30, 'LEGO City - La caserne de pompiers', '90.00', '37.8000', '1.5000', 20, 39, 48, '2023-03-23 00:00:00', 'Ensemble de construction de la caserne de pompiers LEGO City', '../data/pompier.jpeg', 9),
-(31, 'LEGO Creator - Le march&eacute d hiver', '80.00', '7.0600', '0.2800', 10, 39, 48, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute d&#39hiver LEGO Creator', '../data/hiver.jpeg', 14),
+(31, 'LEGO Creator - Le march&eacute; d&#039;hiver', '80.00', '7.0600', '0.2800', 0, 39, 48, '2023-03-25 00:00:00', 'Ensemble de construction du march&eacute; d&#039;hiver LEGO Creator', '../data/hiver.jpeg', 14),
 (32, 'Jeu d&#39&eacutechecs en bois', '50.00', '5.2000', '0.8000', 0, 38, 48, '2023-03-26 00:00:00', 'Jeu d&#39&eacutechecs classique en bois pour tous les niveaux', '../data/echec.jpeg', 1),
 (33, 'Mikado en bois', '15.00', '7.5000', '0.2000', 5, 38, 48, '2023-03-27 00:00:00', 'Jeu de Mikado traditionnel en bois pour toute la famille', '../data/mikado.jpeg', 7),
 (34, 'Jeu de dames en bois', '25.00', '4.0000', '0.3500', 0, 38, 48, '2023-03-28 00:00:00', 'Jeu de dames classique en bois pour tous les niveaux', '../data/dames.jpeg', 7),
@@ -233,7 +233,14 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (58, 'Lego marvel hulkbuster', '50.00', '5.3000', '2.6000', 0, 39, 50, '2023-04-15 17:33:27', 'Bruce banner enfile l&#39armure Hulkbuster pour defendre le Wakanda ', '../data/5marvel.jpeg', 6),
 (59, 'Captain marvel lego ', '58.20', '2.6000', '4.9000', 5, 39, 50, '2023-04-15 17:33:27', 'Jeu de construction Captain marvel contient 3 figurines : captain marvel, nick fury et Talos', '../data/6marvel.jpg', 5),
 (60, 'Uno', '10.00', '14.6000', '0.1000', 0, 37, 50, '2023-05-19 00:05:29', 'Assemblez les cartes par couleur ou par valeur et jouez des cartes sp&eacute;ciales pour pimenter l&#039;action.', '../data/6466a1298c4c7Uno.png', 11),
-(61, 'Monopoly', '23.99', '12.0000', '0.9300', 0, 37, 61, '2023-05-30 14:31:25', 'Voici un classique des soir&eacute;es de jeux en famille ! Au Monopoly, les joueurs doivent acheter, vendre et planifier pour devenir le plus riche.', '../data/6475ec9ddca6bmonopoly.jpeg', 15);
+(61, 'Monopoly', '23.99', '12.0000', '0.9300', 0, 37, 61, '2023-05-30 14:31:25', 'Voici un classique des soir&eacute;es de jeux en famille ! Au Monopoly, les joueurs doivent acheter, vendre et planifier pour devenir le plus riche.', '../data/6475ec9ddca6bmonopoly.jpeg', 15),
+(62, 'Dixit', '48.00', '7.0000', '0.8700', 15, 37, 48, '2023-05-31 17:40:24', 'Le principe de Dixit est simple : les joueurs doivent deviner et faire deviner des cartes illustr&eacute;es. &Agrave; chaque tour, un joueur devient le conteur qui choisit une carte et la d&eacute;crit avec une phase, un mot ou un son. ', '../data/64776a682a9fcdixit.jpeg', 10),
+(63, 'Nain Jaune', '14.99', '7.5000', '0.8100', 0, 37, 44, '2023-05-31 17:55:45', 'Le v&eacute;ritable jeu de nain avec des barquettes amovibles pour ramasser le pot. Des jetons de mises de valeurs diff&eacute;rentes pimentent le jeu !', '../data/64776e0156455nain_jaune.png', 45),
+(64, 'Dobble', '20.14', '26.0000', '0.2900', 0, 37, 61, '2023-05-31 18:04:56', 'Un jeu amusant qui teste votre vitesse, les habilet&eacute;s d&#039;observation et r&eacute;flexes! Dobble repose sur l&#039;&oelig;il et des r&eacute;flexes rapides pour cr&eacute;er l&#039;excitation forte. ', '../data/64777028626c7dobble.jpeg', 10),
+(65, 'Le seigneur des anneaux : Fondcombe', '499.00', '36.0000', '1.2000', 0, 39, 61, '2023-05-31 18:46:03', 'Nich&eacute; dans la vall&eacute;e de la Terre du Milieu o&ugrave; commen&ccedil;a la c&eacute;l&egrave;bre qu&ecirc;te, cet impressionnant projet de 6 167 pi&egrave;ces regorge de d&eacute;tails que les fans des films vont adorer.', '../data/647779cbe980flego-seigneur.jpg', 4),
+(66, 'Harry Potter - Poudlard', '500.00', '58.0000', '1.4000', 10, 39, 44, '2023-05-31 18:52:54', 'Cet ensemble LEGO Harry Potter de collection tr&egrave;s d&eacute;taill&eacute; comprend plus de 6 000 pi&egrave;ces et offre une exp&eacute;rience de construction enrichissante.', '../data/64777b662a02flego_harry_potter.jpeg', 21),
+(67, 'Civilization', '44.90', '14.0000', '0.5000', 0, 40, 44, '2023-05-31 19:00:04', 'Dans ce jeu de strat&eacute;gie, vous prendrez la t&ecirc;te d&#039;une civilisation tout au long de l&#039;histoire. Vous contr&ocirc;lerez son d&eacute;veloppement technologique, son &eacute;conomie, sa culture et son pouvoir militaire.', '../data/64777d1433d05civilization.jpg', 4),
+(68, 'Scotland Yard', '30.99', '14.0000', '0.8700', 30, 40, 61, '2023-05-31 19:02:51', 'Un des joueurs est Mister X, gangster en fuite dans Londres. Les autres joueurs, incarnant des d&eacute;tectives de Scotland Yard, doivent le capturer en coordonnant leurs mouvements. ', '../data/64777dbb02192scotland_yard.jpeg', 7);
 
 -- --------------------------------------------------------
 
@@ -326,7 +333,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `commande`
@@ -350,7 +357,7 @@ ALTER TABLE `livreur`
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
