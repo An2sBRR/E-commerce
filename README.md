@@ -19,5 +19,7 @@ Gestion des commandes : L'entreprise doit validé les commandes et gérer les pr
 
 ## Technologies utilisées
 Frontend: HTML, CSS, JavaScript
+
 Backend: PHP
+
 Base de données: MySQL géré avec phpMyAdmin
