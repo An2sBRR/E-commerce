@@ -32,7 +32,7 @@ ING 1 GI GROUPE 4 -->
                 <?php 
                 // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
                 if(!isset($_SESSION['statut'])){
-                    echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='./contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "client"){
                     echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
