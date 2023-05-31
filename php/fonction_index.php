@@ -66,7 +66,11 @@ function affichage() {
             echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> ";  
             echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
             if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
-            echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            if($quantite == 0){
+                echo "<br><h5 class='text-danger'>Victime de son succès</h5>";
+            }else{
+                echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            }
             echo "</div> </div><span class='dot' id='".$id."'";
             if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
             echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
@@ -106,7 +110,11 @@ function affichage() {
             echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> "; 
             echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
             if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
-            echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            if($quantite == 0){
+                echo "<br><h5 class='text-danger'>Victime de son succès</h5>";
+            }else{
+                echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            }
             echo "</div> </div><span class='dot' id='".$id."'";
             if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
             echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
@@ -153,7 +161,11 @@ function affichage() {
             echo "<div class='about text-left px-3' id='about'>  <h4>".$libelle."</h4> "; 
             echo "<span class='nouveau_prix'>".$prixFinale."€</span>";
             if ($discount != 0){echo "<span id='ancien_prix'>".$prix."€</span>";}
-            echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            if($quantite == 0){
+                echo "<br><h5 class='text-danger'>Victime de son succès</h5>";
+            }else{
+                echo "<h5 class='text-muted'>Vendu par ".$vendeur."</h5>";
+            }
             echo "</div> </div><span class='dot' id='".$id."'";
             if((!isset($_SESSION['panier'][$id]) || $_SESSION['panier'][$id] < $quantite || !isset($_SESSION['panier'])) && $quantite > 0) echo "onclick=ajouter_panier_categorie(this.id)";
             echo "><span class='inner-dot'><i class='fa fa-plus'></i></span></span> </div> </div>";
