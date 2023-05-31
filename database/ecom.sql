@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2023 at 07:14 PM
+-- Generation Time: Jun 01, 2023 at 01:14 AM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3-4ubuntu2.18
 
@@ -240,7 +240,8 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (65, 'Le seigneur des anneaux : Fondcombe', '499.00', '36.0000', '1.2000', 0, 39, 61, '2023-05-31 18:46:03', 'Nich&eacute; dans la vall&eacute;e de la Terre du Milieu o&ugrave; commen&ccedil;a la c&eacute;l&egrave;bre qu&ecirc;te, cet impressionnant projet de 6 167 pi&egrave;ces regorge de d&eacute;tails que les fans des films vont adorer.', '../data/647779cbe980flego-seigneur.jpg', 4),
 (66, 'Harry Potter - Poudlard', '500.00', '58.0000', '1.4000', 10, 39, 44, '2023-05-31 18:52:54', 'Cet ensemble LEGO Harry Potter de collection tr&egrave;s d&eacute;taill&eacute; comprend plus de 6 000 pi&egrave;ces et offre une exp&eacute;rience de construction enrichissante.', '../data/64777b662a02flego_harry_potter.jpeg', 21),
 (67, 'Civilization', '44.90', '14.0000', '0.5000', 0, 40, 44, '2023-05-31 19:00:04', 'Dans ce jeu de strat&eacute;gie, vous prendrez la t&ecirc;te d&#039;une civilisation tout au long de l&#039;histoire. Vous contr&ocirc;lerez son d&eacute;veloppement technologique, son &eacute;conomie, sa culture et son pouvoir militaire.', '../data/64777d1433d05civilization.jpg', 4),
-(68, 'Scotland Yard', '30.99', '14.0000', '0.8700', 30, 40, 61, '2023-05-31 19:02:51', 'Un des joueurs est Mister X, gangster en fuite dans Londres. Les autres joueurs, incarnant des d&eacute;tectives de Scotland Yard, doivent le capturer en coordonnant leurs mouvements. ', '../data/64777dbb02192scotland_yard.jpeg', 7);
+(68, 'Scotland Yard', '30.99', '14.0000', '0.8700', 30, 40, 61, '2023-05-31 19:02:51', 'Un des joueurs est Mister X, gangster en fuite dans Londres. Les autres joueurs, incarnant des d&eacute;tectives de Scotland Yard, doivent le capturer en coordonnant leurs mouvements. ', '../data/64777dbb02192scotland_yard.jpeg', 7),
+(69, 'Cluedo', '34.99', '14.0000', '0.9800', 5, 37, 50, '2023-06-01 01:13:41', 'Cluedo est un jeu de soci&eacute;t&eacute; dans lequel les joueurs doivent d&eacute;couvrir parmi eux qui est le meurtrier d&#039;un crime commis dans un manoir anglais, le Manoir Tudor.', '../data/6477d4a56e646cluedo.jpeg', 10);
 
 -- --------------------------------------------------------
 
@@ -357,7 +358,7 @@ ALTER TABLE `livreur`
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
