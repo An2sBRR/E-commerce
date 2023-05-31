@@ -57,8 +57,8 @@ ING 1 GI GROUPE 4 -->
 
                 $category = $check->fetch(PDO::FETCH_ASSOC);
                 if (isset($_POST['modifier'])) {
-                    $libelle = $_POST['libelle'];
-                    $description = $_POST['description'];
+                    $libelle = htmlentities($_POST['libelle'], ENT_QUOTES, 'UTF-8');
+                    $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');
 
                     if (!empty($libelle) && !empty($description)) { // si les informations sont rentrés dans le formulaire on continue
                         //mise à jour de la base de donnée
