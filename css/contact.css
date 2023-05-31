@@ -54,7 +54,6 @@ header .reseauxlog {
 }
 
 header .reseauxlog:hover {
-  color: bisque;
   font-size: 300%;
   /*Zoom des logos quand on passe dessus*/
 }
