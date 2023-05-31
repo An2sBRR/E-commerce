@@ -60,13 +60,13 @@ ING 1 GI GROUPE 4 -->
                 // Vérification si le formulaire a été soumis
                 if (isset($_POST['ajouter'])) {
                     // Récupération des valeurs du formulaire
-                    $libelle = $_POST['libelle'];
+                    $libelle = htmlentities($_POST['libelle'], ENT_QUOTES, 'UTF-8');
                     $prix = $_POST['prix'];
                     $hauteur = $_POST['hauteur'];
                     $poids = $_POST['poids'];
                     $discount = $_POST['discount'];
                     $categorie = $_POST['categorie'];
-                    $description = $_POST['description'];
+                    $description = htmlentities($_POST['description'], ENT_QUOTES, 'UTF-8');
                     $quantite = $_POST['quantite'];
                     $date = date('Y-m-d H:i:s');
 
