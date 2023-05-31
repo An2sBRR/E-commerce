@@ -125,17 +125,17 @@ ING 1 GI GROUPE 4 -->
 
                     <!-- Champ numérique pour le prix du produit -->
                     <label class="form-label">Prix</label>
-                    <input type="number" class="form-control" step="0.1" name="prix" min="0"
+                    <input type="number" class="form-control" step="0.01" name="prix" min="0"
                         value="<?= $produit->prix ?>">
 
                     <!-- Champ numérique pour la hauteur du produit -->
                     <label class="form-label">Hauteur</label>
-                    <input type="number" class="form-control" step="0.1" name="hauteur"
+                    <input type="number" class="form-control" step="0.01" name="hauteur"
                         value="<?php echo $produit->hauteur ?>">
 
                     <!-- Champ numérique pour le poids du produit -->
                     <label class="form-label">Poids</label>
-                    <input type="number" class="form-control" step="0.1" name="poids" min="0"
+                    <input type="number" class="form-control" step="0.01" name="poids" min="0"
                         value="<?php echo $produit->poids ?>">
 
                     <!-- Champ de type "range" pour la réduction sur le produit -->
