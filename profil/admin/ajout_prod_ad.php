@@ -35,7 +35,7 @@ ING 1 GI GROUPE 4 -->
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVente.fr</div>
+                    <div id="title">LE REPÈRE DE MASS</div>
                 </div>
                 <div class="text-end">
                     <a href="main_ad.php" class="d-block link-dark text-decoration-none">
@@ -50,7 +50,7 @@ ING 1 GI GROUPE 4 -->
             <!-- Barre de navigation -->
             <?php include 'barre_navigation_ad.php'; ?>
             <main class="col overflow-auto h-100 w-100">
-            <a class="btn btn-dark btn-sm" href="produit_ad.php">← Retour</a><br><br>
+                <a class="btn btn-dark btn-sm" href="produit_ad.php">← Retour</a><br><br>
                 <?php
                     // connexion à la base de données
                     require_once '../../include/config.php'; 

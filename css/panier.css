@@ -1,25 +1,25 @@
 /*SITE WEB 
 AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
-ING 1 GI GROUPE 4*/ 
+ING 1 GI GROUPE 4*/
 
-.container-fluid{
+.container-fluid {
     background-color: #C2D8B9;
     text-align: center;
 }
 
-header{
+header {
     height: 70px;
     line-height: 70px;
 }
 
-.container a{
+.container a {
     outline: none;
     text-decoration: none;
     font-size: larger;
     font-weight: bold;
 }
 
-.logo{
+.logo {
     float: left;
     color: #ffff;
     text-transform: uppercase;
@@ -30,51 +30,48 @@ header{
     font-family: 'Boogaloo', cursive;
 }
 
-.logo:hover
-{
-    font-size: 150%;  /*Léger zoom quand on passe dessus*/
+.logo:hover {
+    font-size: 150%;
+    /*Léger zoom quand on passe dessus*/
 }
 
-header .reseauxlog
-{
+header .reseauxlog {
     font-size: 200%;
     color: rgb(0, 0, 0);
 }
 
-header .reseauxlog:hover
-{
-    color:bisque;
-    font-size: 300%;  /*Zoom des logos quand on passe dessus*/
+header .reseauxlog:hover {
+    color: bisque;
+    font-size: 300%;
+    /*Zoom des logos quand on passe dessus*/
 }
 
-.icons
-{
-    float:right;
+.icons {
+    float: right;
 }
 
-.reseauxlog
-{
+.reseauxlog {
     color: #000000;
 }
 
 
-.btn{
-    background-color:rgb(174, 66, 66);
+.btn {
+    background-color: rgb(174, 66, 66);
     color: antiquewhite;
     align-items: center;
 }
 
-i:hover{
+i:hover {
     cursor: pointer;
 }
 
-#connexion{
+#connexion {
     color: rgb(172, 136, 206);
     text-decoration: underline;
     font-weight: 400;
 }
 
-.connexion{
+.connexion {
     font-weight: 400;
 }
 
@@ -115,10 +112,10 @@ label {
     background-color: #6fd575;
 }
 
-.erreur{
+.erreur {
     color: red;
 }
 
-.confirmation{
+.confirmation {
     align-items: center;
 }

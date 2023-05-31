@@ -1,93 +1,98 @@
+/* SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 */
+
 * {
-    box-sizing: border-box;
-}
-  
-.tout{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
+  box-sizing: border-box;
 }
 
-  /* Style the list */
+.tout {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+/* Style the list */
+ul {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 500px;
+}
+
+/* Add shadows on hover */
+ul:hover {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+/* Pricing header */
+ul .titre {
+  background-color: #C2D8B9;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* List items */
+ul li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Grey list item */
+ul .couleur {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+/* The "Sign Up" button */
+button {
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+@media screen and (min-width: 800px) {
   ul {
-    list-style-type: none;
-    border: 1px solid #eee;
-    margin: 0;
-    padding: 0;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    width: 500px;
+    width: 750px;
   }
-  
-  /* Add shadows on hover */
-  ul:hover {
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-  }
-  
-  /* Pricing header */
-  ul .titre {
-    background-color: #C2D8B9;
-    color: white;
-    font-size: 25px;
-    text-align: center;
-  }
-  
-  /* List items */
-  ul li {
-    border-bottom: 1px solid #eee;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Grey list item */
-  ul .couleur {
-    background-color: #eee;
-    font-size: 20px;
-  }
-  
-  /* The "Sign Up" button */
-  button {
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 15px;
-  }
-
-  @media screen and (min-width: 800px) {
-    ul {
-      width: 750px;
-    }
-  }
-
-  @media screen and (max-width: 770px){
-    .tout{
-        margin: 100px 20px 0 20px;
-    }
-  }
-
-.valider{
-    background-color: rgb(117, 211, 88);
-    margin-left: 2%;
 }
 
-.valider:hover{
+@media screen and (max-width: 770px) {
+  .tout {
+    margin: 100px 20px 0 20px;
+  }
+}
+
+.valider {
+  background-color: rgb(117, 211, 88);
+  margin-left: 2%;
+}
+
+.valider:hover {
   border: solid black;
   font-weight: bold;
 }
 
-.annuler{
-    background-color: rgb(197, 65, 48);
+.annuler {
+  background-color: rgb(197, 65, 48);
 }
 
-.annuler:hover{
+.annuler:hover {
   border: solid black;
   font-weight: bold;
 }
-.erreur{
-    color: red;
-    text-align: center;
+
+.erreur {
+  color: red;
+  text-align: center;
 }

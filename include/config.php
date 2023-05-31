@@ -16,7 +16,7 @@ if (gethostname()=="pc-d-ingenieur") {
 else {
     
     try{
-        $bdd = new PDO("mysql:host=localhost;dbname=ecom;charset=utf8", "root", "root");
+        $bdd = new PDO("mysql:host=localhost;dbname=ecom;charset=utf8", "sarah", "sarah");
     }
 //erreur : renvoyer message 
     catch(PDOException $e){

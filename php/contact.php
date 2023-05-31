@@ -11,7 +11,7 @@ ING 1 GI GROUPE 4 -->
     <title>Nous contacter</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
-
+  
     <link rel="stylesheet" href="../css/contact.css" />
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
@@ -24,18 +24,16 @@ ING 1 GI GROUPE 4 -->
 <body>
     <header class="container-fluid header">
         <div class="container">
-            <a href="../index.php" class="logo">JeuxVentes.fr</a>
+            <a href="../index.php" class="logo">LE REPÈRE DE MASS</a>
             <div class="icons">
                 <?php 
                 // REDIRECTIONS PAGES/CHANGEMENT AFFICHAGE LORS DU CLIC SUR LOGO SELON LE PROFIL UTILISATEUR
                 if(!isset($_SESSION['statut'])){
-                    echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='./panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='./co.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
-                    echo "<a href='./contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }else if($_SESSION['statut'] == "client"){
-                    echo "<a href='php/panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
+                    echo "<a href='./panier.php' class='reseauxlog'><ion-icon name=cart></ion-icon> </a>";
                     echo "<a href='../profil/client/profil_cl.php' class='reseauxlog'><ion-icon name=person></ion-icon> </a>";
-                    echo "<a href='./contact.php' class='reseauxlog'><ion-icon name=chatbubbles></ion-icon> </a>";
                 }
                 else if ($_SESSION['statut'] == "admin"){
                     echo "<a href='./gestion_messages.php' class='reseauxlog'><ion-icon name=mail-unread-outline></ion-icon> </a>";
@@ -59,7 +57,7 @@ ING 1 GI GROUPE 4 -->
         <!-- Formulaire de contact-->
         <div class="formulaire">
             <div class="contact-info">
-                <h3 class="titre">L'équipe JeuxVente à votre écoute!</h3>
+                <h3 class="titre">L'équipe Le Repère De MASS à votre écoute!</h3>
                 <p class="texte">
                     Pour toute remarque, complément d'information, problème ou réclamation,
                     nous vous invitons à remplir notre formulaire de contact.
@@ -74,7 +72,7 @@ ING 1 GI GROUPE 4 -->
                     </div>
                     <div class="information">
                         <img src="../data/email.png" class="icone" />
-                        <p>JeuxVente-contact@society.com</p>
+                        <p>RepèreDeMASS-contact@society.com</p>
                     </div>
                     <div class="information">
                         <img src="../data/tel.png" class="icone" />
@@ -157,4 +155,6 @@ ING 1 GI GROUPE 4 -->
     }
         affichageerror();
     ?>
+
+
 </html>

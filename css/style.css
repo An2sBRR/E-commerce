@@ -5,10 +5,6 @@ ING 1 GI GROUPE 4*/
 
 @charset "UTF-8";
 
-/* font-family: 'Boogaloo', cursive; 
-vert foncé : #C2D8B9
-vert clair : #E4F0D0
-*/
 
 body,
 html {
@@ -759,22 +755,6 @@ ul.menuBas li:hover {
 #Propos:hover {
     background-size: 100% 3px;
 }
-
-
-/*#Propos:before{
-  content:"À\00A0PROPOS";
-  color:#262626;
-  position: absolute;
-  top:0;
-  left:0;
-  width:0%;
-  overflow:hidden;
-  transition:all 0.6s;
-}
-#Propos:hover:before{
-  width:100%;
-}*/
-
 
 #blabla {
     color: #000000;

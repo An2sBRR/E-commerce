@@ -30,7 +30,7 @@ ING 1 GI GROUPE 4 -->
         <div class="container-fluid col-11" id="header-container">
             <div class=" d-flex align-items-center justify-content-between">
                 <div class="py-3 col-sm-auto justify-content-center">
-                    <div id="title">JeuxVentes.fr</div>
+                    <div id="title">LE REPÈRE DE MASS</div>
                 </div>
                 <div class="text-end">
                     <a href="main_ad.php" class="d-block link-dark text-decoration-none">

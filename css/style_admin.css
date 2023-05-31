@@ -1,47 +1,49 @@
-body, html{
+/* SITE WEB 
+AÏT CHADI Anissa, BERGERE Sarah, COSTA Mathéo, FELGINES Sara
+ING 1 GI GROUPE 4 */
+
+body,
+html {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: 'Helvetica', sans-serif
 }
 
-a, a:hover{
+a,
+a:hover {
     text-decoration: none;
 }
 
-.container-fluid{
+.container-fluid {
     padding: 0;
 }
 
-/* Header */
-/* .menu {
-   float: right; On le met à droite
-    text-align: center;  
-}*/
-
-.menu{
+.menu {
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
 .menu a {
     color: #000000;
-    margin-right: 25px; /*Pour les écarter*/
+    margin-right: 25px;
+    /*Pour les écarter*/
     font-size: 20px;
 }
 
-.menu a:hover{
+.menu a:hover {
     color: antiquewhite;
 }
 
-.inner-banniere{
+.inner-banniere {
     position: relative;
-    top: 40%;  /*comme on a mis position absolute c'est plu margin et padding c'est top bottom etc*/
+    top: 40%;
+    /*comme on a mis position absolute c'est plu margin et padding c'est top bottom etc*/
     width: 100%;
-    padding: 0 0 0 12%;   /*Pour centrer le menu*/
+    padding: 0 0 0 12%;
+    /*Pour centrer le menu*/
     /*text-align: center;*/
     background-color: #7CC6FE;
 }
-

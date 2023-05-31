@@ -55,11 +55,30 @@ header .reseauxlog:hover {
   color: #000000;
 }
 
+.texte{  
+  margin-top: -30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
 .form-box{
   display: flex;
   margin-top: 100px;
   justify-content: center;
-  flex-direction: columns;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.statut{
+  margin-bottom: 10px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
 }
