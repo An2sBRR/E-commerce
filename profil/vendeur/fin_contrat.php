@@ -16,7 +16,7 @@ ING 1 GI GROUPE 4 -->
             $date_today = date('Y-m-d H:i:s');
 
             // Calcul de la date d'alerte (2 jours avant la fin du contrat)
-            $date_alerte = clone $nouvelle_date;
+            $date_alerte = new DateTime($nouvelle_date);
             $date_alerte->modify('-2 days');
 
             if ($nouvelle_date < $date_today) {
