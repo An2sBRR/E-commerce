@@ -1,5 +1,9 @@
 <?php
-$demandes = json_decode(file_get_contents('../data/messages.json'), true);
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['statut'] != "admin"){
+        header('Location: ../../index.php');
+    }
+    $demandes = json_decode(file_get_contents('../data/messages.json'), true);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +32,7 @@ $demandes = json_decode(file_get_contents('../data/messages.json'), true);
         <div class="container">
 
             <!-- LOGO SITE -->
-            <a href="../index.php" class="logo">JeuxVentes.fr</a>
+            <a href="../index.php" class="logo">LE REPÈRE DE MASS</a>
             
             <!-- ICONS -->
             <div class="icons">
