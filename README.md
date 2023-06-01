@@ -4,6 +4,10 @@
 ## Le repère de MASS
 Ce repository contient le code source du site internet "Le repère de MASS", une plateforme de marketplace en ligne dédiée à la vente de jeux de société. Créer par Anissa Aït Chadi, Sarah Bergere, Mathéo Costa et Sara Felgines, ce site permet aux clients d'acheter des jeux de société auprès de vendeurs externes et de l'entreprise elle-même. Il offre également la possibilité aux utilisateurs de devenir des vendeurs et de livrer les colis.
 
+
+### ⚠️  Attention  ⚠️ 
+Veuillez changer __config.php__ pour mettre vos identifiants de base de données et tous les mots de passe du site sont "aa" en MINUSCULE.
+
 ## Fonctionnalités principales
 Catalogue de jeux de société : Les clients peuvent parcourir le catalogue en ligne qui propose une large sélection de jeux de société provenant de différents vendeurs.
 
