@@ -47,6 +47,7 @@ ING 1 GI GROUPE 4 -->
 
             <!------------FIN MENU ---------------------->
             <main class="col overflow-auto h-100 w-100">
+                <a class="btn btn-dark btn-sm" href="colis.php">← Retour</a><br><br>
                 <div class="container py-2">
                     <?php
                         //connexion à la base de données
