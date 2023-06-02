@@ -154,7 +154,7 @@ ING 1 GI GROUPE 4 -->
 
                     <!-- Champ pour télécharger l'image du produit -->
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" name="image">
 
                     <!-- Affichage de l'image actuelle du produit -->
                     <img width="250" class="img img-fluid" src="../../data/<?= $produit->image ?>"><br>
