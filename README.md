@@ -6,7 +6,14 @@ Ce repository contient le code source du site internet "Le repère de MASS", une
 
 
 ### ⚠️  Attention  ⚠️ 
-Veuillez changer __config.php__ pour mettre vos identifiants de base de données et tous les mots de passe du site sont "aa" en MINUSCULE.
+Veuillez changer __config.php__ pour mettre vos identifiants de base de données.
+
+Pour vous facilitez la connexion aux différents comptes disponibles voici leurs emails (sinon ils sont tous disponibles sur la base de donnée):
+- Admin : admin@gmail.com
+- Vendeur : sar@gmail.com, louis@gmail.com, willherondale@gmail.com, clement@gmail.com
+- Client : sarah@gmail.com, mat@gmail.com, mateo@gmail.com, icecrimes@gmail.com, adel@gmail.com, mariedehaud@gmail.com, laureesn@gmail.com, christianbergere@gmail.com, charles@gmail.com, tessagray@gmail.com, matheocosta@gmail.com
+- Livreur : anissa@gmail.com, leadupont@gmail.com, jemcarstairs@gmail.com
+et tous les mots de passe du site sont "aa" en MINUSCULE.
 
 ## Fonctionnalités principales
 Catalogue de jeux de société : Les clients peuvent parcourir le catalogue en ligne qui propose une large sélection de jeux de société provenant de différents vendeurs.
