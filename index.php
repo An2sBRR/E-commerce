@@ -261,8 +261,8 @@ ING 1 GI GROUPE 4 -->
                 assurément votre bonheur ! Tous les jeux vendus sont vérfiés par nos administrateurs afin de vous
                 assurer la meilleure qualité possible. Pour tout problème, réclamation ou simple demande de contact,
                 n'hésitez pas à utiliser notre formulaire de contact qui se trouve juste à côté de votre espace
-                utilisateur ou en cliquant ici ! Sachez également que vous pouvez accéder à des
-                avantages et offres promotionnelles en vous abonnant ici.
+                utilisateur ou <a class="lien_propos" href="php/contact.php">en cliquant ici !</a> Sachez également que vous pouvez accéder à des
+                avantages et offres promotionnelles <a class="lien_propos" href="php/abonnement.php">en vous abonnant ici.</a>
             </p>
         </div>
     </main>
