@@ -140,7 +140,7 @@ ING 1 GI GROUPE 4 -->
                         value="<?= $produit->hauteur ?>">
 
                     <label class="form-label">Poids (en kilogramme)</label>
-                    <input type="number" class="form-control" step="0.01" name="poids" min="0"
+                    <input type="number" class="form-control" step="0.001" name="poids" min="0"
                         value="<?= $produit->poids ?>">
 
                     <label class="form-label">Discount</label>
