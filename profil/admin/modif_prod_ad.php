@@ -129,12 +129,12 @@ ING 1 GI GROUPE 4 -->
                         value="<?= $produit->prix ?>">
 
                     <!-- Champ numérique pour la hauteur du produit -->
-                    <label class="form-label">Hauteur</label>
+                    <label class="form-label">Hauteur (en centimètre)</label>
                     <input type="number" class="form-control" step="0.01" name="hauteur"
                         value="<?php echo $produit->hauteur ?>">
 
                     <!-- Champ numérique pour le poids du produit -->
-                    <label class="form-label">Poids</label>
+                    <label class="form-label">Poids (en kilogramme)</label>
                     <input type="number" class="form-control" step="0.01" name="poids" min="0"
                         value="<?php echo $produit->poids ?>">
 
@@ -144,7 +144,7 @@ ING 1 GI GROUPE 4 -->
                         value="<?= $produit->discount ?>">
 
                     <!-- Zone de texte pour la description du produit -->
-                    <label class="form-label">Description</label>
+                    <label class="form-label">Description (maximum 255 caractères)</label>
                     <textarea class="form-control" name="description"><?= $produit->description ?></textarea>
 
                     <!-- Champ numérique pour la quantité du produit -->
