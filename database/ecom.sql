@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 01, 2023 at 01:14 AM
+-- Generation Time: Jun 02, 2023 at 05:36 PM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3-4ubuntu2.18
 
@@ -79,23 +79,27 @@ INSERT INTO `commande` (`id`, `id_client`, `nom_prenom`, `total`, `numero_comman
 (2, 54, 'Sarah Bergere', '88.24', 'da04a102d803aa46e379edd9abb23a', '74.8000', '2.6000', '2 rue du moulin', 'Jouy le Moutier', 95280, 1, 1, '2023-01-10 09:34:52', 'relais', '1.66', 58),
 (3, 51, 'Matéo Gentel-Dehenne', '199.35', '4c57a4869c161ffa227b6ff34dfa2b', '37.1000', '2.1400', '52 Rue de Sévigné', 'Sucy-en-Brie', 94370, 1, 1, '2022-03-26 09:48:22', 'relais', '9.95', 45),
 (4, 52, 'Alexandre Tran', '78.00', 'a7ed612b3a57364ff20393b5c11cab', '24.2000', '2.8000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 1, '2023-01-26 09:55:56', 'standard', '3.90', 58),
-(5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 0, '2023-04-26 09:58:10', 'relais', '1.20', 45),
+(5, 46, 'Sarah Bergere', '24.00', '5e2245208b78a31e381d2df9ef140c', '29.2000', '0.2320', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2023-04-26 09:58:10', 'relais', '1.20', 45),
 (6, 46, 'Sarah Bergere', '33.26', 'bd9c71db8c8cdab465af3bddbeeca5', '24.0000', '1.1000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2023-04-26 10:00:16', 'relais', '1.66', 58),
 (7, 46, 'Sarah Bergere', '24.00', '15b1fe1daf058b2fdd013c696e9c77', '4.0000', '2.0000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 1, '2022-09-26 10:02:02', 'relais', '0.00', 58),
-(8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 0, '2023-04-26 10:04:16', 'express', '3.33', 58),
+(8, 56, 'Sarah Bergere', '59.87', '5939a5fcbbba3deebfddb60dae1948', '48.0000', '2.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2023-04-26 10:04:16', 'express', '3.33', 58),
 (9, 56, 'Christian Bergere', '10.80', 'dce9fd4e937c6ede2cc916b538e185', '14.6000', '0.1160', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2023-03-10 10:06:15', 'express', '0.60', 45),
 (10, 53, 'Adel Youssouf Ali', '138.55', '4b8f576b7ff40d611407817a4eddd2', '5.0000', '1.5000', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 1, '2023-01-02 10:07:54', 'relais', '6.93', 45),
 (11, 53, 'Adel Youssouf Ali', '80.00', 'f97be70bd0a92ae317be560414bf54', '40.0000', '2.0200', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 1, '2022-12-17 10:08:37', 'relais', '4.00', 45),
 (12, 55, 'Laure Esnée', '219.31', '7ed34e4d1506ec7329d8dbab0b2d9a', '24.0000', '3.2000', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 1, 1, '2022-11-26 10:10:13', 'express', '10.97', 58),
 (13, 57, 'Charles Pierrard', '79.99', '2c48f9534788d1d1ccb81479c0533a', '16.8000', '2.8400', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 1, '2023-02-25 11:11:42', 'express', '4.00', 45),
 (14, 57, 'Charles Pierrard', '60.74', '0f861453e6163422eac72b8d20c94f', '47.4000', '1.7000', '133 Avenue des Champs-Élysées', 'Paris', 75008, 1, 1, '2022-11-03 11:18:17', 'relais', '1.66', 58),
-(15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 1, 0, '2023-05-14 19:32:52', 'relais', '2.64', 58),
-(16, 51, 'Mat&eacute;o gd', '45.00', 'c1593146ffadddeede911f2ee1ef6c', '5.2000', '0.8000', '21 boulevard de l&#039;oise', 'Cergy', 95000, 1, 0, '2023-05-15 10:32:30', 'express', '2.50', 45),
-(17, 60, 'Theresa Gray', '84.56', '6636ba1125a03fcd54cea12eeb927d', '61.0700', '1.7400', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 0, '2023-05-30 14:28:37', 'express', '4.70', 59),
-(18, 46, 'Sarah Bergere', '71.52', '18cbe74ee21e92d4e58203a9a97db7', '48.0000', '2.2000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-05-30 14:35:20', 'standard', '3.33', 58),
-(19, 49, 'Math&eacute;o Pereira', '59.83', '9bf428bc4048c5f88f36bfa43ada52', '40.0000', '1.6000', '115 Place du Commerce', 'Plaisir', 78370, 0, 0, '2023-05-30 15:43:44', 'relais', '3.32', 59),
-(20, 52, 'Alexandre Tran', '126.20', '074c1741e327e453d7b1337cb201a2', '14.0000', '2.3000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 0, 0, '2023-05-30 15:48:05', 'relais', '0.00', 59),
-(21, 53, 'Adel Youssouf Ali', '55.95', '0a0e71ba21fd9a1cf08adb6096ff90', '2.6700', '1.3400', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 0, 0, '2023-05-30 15:52:20', 'relais', '2.70', 45);
+(15, 46, 'Sarah Bergere', '52.80', '977efdf79674f19e36b8bbe1f4a566', '26.2000', '0.4560', '21 Boulevard de l&#039;Oise', 'jouy-le-moutier', 95000, 1, 1, '2023-05-14 19:32:52', 'relais', '2.64', 58),
+(16, 51, 'Mat&eacute;o gd', '45.00', 'c1593146ffadddeede911f2ee1ef6c', '5.2000', '0.8000', '21 boulevard de l&#039;oise', 'Cergy', 95000, 1, 1, '2023-05-15 10:32:30', 'express', '2.50', 45),
+(17, 60, 'Theresa Gray', '84.56', '6636ba1125a03fcd54cea12eeb927d', '61.0700', '1.7400', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 1, '2023-05-30 14:28:37', 'express', '4.70', 59),
+(18, 46, 'Sarah Bergere', '71.52', '18cbe74ee21e92d4e58203a9a97db7', '48.0000', '2.2000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 1, 0, '2023-05-30 14:35:20', 'standard', '3.33', 58),
+(19, 49, 'Math&eacute;o Pereira', '59.83', '9bf428bc4048c5f88f36bfa43ada52', '40.0000', '1.6000', '115 Place du Commerce', 'Plaisir', 78370, 1, 0, '2023-05-30 15:43:44', 'relais', '3.32', 59),
+(20, 52, 'Alexandre Tran', '126.20', '074c1741e327e453d7b1337cb201a2', '14.0000', '2.3000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 0, '2023-05-30 15:48:05', 'relais', '0.00', 59),
+(21, 53, 'Adel Youssouf Ali', '55.95', '0a0e71ba21fd9a1cf08adb6096ff90', '2.6700', '1.3400', '21 Boulevard de l&#039;Oise', 'Cergy', 95000, 1, 0, '2023-05-30 15:52:20', 'relais', '2.70', 45),
+(22, 51, 'Mat&eacute;o Gentel-Dehenne', '560.70', '887a4415c705fb34283b073fef0fd3', '60.0000', '5.4000', '32 boulevard de l&#039;hautil', 'Cergy', 95000, 1, 0, '2023-06-02 15:12:15', 'standard', '0.00', 59),
+(23, 54, 'Marie Bergere', '98.72', 'e61967d65af6df7ed6dadf205116bb', '56.4000', '3.5000', '10 square de coquelicots', 'Jouy le Moutier', 95280, 0, 0, '2023-06-02 15:19:10', 'express', '1.66', 59),
+(24, 54, 'Marie Bergere', '91.25', '1ddab73867747b3536345a6446bd84', '120.6000', '2.7000', '2 rue du moulin', 'Jouy le Moutier', 95280, 0, 0, '2023-06-02 15:28:20', 'relais', '0.00', 45),
+(25, 56, 'Christian Bergere', '119.66', '79f001379be2bf02cb06407cc677ed', '56.0000', '3.9200', '3 Rue Jean Jacques Rousseau', 'Fontenay sous bois', 94120, 0, 0, '2023-06-02 17:23:32', 'relais', '6.65', 59);
 
 -- --------------------------------------------------------
 
@@ -143,7 +147,13 @@ INSERT INTO `ligne_commande` (`id`, `id_produit`, `id_commande`, `quantite`) VAL
 (26, 52, 18, 2),
 (27, 50, 19, 2),
 (28, 45, 20, 1),
-(29, 55, 21, 1);
+(29, 55, 21, 1),
+(30, 71, 22, 10),
+(31, 51, 23, 1),
+(32, 69, 23, 1),
+(33, 63, 23, 2),
+(34, 23, 24, 3),
+(35, 69, 25, 4);
 
 -- --------------------------------------------------------
 
@@ -195,7 +205,7 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, `id_categorie`, `id_utilisateurs`, `date_creation`, `description`, `image`, `quantite`) VALUES
 (22, 'UNO', '12.00', '14.6000', '0.1160', 0, 37, 48, '2023-03-20 00:00:00', 'Super jeu en amis ou en famille', '../data/UNO.jpg', 12),
-(23, 'Monopoly', '35.00', '40.2000', '0.9000', 15, 37, 44, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 9),
+(23, 'Monopoly', '35.00', '40.2000', '0.9000', 15, 37, 44, '2023-03-20 00:00:00', 'Jeu de soci&eacutet&eacute classique pour toute la famille', '../data/monopoly.jpg', 6),
 (24, 'Jenga', '15.00', '12.0000', '0.7800', 0, 38, 50, '2023-03-21 00:00:00', 'Jeu d&#39adresse pour toute la famille', '../data/jenga.jpg', 8),
 (25, 'Dobble', '10.00', '15.0000', '0.1300', 5, 37, 50, '2023-03-22 00:00:00', 'Jeu d&#39observation et de rapidit&eacute pour tous', '../data/dobble.jpg', 0),
 (26, 'Scrabble', '25.00', '26.8000', '1.3500', 10, 37, 44, '2023-03-23 00:00:00', 'Jeu de lettres pour les amateurs de mots', '../data/scrabble.jpg', 3),
@@ -223,7 +233,7 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (48, 'Bloc Mario', '199.00', '10.3000', '0.7900', 0, 39, 50, '2023-04-13 18:28:48', 'Univers Mario ', '../data/mario1.png', 16),
 (49, 'Lego aquarium  ', '50.00', '5.9000', '0.3000', 0, 39, 48, '2023-04-13 18:28:48', 'Incroyable ', '../data/aqua.jpg', 26),
 (50, 'Carcassone', '34.99', '20.0000', '0.8000', 5, 40, 50, '2023-04-14 23:04:04', 'Carcassonne est un jeu de tuile o&ugrave toute la famille peut d&eacutefendre ses chateaux et pr&egraves pour gagner le plus de point', '../data/carcassonne.jpeg', 6),
-(51, 'Risk', '27.50', '27.4000', '0.9000', 0, 40, 44, '2023-04-14 23:21:02', 'Risk est un jeu o&ugrave le but du jeu est de menez des strat&eacutegies pour acc&eacuteder &agrave la gloire!', '../data/risk.jpeg', 1),
+(51, 'Risk', '27.50', '27.4000', '0.9000', 0, 40, 44, '2023-04-14 23:21:02', 'Risk est un jeu o&ugrave le but du jeu est de menez des strat&eacutegies pour acc&eacuteder &agrave la gloire!', '../data/risk.jpeg', 0),
 (52, 'Les Aventuriers du Rail', '35.01', '24.0000', '1.1000', 5, 40, 50, '2023-04-14 23:33:02', 'Cr&eacuteer votre voyage et visitez les plus grandes villes d&#39Europe tout en gagnant la partie.', '../data/aventuriers.jpeg', 3),
 (53, 'Blocus', '22.99', '12.3000', '0.5000', 0, 40, 48, '2023-04-14 23:34:02', 'Bloquer vos adversaires sans piti&eacute', '../data/blocus.jpeg', 14),
 (54, 'Splendor marvel', '36.90', '2.5000', '4.0000', 0, 37, 44, '2023-04-15 17:16:25', 'Jeu familial par excellence ', '../data/2marvel.jpg', 15),
@@ -235,13 +245,24 @@ INSERT INTO `produit` (`id`, `libelle`, `prix`, `hauteur`, `poids`, `discount`, 
 (60, 'Uno', '10.00', '14.6000', '0.1000', 0, 37, 50, '2023-05-19 00:05:29', 'Assemblez les cartes par couleur ou par valeur et jouez des cartes sp&eacute;ciales pour pimenter l&#039;action.', '../data/6466a1298c4c7Uno.png', 11),
 (61, 'Monopoly', '23.99', '12.0000', '0.9300', 0, 37, 61, '2023-05-30 14:31:25', 'Voici un classique des soir&eacute;es de jeux en famille ! Au Monopoly, les joueurs doivent acheter, vendre et planifier pour devenir le plus riche.', '../data/6475ec9ddca6bmonopoly.jpeg', 15),
 (62, 'Dixit', '48.00', '7.0000', '0.8700', 15, 37, 48, '2023-05-31 17:40:24', 'Le principe de Dixit est simple : les joueurs doivent deviner et faire deviner des cartes illustr&eacute;es. &Agrave; chaque tour, un joueur devient le conteur qui choisit une carte et la d&eacute;crit avec une phase, un mot ou un son. ', '../data/64776a682a9fcdixit.jpeg', 10),
-(63, 'Nain Jaune', '14.99', '7.5000', '0.8100', 0, 37, 44, '2023-05-31 17:55:45', 'Le v&eacute;ritable jeu de nain avec des barquettes amovibles pour ramasser le pot. Des jetons de mises de valeurs diff&eacute;rentes pimentent le jeu !', '../data/64776e0156455nain_jaune.png', 45),
+(63, 'Nain Jaune', '14.99', '7.5000', '0.8100', 0, 37, 44, '2023-05-31 17:55:45', 'Le v&eacute;ritable jeu de nain avec des barquettes amovibles pour ramasser le pot. Des jetons de mises de valeurs diff&eacute;rentes pimentent le jeu !', '../data/64776e0156455nain_jaune.png', 43),
 (64, 'Dobble', '20.14', '26.0000', '0.2900', 0, 37, 61, '2023-05-31 18:04:56', 'Un jeu amusant qui teste votre vitesse, les habilet&eacute;s d&#039;observation et r&eacute;flexes! Dobble repose sur l&#039;&oelig;il et des r&eacute;flexes rapides pour cr&eacute;er l&#039;excitation forte. ', '../data/64777028626c7dobble.jpeg', 10),
 (65, 'Le seigneur des anneaux : Fondcombe', '499.00', '36.0000', '1.2000', 0, 39, 61, '2023-05-31 18:46:03', 'Nich&eacute; dans la vall&eacute;e de la Terre du Milieu o&ugrave; commen&ccedil;a la c&eacute;l&egrave;bre qu&ecirc;te, cet impressionnant projet de 6 167 pi&egrave;ces regorge de d&eacute;tails que les fans des films vont adorer.', '../data/647779cbe980flego-seigneur.jpg', 4),
 (66, 'Harry Potter - Poudlard', '500.00', '58.0000', '1.4000', 10, 39, 44, '2023-05-31 18:52:54', 'Cet ensemble LEGO Harry Potter de collection tr&egrave;s d&eacute;taill&eacute; comprend plus de 6 000 pi&egrave;ces et offre une exp&eacute;rience de construction enrichissante.', '../data/64777b662a02flego_harry_potter.jpeg', 21),
 (67, 'Civilization', '44.90', '14.0000', '0.5000', 0, 40, 44, '2023-05-31 19:00:04', 'Dans ce jeu de strat&eacute;gie, vous prendrez la t&ecirc;te d&#039;une civilisation tout au long de l&#039;histoire. Vous contr&ocirc;lerez son d&eacute;veloppement technologique, son &eacute;conomie, sa culture et son pouvoir militaire.', '../data/64777d1433d05civilization.jpg', 4),
 (68, 'Scotland Yard', '30.99', '14.0000', '0.8700', 30, 40, 61, '2023-05-31 19:02:51', 'Un des joueurs est Mister X, gangster en fuite dans Londres. Les autres joueurs, incarnant des d&eacute;tectives de Scotland Yard, doivent le capturer en coordonnant leurs mouvements. ', '../data/64777dbb02192scotland_yard.jpeg', 7),
-(69, 'Cluedo', '34.99', '14.0000', '0.9800', 5, 37, 50, '2023-06-01 01:13:41', 'Cluedo est un jeu de soci&eacute;t&eacute; dans lequel les joueurs doivent d&eacute;couvrir parmi eux qui est le meurtrier d&#039;un crime commis dans un manoir anglais, le Manoir Tudor.', '../data/6477d4a56e646cluedo.jpeg', 10);
+(69, 'Cluedo', '34.99', '14.0000', '0.9800', 5, 37, 50, '2023-06-01 01:13:41', 'Cluedo est un jeu de soci&eacute;t&eacute; dans lequel les joueurs doivent d&eacute;couvrir parmi eux qui est le meurtrier d&#039;un crime commis dans un manoir anglais, le Manoir Tudor.', '../data/6477d4a56e646cluedo.jpeg', 5),
+(70, 'LEGO Friends - La clinique v&eacute;t&eacute;rinaire', '19.99', '8.0000', '0.3670', 5, 39, 44, '2023-06-02 13:46:41', 'Laissez les enfants exprimer leur amour pour les animaux gr&acirc;ce au set pour enfants d&egrave;s 4 ans LEGO Friends La clinique v&eacute;t&eacute;rinaire.', '../data/6479d6a1acbaeLEGO-Friends-41695-La-clinique-veterinaire.jpg', 20),
+(71, 'LEGO Bouquet de Fleurs Sauvages', '62.30', '6.0000', '0.5400', 0, 39, 44, '2023-06-02 13:50:20', 'Comprenant 8 vari&eacute;t&eacute;s de fleurs diff&eacute;rentes, ce bouquet est enti&egrave;rement r&eacute;alis&eacute; &agrave; partir de pi&egrave;ces LEGO astucieusement combin&eacute;es et peut &ecirc;tre personnalis&eacute; &agrave; volont&eacute;.', '../data/6479d77c0d6ebLEGO-Icons-10313-Bouquet-de-Fleurs-Sauvages.jpg', 20),
+(72, 'Jeu d&#039;&eacute;chec', '27.99', '5.0000', '0.4700', 0, 40, 44, '2023-06-02 14:25:45', 'Chaque joueur poss&egrave;de au d&eacute;part un roi, une dame, deux tours, deux fous, deux cavaliers et huit pions. Le but du jeu est d&#039;infliger &agrave; son adversaire un &eacute;chec et mat.', '../data/6479dfc960815jeu_echec.jpg', 14),
+(73, '7 Wonders', '41.99', '9.0000', '0.6500', 5, 40, 44, '2023-06-02 14:28:40', 'Prenez la t&ecirc;te d&#039;une cit&eacute; du monde antique, exploitez les ressources de vos terres, d&eacute;veloppez vos relations commerciales... et prenez garde aux autres cit&eacute;s rivales !', '../data/6479e078a11b57wonders.jpg', 14),
+(74, 'Loup Garou ', '17.50', '4.0000', '0.4000', 4, 40, 44, '2023-06-02 14:40:48', 'Chaque nuit, de cruels loups-garous &eacute;liminent un villageois. Le lendemain, les camarades de la victime se vengent en exterminant un monstre pr&eacute;sum&eacute;. ', '../data/6479e350be8a0loupgarou.jpg', 15),
+(75, '6 qui prends', '15.49', '5.0000', '0.4000', 50, 37, 61, '2023-06-02 14:47:09', 'Dans ce jeu de d&eacute;fausse d&eacute;j&agrave; culte, il vous faudra placer astucieusement vos cartes &agrave; t&ecirc;te de boeuf dans les diff&eacute;rentes rang&eacute;es sans jamais poser la sixi&egrave;me. Ambiance garantie !', '../data/6479e4cd97d507quiprend.jpg', 15),
+(76, 'Time&#039;s Up Family', '22.99', '8.0000', '0.9000', 15, 37, 61, '2023-06-02 14:56:45', ' Amusez-vous &agrave; d&eacute;couvrir des objets, des m&eacute;tiers et des animaux. D&eacute;crivez-les, faites-les deviner en ne pronon&ccedil;ant qu&rsquo;un mot, puis pour finir, mimez-les. Soyez vif et malin !', '../data/6479e70d00525timesUp.jpg', 9),
+(77, 'Cranium', '19.00', '5.0000', '0.6000', 25, 37, 61, '2023-06-02 15:02:08', 'Cranium permet de faire des activit&eacute;s d&eacute;lirantes autour de 600 questions originales telles que : sculpter la muraille de chine, &eacute;peler &#039; moumoute &#039; &agrave; l&rsquo;envers ou dessiner les yeux ferm&eacute;s ! ', '../data/6479e8507c64ecranium.jpg', 5),
+(78, 'LEGO La Maison de L&agrave;-haut ', '54.99', '12.0000', '1.5000', 5, 39, 61, '2023-06-02 15:05:56', 'Un ensemble qui laissera petits et grands bouche b&eacute;e, gr&acirc;ce au mod&egrave;le constructible de la c&eacute;l&egrave;bre maison inspir&eacute;e du film d&#039;animation &laquo; L&agrave;-Haut &raquo;.', '../data/6479e934a0904Lego_la_haut.jpg', 2),
+(79, 'Jenga', '8.00', '12.0000', '1.8000', 0, 38, 62, '2023-06-02 15:48:42', 'Le Jenga est un jeu d&#039;adresse et de r&eacute;flexion o&ugrave; les joueurs retirent progressivement les pi&egrave;ces d&#039;une tour pour les replacer &agrave; son sommet.', '../data/6479f33aeabf1jenga.jpg', 65),
+(80, 'La Bonne Paye', '36.99', '10.0000', '0.9000', 10, 37, 62, '2023-06-02 17:21:16', 'Comme dans la vraie vie ! Avec le jeu de soci&eacute;t&eacute; La Bonne paye, recevez votre paie &agrave; la fin du mois et g&eacute;rez votre budget au mieux. ', '../data/647a08eceebf0la_bonne_paye.jpg', 15);
 
 -- --------------------------------------------------------
 
@@ -284,7 +305,8 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `pseudo`, `ville`, `email`, `
 (58, 'Dupont', 'Léa', 'leadpt', 'Cergy', 'leadupont@gmail.com', '$2y$12$BZnwScTRcUd9HS7MbwjtzeQ8j63G8F1.PVYBBaSwpyMN6.9fOgqhi', 0, 'livreur', '6d8a38e027678d7e03d54dd473f584787f98f5fc60946c816640b41b22fb0fc63a5bf8eb037ce38f20d960f94fd5ee803fb19cf4e0ec31cfa33794b4546d1a1d', '2023-05-17 00:10:24'),
 (59, 'Carstairs', 'Jem', 'jemC', 'Cergy', 'jemcarstairs@gmail.com', '$2y$12$hR5HLt.ZseLYsRuJzTFaruBpAENW3SquRy6iblHCiOQF8jko6frEG', 0, 'livreur', 'fbbc8677d5c54f5a6eacc8057e961e98758a25335a06483bb6bdc7ca2bce1bc589e7012d8737507d473eb4fb68d1e68184b4ea78a92ea97415332159de69e0b4', '2023-05-30 14:06:51'),
 (60, 'Gray', 'Theresa', 'tessa', 'Cergy', 'tessagray@gmail.com', '$2y$12$LYCxF7gUpeS21WzqmrK.vOx3JVTtaP/cq1y/at0LFatk8GFPfePWC', 1, 'client', 'b955ef22948ded934c9fdc153031ed4fd99db206d2cd2ff51f271285a6c25d64fd15f2fb7bf4c9ee52a2bf6fa6406355dbe218939088d1b3eb7750b313f1b5d0', '2023-05-30 14:27:08'),
-(61, 'Herondale', 'Will', 'willh', 'Cergy', 'willherondale@gmail.com', '$2y$12$RcVixOM9sqxE/Gki9Ut4oOabVlkiyB/DqIA3CcCcnQSrixTWo8xke', 0, 'vendeur', '4e0427fbdf6c8d46d4092dc85d29e21d38fab749e0df975e5d1c5a2cfff3f7d8315fd28232e0ec101a1359fbec6dd3e659472f62a5b3bc467dce9af3aa4017a4', '2023-05-30 14:30:04');
+(61, 'Herondale', 'Will', 'willh', 'Cergy', 'willherondale@gmail.com', '$2y$12$RcVixOM9sqxE/Gki9Ut4oOabVlkiyB/DqIA3CcCcnQSrixTWo8xke', 0, 'vendeur', '4e0427fbdf6c8d46d4092dc85d29e21d38fab749e0df975e5d1c5a2cfff3f7d8315fd28232e0ec101a1359fbec6dd3e659472f62a5b3bc467dce9af3aa4017a4', '2023-05-30 14:30:04'),
+(62, 'Leroy', 'Clément', 'clem', 'Jouy le Moutier', 'clement@gmail.com', '$2y$12$bsJPtsA5epsObhlYldU.dOBBVMFjbhu.G0ycRnxarspqi1Y0rAoh2', 0, 'vendeur', '89889c3443a82cb3067bfd13ef91c64872b923e82e96e0701960387c4dc6450aa801d21beed55deefb11f3cfbf372819a9370a22c1e0967665d80b1779c6c46c', '2023-06-02 15:44:13');
 
 --
 -- Indexes for dumped tables
@@ -340,13 +362,13 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT for table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `livreur`
@@ -358,13 +380,13 @@ ALTER TABLE `livreur`
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
