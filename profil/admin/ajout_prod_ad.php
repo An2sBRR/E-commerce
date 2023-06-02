@@ -97,12 +97,11 @@ ING 1 GI GROUPE 4 -->
                             header('location: produit_ad.php');
                         } else {
                             // Affichage d'un message d'erreur si l'insertion a échoué
-                            echo '<div class="alert alert-danger" role="alert">Database error (40023).</div>';
+                            echo '<div class="alert alert-danger" role="alert">Erreur lors de l\'insertion dans la base de donnée. Vérifiez que vous avez bien respecté les contraintes sur le format des informations.</div>';
                         }
                     } else {
                         // Affichage d'un message d'erreur si les champs obligatoires ne sont pas remplis
-                        echo '<div class="alert alert-danger" role="alert">Erreur lors de l\'insertion dans la base de donnée. Vérifiez que vous avez bien respecté les contraintes sur le format des informations.</div>';
-
+                        echo '<div class="alert alert-danger" role="alert">Libelle , prix , catégorie sont obligatoires.</div>';
                     }
                 }
             // Début du formulaire pour ajouter un produit
