@@ -127,7 +127,7 @@ ING 1 GI GROUPE 4 -->
                     <input type="number" class="form-control" name="quantite" min="0" required="required"></input>
 
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" name="image">
 
                     <?php
                     $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);

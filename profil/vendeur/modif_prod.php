@@ -155,7 +155,7 @@ ING 1 GI GROUPE 4 -->
                         value="<?= $produit->quantite?>"></input>
 
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image">
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" name="image">
                     <img width="250" class="img img-fluid" src="../../data/<?= $produit->image ?>"><br>
 
                     <?php
