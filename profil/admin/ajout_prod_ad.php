@@ -101,7 +101,8 @@ ING 1 GI GROUPE 4 -->
                         }
                     } else {
                         // Affichage d'un message d'erreur si les champs obligatoires ne sont pas remplis
-                        echo '<div class="alert alert-danger" role="alert">Libelle , prix , catégorie sont obligatoires.</div>';
+                        echo '<div class="alert alert-danger" role="alert">Erreur lors de l\'insertion dans la base de donnée. Vérifiez que vous avez bien respecté les contraintes sur le format des informations.</div>';
+
                     }
                 }
             // Début du formulaire pour ajouter un produit
