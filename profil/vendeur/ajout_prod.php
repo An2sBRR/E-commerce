@@ -104,32 +104,30 @@ ING 1 GI GROUPE 4 -->
                 ?>
                 <!-- Formulaire -->
                 <form method="post" enctype="multipart/form-data">
-                    <label class="form-label">Libellé</label>
+                    <label class="form-label">Libelle</label>
                     <input type="text" class="form-control" name="libelle">
 
                     <label class="form-label">Prix</label>
                     <input type="number" class="form-control" step="0.01" name="prix" min="0">
 
-                    <label class="form-label">Hauteur</label>
+                    <label class="form-label">Hauteur (en centimètre)</label>
                     <input type="number" class="form-control" step="0.01" name="hauteur" min="0">
 
-                    <label class="form-label">Poids</label>
-                    <input type="number" class="form-control" step="0.01" name="poids" min="0">
+                    <label class="form-label">Poids (en kilogramme)</label>
+                    <input type="number" class="form-control" step="0.001" name="poids" min="0">
 
-                    <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput"
-                        for="discount">0</output>%
-                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
-                        oninput="discountOutput.value = discount.value">
+                    <label class="form-label">Discount&nbsp&nbsp</label><output name="discountOutput" for="discount">0</output>%
+                    <input type="range" value="0" class="form-control" name="discount" min="0" max="90" oninput="discountOutput.value = discount.value">
+                    
 
-
-                    <label class="form-label">Description (255 caractères)</label>
+                    <label class="form-label">Description (255 caractères maximum)</label>
                     <textarea class="form-control" name="description"></textarea>
 
                     <label class="form-label">Quantité</label>
                     <input type="number" class="form-control" name="quantite" min="0" required="required"></input>
 
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image" enctype="multipart/form-data">
+                    <input type="file" class="form-control" name="image">
 
                     <?php
                     $categories = $bdd->query('SELECT * FROM categorie')->fetchAll(PDO::FETCH_ASSOC);

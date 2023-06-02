@@ -135,11 +135,11 @@ ING 1 GI GROUPE 4 -->
                     <input type="number" class="form-control" step="0.01" name="prix" min="0"
                         value="<?= $produit->prix ?>">
 
-                    <label class="form-label">Hauteur</label>
+                    <label class="form-label">Hauteur (en centimètre)</label>
                     <input type="number" class="form-control" step="0.01" name="hauteur"
                         value="<?= $produit->hauteur ?>">
 
-                    <label class="form-label">Poids</label>
+                    <label class="form-label">Poids (en kilogramme)</label>
                     <input type="number" class="form-control" step="0.01" name="poids" min="0"
                         value="<?= $produit->poids ?>">
 
@@ -147,7 +147,7 @@ ING 1 GI GROUPE 4 -->
                     <input type="range" value="0" class="form-control" name="discount" min="0" max="90"
                         value="<?= $produit->discount ?>">
 
-                    <label class="form-label">Description</label>
+                    <label class="form-label">Description (maximum 255 caractères)</label>
                     <textarea class="form-control" name="description"><?= $produit->description ?></textarea>
 
                     <label class="form-label">Quantité</label>
