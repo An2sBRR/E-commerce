@@ -135,7 +135,7 @@ ING 1 GI GROUPE 4 -->
 
                     <!-- Champ numérique pour le poids du produit -->
                     <label class="form-label">Poids (en kilogramme)</label>
-                    <input type="number" class="form-control" step="0.01" name="poids" min="0"
+                    <input type="number" class="form-control" step="0.001" name="poids" min="0"
                         value="<?php echo $produit->poids ?>">
 
                     <!-- Champ de type "range" pour la réduction sur le produit -->
