@@ -55,7 +55,7 @@ ING 1 GI GROUPE 4 -->
             require '../../include/config.php';
             $resultat = $bdd->query("SELECT id FROM utilisateurs WHERE token LIKE '".$_SESSION['user']."'")->fetch(PDO::FETCH_OBJ);
             $id_utilisateur = intval($resultat->id);
-            $destinations= $bdd->query("SELECT * FROM commande WHERE id_livreur LIKE ".$id_utilisateur." AND commande_livre = 0")->fetchAll(PDO::FETCH_OBJ);
+            $destinations= $bdd->query("SELECT * FROM commande WHERE id_livreur LIKE ".$id_utilisateur." AND commande_livre = 0 AND valide = 1")->fetchAll(PDO::FETCH_OBJ);
 
             // Génération du code JavaScript pour afficher la carte avec les directions
             echo '<div id="map" style="height: 600px;"></div>';
