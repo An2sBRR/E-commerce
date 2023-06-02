@@ -112,7 +112,7 @@ ING 1 GI GROUPE 4 -->
 
                                 ?>
                 <div class="alert alert-danger" role="alert">
-                    Database error (40023).
+                    Erreur lors de l'insertion dans la base de donnée. Vérifiez que vous avez bien respecté les contraintes sur le format des informations.
                 </div>
                 <?php
                             }
